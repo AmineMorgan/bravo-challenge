@@ -1,0 +1,1122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BRAVO CHALLENGE</title>
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:Arial, Helvetica, sans-serif;
+    background:
+        radial-gradient(circle at top left,#172033 0%,#080b12 45%,#030407 100%);
+    color:#fff;
+    min-height:100vh;
+}
+
+.container{
+    width:100%;
+    max-width:1200px;
+    margin:auto;
+    padding:30px 20px 60px;
+}
+
+/* HEADER */
+
+.header{
+    text-align:center;
+    margin-bottom:45px;
+}
+
+.badge{
+    display:inline-block;
+    padding:8px 18px;
+    border:1px solid #3c4658;
+    border-radius:30px;
+    color:#bfc8d8;
+    font-size:12px;
+    font-weight:bold;
+    letter-spacing:2px;
+    margin-bottom:18px;
+    background:rgba(255,255,255,.03);
+}
+
+.header h1{
+    font-size:48px;
+    letter-spacing:4px;
+    margin-bottom:10px;
+}
+
+.header p{
+    color:#7f899b;
+    font-size:15px;
+}
+
+/* CATEGORIES */
+
+.categories{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.category{
+    background:rgba(17,22,32,.85);
+    border:1px solid #293140;
+    border-radius:18px;
+    padding:35px 25px;
+    text-align:center;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.category:hover{
+    transform:translateY(-5px);
+    border-color:#66758d;
+    background:#151b27;
+}
+
+.category-icon{
+    font-size:42px;
+    margin-bottom:15px;
+}
+
+.category h2{
+    font-size:20px;
+    letter-spacing:2px;
+    margin-bottom:8px;
+}
+
+.category span{
+    color:#778296;
+    font-size:13px;
+}
+
+/* CASES */
+
+.section-title{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    margin-bottom:20px;
+}
+
+.section-title h2{
+    font-size:25px;
+    letter-spacing:2px;
+}
+
+.back-btn{
+    border:1px solid #30394a;
+    background:#101620;
+    color:#cbd3df;
+    padding:10px 18px;
+    border-radius:9px;
+    cursor:pointer;
+}
+
+.back-btn:hover{
+    background:#1a2230;
+}
+
+.cases{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+}
+
+.case-card{
+    background:rgba(15,20,29,.92);
+    border:1px solid #293140;
+    border-radius:16px;
+    padding:22px;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.case-card:hover{
+    transform:translateY(-3px);
+    border-color:#58677d;
+}
+
+.case-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+}
+
+.case-number{
+    font-weight:bold;
+    letter-spacing:1px;
+}
+
+.status{
+    padding:6px 11px;
+    border-radius:20px;
+    font-size:11px;
+    font-weight:bold;
+    letter-spacing:1px;
+}
+
+.success{
+    color:#8cf0ae;
+    background:rgba(43,150,75,.13);
+    border:1px solid rgba(81,193,108,.25);
+}
+
+.pending{
+    color:#e4b95d;
+    background:rgba(184,134,30,.12);
+    border:1px solid rgba(184,134,30,.25);
+}
+
+.case-info{
+    color:#8994a6;
+    font-size:13px;
+    line-height:1.7;
+}
+
+.case-info strong{
+    color:#dce2eb;
+}
+
+/* DETAIL */
+
+.detail{
+    background:rgba(12,17,25,.96);
+    border:1px solid #293140;
+    border-radius:18px;
+    padding:30px;
+}
+
+.detail-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:28px;
+}
+
+.detail-header h2{
+    font-size:27px;
+    letter-spacing:2px;
+}
+
+.grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
+    margin-bottom:25px;
+}
+
+.info-box{
+    background:#101620;
+    border:1px solid #252e3d;
+    border-radius:12px;
+    padding:18px;
+}
+
+.info-label{
+    color:#718096;
+    font-size:11px;
+    text-transform:uppercase;
+    letter-spacing:1.5px;
+    margin-bottom:8px;
+}
+
+.info-value{
+    color:#e7ebf2;
+    font-size:14px;
+    line-height:1.7;
+}
+
+.report{
+    margin-top:20px;
+}
+
+.report h3,
+.evidence h3{
+    font-size:16px;
+    letter-spacing:1px;
+    margin-bottom:14px;
+}
+
+.report-box{
+    background:#0b1018;
+    border:1px solid #252e3d;
+    border-radius:12px;
+    padding:22px;
+}
+
+.report-text{
+    direction:rtl;
+    text-align:right;
+    white-space:pre-line;
+    line-height:2;
+    color:#d7dce5;
+    font-size:14px;
+}
+
+/* EVIDENCE */
+
+.evidence{
+    margin-top:28px;
+}
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:14px;
+}
+
+.gallery img{
+    width:100%;
+    height:220px;
+    object-fit:cover;
+    border-radius:12px;
+    border:1px solid #293140;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.gallery img:hover{
+    transform:scale(1.02);
+    border-color:#64738a;
+}
+
+/* LIGHTBOX */
+
+.lightbox{
+    display:none;
+    position:fixed;
+    inset:0;
+    background:rgba(0,0,0,.92);
+    z-index:9999;
+    align-items:center;
+    justify-content:center;
+    padding:30px;
+}
+
+.lightbox img{
+    max-width:95%;
+    max-height:90vh;
+    border-radius:12px;
+}
+
+.close-lightbox{
+    position:absolute;
+    top:20px;
+    right:30px;
+    font-size:35px;
+    color:#fff;
+    cursor:pointer;
+}
+
+/* HIDDEN */
+
+.page{
+    display:none;
+}
+
+.page.active{
+    display:block;
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+    .categories{
+        grid-template-columns:1fr;
+    }
+
+    .cases{
+        grid-template-columns:1fr;
+    }
+
+    .grid{
+        grid-template-columns:1fr;
+    }
+
+    .gallery{
+        grid-template-columns:1fr;
+    }
+
+    .header h1{
+        font-size:34px;
+    }
+
+    .detail{
+        padding:20px;
+    }
+
+    .detail-header{
+        flex-direction:column;
+        align-items:flex-start;
+        gap:15px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- HEADER -->
+    <div class="header">
+        <div class="badge">BRAVO TODAY CHALLENGE</div>
+        <h1>BRAVO CHALLENGE</h1>
+        <p>Select a category to view cases</p>
+    </div>
+
+    <!-- HOME -->
+    <div id="home" class="page active">
+
+        <div class="categories">
+
+            <div class="category" onclick="showCategory('parking')">
+                <div class="category-icon">🅿️</div>
+                <h2>PARKING</h2>
+                <span>5 Cases</span>
+            </div>
+
+            <div class="category" onclick="showCategory('store')">
+                <div class="category-icon">🏪</div>
+                <h2>STORE</h2>
+                <span>3 Cases</span>
+            </div>
+
+            <div class="category" onclick="showCategory('house')">
+                <div class="category-icon">🏠</div>
+                <h2>HOUSE</h2>
+                <span>1 Case</span>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- PARKING CASES -->
+    <div id="parking" class="page">
+
+        <div class="section-title">
+            <h2>🅿️ PARKING CASES</h2>
+            <button class="back-btn" onclick="closeAll()">← Back</button>
+        </div>
+
+        <div class="cases">
+
+            <!-- CASE 01 -->
+            <div class="case-card" onclick="showCase('parking',1)">
+                <div class="case-top">
+                    <div class="case-number">CASE 01</div>
+                    <div class="status success">SUCCESS — 100%</div>
+                </div>
+
+                <div class="case-info">
+                    <strong>Fingerprint:</strong> DVB7K0FRKHH394Q<br>
+                    <strong>Incident:</strong> سرقة Parking Meter<br>
+                    <strong>Officer:</strong> Faisal Alshehri — 390
+                </div>
+            </div>
+
+            <!-- CASE 02 -->
+            <div class="case-card" onclick="showCase('parking',2)">
+                <div class="case-top">
+                    <div class="case-number">CASE 02</div>
+                    <div class="status success">SUCCESS — 100%</div>
+                </div>
+
+                <div class="case-info">
+                    <strong>Fingerprint:</strong> ARM12HHCE9KZ19R<br>
+                    <strong>Incident:</strong> سرقة Parking Meter<br>
+                    <strong>Officer:</strong> Faisal Alshehri — 390
+                </div>
+            </div>
+
+            <!-- CASE 03 -->
+            <div class="case-card" onclick="showCase('parking',3)">
+                <div class="case-top">
+                    <div class="case-number">CASE 03</div>
+                    <div class="status success">SUCCESS — 100%</div>
+                </div>
+
+                <div class="case-info">
+                    <strong>Fingerprint:</strong> V230S6DD1YSB5QZ<br>
+                    <strong>Incident:</strong> Parking Meter<br>
+                    <strong>Officer:</strong> Mohammed Talal — 379
+                </div>
+            </div>
+
+            <!-- CASE 04 -->
+            <div class="case-card" onclick="showCase('parking',4)">
+                <div class="case-top">
+                    <div class="case-number">CASE 04</div>
+                    <div class="status success">SUCCESS — 100%</div>
+                </div>
+
+                <div class="case-info">
+                    <strong>Fingerprint:</strong> 8KGKRKLM24UO82J<br>
+                    <strong>Incident:</strong> Parking Meter<br>
+                    <strong>Officer:</strong> Lucas Hod — 391
+                </div>
+            </div>
+
+            <!-- CASE 05 -->
+            <div class="case-card" onclick="showCase('parking',5)">
+                <div class="case-top">
+                    <div class="case-number">CASE 05</div>
+                    <div class="status success">SUCCESS — 100%</div>
+                </div>
+
+                <div class="case-info">
+                    <strong>Fingerprint:</strong> X653659YE3632CW<br>
+                    <strong>Incident:</strong> Parking Meter<br>
+                    <strong>Officer:</strong> Lucas Hod — 391
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- STORE CASES -->
+    <div id="store" class="page">
+
+        <div class="section-title">
+            <h2>🏪 STORE CASES</h2>
+            <button class="back-btn" onclick="closeAll()">← Back</button>
+        </div>
+
+        <div class="cases">
+
+            <!-- STORE CASE 01 -->
+            <div class="case-card" onclick="showCase('store',1)">
+                <div class="case-top">
+                    <div class="case-number">CASE 01</div>
+                    <div class="status success">SUCCESS — 100%</div>
+                </div>
+
+                <div class="case-info">
+                    <strong>Fingerprint:</strong> P76UY7QTPC91023<br>
+                    <strong>Incident:</strong> Store Robbery<br>
+                    <strong>Officer:</strong> Lucas Hod — 391
+                </div>
+            </div>
+
+            <!-- STORE CASE 02 -->
+            <div class="case-card" onclick="showCase('store',2)">
+                <div class="case-top">
+                    <div class="case-number">CASE 02</div>
+                    <div class="status success">SUCCESS — 100%</div>
+                </div>
+
+                <div class="case-info">
+                    <strong>Fingerprint:</strong> E44UY3E1169808K<br>
+                    <strong>Incident:</strong> Store Robbery<br>
+                    <strong>Officer:</strong> Lucas Hod — 391
+                </div>
+            </div>
+
+            <!-- STORE CASE 03 -->
+            <div class="case-card" onclick="showCase('store',3)">
+                <div class="case-top">
+                    <div class="case-number">CASE 03</div>
+                    <div class="status success">SUCCESS — 100%</div>
+                </div>
+
+                <div class="case-info">
+                    <strong>Fingerprint:</strong> ZCXYMH69D89B209<br>
+                    <strong>Incident:</strong> Store Robbery<br>
+                    <strong>Officer:</strong> Mohammed Talal — 379
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- HOUSE CASES -->
+    <div id="house" class="page">
+
+        <div class="section-title">
+            <h2>🏠 HOUSE CASES</h2>
+            <button class="back-btn" onclick="closeAll()">← Back</button>
+        </div>
+
+        <div class="cases">
+
+            <!-- HOUSE CASE 01 -->
+            <div class="case-card" onclick="showCase('house',1)">
+                <div class="case-top">
+                    <div class="case-number">CASE 01</div>
+                    <div class="status success">SUCCESS — 100%</div>
+                </div>
+
+                <div class="case-info">
+                    <strong>Fingerprint:</strong> 1R665O249FYTB68<br>
+                    <strong>Incident:</strong> House Robbery<br>
+                    <strong>Officers:</strong> Mohammed Talal — 379 | Lucas Hod — 391
+                </div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- DETAIL -->
+    <div id="detail" class="page">
+
+        <div class="detail">
+
+            <div class="detail-header">
+                <h2 id="detailTitle">CASE</h2>
+                <button class="back-btn" onclick="backToCases()">← Back to Cases</button>
+            </div>
+
+            <div class="grid">
+
+                <div class="info-box">
+                    <div class="info-label">Case Status</div>
+                    <div class="info-value" id="detailStatus"></div>
+                </div>
+
+                <div class="info-box">
+                    <div class="info-label">Fingerprint</div>
+                    <div class="info-value" id="detailFingerprint"></div>
+                </div>
+
+                <div class="info-box">
+                    <div class="info-label">Incident Type</div>
+                    <div class="info-value" id="detailIncident"></div>
+                </div>
+
+                <div class="info-box">
+                    <div class="info-label">Evidence / Items</div>
+                    <div class="info-value" id="detailItems"></div>
+                </div>
+
+                <div class="info-box">
+                    <div class="info-label">Team Member</div>
+                    <div class="info-value" id="detailTeam"></div>
+                </div>
+
+            </div>
+
+            <div class="report">
+
+                <h3>INCIDENT REPORT</h3>
+
+                <div class="report-box">
+                    <div class="report-text" id="detailReport"></div>
+                </div>
+
+            </div>
+
+            <div class="evidence" id="evidenceSection">
+
+                <h3>EVIDENCE / SCREENSHOTS</h3>
+
+                <div class="gallery" id="gallery"></div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+<!-- LIGHTBOX -->
+
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+
+    <div class="close-lightbox">×</div>
+
+    <img id="lightboxImg" src="" onclick="event.stopPropagation()">
+
+</div>
+
+<script>
+
+const cases = {
+
+    parking: {
+
+        1: {
+            status:"SUCCESS — 100%",
+            fingerprint:"DVB7K0FRKHH394Q",
+            incident:"سرقة Parking Meter",
+            items:"Hack Device – Hook Pick – Cash",
+            team:"Faisal Alshehri — 390",
+            report:`تقرير تدخل أمني
+
+أثناء قيامي بدوريتي الاعتيادية، تلقيت توجيهاً من Dispatch بالتوجه إلى موجة 2 من أجل تقديم الدعم لزملائي في تدخل أمني يتعلق بحالة سرقة Parking Meter.
+
+عند وصولي إلى المكان، تبين أن الأمر يتعلق بثلاثة مشتبه فيهم كانوا يستعملون سيارة أجرة من أجل الفرار من مكان الواقعة.
+
+تمت ملاحقة المشتبه فيهم، واستمرت المطاردة إلى أن تعرضت مركبتهم لأضرار أدت إلى توقفها. بعد ذلك، حاول المشتبه فيهم مواصلة الفرار على الأقدام، إلا أن الوحدات المتدخلة تمكنت من السيطرة على الوضع وتوقيفهم.
+
+تكفلت شخصياً بالتعامل مع أحد المشتبه فيه، والذي كان يرتدي ملابس سوداء وقناعاً أسود، وتحمل بصمة: DVB7K0FRKHH394Q
+
+بعد توقيفه، قمت بإبلاغه بحقوقه والتهم الموجهة إليه، ثم تعاملت معه وفق الإجراءات القانونية المعمول بها، مع احترام كامل للقوانين والبروتوكولات المعتمدة.
+
+المحجوزات
+Hack Device
+Hook Pick
+Cash
+
+تمت السيطرة على جميع المشتبه فيهم وتأمين مكان التدخل، وإنهاء الحالة وفق الإجراءات القانونية المعمول بها.`,
+
+            images:[
+                "https://cdn.discordapp.com/attachments/1546882783711072276/1546883195897651240/Screenshot_2026-09-08_133024.png?ex=6aa166bd&is=6aa0153d&hm=538b4eba25eede81cb74c2d1997428d25b827b310113979090dc789f60477403d&",
+                "https://cdn.discordapp.com/attachments/1546882783711072276/1546883196581580800/Screenshot_2026-09-08_133507.png?ex=6aa166bd&is=6aa0153d&hm=a76987ab36af590b77a9500ec9205da3481c931dd34aeceb38bf077d91400806&",
+                "https://cdn.discordapp.com/attachments/1546882783711072276/1546883196988297216/Screenshot_2026-09-08_133817.png?ex=6aa166bd&is=6aa0153d&hm=d0b0394855038b146ef09cc17b73b67d666a0579c3c2bd46386df4b4057e391d&"
+            ]
+        },
+
+        2: {
+            status:"SUCCESS — 100%",
+            fingerprint:"ARM12HHCE9KZ19R",
+            incident:"سرقة Parking Meter",
+            items:"Hack Device ×2 – Cash",
+            team:"Faisal Alshehri — 390",
+            report:`تقرير تدخل أمني
+
+أثناء قيامي بدوريتي الاعتيادية، تلقيت بلاغاً من Dispatch بالتوجه إلى موجة 6 من أجل تقديم الدعم لزملائي في حالة سرقة Parking Meter.
+
+عند وصولي إلى الموقع، تبين وجود سيارة أجرة (Taxi) بداخلها شخص يرتدي ملابس زرقاء. تمت متابعة المركبة إلى أن تعرضت لأضرار أدت إلى توقفها، حيث تمكنا من توقيف المشتبه فيه والسيطرة على الوضع.
+
+بعد ذلك، تكفلت شخصياً بالتعامل مع المشتبه فيه، وقمت بإبلاغه بحقوقه والتهم الموجهة إليه، ثم تم تطبيق الإجراءات القانونية اللازمة بحقه وفقاً للقانون والبروتوكولات المعمول بها.
+
+المحجوزات
+Hack Device ×2
+Cash
+
+تم تأمين الحالة وإنهاء التدخل وفق الإجراءات القانونية المعمول بها.`,
+
+            images:[
+                "https://cdn.discordapp.com/attachments/1546882783711072276/1546883485384314960/Screenshot_2026-09-08_142008.png?ex=6aa16702&is=6aa01582&hm=d53b8747a7e5b44a0966f7b00bd7aa3e6de32e98acc3ff637d0ca7886e7bb3e2&",
+                "https://cdn.discordapp.com/attachments/1546882783711072276/1546883485741092945/Screenshot_2026-09-08_142247.png?ex=6aa16702&is=6aa01582&hm=e8243395b6dd8ce11e9da95c743362fbdda15c9796c444426300443ff7dc2324&"
+            ]
+        },
+
+        3: {
+            status:"SUCCESS — 100%",
+            fingerprint:"V230S6DD1YSB5QZ",
+            incident:"Parking Meter",
+            items:"Bucher Knife – Cash – Hack Device – Hook Pick ×4",
+            team:"Mohammed Talal — 379",
+            report:`تقرير تدخل أمني
+
+أثناء قيامي بدوريتي الاعتيادية، تلقيت توجيهاً من Dispatch بالتوجه إلى موجة 6 من أجل تقديم الدعم لزملائي في حالة سرقة Parking Meter.
+
+عند وصولي إلى الموقع، تبين وجود مشتبه فيه يرتدي ملابس سوداء ويستعمل سيارة سوداء. تمت متابعة المشتبه فيه إلى أن تمكنا من السيطرة على الوضع وتوقيفه.
+
+بعد ذلك، تكفلت شخصياً بالتعامل مع المشتبه فيه، وقمت بإبلاغه بحقوقه والتهم الموجهة إليه، ثم طبقت بحقه الإجراءات القانونية اللازمة وفقاً للقانون والبروتوكولات المعمول بها.
+
+المحجوزات
+Bucher Knife
+Cash
+Hack Device
+Hook Pick ×4
+
+تم تأمين المشتبه فيه وإنهاء الحالة وفق الإجراءات القانونية المعمول بها.`,
+
+            images:[
+                "https://cdn.discordapp.com/attachments/1546882783711072276/1546931141741781032/Screenshot_2026-09-08_180812.png?ex=6aa19364&is=6aa041e4&hm=0b41f8ad3228df845a665e28450af7b70511166d136a3ed3dcfa6b2ea255f589&",
+                "https://cdn.discordapp.com/attachments/1546882783711072276/1546931142454681650/Screenshot_2026-09-08_180838.png?ex=6aa19364&is=6aa041e4&hm=4b608fed221443ee4236fe8999b8d8814e6a95f01d63dbb0d6cfe6d0be02e96e&",
+                "https://cdn.discordapp.com/attachments/1546882783711072276/1546931142945542154/Screenshot_2026-09-08_180605.png?ex=6aa19365&is=6aa041e5&hm=dabab1419faae996550e1f6375c9d18f927584c91c614a44de2658bc863a0a08&"
+            ]
+        },
+
+        4: {
+            status:"SUCCESS — 100%",
+            fingerprint:"8KGKRKLM24UO82J",
+            incident:"Parking Meter",
+            items:"Hack Device – Hammer – Cash – Hook Pick",
+            team:"Lucas Hod — 391",
+            report:`تقرير تدخل أمني
+
+أثناء قيامي بدوريتي الاعتيادية، لاحظت وجود شخصين مشتبه فيهما يرتديان ملابس سوداء ويستعملان سيارة خضراء، وكانا يقومان بسرقة Parking Meter.
+
+قمت بإبلاغهما بالتوقف والوقوف إلى جانب الطريق، وقد استجاب المشتبه فيهما للأوامر وقاما بتسليم نفسيهما دون مقاومة. بعد ذلك، قمت بإبلاغ Dispatch بالوضع وتزويدهم بمواصفات المشتبه فيهما والمركبة المستعملة، حيث تم إرسال وحدة دعم إلى الموقع.
+
+بعد وصول وحدة الدعم، تمت السيطرة على المشتبه فيهما وتأمينهما. قمت بإبلاغهما بحقوقهما والتهم الموجهة إليهما، ثم طبقت بحقهما الإجراءات القانونية اللازمة وفقاً للقانون والبروتوكولات المعمول بها.
+
+المحجوزات
+Hack Device
+Hammer
+Cash
+Hook Pick
+
+تم تأمين المشتبه فيهما وإنهاء الحالة وفق الإجراءات القانونية المعمول بها.`,
+
+            images:[
+                "https://cdn.discordapp.com/attachments/1546882783711072276/1546942668855312544/Screenshot_2026-09-08_182744.png?ex=6aa19e21&is=6aa04ca1&hm=500b18078bfc693cd49b46f3c975366311d34d8fc7afffefba6a5db5b7418709&",
+                "https://cdn.discordapp.com/attachments/1546882783711072276/1546942669224157184/Screenshot_2026-09-08_183631.png?ex=6aa19e21&is=6aa04ca1&hm=b337a64b7759794c992672a71abcdc32734706338e215c77fce3ffa2f71cc44c&",
+                "https://cdn.discordapp.com/attachments/1546882783711072276/1546942669597442149/Screenshot_2026-09-08_183921.png?ex=6aa19e21&is=6aa04ca1&hm=8815e1d126586e8482085a2a3a01c4aa505521be3f680c997395028b57499faa&"
+            ]
+        },
+
+        5: {
+            status:"SUCCESS — 100%",
+            fingerprint:"X653659YE3632CW",
+            incident:"Parking Meter",
+            items:"Hack Device – Cash – Lockpick ×3",
+            team:"Lucas Hod — 391",
+            report:`تقرير تدخل أمني
+
+البصمة : X653659YE3632CW
+نوع التدخل: Parking Meter
+المحجوزات: Hack Device – Cash – Lockpick ×3
+
+وقائع التدخل
+
+أثناء قيامي بدوريتي الاعتيادية، لاحظت وجود مشتبه فيه يرتدي ملابس سوداء ويستعمل سيارة حمراء، وكان يقوم بسرقة Parking Meter.
+
+بلغت الدسباتش بالحالة وبمواصفات المجرم ومركبته كذلك طلبت دعم وتم توجيهي إلى موجة 8.
+
+بعد ملاحظته، حاول المشتبه فيه الفرار، حيث قمت بمتابعته رفقة الوحدات المتدخلة. استمرت المطاردة إلى أن تعرضت مركبته لأضرار أدت إلى توقفها، وتمكنت من توقيف المشتبه فيه والسيطرة على الوضع.
+
+بعد توقيفه، تكفلت شخصياً بالتعامل معه، وقمت بإبلاغه بحقوقه والتهم الموجهة إليه، ثم طبقت بحقه الإجراءات القانونية اللازمة وفقاً للقانون والبروتوكولات المعمول بها.
+
+المحجوزات
+
+Hack Device
+Cash
+Lockpick ×3
+
+تم تأمين المشتبه فيه وإنهاء الحالة وفق الإجراءات القانونية المعمول بها.`,
+
+            images:[
+                "https://cdn.discordapp.com/attachments/733224465043030068/1546956967459815534/image.png?ex=6aa1ab72&is=6aa059f2&hm=510b08fdae2d551f5477346702bf2e7b55cdafb3c7e9950af11aa9c807238cef&",
+                "https://cdn.discordapp.com/attachments/1546882783711072276/1546960432336601148/Screenshot_2026-09-08_195849.png?ex=6aa1aeac&is=6aa05d2c&hm=787535143953071624b3433964e4b1bcc5c68a7c91b1244c61a6e79e7c3fa5b4&",
+                "https://cdn.discordapp.com/attachments/1546882783711072276/1546960432785268817/Screenshot_2026-09-08_200128.png?ex=6aa1aeac&is=6aa05d2c&hm=afa434a2a247b9e069b7739aef3159632d4cae69c595d9d8e2e622630923d818&"
+            ]
+        }
+
+    },
+
+    store: {
+
+        1: {
+            status:"SUCCESS — 100%",
+            fingerprint:"P76UY7QTPC91023",
+            incident:"Store Robbery",
+            items:"Hook Pick ×4 – Cash",
+            team:"Lucas Hod — 391",
+            report:`تقرير تدخل أمني
+
+البصمة: P76UY7QTPC91023
+نوع التدخل: Store Robbery
+المحجوزات: Hook Pick ×4 – Cash
+
+وقائع التدخل
+
+أثناء قيامي بدوريتي الاعتيادية، تلقيت بلاغاً من أحد المواطنين يفيد بوجود حالة Store Robbery. توجهت مباشرة إلى الموقع من أجل التحقق من البلاغ.
+
+عند وصولي، تبين فعلاً وجود شخصين مشتبه فيهما يرتديان ملابس سوداء، وكانا يقومان بسرقة أحد المتاجر. قمت بإبلاغ Dispatch بالوضع وطلبت الدعم، كما زودتهم بمواصفات المشتبه فيهما وبمواصفات المركبة السوداء التي كانا يستعملانها للفرار.
+
+بعد ذلك، وجهني Dispatch إلى موجة 2 من أجل التعامل مع الحالة رفقة زميلي Rashed AlHarbi – 376.
+
+باشرنا عملية تتبع المشتبه فيهما، واستمرت المطاردة إلى أن تعرضت مركبتهما لأضرار أدت إلى توقفها، حيث حاولا مواصلة الفرار.
+
+تمكنت أنا وزميلي Rashed من توقيف المشتبه فيهما والسيطرة على الوضع. بعد ذلك، تكفلت بالتعامل مع المشتبه فيه الذي يحمل البصمة P76UY7QTPC91023، حيث قمت بإبلاغه بحقوقه والتهم الموجهة إليه، ثم تم تطبيق الإجراءات القانونية اللازمة بحقه وفقاً للقانون والبروتوكولات المعمول بها.
+
+المحجوزات
+
+Hook Pick ×4
+Cash
+
+تمت السيطرة على الحالة وتأمين الموقع، واتخاذ الإجراءات القانونية اللازمة بحق المشتبه فيهما.`,
+
+            images:[
+                "https://cdn.discordapp.com/attachments/1546883293591511110/1546885134475858000/Screenshot_2026-09-08_145346.png?ex=6aa1688b&is=6aa0170b&hm=bd63bff9a951fca9128e12017b0317263d447e2b5fc7f33fd2c44149a20f76f7&",
+                "https://cdn.discordapp.com/attachments/1546883293591511110/1546885135037636730/Screenshot_2026-09-08_145917.png?ex=6aa1688b&is=6aa0170b&hm=b32670e969b13a2ebb7c638762d28c32f2a7e675a621ac406e57cafe5708f2f3&"
+            ]
+        },
+
+        2: {
+            status:"SUCCESS — 100%",
+            fingerprint:"E44UY3E1169808K",
+            incident:"Store Robbery",
+            items:"Hook Pick ×4",
+            team:"Lucas Hod — 391",
+            report:`تقرير تدخل أمني
+
+البصمة: E44UY3E1169808K
+نوع التدخل: Store Robbery
+المحجوزات: Hook Pick ×4
+
+وقائع التدخل
+
+أثناء تواجدي في الميدان، تلقيت توجيهاً من Dispatch بالتوجه إلى موجة 2 من أجل تأمين أحد المشتبه فيه، والذي كان قد تم توقيفه من طرف زميلي Carlos وتم نقله إلى المستشفى.
+
+توجهت إلى المستشفى من أجل تأمين المشتبه فيه، وأوضح لي زميلي أنه متهم بارتكاب Store Robbery، بالإضافة إلى الفرار من الشرطة.
+
+قمت بتأمين المشتبه فيه، ثم قمت بإبلاغه بحقوقه والتهم الموجهة إليه، وبعد ذلك تم تطبيق الإجراءات القانونية اللازمة بحقه وفقاً للقانون والبروتوكولات المعمول بها.
+
+المحجوزات
+
+Hook Pick ×4
+
+تم تأمين المشتبه فيه والتعامل مع الحالة وفق الإجراءات القانونية المعمول بها.`,
+
+            images:[
+                "https://cdn.discordapp.com/attachments/1546883293591511110/1546892094398795876/Screenshot_2026-09-08_152359.png?ex=6aa16f07&is=6aa01d87&hm=9528140e9b0fc37502062fb308233a5fa46c68d4e9ce36d316b3c88c991105bf&",
+                "https://cdn.discordapp.com/attachments/1546883293591511110/1546892094843658240/Screenshot_2026-09-08_152815.png?ex=6aa16f07&is=6aa01d87&hm=96594ac6b61469592cd5781204e9c672e7677b70d2720a7e8073c0368867c7fb&"
+            ]
+        },
+
+        3: {
+            status:"SUCCESS — 100%",
+            fingerprint:"ZCXYMH69D89B209",
+            incident:"Store Robbery",
+            items:"Hook Pick ×3 – Sticky Note ×3 – Cash",
+            team:"Mohammed Talal — 379",
+            report:`تقرير تدخل أمني
+
+البصمة: ZCXYMH69D89B209
+نوع التدخل: Store Robbery
+المحجوزات: Hook Pick ×3 – Sticky Note ×3 – Cash
+
+وقائع التدخل
+
+أثناء قيامي بدوريتي الاعتيادية في Zone 6، لاحظت وجود شخصين مشتبه فيهما يقومان بسرقة أحد المتاجر، حيث كان أحدهما يرتدي ملابس حمراء والآخر يرتدي ملابس سوداء، وكانا يستعملان سيارة أجرة صفراء (Taxi).
+
+قمت بإبلاغ Dispatch بالوضع وتزويدهم بمواصفات المشتبه فيهما والمركبة المستعملة، ليتم توجيهي إلى موجة 3، كما وصلت وحدة دعم إلى الموقع من أجل المساعدة في التعامل مع الحالة.
+
+عند وصول الدعم، قام المشتبه فيهما بتسليم نفسيهما دون مقاومة. تم تأمينهما واتخاذ الإجراءات اللازمة بحقهما.
+
+قمت بإبلاغ المشتبه فيهما بحقوقهما والتهم الموجهة إليهما، ثم تم التعامل معهما وتطبيق الإجراءات القانونية المعمول بها وفقاً للقانون والبروتوكولات المعتمدة.
+
+المحجوزات
+
+Hook Pick ×3
+Sticky Note ×3
+Cash
+
+تم تأمين المشتبه فيهما وإنهاء الحالة وفق الإجراءات القانونية المعمول بها.`,
+
+            images:[
+                "https://cdn.discordapp.com/attachments/1546921574257660095/1546921660186099875/Screenshot_2026-09-08_171910.png?ex=6aa18a90&is=6aa03910&hm=895b0ac0485d2b180462002cc319f9fc912b80ea5b6cabe2aa2d1e6b03ebb558&",
+                "https://cdn.discordapp.com/attachments/1546921574257660095/1546921660567916644/Screenshot_2026-09-08_172559.png?ex=6aa18a90&is=6aa03910&hm=8c4bf823ad16fc6a430c4374694533e8c5d45864cea9011e632319053e3134c0&",
+                "https://cdn.discordapp.com/attachments/1546921574257660095/1546921661050257518/Screenshot_2026-09-08_171415.png?ex=6aa18a90&is=6aa03910&hm=6b3b0cf280eef98a78bb5c80834b9b07aa423d7c47fd090a492a14ef15d242fb&"
+            ]
+        }
+
+    },
+
+    house: {
+
+        1: {
+            status:"SUCCESS — 100%",
+            fingerprint:"1R665O249FYTB68",
+            incident:"House Robbery",
+            items:"UK Machette ZK – UK Russian Magazin",
+            team:"Mohammed Talal — 379 | Lucas Hod — 391",
+            report:`تقرير تدخل أمني
+
+البصمة: 1R665O249FYTB68
+نوع التدخل: House Robbery
+المحجوزات: UK Machette ZK – UK Russian Magazin
+
+وقائع التدخل
+
+أثناء قيامي بدوريتي الاعتيادية كدورية حرة، تلقيت توجيهاً من Dispatch بالتوجه إلى موجة 2 من أجل التعامل مع حالة House Robbery.
+
+عند وصولي إلى الموقع، تبين وجود مشتبه فيه داخل المنزل يقوم بعملية السرقة. بعد تجمع الوحدات في الموقع، تم التأكد من عدم وجود أي رهائن داخل المنزل، وعلى إثر ذلك تم تنفيذ عملية المداهمة.
+
+أثناء التدخل، حاول المشتبه فيه الاعتداء على أحد زملائي باستعمال Machette، إلا أن الوحدات تمكنت من السيطرة عليه وطرحه أرضاً، مما أدى إلى تعرضه لإصابات نتيجة عملية التوقيف.
+
+تم نقل المشتبه فيه إلى المستشفى من أجل تلقي العلاج اللازم. وبعد الانتهاء من علاجه، تكفلت شخصياً بالتعامل معه، حيث قمت بإبلاغه بحقوقه والتهم الموجهة إليه، ثم تم تطبيق الإجراءات القانونية اللازمة بحقه وفقاً للقانون والبروتوكولات المعمول بها.
+
+المحجوزات
+
+UK Machette ZK
+UK Russian Magazin
+
+تم تأمين المشتبه فيه وإنهاء الحالة وفق الإجراءات القانونية المعمول بها.`,
+
+            images:[
+                "https://cdn.discordapp.com/attachments/1546921574257660095/1546921660186099875/Screenshot_2026-09-08_171910.png?ex=6aa18a90&is=6aa03910&hm=895b0ac0485d2b180462002cc319f9fc912b80ea5b6cabe2aa2d1e6b03ebb558&",
+                "https://cdn.discordapp.com/attachments/1546921574257660095/1546921660567916644/Screenshot_2026-09-08_172559.png?ex=6aa18a90&is=6aa03910&hm=8c4bf823ad16fc6a430c4374694533e8c5d45864cea9011e632319053e3134c0&",
+                "https://cdn.discordapp.com/attachments/1546921574257660095/1546921661050257518/Screenshot_2026-09-08_171415.png?ex=6aa18a90&is=6aa03910&hm=6b3b0cf280eef98a78bb5c80834b9b07aa423d7c47fd090a492a14ef15d242fb&"
+            ]
+        }
+
+    }
+
+};
+
+
+/* SHOW CATEGORY */
+
+function showCategory(category){
+
+    document.querySelectorAll(".page").forEach(page=>{
+        page.classList.remove("active");
+    });
+
+    document.getElementById(category).classList.add("active");
+}
+
+
+/* SHOW CASE */
+
+function showCase(category,caseNumber){
+
+    const data = cases[category][caseNumber];
+
+    document.querySelectorAll(".page").forEach(page=>{
+        page.classList.remove("active");
+    });
+
+    document.getElementById("detail").classList.add("active");
+
+    document.getElementById("detailTitle").textContent =
+        category.toUpperCase() + " — CASE " + String(caseNumber).padStart(2,"0");
+
+    document.getElementById("detailStatus").textContent =
+        data.status;
+
+    document.getElementById("detailFingerprint").textContent =
+        data.fingerprint;
+
+    document.getElementById("detailIncident").textContent =
+        data.incident;
+
+    document.getElementById("detailItems").textContent =
+        data.items;
+
+    document.getElementById("detailTeam").textContent =
+        data.team;
+
+    document.getElementById("detailReport").textContent =
+        data.report;
+
+    const gallery = document.getElementById("gallery");
+
+    gallery.innerHTML = "";
+
+    if(data.images && data.images.length > 0){
+
+        document.getElementById("evidenceSection").style.display = "block";
+
+        data.images.forEach(url=>{
+
+            const img = document.createElement("img");
+
+            img.src = url;
+
+            img.alt = "Evidence";
+
+            img.loading = "lazy";
+
+            img.onclick = function(event){
+                event.stopPropagation();
+                openLightbox(url);
+            };
+
+            gallery.appendChild(img);
+
+        });
+
+    }else{
+
+        document.getElementById("evidenceSection").style.display = "none";
+
+    }
+
+}
+
+
+/* BACK TO CASES */
+
+function backToCases(){
+
+    document.querySelectorAll(".page").forEach(page=>{
+        page.classList.remove("active");
+    });
+
+    document.getElementById(
+        currentCategory
+    ).classList.add("active");
+}
+
+
+/* CLOSE ALL */
+
+function closeAll(){
+
+    document.querySelectorAll(".page").forEach(page=>{
+        page.classList.remove("active");
+    });
+
+    document.getElementById("home").classList.add("active");
+}
+
+
+/* LIGHTBOX */
+
+function openLightbox(url){
+
+    document.getElementById("lightboxImg").src = url;
+
+    document.getElementById("lightbox").style.display = "flex";
+}
+
+
+function closeLightbox(){
+
+    document.getElementById("lightbox").style.display = "none";
+
+    document.getElementById("lightboxImg").src = "";
+}
+
+
+/* TRACK CURRENT CATEGORY */
+
+let currentCategory = "home";
+
+
+const originalShowCategory = showCategory;
+
+showCategory = function(category){
+
+    currentCategory = category;
+
+    originalShowCategory(category);
+
+};
+
+
+const originalShowCase = showCase;
+
+showCase = function(category,caseNumber){
+
+    currentCategory = category;
+
+    originalShowCase(category,caseNumber);
+
+};
+
+
+/* ESCAPE */
+
+document.addEventListener("keydown",function(event){
+
+    if(event.key === "Escape"){
+        closeLightbox();
+    }
+
+});
+
+</script>
+
+</body>
+</html>
