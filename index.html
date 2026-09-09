@@ -124,12 +124,12 @@ body{
     font-size:13px;
 }
 
-/* TOP 3 */
+/* TOP MEMBERS */
 
 .top-members{
     display:flex;
     justify-content:center;
-    align-items:center;
+    align-items:stretch;
     gap:12px;
     margin-bottom:12px;
     flex-wrap:wrap;
@@ -137,15 +137,14 @@ body{
 
 .top-member{
     flex:0 1 280px;
-    min-height:48px;
-
+    min-height:58px;
     color:#ffd700;
     border:1px solid #ffd700;
     background:rgba(255,215,0,.08);
-
     font-weight:bold;
-
     box-shadow:0 0 15px rgba(255,215,0,.12);
+    cursor:pointer;
+    position:relative;
 }
 
 .top-member:hover{
@@ -153,6 +152,101 @@ body{
     border-color:#ffe866;
     background:rgba(255,215,0,.13);
     box-shadow:0 0 20px rgba(255,215,0,.2);
+    transform:translateY(-3px);
+}
+
+/* RANK / WINGS */
+
+.top-member small{
+    display:block;
+    color:#aeb6c5;
+    font-size:10px;
+    font-weight:normal;
+    margin-top:5px;
+    letter-spacing:.5px;
+}
+
+.top-member .admin-label{
+    color:#ffd700;
+    font-size:10px;
+    margin-top:3px;
+    text-transform:uppercase;
+    letter-spacing:1px;
+}
+
+/* MEMBER PROFILE */
+
+.member-profile{
+    display:none;
+    margin:0 auto 18px;
+    max-width:900px;
+    background:#0b1018;
+    border:1px solid #3a4353;
+    border-radius:14px;
+    padding:22px;
+    box-shadow:0 0 25px rgba(0,0,0,.25);
+}
+
+.member-profile.active{
+    display:block;
+}
+
+.profile-header{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+    margin-bottom:18px;
+}
+
+.profile-header h3{
+    color:#ffd700;
+    font-size:21px;
+    letter-spacing:1px;
+}
+
+.profile-close{
+    border:1px solid #30394a;
+    background:#101620;
+    color:#cbd3df;
+    padding:7px 12px;
+    border-radius:8px;
+    cursor:pointer;
+}
+
+.profile-close:hover{
+    background:#1a2230;
+}
+
+.profile-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+}
+
+.profile-box{
+    background:#101620;
+    border:1px solid #252e3d;
+    border-radius:10px;
+    padding:14px;
+}
+
+.profile-label{
+    color:#718096;
+    font-size:10px;
+    text-transform:uppercase;
+    letter-spacing:1.3px;
+    margin-bottom:6px;
+}
+
+.profile-value{
+    color:#e5e9f0;
+    font-size:13px;
+    line-height:1.6;
+}
+
+.wings-value{
+    color:#ffd700;
 }
 
 /* NORMAL MEMBERS */
@@ -463,6 +557,10 @@ body{
         max-width:280px;
     }
 
+    .profile-grid{
+        grid-template-columns:1fr;
+    }
+
     .header h1{
         font-size:34px;
     }
@@ -484,6 +582,7 @@ body{
 
     .top-members{
         flex-direction:column;
+        align-items:center;
     }
 
     .top-member{
@@ -493,6 +592,11 @@ body{
 
     .squad-grid{
         grid-template-columns:1fr;
+    }
+
+    .profile-header{
+        flex-direction:column;
+        align-items:flex-start;
     }
 }
 </style>
@@ -601,16 +705,147 @@ body{
 
             <div class="top-members">
 
-                <div class="member top-member">
-                    Dark — Abdulilah Nawaf
+                <div class="member top-member"
+                     onclick="showMemberProfile('dark')">
+
+                    <div>
+                        Dark — Abdulilah Nawaf
+
+                        <small>
+                            Sergeant • Police Wings Management
+                        </small>
+
+                        <div class="admin-label">
+                            Airship • Motorcycle • Negotiator
+                        </div>
+                    </div>
+
                 </div>
 
-                <div class="member top-member">
-                    Feras — Feras BinOmar
+
+                <div class="member top-member"
+                     onclick="showMemberProfile('feras')">
+
+                    <div>
+                        Feras — Feras BinOmar
+
+                        <small>
+                            Senior Lead Officer • Police Academy Section Leader
+                        </small>
+
+                        <div class="admin-label">
+                            Airship • Motorcycle • Negotiator
+                        </div>
+                    </div>
+
                 </div>
 
-                <div class="member top-member">
-                    Qassim — Shaheen Hamad 7sosah
+
+                <div class="member top-member"
+                     onclick="showMemberProfile('qassim')">
+
+                    <div>
+                        Qassim — Shaheen Hamad 7sosah
+
+                        <small>
+                            Senior Officer • Internal Affairs Management
+                        </small>
+
+                        <div class="admin-label">
+                            Airship • Motorcycle • Negotiator
+                        </div>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <!-- MEMBER PROFILE -->
+
+            <div id="memberProfile"
+                 class="member-profile">
+
+                <div class="profile-header">
+
+                    <h3 id="profileName">
+                        MEMBER
+                    </h3>
+
+                    <button class="profile-close"
+                            onclick="closeMemberProfile()">
+                        × Close
+                    </button>
+
+                </div>
+
+
+                <div class="profile-grid">
+
+                    <div class="profile-box">
+
+                        <div class="profile-label">
+                            Discord / Squad Name
+                        </div>
+
+                        <div class="profile-value"
+                             id="profileDiscord">
+                        </div>
+
+                    </div>
+
+
+                    <div class="profile-box">
+
+                        <div class="profile-label">
+                            Administrative / Police Rank
+                        </div>
+
+                        <div class="profile-value"
+                             id="profileRank">
+                        </div>
+
+                    </div>
+
+
+                    <div class="profile-box">
+
+                        <div class="profile-label">
+                            Management / Section
+                        </div>
+
+                        <div class="profile-value"
+                             id="profileManagement">
+                        </div>
+
+                    </div>
+
+
+                    <div class="profile-box">
+
+                        <div class="profile-label">
+                            Police Wings
+                        </div>
+
+                        <div class="profile-value wings-value"
+                             id="profileWings">
+                        </div>
+
+                    </div>
+
+
+                    <div class="profile-box">
+
+                        <div class="profile-label">
+                            RP Name
+                        </div>
+
+                        <div class="profile-value"
+                             id="profileRP">
+                        </div>
+
+                    </div>
+
                 </div>
 
             </div>
@@ -1298,6 +1533,43 @@ body{
 
 <script>
 
+/* =========================
+   BRAVO SQUAD PROFILES
+========================= */
+
+const squadProfiles = {
+
+    dark:{
+        discord:"Dark — Abdulilah Nawaf",
+        rank:"Sergeant",
+        management:"Police Wings Management",
+        wings:"Airship • Motorcycle • Negotiator",
+        rp:"Abdulilah Nawaf"
+    },
+
+    feras:{
+        discord:"Feras — Feras BinOmar",
+        rank:"Senior Lead Officer",
+        management:"Police Academy Section Leader",
+        wings:"Airship • Motorcycle • Negotiator",
+        rp:"Feras BinOmar"
+    },
+
+    qassim:{
+        discord:"Qassim — Shaheen Hamad 7sosah",
+        rank:"Senior Officer",
+        management:"Internal Affairs Management",
+        wings:"Airship • Motorcycle • Negotiator",
+        rp:"Shaheen Hamad"
+    }
+
+};
+
+
+/* =========================
+   CASE DATA
+========================= */
+
 const cases = {
 
     parking: {
@@ -1621,16 +1893,75 @@ UK Russian Magazin
 };
 
 
-/* CURRENT CATEGORY */
+/* =========================
+   CURRENT CATEGORY
+========================= */
 
 let currentCategory = "home";
 
 
-/* SHOW CATEGORY */
+/* =========================
+   SHOW MEMBER PROFILE
+========================= */
+
+function showMemberProfile(member){
+
+    const data = squadProfiles[member];
+
+    if(!data){
+        return;
+    }
+
+    document.getElementById("profileName")
+        .textContent = data.discord;
+
+    document.getElementById("profileDiscord")
+        .textContent = data.discord;
+
+    document.getElementById("profileRank")
+        .textContent = data.rank;
+
+    document.getElementById("profileManagement")
+        .textContent = data.management;
+
+    document.getElementById("profileWings")
+        .textContent = data.wings;
+
+    document.getElementById("profileRP")
+        .textContent = data.rp;
+
+    document.getElementById("memberProfile")
+        .classList.add("active");
+
+    document.getElementById("memberProfile")
+        .scrollIntoView({
+            behavior:"smooth",
+            block:"center"
+        });
+}
+
+
+/* =========================
+   CLOSE MEMBER PROFILE
+========================= */
+
+function closeMemberProfile(){
+
+    document.getElementById("memberProfile")
+        .classList.remove("active");
+
+}
+
+
+/* =========================
+   SHOW CATEGORY
+========================= */
 
 function showCategory(category){
 
     currentCategory = category;
+
+    closeMemberProfile();
 
     document.querySelectorAll(".page").forEach(page=>{
         page.classList.remove("active");
@@ -1646,7 +1977,9 @@ function showCategory(category){
 }
 
 
-/* SHOW CASE */
+/* =========================
+   SHOW CASE
+========================= */
 
 function showCase(category,caseNumber){
 
@@ -1688,7 +2021,6 @@ function showCase(category,caseNumber){
 
     const gallery =
         document.getElementById("gallery");
-
 
     gallery.innerHTML = "";
 
@@ -1739,7 +2071,9 @@ function showCase(category,caseNumber){
 }
 
 
-/* BACK TO CASES */
+/* =========================
+   BACK TO CASES
+========================= */
 
 function backToCases(){
 
@@ -1758,7 +2092,9 @@ function backToCases(){
 }
 
 
-/* CLOSE ALL */
+/* =========================
+   CLOSE ALL
+========================= */
 
 function closeAll(){
 
@@ -1778,7 +2114,9 @@ function closeAll(){
 }
 
 
-/* LIGHTBOX */
+/* =========================
+   LIGHTBOX
+========================= */
 
 function openLightbox(url){
 
@@ -1804,7 +2142,9 @@ function closeLightbox(){
 }
 
 
-/* ESCAPE */
+/* =========================
+   ESCAPE
+========================= */
 
 document.addEventListener(
     "keydown",
@@ -1812,6 +2152,7 @@ document.addEventListener(
 
         if(event.key === "Escape"){
             closeLightbox();
+            closeMemberProfile();
         }
 
     }
