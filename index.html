@@ -124,10 +124,44 @@ body{
     font-size:13px;
 }
 
+/* TOP 3 */
+
+.top-members{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:12px;
+    margin-bottom:12px;
+    flex-wrap:wrap;
+}
+
+.top-member{
+    flex:0 1 280px;
+    min-height:48px;
+
+    color:#ffd700;
+    border:1px solid #ffd700;
+    background:rgba(255,215,0,.08);
+
+    font-weight:bold;
+
+    box-shadow:0 0 15px rgba(255,215,0,.12);
+}
+
+.top-member:hover{
+    color:#ffe866;
+    border-color:#ffe866;
+    background:rgba(255,215,0,.13);
+    box-shadow:0 0 20px rgba(255,215,0,.2);
+}
+
+/* NORMAL MEMBERS */
+
 .squad-grid{
     display:grid;
     grid-template-columns:repeat(4,1fr);
     gap:12px;
+    justify-items:stretch;
 }
 
 .member{
@@ -139,9 +173,11 @@ body{
     color:#cfd6e1;
     font-size:13px;
     min-height:48px;
+
     display:flex;
     align-items:center;
     justify-content:center;
+
     transition:.2s;
 }
 
@@ -351,8 +387,10 @@ body{
     inset:0;
     background:rgba(0,0,0,.92);
     z-index:9999;
+
     align-items:center;
     justify-content:center;
+
     padding:30px;
 }
 
@@ -381,14 +419,17 @@ body{
     display:block;
 }
 
-/* MOBILE */
+/* TABLET */
 
 @media(max-width:900px){
 
     .squad-grid{
         grid-template-columns:repeat(3,1fr);
     }
+
 }
+
+/* MOBILE */
 
 @media(max-width:800px){
 
@@ -412,6 +453,16 @@ body{
         grid-template-columns:repeat(2,1fr);
     }
 
+    .top-members{
+        flex-direction:row;
+        flex-wrap:wrap;
+    }
+
+    .top-member{
+        flex:1 1 200px;
+        max-width:280px;
+    }
+
     .header h1{
         font-size:34px;
     }
@@ -427,7 +478,18 @@ body{
     }
 }
 
-@media(max-width:450px){
+/* SMALL MOBILE */
+
+@media(max-width:500px){
+
+    .top-members{
+        flex-direction:column;
+    }
+
+    .top-member{
+        width:100%;
+        max-width:320px;
+    }
 
     .squad-grid{
         grid-template-columns:1fr;
@@ -441,90 +503,282 @@ body{
 <div class="container">
 
     <!-- HEADER -->
+
     <div class="header">
-        <div class="badge">BRAVO TODAY CHALLENGE</div>
-        <h1>BRAVO CHALLENGE</h1>
-        <p>Select a category to view cases</p>
+
+        <div class="badge">
+            BRAVO TODAY CHALLENGE
+        </div>
+
+        <h1>
+            BRAVO CHALLENGE
+        </h1>
+
+        <p>
+            Select a category to view cases
+        </p>
+
     </div>
 
+
     <!-- HOME -->
+
     <div id="home" class="page active">
 
         <div class="categories">
 
             <div class="category" onclick="showCategory('parking')">
-                <div class="category-icon">🅿️</div>
-                <h2>PARKING</h2>
-                <span>5 Cases</span>
+
+                <div class="category-icon">
+                    🅿️
+                </div>
+
+                <h2>
+                    PARKING
+                </h2>
+
+                <span>
+                    5 Cases
+                </span>
+
             </div>
+
 
             <div class="category" onclick="showCategory('store')">
-                <div class="category-icon">🏪</div>
-                <h2>STORE</h2>
-                <span>3 Cases</span>
+
+                <div class="category-icon">
+                    🏪
+                </div>
+
+                <h2>
+                    STORE
+                </h2>
+
+                <span>
+                    3 Cases
+                </span>
+
             </div>
 
+
             <div class="category" onclick="showCategory('house')">
-                <div class="category-icon">🏠</div>
-                <h2>HOUSE</h2>
-                <span>1 Case</span>
+
+                <div class="category-icon">
+                    🏠
+                </div>
+
+                <h2>
+                    HOUSE
+                </h2>
+
+                <span>
+                    1 Case
+                </span>
+
             </div>
 
         </div>
 
-        <!-- BRAVO SQUAD MEMBER -->
+
+        <!-- BRAVO SQUAD -->
+
         <div class="squad-section">
 
             <div class="squad-title">
-                <h2>BRAVO SQUAD MEMBER</h2>
-                <p>Bravo Squad Members</p>
+
+                <h2>
+                    BRAVO SQUAD MEMBER
+                </h2>
+
+                <p>
+                    Bravo Squad Members
+                </p>
+
             </div>
+
+
+            <!-- TOP 3 -->
+
+            <div class="top-members">
+
+                <div class="member top-member">
+                    Dark — Abdulilah Nawaf
+                </div>
+
+                <div class="member top-member">
+                    Feras — Feras BinOmar
+                </div>
+
+                <div class="member top-member">
+                    Qassim — Shaheen Hamad 7sosah
+                </div>
+
+            </div>
+
+
+            <!-- OTHER MEMBERS -->
 
             <div class="squad-grid">
 
-                <div class="member">Dark — Abdulilah Nawaf</div>
-                <div class="member">Feras — Feras BinOmar</div>
-                <div class="member">Qassim — Shaheen Hamad 7sosah</div>
-                <div class="member">HOSSAM ALMUTAIRI — BAA</div>
-                <div class="member">Bader Abdullah — OrewaSaad</div>
-                <div class="member">Jin Freecs — FAISAL</div>
-                <div class="member">JUMMAH ALZAHRANI — MT</div>
-                <div class="member">RealWeep — Thiago Morgan</div>
-                <div class="member">! Attaf — Abdullah Attaf</div>
-                <div class="member">M T 3 B — VOID Barrett</div>
-                <div class="member">RAedd — Raedd Ibrahim</div>
-                <div class="member">Mario — Mario Smith</div>
-                <div class="member">Dktrr — Ahmed Al-Qahtani</div>
-                <div class="member">Layla — Layla Almutairi</div>
-                <div class="member">RAYAN — SHILAYWAYH ALHARBI</div>
-                <div class="member">MT | Tom — Tom Chandler</div>
-                <div class="member">FAISAL — Faisal Failachwe</div>
-                <div class="member">NF3A — Nawaf Abdullah</div>
-                <div class="member">! Bara'a — Baraa Chandler</div>
-                <div class="member">Rashed — Rashed AlHarbi</div>
-                <div class="member">Abdullah — Abdullah Al-Zahrani</div>
-                <div class="member">Bin Talal — Mohammed Talal</div>
-                <div class="member">Faisal — Faisal Alshehri</div>
-                <div class="member">Amine_MxH — Amine Morgan</div>
-                <div class="member">Abu Saleh — David Rick</div>
-                <div class="member">D7i — Abdulrahman Al-Hakami</div>
-                <div class="member">Tea — Thaar Alotaibi</div>
-                <div class="member">966abdullah — GHYATH ALDOSSARY</div>
-                <div class="member">sAAD — Saad Alsubaie</div>
-                <div class="member">Tariq — Tariq Waleed</div>
-                <div class="member">NA_Y52 — Yazeed Meshal</div>
-                <div class="member">Botangy — Lattam Bobsheet</div>
-                <div class="member">Br1ghtSide — Kai Proctor</div>
-                <div class="member">WOLF — Omar AlMutairi</div>
-                <div class="member">V N X — Lucas Hod</div>
-                <div class="member">Alhajri — MOHAMMED ALHAJRI</div>
-                <div class="member">AJ — MOHAMMED ALHAJRI</div>
-                <div class="member">Rï0 — Rayan Al-Harbi</div>
-                <div class="member">Shgardii — Mohammed Almeri</div>
-                <div class="member">Hasan — Hasan Alsharif</div>
-                <div class="member">! Fly — Robert Navarro</div>
-                <div class="member">Musaad — Musaad BinAbdullah</div>
-                <div class="member">!os.qr2 — Zeyad Omar</div>
+                <div class="member">
+                    HOSSAM ALMUTAIRI — BAA
+                </div>
+
+                <div class="member">
+                    Bader Abdullah — OrewaSaad
+                </div>
+
+                <div class="member">
+                    Jin Freecs — FAISAL
+                </div>
+
+                <div class="member">
+                    JUMMAH ALZAHRANI — MT
+                </div>
+
+                <div class="member">
+                    RealWeep — Thiago Morgan
+                </div>
+
+                <div class="member">
+                    ! Attaf — Abdullah Attaf
+                </div>
+
+                <div class="member">
+                    M T 3 B — VOID Barrett
+                </div>
+
+                <div class="member">
+                    RAedd — Raedd Ibrahim
+                </div>
+
+                <div class="member">
+                    Mario — Mario Smith
+                </div>
+
+                <div class="member">
+                    Dktrr — Ahmed Al-Qahtani
+                </div>
+
+                <div class="member">
+                    Layla — Layla Almutairi
+                </div>
+
+                <div class="member">
+                    RAYAN — SHILAYWAYH ALHARBI
+                </div>
+
+                <div class="member">
+                    MT | Tom — Tom Chandler
+                </div>
+
+                <div class="member">
+                    FAISAL — Faisal Failachwe
+                </div>
+
+                <div class="member">
+                    NF3A — Nawaf Abdullah
+                </div>
+
+                <div class="member">
+                    ! Bara'a — Baraa Chandler
+                </div>
+
+                <div class="member">
+                    Rashed — Rashed AlHarbi
+                </div>
+
+                <div class="member">
+                    Abdullah — Abdullah Al-Zahrani
+                </div>
+
+                <div class="member">
+                    Bin Talal — Mohammed Talal
+                </div>
+
+                <div class="member">
+                    Faisal — Faisal Alshehri
+                </div>
+
+                <div class="member">
+                    Amine_MxH — Amine Morgan
+                </div>
+
+                <div class="member">
+                    Abu Saleh — David Rick
+                </div>
+
+                <div class="member">
+                    D7i — Abdulrahman Al-Hakami
+                </div>
+
+                <div class="member">
+                    Tea — Thaar Alotaibi
+                </div>
+
+                <div class="member">
+                    966abdullah — GHYATH ALDOSSARY
+                </div>
+
+                <div class="member">
+                    sAAD — Saad Alsubaie
+                </div>
+
+                <div class="member">
+                    Tariq — Tariq Waleed
+                </div>
+
+                <div class="member">
+                    NA_Y52 — Yazeed Meshal
+                </div>
+
+                <div class="member">
+                    Botangy — Lattam Bobsheet
+                </div>
+
+                <div class="member">
+                    Br1ghtSide — Kai Proctor
+                </div>
+
+                <div class="member">
+                    WOLF — Omar AlMutairi
+                </div>
+
+                <div class="member">
+                    V N X — Lucas Hod
+                </div>
+
+                <div class="member">
+                    Alhajri — MOHAMMED ALHAJRI
+                </div>
+
+                <div class="member">
+                    AJ — MOHAMMED ALHAJRI
+                </div>
+
+                <div class="member">
+                    Rï0 — Rayan Al-Harbi
+                </div>
+
+                <div class="member">
+                    Shgardii — Mohammed Almeri
+                </div>
+
+                <div class="member">
+                    Hasan — Hasan Alsharif
+                </div>
+
+                <div class="member">
+                    ! Fly — Robert Navarro
+                </div>
+
+                <div class="member">
+                    Musaad — Musaad BinAbdullah
+                </div>
+
+                <div class="member">
+                    !os.qr2 — Zeyad Omar
+                </div>
 
             </div>
 
@@ -533,228 +787,488 @@ body{
     </div>
 
 
-    <!-- PARKING CASES -->
+    <!-- PARKING -->
+
     <div id="parking" class="page">
 
         <div class="section-title">
-            <h2>🅿️ PARKING CASES</h2>
-            <button class="back-btn" onclick="closeAll()">← Back</button>
+
+            <h2>
+                🅿️ PARKING CASES
+            </h2>
+
+            <button class="back-btn" onclick="closeAll()">
+                ← Back
+            </button>
+
         </div>
+
 
         <div class="cases">
 
-            <!-- CASE 01 -->
-            <div class="case-card" onclick="showCase('parking',1)">
+            <div class="case-card"
+                 onclick="showCase('parking',1)">
+
                 <div class="case-top">
-                    <div class="case-number">CASE 01</div>
-                    <div class="status success">SUCCESS — 100%</div>
+
+                    <div class="case-number">
+                        CASE 01
+                    </div>
+
+                    <div class="status success">
+                        SUCCESS — 100%
+                    </div>
+
                 </div>
 
                 <div class="case-info">
-                    <strong>Fingerprint:</strong> DVB7K0FRKHH394Q<br>
-                    <strong>Incident:</strong> سرقة Parking Meter<br>
-                    <strong>Officer:</strong> Faisal Alshehri — 390
+
+                    <strong>Fingerprint:</strong>
+                    DVB7K0FRKHH394Q
+                    <br>
+
+                    <strong>Incident:</strong>
+                    سرقة Parking Meter
+                    <br>
+
+                    <strong>Officer:</strong>
+                    Faisal Alshehri — 390
+
                 </div>
+
             </div>
 
-            <!-- CASE 02 -->
-            <div class="case-card" onclick="showCase('parking',2)">
+
+            <div class="case-card"
+                 onclick="showCase('parking',2)">
+
                 <div class="case-top">
-                    <div class="case-number">CASE 02</div>
-                    <div class="status success">SUCCESS — 100%</div>
+
+                    <div class="case-number">
+                        CASE 02
+                    </div>
+
+                    <div class="status success">
+                        SUCCESS — 100%
+                    </div>
+
                 </div>
 
                 <div class="case-info">
-                    <strong>Fingerprint:</strong> ARM12HHCE9KZ19R<br>
-                    <strong>Incident:</strong> سرقة Parking Meter<br>
-                    <strong>Officer:</strong> Faisal Alshehri — 390
+
+                    <strong>Fingerprint:</strong>
+                    ARM12HHCE9KZ19R
+                    <br>
+
+                    <strong>Incident:</strong>
+                    سرقة Parking Meter
+                    <br>
+
+                    <strong>Officer:</strong>
+                    Faisal Alshehri — 390
+
                 </div>
+
             </div>
 
-            <!-- CASE 03 -->
-            <div class="case-card" onclick="showCase('parking',3)">
+
+            <div class="case-card"
+                 onclick="showCase('parking',3)">
+
                 <div class="case-top">
-                    <div class="case-number">CASE 03</div>
-                    <div class="status success">SUCCESS — 100%</div>
+
+                    <div class="case-number">
+                        CASE 03
+                    </div>
+
+                    <div class="status success">
+                        SUCCESS — 100%
+                    </div>
+
                 </div>
 
                 <div class="case-info">
-                    <strong>Fingerprint:</strong> V230S6DD1YSB5QZ<br>
-                    <strong>Incident:</strong> Parking Meter<br>
-                    <strong>Officer:</strong> Mohammed Talal — 379
+
+                    <strong>Fingerprint:</strong>
+                    V230S6DD1YSB5QZ
+                    <br>
+
+                    <strong>Incident:</strong>
+                    Parking Meter
+                    <br>
+
+                    <strong>Officer:</strong>
+                    Mohammed Talal — 379
+
                 </div>
+
             </div>
 
-            <!-- CASE 04 -->
-            <div class="case-card" onclick="showCase('parking',4)">
+
+            <div class="case-card"
+                 onclick="showCase('parking',4)">
+
                 <div class="case-top">
-                    <div class="case-number">CASE 04</div>
-                    <div class="status success">SUCCESS — 100%</div>
+
+                    <div class="case-number">
+                        CASE 04
+                    </div>
+
+                    <div class="status success">
+                        SUCCESS — 100%
+                    </div>
+
                 </div>
 
                 <div class="case-info">
-                    <strong>Fingerprint:</strong> 8KGKRKLM24UO82J<br>
-                    <strong>Incident:</strong> Parking Meter<br>
-                    <strong>Officer:</strong> Lucas Hod — 391
+
+                    <strong>Fingerprint:</strong>
+                    8KGKRKLM24UO82J
+                    <br>
+
+                    <strong>Incident:</strong>
+                    Parking Meter
+                    <br>
+
+                    <strong>Officer:</strong>
+                    Lucas Hod — 391
+
                 </div>
+
             </div>
 
-            <!-- CASE 05 -->
-            <div class="case-card" onclick="showCase('parking',5)">
+
+            <div class="case-card"
+                 onclick="showCase('parking',5)">
+
                 <div class="case-top">
-                    <div class="case-number">CASE 05</div>
-                    <div class="status success">SUCCESS — 100%</div>
+
+                    <div class="case-number">
+                        CASE 05
+                    </div>
+
+                    <div class="status success">
+                        SUCCESS — 100%
+                    </div>
+
                 </div>
 
                 <div class="case-info">
-                    <strong>Fingerprint:</strong> X653659YE3632CW<br>
-                    <strong>Incident:</strong> Parking Meter<br>
-                    <strong>Officer:</strong> Lucas Hod — 391
+
+                    <strong>Fingerprint:</strong>
+                    X653659YE3632CW
+                    <br>
+
+                    <strong>Incident:</strong>
+                    Parking Meter
+                    <br>
+
+                    <strong>Officer:</strong>
+                    Lucas Hod — 391
+
                 </div>
+
             </div>
 
         </div>
+
     </div>
 
 
-    <!-- STORE CASES -->
+    <!-- STORE -->
+
     <div id="store" class="page">
 
         <div class="section-title">
-            <h2>🏪 STORE CASES</h2>
-            <button class="back-btn" onclick="closeAll()">← Back</button>
+
+            <h2>
+                🏪 STORE CASES
+            </h2>
+
+            <button class="back-btn" onclick="closeAll()">
+                ← Back
+            </button>
+
         </div>
+
 
         <div class="cases">
 
-            <!-- STORE CASE 01 -->
-            <div class="case-card" onclick="showCase('store',1)">
+            <div class="case-card"
+                 onclick="showCase('store',1)">
+
                 <div class="case-top">
-                    <div class="case-number">CASE 01</div>
-                    <div class="status success">SUCCESS — 100%</div>
+
+                    <div class="case-number">
+                        CASE 01
+                    </div>
+
+                    <div class="status success">
+                        SUCCESS — 100%
+                    </div>
+
                 </div>
 
                 <div class="case-info">
-                    <strong>Fingerprint:</strong> P76UY7QTPC91023<br>
-                    <strong>Incident:</strong> Store Robbery<br>
-                    <strong>Officer:</strong> Lucas Hod — 391
+
+                    <strong>Fingerprint:</strong>
+                    P76UY7QTPC91023
+                    <br>
+
+                    <strong>Incident:</strong>
+                    Store Robbery
+                    <br>
+
+                    <strong>Officer:</strong>
+                    Lucas Hod — 391
+
                 </div>
+
             </div>
 
-            <!-- STORE CASE 02 -->
-            <div class="case-card" onclick="showCase('store',2)">
+
+            <div class="case-card"
+                 onclick="showCase('store',2)">
+
                 <div class="case-top">
-                    <div class="case-number">CASE 02</div>
-                    <div class="status success">SUCCESS — 100%</div>
+
+                    <div class="case-number">
+                        CASE 02
+                    </div>
+
+                    <div class="status success">
+                        SUCCESS — 100%
+                    </div>
+
                 </div>
 
                 <div class="case-info">
-                    <strong>Fingerprint:</strong> E44UY3E1169808K<br>
-                    <strong>Incident:</strong> Store Robbery<br>
-                    <strong>Officer:</strong> Lucas Hod — 391
+
+                    <strong>Fingerprint:</strong>
+                    E44UY3E1169808K
+                    <br>
+
+                    <strong>Incident:</strong>
+                    Store Robbery
+                    <br>
+
+                    <strong>Officer:</strong>
+                    Lucas Hod — 391
+
                 </div>
+
             </div>
 
-            <!-- STORE CASE 03 -->
-            <div class="case-card" onclick="showCase('store',3)">
+
+            <div class="case-card"
+                 onclick="showCase('store',3)">
+
                 <div class="case-top">
-                    <div class="case-number">CASE 03</div>
-                    <div class="status success">SUCCESS — 100%</div>
+
+                    <div class="case-number">
+                        CASE 03
+                    </div>
+
+                    <div class="status success">
+                        SUCCESS — 100%
+                    </div>
+
                 </div>
 
                 <div class="case-info">
-                    <strong>Fingerprint:</strong> ZCXYMH69D89B209<br>
-                    <strong>Incident:</strong> Store Robbery<br>
-                    <strong>Officer:</strong> Mohammed Talal — 379
+
+                    <strong>Fingerprint:</strong>
+                    ZCXYMH69D89B209
+                    <br>
+
+                    <strong>Incident:</strong>
+                    Store Robbery
+                    <br>
+
+                    <strong>Officer:</strong>
+                    Mohammed Talal — 379
+
                 </div>
+
             </div>
 
         </div>
+
     </div>
 
 
-    <!-- HOUSE CASES -->
+    <!-- HOUSE -->
+
     <div id="house" class="page">
 
         <div class="section-title">
-            <h2>🏠 HOUSE CASES</h2>
-            <button class="back-btn" onclick="closeAll()">← Back</button>
+
+            <h2>
+                🏠 HOUSE CASES
+            </h2>
+
+            <button class="back-btn" onclick="closeAll()">
+                ← Back
+            </button>
+
         </div>
+
 
         <div class="cases">
 
-            <!-- HOUSE CASE 01 -->
-            <div class="case-card" onclick="showCase('house',1)">
+            <div class="case-card"
+                 onclick="showCase('house',1)">
+
                 <div class="case-top">
-                    <div class="case-number">CASE 01</div>
-                    <div class="status success">SUCCESS — 100%</div>
+
+                    <div class="case-number">
+                        CASE 01
+                    </div>
+
+                    <div class="status success">
+                        SUCCESS — 100%
+                    </div>
+
                 </div>
 
                 <div class="case-info">
-                    <strong>Fingerprint:</strong> 1R665O249FYTB68<br>
-                    <strong>Incident:</strong> House Robbery<br>
-                    <strong>Officers:</strong> Mohammed Talal — 379 | Lucas Hod — 391
+
+                    <strong>Fingerprint:</strong>
+                    1R665O249FYTB68
+                    <br>
+
+                    <strong>Incident:</strong>
+                    House Robbery
+                    <br>
+
+                    <strong>Officers:</strong>
+                    Mohammed Talal — 379 | Lucas Hod — 391
+
                 </div>
+
             </div>
 
         </div>
+
     </div>
 
 
     <!-- DETAIL -->
+
     <div id="detail" class="page">
 
         <div class="detail">
 
             <div class="detail-header">
-                <h2 id="detailTitle">CASE</h2>
-                <button class="back-btn" onclick="backToCases()">← Back to Cases</button>
+
+                <h2 id="detailTitle">
+                    CASE
+                </h2>
+
+                <button class="back-btn"
+                        onclick="backToCases()">
+                    ← Back to Cases
+                </button>
+
             </div>
+
 
             <div class="grid">
 
                 <div class="info-box">
-                    <div class="info-label">Case Status</div>
-                    <div class="info-value" id="detailStatus"></div>
+
+                    <div class="info-label">
+                        Case Status
+                    </div>
+
+                    <div class="info-value"
+                         id="detailStatus">
+                    </div>
+
                 </div>
 
-                <div class="info-box">
-                    <div class="info-label">Fingerprint</div>
-                    <div class="info-value" id="detailFingerprint"></div>
-                </div>
 
                 <div class="info-box">
-                    <div class="info-label">Incident Type</div>
-                    <div class="info-value" id="detailIncident"></div>
+
+                    <div class="info-label">
+                        Fingerprint
+                    </div>
+
+                    <div class="info-value"
+                         id="detailFingerprint">
+                    </div>
+
                 </div>
 
-                <div class="info-box">
-                    <div class="info-label">Evidence / Items</div>
-                    <div class="info-value" id="detailItems"></div>
-                </div>
 
                 <div class="info-box">
-                    <div class="info-label">Team Member</div>
-                    <div class="info-value" id="detailTeam"></div>
+
+                    <div class="info-label">
+                        Incident Type
+                    </div>
+
+                    <div class="info-value"
+                         id="detailIncident">
+                    </div>
+
+                </div>
+
+
+                <div class="info-box">
+
+                    <div class="info-label">
+                        Evidence / Items
+                    </div>
+
+                    <div class="info-value"
+                         id="detailItems">
+                    </div>
+
+                </div>
+
+
+                <div class="info-box">
+
+                    <div class="info-label">
+                        Team Member
+                    </div>
+
+                    <div class="info-value"
+                         id="detailTeam">
+                    </div>
+
                 </div>
 
             </div>
+
 
             <div class="report">
 
-                <h3>INCIDENT REPORT</h3>
+                <h3>
+                    INCIDENT REPORT
+                </h3>
 
                 <div class="report-box">
-                    <div class="report-text" id="detailReport"></div>
+
+                    <div class="report-text"
+                         id="detailReport">
+                    </div>
+
                 </div>
 
             </div>
 
-            <div class="evidence" id="evidenceSection">
 
-                <h3>EVIDENCE / SCREENSHOTS</h3>
+            <div class="evidence"
+                 id="evidenceSection">
 
-                <div class="gallery" id="gallery"></div>
+                <h3>
+                    EVIDENCE / SCREENSHOTS
+                </h3>
+
+                <div class="gallery"
+                     id="gallery">
+                </div>
 
             </div>
 
@@ -767,11 +1281,17 @@ body{
 
 <!-- LIGHTBOX -->
 
-<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+<div class="lightbox"
+     id="lightbox"
+     onclick="closeLightbox()">
 
-    <div class="close-lightbox">×</div>
+    <div class="close-lightbox">
+        ×
+    </div>
 
-    <img id="lightboxImg" src="" onclick="event.stopPropagation()">
+    <img id="lightboxImg"
+         src=""
+         onclick="event.stopPropagation()">
 
 </div>
 
@@ -782,12 +1302,13 @@ const cases = {
 
     parking: {
 
-        1: {
+        1:{
             status:"SUCCESS — 100%",
             fingerprint:"DVB7K0FRKHH394Q",
             incident:"سرقة Parking Meter",
             items:"Hack Device – Hook Pick – Cash",
             team:"Faisal Alshehri — 390",
+
             report:`تقرير تدخل أمني
 
 أثناء قيامي بدوريتي الاعتيادية، تلقيت توجيهاً من Dispatch بالتوجه إلى موجة 2 من أجل تقديم الدعم لزملائي في تدخل أمني يتعلق بحالة سرقة Parking Meter.
@@ -814,12 +1335,13 @@ Cash
             ]
         },
 
-        2: {
+        2:{
             status:"SUCCESS — 100%",
             fingerprint:"ARM12HHCE9KZ19R",
             incident:"سرقة Parking Meter",
             items:"Hack Device ×2 – Cash",
             team:"Faisal Alshehri — 390",
+
             report:`تقرير تدخل أمني
 
 أثناء قيامي بدوريتي الاعتيادية، تلقيت بلاغاً من Dispatch بالتوجه إلى موجة 6 من أجل تقديم الدعم لزملائي في حالة سرقة Parking Meter.
@@ -840,12 +1362,13 @@ Cash
             ]
         },
 
-        3: {
+        3:{
             status:"SUCCESS — 100%",
             fingerprint:"V230S6DD1YSB5QZ",
             incident:"Parking Meter",
             items:"Bucher Knife – Cash – Hack Device – Hook Pick ×4",
             team:"Mohammed Talal — 379",
+
             report:`تقرير تدخل أمني
 
 أثناء قيامي بدوريتي الاعتيادية، تلقيت توجيهاً من Dispatch بالتوجه إلى موجة 6 من أجل تقديم الدعم لزملائي في حالة سرقة Parking Meter.
@@ -869,12 +1392,13 @@ Hook Pick ×4
             ]
         },
 
-        4: {
+        4:{
             status:"SUCCESS — 100%",
             fingerprint:"8KGKRKLM24UO82J",
             incident:"Parking Meter",
             items:"Hack Device – Hammer – Cash – Hook Pick",
             team:"Lucas Hod — 391",
+
             report:`تقرير تدخل أمني
 
 أثناء قيامي بدوريتي الاعتيادية، لاحظت وجود شخصين مشتبه فيهما يرتديان ملابس سوداء ويستعملان سيارة خضراء، وكانا يقومان بسرقة Parking Meter.
@@ -898,12 +1422,13 @@ Hook Pick
             ]
         },
 
-        5: {
+        5:{
             status:"SUCCESS — 100%",
             fingerprint:"X653659YE3632CW",
             incident:"Parking Meter",
             items:"Hack Device – Cash – Lockpick ×3",
             team:"Lucas Hod — 391",
+
             report:`تقرير تدخل أمني
 
 البصمة : X653659YE3632CW
@@ -940,12 +1465,13 @@ Lockpick ×3
 
     store: {
 
-        1: {
+        1:{
             status:"SUCCESS — 100%",
             fingerprint:"P76UY7QTPC91023",
             incident:"Store Robbery",
             items:"Hook Pick ×4 – Cash",
             team:"Lucas Hod — 391",
+
             report:`تقرير تدخل أمني
 
 البصمة: P76UY7QTPC91023
@@ -977,12 +1503,13 @@ Cash
             ]
         },
 
-        2: {
+        2:{
             status:"SUCCESS — 100%",
             fingerprint:"E44UY3E1169808K",
             incident:"Store Robbery",
             items:"Hook Pick ×4",
             team:"Lucas Hod — 391",
+
             report:`تقرير تدخل أمني
 
 البصمة: E44UY3E1169808K
@@ -1009,12 +1536,13 @@ Hook Pick ×4
             ]
         },
 
-        3: {
+        3:{
             status:"SUCCESS — 100%",
             fingerprint:"ZCXYMH69D89B209",
             incident:"Store Robbery",
             items:"Hook Pick ×3 – Sticky Note ×3 – Cash",
             team:"Mohammed Talal — 379",
+
             report:`تقرير تدخل أمني
 
 البصمة: ZCXYMH69D89B209
@@ -1051,12 +1579,13 @@ Cash
 
     house: {
 
-        1: {
+        1:{
             status:"SUCCESS — 100%",
             fingerprint:"1R665O249FYTB68",
             incident:"House Robbery",
             items:"UK Machette ZK – UK Russian Magazin",
             team:"Mohammed Talal — 379 | Lucas Hod — 391",
+
             report:`تقرير تدخل أمني
 
 البصمة: 1R665O249FYTB68
@@ -1092,15 +1621,23 @@ UK Russian Magazin
 };
 
 
+/* CURRENT CATEGORY */
+
+let currentCategory = "home";
+
+
 /* SHOW CATEGORY */
 
 function showCategory(category){
+
+    currentCategory = category;
 
     document.querySelectorAll(".page").forEach(page=>{
         page.classList.remove("active");
     });
 
-    document.getElementById(category).classList.add("active");
+    document.getElementById(category)
+        .classList.add("active");
 
     window.scrollTo({
         top:0,
@@ -1113,56 +1650,73 @@ function showCategory(category){
 
 function showCase(category,caseNumber){
 
-    const data = cases[category][caseNumber];
-
     currentCategory = category;
+
+    const data = cases[category][caseNumber];
 
     document.querySelectorAll(".page").forEach(page=>{
         page.classList.remove("active");
     });
 
-    document.getElementById("detail").classList.add("active");
+    document.getElementById("detail")
+        .classList.add("active");
 
-    document.getElementById("detailTitle").textContent =
-        category.toUpperCase() + " — CASE " + String(caseNumber).padStart(2,"0");
+    document.getElementById("detailTitle")
+        .textContent =
+        category.toUpperCase() +
+        " — CASE " +
+        String(caseNumber).padStart(2,"0");
 
-    document.getElementById("detailStatus").textContent =
-        data.status;
+    document.getElementById("detailStatus")
+        .textContent = data.status;
 
-    document.getElementById("detailFingerprint").textContent =
-        data.fingerprint;
+    document.getElementById("detailFingerprint")
+        .textContent = data.fingerprint;
 
-    document.getElementById("detailIncident").textContent =
-        data.incident;
+    document.getElementById("detailIncident")
+        .textContent = data.incident;
 
-    document.getElementById("detailItems").textContent =
-        data.items;
+    document.getElementById("detailItems")
+        .textContent = data.items;
 
-    document.getElementById("detailTeam").textContent =
-        data.team;
+    document.getElementById("detailTeam")
+        .textContent = data.team;
 
-    document.getElementById("detailReport").textContent =
-        data.report;
+    document.getElementById("detailReport")
+        .textContent = data.report;
 
-    const gallery = document.getElementById("gallery");
+
+    const gallery =
+        document.getElementById("gallery");
+
 
     gallery.innerHTML = "";
 
+
     if(data.images && data.images.length > 0){
 
-        document.getElementById("evidenceSection").style.display = "block";
+        document.getElementById(
+            "evidenceSection"
+        ).style.display = "block";
+
 
         data.images.forEach(url=>{
 
-            const img = document.createElement("img");
+            const img =
+                document.createElement("img");
 
             img.src = url;
+
             img.alt = "Evidence";
+
             img.loading = "lazy";
 
             img.onclick = function(event){
+
                 event.stopPropagation();
+
                 openLightbox(url);
+
             };
 
             gallery.appendChild(img);
@@ -1171,9 +1725,12 @@ function showCase(category,caseNumber){
 
     }else{
 
-        document.getElementById("evidenceSection").style.display = "none";
+        document.getElementById(
+            "evidenceSection"
+        ).style.display = "none";
 
     }
+
 
     window.scrollTo({
         top:0,
@@ -1190,7 +1747,9 @@ function backToCases(){
         page.classList.remove("active");
     });
 
-    document.getElementById(currentCategory).classList.add("active");
+    document.getElementById(
+        currentCategory
+    ).classList.add("active");
 
     window.scrollTo({
         top:0,
@@ -1207,7 +1766,10 @@ function closeAll(){
         page.classList.remove("active");
     });
 
-    document.getElementById("home").classList.add("active");
+    document.getElementById("home")
+        .classList.add("active");
+
+    currentCategory = "home";
 
     window.scrollTo({
         top:0,
@@ -1220,29 +1782,40 @@ function closeAll(){
 
 function openLightbox(url){
 
-    document.getElementById("lightboxImg").src = url;
+    document.getElementById(
+        "lightboxImg"
+    ).src = url;
 
-    document.getElementById("lightbox").style.display = "flex";
+    document.getElementById(
+        "lightbox"
+    ).style.display = "flex";
 }
 
 
 function closeLightbox(){
 
-    document.getElementById("lightbox").style.display = "none";
+    document.getElementById(
+        "lightbox"
+    ).style.display = "none";
 
-    document.getElementById("lightboxImg").src = "";
+    document.getElementById(
+        "lightboxImg"
+    ).src = "";
 }
 
 
 /* ESCAPE */
 
-document.addEventListener("keydown",function(event){
+document.addEventListener(
+    "keydown",
+    function(event){
 
-    if(event.key === "Escape"){
-        closeLightbox();
+        if(event.key === "Escape"){
+            closeLightbox();
+        }
+
     }
-
-});
+);
 
 </script>
 
