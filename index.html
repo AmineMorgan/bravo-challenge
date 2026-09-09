@@ -197,6 +197,27 @@ body{
     font-size:13px;
 }
 
+/* =========================
+   QUEST COMPLETION
+========================= */
+
+.quest-completion{
+    display:inline-block;
+    margin-top:12px;
+    color:#8cf0ae !important;
+    background:rgba(43,150,75,.13);
+    border:1px solid rgba(81,193,108,.35);
+    border-radius:20px;
+    padding:7px 15px;
+    font-size:11px !important;
+    font-weight:bold;
+    letter-spacing:1.5px;
+}
+
+/* =========================
+   QUEST CATEGORIES
+========================= */
+
 .quest-categories{
     display:grid;
     grid-template-columns:repeat(3,1fr);
@@ -295,6 +316,21 @@ body{
     background:rgba(255,215,0,.13);
     box-shadow:0 0 20px rgba(255,215,0,.2);
     transform:translateY(-3px);
+}
+
+.top-member small{
+    display:block;
+    margin-top:7px;
+    color:#ffffff;
+    font-size:12px;
+    font-weight:normal;
+}
+
+.admin-label{
+    margin-top:7px;
+    color:#ffd700;
+    font-size:11px;
+    font-weight:bold;
 }
 
 /* =========================
@@ -784,7 +820,9 @@ body{
 
 <div class="container">
 
-    <!-- HEADER -->
+    <!-- =========================
+         HEADER
+    ========================== -->
 
     <div class="header">
 
@@ -821,7 +859,7 @@ body{
                 </div>
 
                 <h2>
-                    QUEST
+                    #5 QUEST
                 </h2>
 
                 <span class="quest-from">
@@ -865,7 +903,9 @@ body{
 
                     <div>
 
-                        Dark — Abdulilah Nawaf
+                        <strong>
+                            Dark — Abdulilah Nawaf
+                        </strong>
 
                         <small>
                             Sergeant • Police Wings Management
@@ -885,7 +925,9 @@ body{
 
                     <div>
 
-                        Feras — Feras BinOmar
+                        <strong>
+                            Feras — Feras BinOmar
+                        </strong>
 
                         <small>
                             Senior Lead Officer • Police Academy Section Leader
@@ -905,7 +947,9 @@ body{
 
                     <div>
 
-                        Qassim — Shaheen Hamad
+                        <strong>
+                            Qassim — Shaheen Hamad
+                        </strong>
 
                         <small>
                             Senior Officer • Internal Affairs Management
@@ -922,7 +966,9 @@ body{
             </div>
 
 
-            <!-- MEMBER PROFILE -->
+            <!-- =========================
+                 MEMBER PROFILE
+            ========================== -->
 
             <div id="memberProfile"
                  class="member-profile">
@@ -1007,7 +1053,9 @@ body{
             </div>
 
 
-            <!-- BLUE MEMBERS -->
+            <!-- =========================
+                 BLUE MEMBERS
+            ========================== -->
 
             <div class="squad-grid">
 
@@ -1055,6 +1103,7 @@ body{
                      onclick="showMemberProfile('mario')">
                     Mario — Mario Smith
                 </div>
+
 
                 <!-- NEW BLUE MEMBERS -->
 
@@ -1107,6 +1156,7 @@ body{
                      onclick="showMemberProfile('faisalAlshehri')">
                     Faisal — Faisal Alshehri
                 </div>
+
 
                 <!-- EXISTING BLUE -->
 
@@ -1234,8 +1284,12 @@ body{
             </h2>
 
             <p>
-                MISSION COMPLETE — 100%
+                MISSION COMPLETE
             </p>
+
+            <span class="quest-completion">
+                100% COMPLETE
+            </span>
 
         </div>
 
@@ -1261,24 +1315,6 @@ body{
 
 
             <div class="quest-category"
-                 onclick="showCategory('house')">
-
-                <div class="category-icon">
-                    🏠
-                </div>
-
-                <h3>
-                    HOUSE
-                </h3>
-
-                <span>
-                    1 Case
-                </span>
-
-            </div>
-
-
-            <div class="quest-category"
                  onclick="showCategory('store')">
 
                 <div class="category-icon">
@@ -1291,6 +1327,24 @@ body{
 
                 <span>
                     3 Cases
+                </span>
+
+            </div>
+
+
+            <div class="quest-category"
+                 onclick="showCategory('house')">
+
+                <div class="category-icon">
+                    🏠
+                </div>
+
+                <h3>
+                    HOUSE
+                </h3>
+
+                <span>
+                    1 Case
                 </span>
 
             </div>
