@@ -98,6 +98,59 @@ body{
     font-size:13px;
 }
 
+/* SQUAD */
+
+.squad-section{
+    margin-top:45px;
+    background:rgba(12,17,25,.88);
+    border:1px solid #293140;
+    border-radius:18px;
+    padding:30px;
+}
+
+.squad-title{
+    text-align:center;
+    margin-bottom:25px;
+}
+
+.squad-title h2{
+    font-size:25px;
+    letter-spacing:3px;
+    margin-bottom:8px;
+}
+
+.squad-title p{
+    color:#718096;
+    font-size:13px;
+}
+
+.squad-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+}
+
+.member{
+    background:#101620;
+    border:1px solid #252e3d;
+    border-radius:10px;
+    padding:14px 12px;
+    text-align:center;
+    color:#cfd6e1;
+    font-size:13px;
+    min-height:48px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    transition:.2s;
+}
+
+.member:hover{
+    border-color:#59677c;
+    background:#151c28;
+    transform:translateY(-2px);
+}
+
 /* CASES */
 
 .section-title{
@@ -330,6 +383,13 @@ body{
 
 /* MOBILE */
 
+@media(max-width:900px){
+
+    .squad-grid{
+        grid-template-columns:repeat(3,1fr);
+    }
+}
+
 @media(max-width:800px){
 
     .categories{
@@ -348,6 +408,10 @@ body{
         grid-template-columns:1fr;
     }
 
+    .squad-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
     .header h1{
         font-size:34px;
     }
@@ -360,6 +424,13 @@ body{
         flex-direction:column;
         align-items:flex-start;
         gap:15px;
+    }
+}
+
+@media(max-width:450px){
+
+    .squad-grid{
+        grid-template-columns:1fr;
     }
 }
 </style>
@@ -400,7 +471,67 @@ body{
             </div>
 
         </div>
+
+        <!-- BRAVO SQUAD MEMBER -->
+        <div class="squad-section">
+
+            <div class="squad-title">
+                <h2>BRAVO SQUAD MEMBER</h2>
+                <p>Bravo Squad Members</p>
+            </div>
+
+            <div class="squad-grid">
+
+                <div class="member">Dark — Abdulilah Nawaf</div>
+                <div class="member">Feras — Feras BinOmar</div>
+                <div class="member">Qassim — Shaheen Hamad 7sosah</div>
+                <div class="member">HOSSAM ALMUTAIRI — BAA</div>
+                <div class="member">Bader Abdullah — OrewaSaad</div>
+                <div class="member">Jin Freecs — FAISAL</div>
+                <div class="member">JUMMAH ALZAHRANI — MT</div>
+                <div class="member">RealWeep — Thiago Morgan</div>
+                <div class="member">! Attaf — Abdullah Attaf</div>
+                <div class="member">M T 3 B — VOID Barrett</div>
+                <div class="member">RAedd — Raedd Ibrahim</div>
+                <div class="member">Mario — Mario Smith</div>
+                <div class="member">Dktrr — Ahmed Al-Qahtani</div>
+                <div class="member">Layla — Layla Almutairi</div>
+                <div class="member">RAYAN — SHILAYWAYH ALHARBI</div>
+                <div class="member">MT | Tom — Tom Chandler</div>
+                <div class="member">FAISAL — Faisal Failachwe</div>
+                <div class="member">NF3A — Nawaf Abdullah</div>
+                <div class="member">! Bara'a — Baraa Chandler</div>
+                <div class="member">Rashed — Rashed AlHarbi</div>
+                <div class="member">Abdullah — Abdullah Al-Zahrani</div>
+                <div class="member">Bin Talal — Mohammed Talal</div>
+                <div class="member">Faisal — Faisal Alshehri</div>
+                <div class="member">Amine_MxH — Amine Morgan</div>
+                <div class="member">Abu Saleh — David Rick</div>
+                <div class="member">D7i — Abdulrahman Al-Hakami</div>
+                <div class="member">Tea — Thaar Alotaibi</div>
+                <div class="member">966abdullah — GHYATH ALDOSSARY</div>
+                <div class="member">sAAD — Saad Alsubaie</div>
+                <div class="member">Tariq — Tariq Waleed</div>
+                <div class="member">NA_Y52 — Yazeed Meshal</div>
+                <div class="member">Botangy — Lattam Bobsheet</div>
+                <div class="member">Br1ghtSide — Kai Proctor</div>
+                <div class="member">WOLF — Omar AlMutairi</div>
+                <div class="member">V N X — Lucas Hod</div>
+                <div class="member">Alhajri — MOHAMMED ALHAJRI</div>
+                <div class="member">AJ — MOHAMMED ALHAJRI</div>
+                <div class="member">Rï0 — Rayan Al-Harbi</div>
+                <div class="member">Shgardii — Mohammed Almeri</div>
+                <div class="member">Hasan — Hasan Alsharif</div>
+                <div class="member">! Fly — Robert Navarro</div>
+                <div class="member">Musaad — Musaad BinAbdullah</div>
+                <div class="member">!os.qr2 — Zeyad Omar</div>
+
+            </div>
+
+        </div>
+
     </div>
+
 
     <!-- PARKING CASES -->
     <div id="parking" class="page">
@@ -485,6 +616,7 @@ body{
         </div>
     </div>
 
+
     <!-- STORE CASES -->
     <div id="store" class="page">
 
@@ -540,6 +672,7 @@ body{
         </div>
     </div>
 
+
     <!-- HOUSE CASES -->
     <div id="house" class="page">
 
@@ -566,6 +699,7 @@ body{
 
         </div>
     </div>
+
 
     <!-- DETAIL -->
     <div id="detail" class="page">
@@ -630,6 +764,7 @@ body{
 
 </div>
 
+
 <!-- LIGHTBOX -->
 
 <div class="lightbox" id="lightbox" onclick="closeLightbox()">
@@ -639,6 +774,7 @@ body{
     <img id="lightboxImg" src="" onclick="event.stopPropagation()">
 
 </div>
+
 
 <script>
 
@@ -801,6 +937,7 @@ Lockpick ×3
 
     },
 
+
     store: {
 
         1: {
@@ -911,6 +1048,7 @@ Cash
 
     },
 
+
     house: {
 
         1: {
@@ -963,6 +1101,11 @@ function showCategory(category){
     });
 
     document.getElementById(category).classList.add("active");
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
 }
 
 
@@ -971,6 +1114,8 @@ function showCategory(category){
 function showCase(category,caseNumber){
 
     const data = cases[category][caseNumber];
+
+    currentCategory = category;
 
     document.querySelectorAll(".page").forEach(page=>{
         page.classList.remove("active");
@@ -1012,9 +1157,7 @@ function showCase(category,caseNumber){
             const img = document.createElement("img");
 
             img.src = url;
-
             img.alt = "Evidence";
-
             img.loading = "lazy";
 
             img.onclick = function(event){
@@ -1032,6 +1175,10 @@ function showCase(category,caseNumber){
 
     }
 
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
 }
 
 
@@ -1043,9 +1190,12 @@ function backToCases(){
         page.classList.remove("active");
     });
 
-    document.getElementById(
-        currentCategory
-    ).classList.add("active");
+    document.getElementById(currentCategory).classList.add("active");
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
 }
 
 
@@ -1058,6 +1208,11 @@ function closeAll(){
     });
 
     document.getElementById("home").classList.add("active");
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
 }
 
 
@@ -1077,33 +1232,6 @@ function closeLightbox(){
 
     document.getElementById("lightboxImg").src = "";
 }
-
-
-/* TRACK CURRENT CATEGORY */
-
-let currentCategory = "home";
-
-
-const originalShowCategory = showCategory;
-
-showCategory = function(category){
-
-    currentCategory = category;
-
-    originalShowCategory(category);
-
-};
-
-
-const originalShowCase = showCase;
-
-showCase = function(category,caseNumber){
-
-    currentCategory = category;
-
-    originalShowCase(category,caseNumber);
-
-};
 
 
 /* ESCAPE */
