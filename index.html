@@ -27,8 +27,6 @@ body{
     padding:30px 20px 60px;
 }
 
-/* HEADER */
-
 .header{
     text-align:center;
     margin-bottom:45px;
@@ -58,7 +56,9 @@ body{
     font-size:15px;
 }
 
-/* CATEGORIES */
+/* =========================
+   CATEGORIES
+========================= */
 
 .categories{
     display:grid;
@@ -98,7 +98,146 @@ body{
     font-size:13px;
 }
 
-/* SQUAD */
+/* =========================
+   AMINE QUEST
+========================= */
+
+.quest-card{
+    grid-column:1 / -1;
+    max-width:650px;
+    width:100%;
+    margin:auto;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(33,150,243,.12),
+            rgba(17,22,32,.94)
+        );
+
+    border:1px solid #2196ff;
+
+    box-shadow:
+        0 0 18px rgba(33,150,243,.12),
+        0 0 40px rgba(33,150,243,.04);
+
+    position:relative;
+    overflow:hidden;
+}
+
+.quest-card:hover{
+    border-color:#73b9ff;
+
+    background:
+        linear-gradient(
+            135deg,
+            rgba(33,150,243,.18),
+            rgba(21,27,39,.97)
+        );
+
+    box-shadow:
+        0 0 25px rgba(33,150,243,.22),
+        0 0 50px rgba(33,150,243,.08);
+}
+
+.quest-card .category-icon{
+    color:#4da6ff;
+    font-size:48px;
+    font-weight:bold;
+    text-shadow:0 0 15px rgba(77,166,255,.4);
+}
+
+.quest-card h2{
+    color:#ffffff;
+    font-size:24px;
+    letter-spacing:3px;
+    margin-bottom:10px;
+}
+
+.quest-from{
+    color:#4da6ff !important;
+    font-size:13px !important;
+    font-weight:bold;
+    letter-spacing:2px;
+    text-transform:uppercase;
+    display:block;
+    margin-bottom:12px;
+}
+
+.quest-complete{
+    display:inline-block;
+    color:#8cf0ae !important;
+    background:rgba(43,150,75,.13);
+    border:1px solid rgba(81,193,108,.35);
+    border-radius:20px;
+    padding:7px 14px;
+    font-size:11px !important;
+    font-weight:bold;
+    letter-spacing:1.5px;
+}
+
+/* =========================
+   QUEST PAGE
+========================= */
+
+.quest-header{
+    text-align:center;
+    margin-bottom:30px;
+}
+
+.quest-header h2{
+    font-size:27px;
+    letter-spacing:3px;
+    margin-bottom:8px;
+    color:#4da6ff;
+}
+
+.quest-header p{
+    color:#718096;
+    font-size:13px;
+}
+
+.quest-categories{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+}
+
+.quest-category{
+    background:rgba(17,22,32,.88);
+    border:1px solid #293140;
+    border-radius:18px;
+    padding:40px 25px;
+    text-align:center;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.quest-category:hover{
+    transform:translateY(-5px);
+    border-color:#4da6ff;
+    background:#151b27;
+    box-shadow:0 0 22px rgba(33,150,243,.10);
+}
+
+.quest-category .category-icon{
+    font-size:45px;
+}
+
+.quest-category h3{
+    font-size:21px;
+    letter-spacing:2px;
+    margin-bottom:8px;
+}
+
+.quest-category span{
+    color:#778296;
+    font-size:13px;
+}
+
+/* =========================
+   SQUAD
+========================= */
 
 .squad-section{
     margin-top:45px;
@@ -124,7 +263,9 @@ body{
     font-size:13px;
 }
 
-/* TOP MEMBERS */
+/* =========================
+   TOP MEMBERS
+========================= */
 
 .top-members{
     display:flex;
@@ -145,6 +286,7 @@ body{
     box-shadow:0 0 15px rgba(255,215,0,.12);
     cursor:pointer;
     position:relative;
+    transition:.25s;
 }
 
 .top-member:hover{
@@ -155,16 +297,20 @@ body{
     transform:translateY(-3px);
 }
 
-/* BLUE MEMBERS */
+/* =========================
+   BLUE MEMBERS
+========================= */
 
 .blue-member{
     color:#4da6ff !important;
     border:1px solid #2196ff !important;
     background:rgba(33,150,243,.08) !important;
     font-weight:bold !important;
+
     box-shadow:
         0 0 15px rgba(33,150,243,.12),
         0 0 30px rgba(33,150,243,.04);
+
     cursor:pointer;
     position:relative;
     transition:.25s !important;
@@ -173,38 +319,22 @@ body{
 .blue-member:hover{
     color:#73b9ff !important;
     border-color:#73b9ff !important;
+
     background:rgba(33,150,243,.13) !important;
+
     box-shadow:
         0 0 20px rgba(33,150,243,.2),
         0 0 35px rgba(33,150,243,.08);
+
     transform:translateY(-3px);
-    text-shadow:0 0 8px rgba(77,166,255,.45);
+
+    text-shadow:
+        0 0 8px rgba(77,166,255,.45);
 }
 
-.blue-member .admin-label{
-    color:#4da6ff;
-}
-
-/* RANK / WINGS */
-
-.top-member small{
-    display:block;
-    color:#aeb6c5;
-    font-size:10px;
-    font-weight:normal;
-    margin-top:5px;
-    letter-spacing:.5px;
-}
-
-.top-member .admin-label{
-    color:#ffd700;
-    font-size:10px;
-    margin-top:3px;
-    text-transform:uppercase;
-    letter-spacing:1px;
-}
-
-/* MEMBER PROFILE */
+/* =========================
+   MEMBER PROFILE
+========================= */
 
 .member-profile{
     display:none;
@@ -279,7 +409,9 @@ body{
     color:#ffd700;
 }
 
-/* NORMAL MEMBERS */
+/* =========================
+   MEMBERS
+========================= */
 
 .squad-grid{
     display:grid;
@@ -297,11 +429,9 @@ body{
     color:#cfd6e1;
     font-size:13px;
     min-height:48px;
-
     display:flex;
     align-items:center;
     justify-content:center;
-
     transition:.2s;
 }
 
@@ -311,7 +441,9 @@ body{
     transform:translateY(-2px);
 }
 
-/* CASES */
+/* =========================
+   CASES
+========================= */
 
 .section-title{
     display:flex;
@@ -400,7 +532,9 @@ body{
     color:#dce2eb;
 }
 
-/* DETAIL */
+/* =========================
+   DETAIL
+========================= */
 
 .detail{
     background:rgba(12,17,25,.96);
@@ -476,7 +610,9 @@ body{
     font-size:14px;
 }
 
-/* EVIDENCE */
+/* =========================
+   EVIDENCE
+========================= */
 
 .evidence{
     margin-top:28px;
@@ -503,7 +639,9 @@ body{
     border-color:#64738a;
 }
 
-/* LIGHTBOX */
+/* =========================
+   LIGHTBOX
+========================= */
 
 .lightbox{
     display:none;
@@ -511,10 +649,8 @@ body{
     inset:0;
     background:rgba(0,0,0,.92);
     z-index:9999;
-
     align-items:center;
     justify-content:center;
-
     padding:30px;
 }
 
@@ -533,7 +669,9 @@ body{
     cursor:pointer;
 }
 
-/* HIDDEN */
+/* =========================
+   HIDDEN
+========================= */
 
 .page{
     display:none;
@@ -543,7 +681,9 @@ body{
     display:block;
 }
 
-/* TABLET */
+/* =========================
+   TABLET
+========================= */
 
 @media(max-width:900px){
 
@@ -553,11 +693,17 @@ body{
 
 }
 
-/* MOBILE */
+/* =========================
+   MOBILE
+========================= */
 
 @media(max-width:800px){
 
     .categories{
+        grid-template-columns:1fr;
+    }
+
+    .quest-categories{
         grid-template-columns:1fr;
     }
 
@@ -606,7 +752,9 @@ body{
     }
 }
 
-/* SMALL MOBILE */
+/* =========================
+   SMALL MOBILE
+========================= */
 
 @media(max-width:500px){
 
@@ -655,40 +803,56 @@ body{
     </div>
 
 
-    <!-- HOME -->
+    <!-- =========================
+         HOME
+    ========================== -->
 
     <div id="home" class="page active">
 
         <div class="categories">
 
-            <div class="category" onclick="showCategory('parking')">
-                <div class="category-icon">🅿️</div>
-                <h2>PARKING</h2>
-                <span>5 Cases</span>
-            </div>
+            <!-- #5 QUEST -->
 
-            <div class="category" onclick="showCategory('store')">
-                <div class="category-icon">🏪</div>
-                <h2>STORE</h2>
-                <span>3 Cases</span>
-            </div>
+            <div class="category quest-card"
+                 onclick="showCategory('quest5')">
 
-            <div class="category" onclick="showCategory('house')">
-                <div class="category-icon">🏠</div>
-                <h2>HOUSE</h2>
-                <span>1 Case</span>
+                <div class="category-icon">
+                    #5
+                </div>
+
+                <h2>
+                    QUEST
+                </h2>
+
+                <span class="quest-from">
+                    FROM AMINE MORGAN
+                </span>
+
+                <span class="quest-complete">
+                    MISSION COMPLETE — 100%
+                </span>
+
             </div>
 
         </div>
 
 
-        <!-- BRAVO SQUAD -->
+        <!-- =========================
+             BRAVO SQUAD
+        ========================== -->
 
         <div class="squad-section">
 
             <div class="squad-title">
-                <h2>BRAVO SQUAD MEMBER</h2>
-                <p>Bravo Squad Members</p>
+
+                <h2>
+                    BRAVO SQUAD MEMBER
+                </h2>
+
+                <p>
+                    Bravo Squad Members
+                </p>
+
             </div>
 
 
@@ -700,6 +864,7 @@ body{
                      onclick="showMemberProfile('dark')">
 
                     <div>
+
                         Dark — Abdulilah Nawaf
 
                         <small>
@@ -709,6 +874,7 @@ body{
                         <div class="admin-label">
                             Airship • Motorcycle • Negotiator
                         </div>
+
                     </div>
 
                 </div>
@@ -718,6 +884,7 @@ body{
                      onclick="showMemberProfile('feras')">
 
                     <div>
+
                         Feras — Feras BinOmar
 
                         <small>
@@ -727,6 +894,7 @@ body{
                         <div class="admin-label">
                             Airship • Motorcycle • Negotiator
                         </div>
+
                     </div>
 
                 </div>
@@ -736,6 +904,7 @@ body{
                      onclick="showMemberProfile('qassim')">
 
                     <div>
+
                         Qassim — Shaheen Hamad
 
                         <small>
@@ -745,6 +914,7 @@ body{
                         <div class="admin-label">
                             Airship • Motorcycle • Negotiator
                         </div>
+
                     </div>
 
                 </div>
@@ -754,11 +924,14 @@ body{
 
             <!-- MEMBER PROFILE -->
 
-            <div id="memberProfile" class="member-profile">
+            <div id="memberProfile"
+                 class="member-profile">
 
                 <div class="profile-header">
 
-                    <h3 id="profileName">MEMBER</h3>
+                    <h3 id="profileName">
+                        MEMBER
+                    </h3>
 
                     <button class="profile-close"
                             onclick="closeMemberProfile()">
@@ -771,47 +944,62 @@ body{
                 <div class="profile-grid">
 
                     <div class="profile-box">
+
                         <div class="profile-label">
                             Discord / Squad Name
                         </div>
+
                         <div class="profile-value"
                              id="profileDiscord"></div>
+
                     </div>
 
 
                     <div class="profile-box">
+
                         <div class="profile-label">
                             Administrative / Police Rank
                         </div>
+
                         <div class="profile-value"
                              id="profileRank"></div>
+
                     </div>
 
 
                     <div class="profile-box">
+
                         <div class="profile-label">
                             Management / Section
                         </div>
+
                         <div class="profile-value"
                              id="profileManagement"></div>
+
                     </div>
 
 
                     <div class="profile-box">
+
                         <div class="profile-label">
                             Police Wings
                         </div>
+
                         <div class="profile-value wings-value"
                              id="profileWings"></div>
+
                     </div>
 
 
                     <div class="profile-box">
+
                         <div class="profile-label">
                             RP Name
                         </div>
+
                         <div class="profile-value"
                              id="profileRP"></div>
+
                     </div>
 
                 </div>
@@ -819,7 +1007,7 @@ body{
             </div>
 
 
-            <!-- OTHER MEMBERS -->
+            <!-- BLUE MEMBERS -->
 
             <div class="squad-grid">
 
@@ -868,55 +1056,77 @@ body{
                     Mario — Mario Smith
                 </div>
 
-                <div class="member">
+                <!-- NEW BLUE MEMBERS -->
+
+                <div class="member blue-member"
+                     onclick="showMemberProfile('ahmed')">
                     Dktrr — Ahmed Al-Qahtani
                 </div>
 
-                <div class="member">
+                <div class="member blue-member"
+                     onclick="showMemberProfile('layla')">
                     Layla — Layla Almutairi
                 </div>
 
-                <div class="member">
+                <div class="member blue-member"
+                     onclick="showMemberProfile('rayan')">
                     RAYAN — SHILAYWAYH ALHARBI
                 </div>
+
+                <div class="member blue-member"
+                     onclick="showMemberProfile('faisalFailachwe')">
+                    FAISAL — Faisal Failachwe
+                </div>
+
+                <div class="member blue-member"
+                     onclick="showMemberProfile('nf3a')">
+                    NF3A — Nawaf Abdullah
+                </div>
+
+                <div class="member blue-member"
+                     onclick="showMemberProfile('baraa')">
+                    ! Bara'a — Baraa Chandler
+                </div>
+
+                <div class="member blue-member"
+                     onclick="showMemberProfile('rashed')">
+                    Rashed — Rashed AlHarbi
+                </div>
+
+                <div class="member blue-member"
+                     onclick="showMemberProfile('abdullahZ')">
+                    Abdullah — Abdullah Al-Zahrani
+                </div>
+
+                <div class="member blue-member"
+                     onclick="showMemberProfile('binTalal')">
+                    Bin Talal — Mohammed Talal
+                </div>
+
+                <div class="member blue-member"
+                     onclick="showMemberProfile('faisalAlshehri')">
+                    Faisal — Faisal Alshehri
+                </div>
+
+                <!-- EXISTING BLUE -->
 
                 <div class="member blue-member"
                      onclick="showMemberProfile('tom')">
                     MT | Tom — Tom Chandler
                 </div>
 
-                <div class="member">
-                    FAISAL — Faisal Failachwe
-                </div>
-
-                <div class="member">
-                    NF3A — Nawaf Abdullah
-                </div>
-
-                <div class="member">
-                    ! Bara'a — Baraa Chandler
-                </div>
-
-                <div class="member">
-                    Rashed — Rashed AlHarbi
-                </div>
-
-                <div class="member">
-                    Abdullah — Abdullah Al-Zahrani
-                </div>
-
-                <div class="member">
-                    Bin Talal — Mohammed Talal
-                </div>
-
-                <div class="member">
-                    Faisal — Faisal Alshehri
-                </div>
-
                 <div class="member blue-member"
                      onclick="showMemberProfile('amine')">
                     Amine_MxH — Amine Morgan
                 </div>
+
+                <div class="member blue-member"
+                     onclick="showMemberProfile('vnx')">
+                    V N X — Lucas Hod
+                </div>
+
+
+                <!-- NORMAL MEMBERS -->
 
                 <div class="member">
                     Abu Saleh — David Rick
@@ -958,11 +1168,6 @@ body{
                     WOLF — Omar AlMutairi
                 </div>
 
-                <div class="member blue-member"
-                     onclick="showMemberProfile('vnx')">
-                    V N X — Lucas Hod
-                </div>
-
                 <div class="member">
                     Alhajri — MOHAMMED ALHAJRI
                 </div>
@@ -1002,15 +1207,113 @@ body{
     </div>
 
 
-    <!-- PARKING -->
+    <!-- =========================
+         #5 QUEST PAGE
+    ========================== -->
+
+    <div id="quest5" class="page">
+
+        <div class="section-title">
+
+            <h2>
+                #5 QUEST
+            </h2>
+
+            <button class="back-btn"
+                    onclick="closeAll()">
+                ← Back
+            </button>
+
+        </div>
+
+
+        <div class="quest-header">
+
+            <h2>
+                FROM AMINE MORGAN
+            </h2>
+
+            <p>
+                MISSION COMPLETE — 100%
+            </p>
+
+        </div>
+
+
+        <div class="quest-categories">
+
+            <div class="quest-category"
+                 onclick="showCategory('parking')">
+
+                <div class="category-icon">
+                    🅿️
+                </div>
+
+                <h3>
+                    PARKING
+                </h3>
+
+                <span>
+                    5 Cases
+                </span>
+
+            </div>
+
+
+            <div class="quest-category"
+                 onclick="showCategory('house')">
+
+                <div class="category-icon">
+                    🏠
+                </div>
+
+                <h3>
+                    HOUSE
+                </h3>
+
+                <span>
+                    1 Case
+                </span>
+
+            </div>
+
+
+            <div class="quest-category"
+                 onclick="showCategory('store')">
+
+                <div class="category-icon">
+                    🏪
+                </div>
+
+                <h3>
+                    STORE
+                </h3>
+
+                <span>
+                    3 Cases
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         PARKING
+    ========================== -->
 
     <div id="parking" class="page">
 
         <div class="section-title">
 
-            <h2>🅿️ PARKING CASES</h2>
+            <h2>
+                🅿️ PARKING CASES
+            </h2>
 
-            <button class="back-btn" onclick="closeAll()">
+            <button class="back-btn"
+                    onclick="backToQuest()">
                 ← Back
             </button>
 
@@ -1188,15 +1491,20 @@ body{
     </div>
 
 
-    <!-- STORE -->
+    <!-- =========================
+         STORE
+    ========================== -->
 
     <div id="store" class="page">
 
         <div class="section-title">
 
-            <h2>🏪 STORE CASES</h2>
+            <h2>
+                🏪 STORE CASES
+            </h2>
 
-            <button class="back-btn" onclick="closeAll()">
+            <button class="back-btn"
+                    onclick="backToQuest()">
                 ← Back
             </button>
 
@@ -1308,15 +1616,20 @@ body{
     </div>
 
 
-    <!-- HOUSE -->
+    <!-- =========================
+         HOUSE
+    ========================== -->
 
     <div id="house" class="page">
 
         <div class="section-title">
 
-            <h2>🏠 HOUSE CASES</h2>
+            <h2>
+                🏠 HOUSE CASES
+            </h2>
 
-            <button class="back-btn" onclick="closeAll()">
+            <button class="back-btn"
+                    onclick="backToQuest()">
                 ← Back
             </button>
 
@@ -1362,7 +1675,9 @@ body{
     </div>
 
 
-    <!-- DETAIL -->
+    <!-- =========================
+         DETAIL
+    ========================== -->
 
     <div id="detail" class="page">
 
@@ -1391,8 +1706,7 @@ body{
                     </div>
 
                     <div class="info-value"
-                         id="detailStatus">
-                    </div>
+                         id="detailStatus"></div>
 
                 </div>
 
@@ -1404,8 +1718,7 @@ body{
                     </div>
 
                     <div class="info-value"
-                         id="detailFingerprint">
-                    </div>
+                         id="detailFingerprint"></div>
 
                 </div>
 
@@ -1417,8 +1730,7 @@ body{
                     </div>
 
                     <div class="info-value"
-                         id="detailIncident">
-                    </div>
+                         id="detailIncident"></div>
 
                 </div>
 
@@ -1430,8 +1742,7 @@ body{
                     </div>
 
                     <div class="info-value"
-                         id="detailItems">
-                    </div>
+                         id="detailItems"></div>
 
                 </div>
 
@@ -1443,8 +1754,7 @@ body{
                     </div>
 
                     <div class="info-value"
-                         id="detailTeam">
-                    </div>
+                         id="detailTeam"></div>
 
                 </div>
 
@@ -1460,8 +1770,7 @@ body{
                 <div class="report-box">
 
                     <div class="report-text"
-                         id="detailReport">
-                    </div>
+                         id="detailReport"></div>
 
                 </div>
 
@@ -1488,7 +1797,9 @@ body{
 </div>
 
 
-<!-- LIGHTBOX -->
+<!-- =========================
+     LIGHTBOX
+========================= -->
 
 <div class="lightbox"
      id="lightbox"
@@ -1631,6 +1942,91 @@ const squadProfiles = {
         management:"Police Academy",
         wings:"Airship • Motorcycle • Negotiator",
         rp:"Raedd Ibrahim"
+    },
+
+
+    /* =========================
+       NEW BLUE MEMBERS
+    ========================== */
+
+    ahmed:{
+        discord:"Dktrr — Ahmed Al-Qahtani",
+        rank:"Officer 2",
+        management:"D.B",
+        wings:"Airship • Motorcycle • Negotiator",
+        rp:"Ahmed Al-Qahtani"
+    },
+
+    layla:{
+        discord:"Layla — Layla Almutairi",
+        rank:"Officer 2",
+        management:"D.B",
+        wings:"Airship • Motorcycle • Negotiator",
+        rp:"Layla Almutairi"
+    },
+
+    rayan:{
+        discord:"RAYAN — SHILAYWAYH ALHARBI",
+        rank:"Officer 1",
+        management:"—",
+        wings:"Airship • Negotiator",
+        rp:"SHILAYWAYH ALHARBI"
+    },
+
+    faisalFailachwe:{
+        discord:"FAISAL — Faisal Failachwe",
+        rank:"Officer 1",
+        management:"Police Wings Section Leader",
+        wings:"Airship • Motorcycle • Negotiator",
+        rp:"Faisal Failachwe"
+    },
+
+    nf3a:{
+        discord:"NF3A — Nawaf Abdullah",
+        rank:"Officer 1",
+        management:"Police Academy",
+        wings:"Airship • Negotiator",
+        rp:"Nawaf Abdullah"
+    },
+
+    baraa:{
+        discord:"! Bara'a — Baraa Chandler",
+        rank:"Officer 1",
+        management:"—",
+        wings:"No Wings",
+        rp:"Baraa Chandler"
+    },
+
+    rashed:{
+        discord:"Rashed — Rashed AlHarbi",
+        rank:"Solo Cadet",
+        management:"Internal Affairs",
+        wings:"No Wings",
+        rp:"Rashed AlHarbi"
+    },
+
+    abdullahZ:{
+        discord:"Abdullah — Abdullah Al-Zahrani",
+        rank:"Solo Cadet",
+        management:"—",
+        wings:"No Wings",
+        rp:"Abdullah Al-Zahrani"
+    },
+
+    binTalal:{
+        discord:"Bin Talal — Mohammed Talal",
+        rank:"Solo Cadet",
+        management:"—",
+        wings:"No Wings",
+        rp:"Mohammed Talal"
+    },
+
+    faisalAlshehri:{
+        discord:"Faisal — Faisal Alshehri",
+        rank:"Solo Cadet",
+        management:"—",
+        wings:"Negotiator",
+        rp:"Faisal Alshehri"
     }
 
 };
@@ -2048,6 +2444,28 @@ function showCategory(category){
 
 
 /* =========================
+   BACK TO QUEST
+========================= */
+
+function backToQuest(){
+
+    document.querySelectorAll(".page").forEach(page=>{
+        page.classList.remove("active");
+    });
+
+    document.getElementById("quest5")
+        .classList.add("active");
+
+    currentCategory = "quest5";
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+}
+
+
+/* =========================
    SHOW CASE
 ========================= */
 
@@ -2064,26 +2482,33 @@ function showCase(category,caseNumber){
     document.getElementById("detail")
         .classList.add("active");
 
+
     document.getElementById("detailTitle")
         .textContent =
         category.toUpperCase() +
         " — CASE " +
         String(caseNumber).padStart(2,"0");
 
+
     document.getElementById("detailStatus")
         .textContent = data.status;
+
 
     document.getElementById("detailFingerprint")
         .textContent = data.fingerprint;
 
+
     document.getElementById("detailIncident")
         .textContent = data.incident;
+
 
     document.getElementById("detailItems")
         .textContent = data.items;
 
+
     document.getElementById("detailTeam")
         .textContent = data.team;
+
 
     document.getElementById("detailReport")
         .textContent = data.report;
@@ -2177,6 +2602,8 @@ function closeAll(){
 
     currentCategory = "home";
 
+    closeMemberProfile();
+
     window.scrollTo({
         top:0,
         behavior:"smooth"
@@ -2221,8 +2648,11 @@ document.addEventListener(
     function(event){
 
         if(event.key === "Escape"){
+
             closeLightbox();
+
             closeMemberProfile();
+
         }
 
     }
