@@ -62,7 +62,7 @@ body{
 
 .categories{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+    grid-template-columns:repeat(2,1fr);
     gap:20px;
 }
 
@@ -316,21 +316,6 @@ body{
     background:rgba(255,215,0,.13);
     box-shadow:0 0 20px rgba(255,215,0,.2);
     transform:translateY(-3px);
-}
-
-.top-member small{
-    display:block;
-    margin-top:7px;
-    color:#ffffff;
-    font-size:12px;
-    font-weight:normal;
-}
-
-.admin-label{
-    margin-top:7px;
-    color:#ffd700;
-    font-size:11px;
-    font-weight:bold;
 }
 
 /* =========================
@@ -872,6 +857,30 @@ body{
 
             </div>
 
+
+            <!-- #6 QUEST -->
+
+            <div class="category quest-card"
+                 onclick="showCategory('quest6')">
+
+                <div class="category-icon">
+                    #6
+                </div>
+
+                <h2>
+                    #6 QUEST
+                </h2>
+
+                <span class="quest-from">
+                    FROM AMINE MORGAN
+                </span>
+
+                <span class="quest-complete">
+                    MISSION IN PROGRESS
+                </span>
+
+            </div>
+
         </div>
 
 
@@ -903,9 +912,7 @@ body{
 
                     <div>
 
-                        <strong>
-                            Dark — Abdulilah Nawaf
-                        </strong>
+                        Dark — Abdulilah Nawaf
 
                         <small>
                             Sergeant • Police Wings Management
@@ -925,9 +932,7 @@ body{
 
                     <div>
 
-                        <strong>
-                            Feras — Feras BinOmar
-                        </strong>
+                        Feras — Feras BinOmar
 
                         <small>
                             Senior Lead Officer • Police Academy Section Leader
@@ -947,9 +952,7 @@ body{
 
                     <div>
 
-                        <strong>
-                            Qassim — Shaheen Hamad
-                        </strong>
+                        Qassim — Shaheen Hamad
 
                         <small>
                             Senior Officer • Internal Affairs Management
@@ -1104,9 +1107,6 @@ body{
                     Mario — Mario Smith
                 </div>
 
-
-                <!-- NEW BLUE MEMBERS -->
-
                 <div class="member blue-member"
                      onclick="showMemberProfile('ahmed')">
                     Dktrr — Ahmed Al-Qahtani
@@ -1157,9 +1157,6 @@ body{
                     Faisal — Faisal Alshehri
                 </div>
 
-
-                <!-- EXISTING BLUE -->
-
                 <div class="member blue-member"
                      onclick="showMemberProfile('tom')">
                     MT | Tom — Tom Chandler
@@ -1174,9 +1171,6 @@ body{
                      onclick="showMemberProfile('vnx')">
                     V N X — Lucas Hod
                 </div>
-
-
-                <!-- NORMAL MEMBERS -->
 
                 <div class="member">
                     Abu Saleh — David Rick
@@ -1346,6 +1340,386 @@ body{
                 <span>
                     1 Case
                 </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         #6 QUEST PAGE
+    ========================== -->
+
+    <div id="quest6" class="page">
+
+        <div class="section-title">
+
+            <h2>
+                #6 QUEST
+            </h2>
+
+            <button class="back-btn"
+                    onclick="closeAll()">
+                ← Back
+            </button>
+
+        </div>
+
+
+        <div class="quest-header">
+
+            <h2>
+                FROM AMINE MORGAN
+            </h2>
+
+            <p>
+                MISSION IN PROGRESS
+            </p>
+
+            <span class="quest-completion">
+                2 CATEGORIES
+            </span>
+
+        </div>
+
+
+        <div class="quest-categories">
+
+            <!-- PARKING METER -->
+
+            <div class="quest-category"
+                 onclick="showCategory('parking6')">
+
+                <div class="category-icon">
+                    🅿️
+                </div>
+
+                <h3>
+                    PARKING METER
+                </h3>
+
+                <span>
+                    4 Cases
+                </span>
+
+            </div>
+
+
+            <!-- SANDY SHORES -->
+
+            <div class="quest-category"
+                 onclick="showCategory('sandy6')">
+
+                <div class="category-icon">
+                    🏪
+                </div>
+
+                <h3>
+                    SANDY SHORES
+                </h3>
+
+                <span>
+                    3 Cases
+                </span>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         #6 PARKING METER
+    ========================== -->
+
+    <div id="parking6" class="page">
+
+        <div class="section-title">
+
+            <h2>
+                🅿️ PARKING METER CASES
+            </h2>
+
+            <button class="back-btn"
+                    onclick="backToQuest6()">
+                ← Back
+            </button>
+
+        </div>
+
+
+        <div class="cases">
+
+            <!-- CASE 01 -->
+
+            <div class="case-card"
+                 onclick="showCase('parking6',1)">
+
+                <div class="case-top">
+
+                    <div class="case-number">
+                        CASE 01
+                    </div>
+
+                    <div class="status success">
+                        SUCCESS — 100%
+                    </div>
+
+                </div>
+
+                <div class="case-info">
+
+                    <strong>Fingerprint:</strong>
+                    9DM2EJA8275VD34
+                    <br>
+
+                    <strong>Incident:</strong>
+                    سرقة Parking Meter
+                    <br>
+
+                    <strong>Items:</strong>
+                    Cash – Hook Pick
+
+                </div>
+
+            </div>
+
+
+            <!-- CASE 02 -->
+
+            <div class="case-card"
+                 onclick="showCase('parking6',2)">
+
+                <div class="case-top">
+
+                    <div class="case-number">
+                        CASE 02
+                    </div>
+
+                    <div class="status success">
+                        SUCCESS — 100%
+                    </div>
+
+                </div>
+
+                <div class="case-info">
+
+                    <strong>Fingerprint:</strong>
+                    4V1CXR1KIBHD768
+                    <br>
+
+                    <strong>Incident:</strong>
+                    Parking Meter / Vehicle Pursuit
+                    <br>
+
+                    <strong>Items:</strong>
+                    Hook Pick ×4 – Cash – Hack Device
+
+                </div>
+
+            </div>
+
+
+            <!-- CASE 03 -->
+
+            <div class="case-card"
+                 onclick="showCase('parking6',3)">
+
+                <div class="case-top">
+
+                    <div class="case-number">
+                        CASE 03
+                    </div>
+
+                    <div class="status success">
+                        SUCCESS — 100%
+                    </div>
+
+                </div>
+
+                <div class="case-info">
+
+                    <strong>Fingerprint:</strong>
+                    97Y4U32446LBHEF
+                    <br>
+
+                    <strong>Incident:</strong>
+                    سرقة Parking Meter
+                    <br>
+
+                    <strong>Items:</strong>
+                    Cash – Hack Device – Hook Pick ×4
+
+                </div>
+
+            </div>
+
+
+            <!-- CASE 04 -->
+
+            <div class="case-card"
+                 onclick="showCase('parking6',4)">
+
+                <div class="case-top">
+
+                    <div class="case-number">
+                        CASE 04
+                    </div>
+
+                    <div class="status pending">
+                        PENDING
+                    </div>
+
+                </div>
+
+                <div class="case-info">
+
+                    <strong>Fingerprint:</strong>
+                    —
+                    <br>
+
+                    <strong>Incident:</strong>
+                    Parking Meter
+                    <br>
+
+                    <strong>Status:</strong>
+                    Case Pending
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- =========================
+         #6 SANDY SHORES
+    ========================== -->
+
+    <div id="sandy6" class="page">
+
+        <div class="section-title">
+
+            <h2>
+                🏪 SANDY SHORES CASES
+            </h2>
+
+            <button class="back-btn"
+                    onclick="backToQuest6()">
+                ← Back
+            </button>
+
+        </div>
+
+
+        <div class="cases">
+
+            <!-- CASE 01 -->
+
+            <div class="case-card"
+                 onclick="showCase('sandy6',1)">
+
+                <div class="case-top">
+
+                    <div class="case-number">
+                        CASE 01
+                    </div>
+
+                    <div class="status success">
+                        SUCCESS — 100%
+                    </div>
+
+                </div>
+
+                <div class="case-info">
+
+                    <strong>Fingerprint:</strong>
+                    M5BPCEATS20A910
+                    <br>
+
+                    <strong>Incident:</strong>
+                    سرقة بقالة / توقيف مشتبه به
+                    <br>
+
+                    <strong>Items:</strong>
+                    Hook Pick – Cash – Sticky Note
+
+                </div>
+
+            </div>
+
+
+            <!-- CASE 02 -->
+
+            <div class="case-card"
+                 onclick="showCase('sandy6',2)">
+
+                <div class="case-top">
+
+                    <div class="case-number">
+                        CASE 02
+                    </div>
+
+                    <div class="status pending">
+                        PENDING
+                    </div>
+
+                </div>
+
+                <div class="case-info">
+
+                    <strong>Fingerprint:</strong>
+                    —
+                    <br>
+
+                    <strong>Incident:</strong>
+                    Sandy Shores
+                    <br>
+
+                    <strong>Status:</strong>
+                    Case Pending
+
+                </div>
+
+            </div>
+
+
+            <!-- CASE 03 -->
+
+            <div class="case-card"
+                 onclick="showCase('sandy6',3)">
+
+                <div class="case-top">
+
+                    <div class="case-number">
+                        CASE 03
+                    </div>
+
+                    <div class="status pending">
+                        PENDING
+                    </div>
+
+                </div>
+
+                <div class="case-info">
+
+                    <strong>Fingerprint:</strong>
+                    —
+                    <br>
+
+                    <strong>Incident:</strong>
+                    Sandy Shores
+                    <br>
+
+                    <strong>Status:</strong>
+                    Case Pending
+
+                </div>
 
             </div>
 
@@ -1998,11 +2372,6 @@ const squadProfiles = {
         rp:"Raedd Ibrahim"
     },
 
-
-    /* =========================
-       NEW BLUE MEMBERS
-    ========================== */
-
     ahmed:{
         discord:"Dktrr — Ahmed Al-Qahtani",
         rank:"Officer 2",
@@ -2408,6 +2777,198 @@ UK Russian Magazin
             ]
         }
 
+    },
+
+
+    /* =========================
+       #6 QUEST
+    ========================== */
+
+    parking6: {
+
+        1:{
+            status:"SUCCESS — 100%",
+            fingerprint:"9DM2EJA8275VD34",
+            incident:"سرقة Parking Meter",
+            items:"Cash – Hook Pick",
+            team:"—",
+
+            report:`تقرير تدخل أمني
+
+البصمة: 9DM2EJA8275VD34
+المضبوطات: Cash و Hook Pick
+
+تفاصيل التدخل
+
+أثناء قيامي بدورية روتينية، تلقيت بلاغًا من Dispatch يفيد بضرورة التوجه إلى الموجة 3 من أجل مساندة زملائي في حالة سرقة Parking Meter كانت مسجلة في الجهة الغربية من المدينة.
+
+عند وصولي إلى الموقع، تبين وجود مشتبه به يرتدي ملابس بيضاء ويستعمل مركبة برتقالية. قمنا بمتابعته إلى حين تنفيذ صدمة احترافية، مما أدى إلى إيقافه.
+
+بعد ذلك، حاول المشتبه به الفرار سيرًا على الأقدام، إلا أنني تمكنت من اللحاق به وتوقيفه والسيطرة عليه.
+
+توليت شخصيًا إجراءات التعامل مع المشتبه به، حيث قمت بإبلاغه بحقوقه وبالتهم المنسوبة إليه، ثم طبقت بحقه الإجراءات القانونية المعمول بها.`,
+
+            images:[
+                "https://cdn.discordapp.com/attachments/1546882783711072276/1547228699525513296/Screenshot_2026-09-09_134328.png?ex=6aa2a884&is=6aa15704&hm=b968b3108a00d6a737c431f8a20d9510c779a832a31b551410bd2da1a2f40e27&",
+                "https://cdn.discordapp.com/attachments/1546882783711072276/1547228699953340416/Screenshot_2026-09-09_134815.png?ex=6aa2a884&is=6aa15704&hm=b3c28bde222bbd09b751da9e98ae8fc86cbd991651b00d779e828c7b5b00fa2c&"
+            ]
+        },
+
+        2:{
+            status:"SUCCESS — 100%",
+            fingerprint:"4V1CXR1KIBHD768",
+            incident:"سرقة Parking Meter / مطاردة مركبة / محاولة فرار / الاعتداء على موظف أثناء المطاردة",
+            items:"4 × Hook Pick – Cash – 1 × Hack Device",
+            team:"Nawaf Alzahrani — 420",
+
+            report:`تقرير تدخل أمني
+
+البصمة: 4V1CXR1KIBHD768
+نوع التدخل: سرقة Parking Meter / مطاردة مركبة / محاولة فرار / الاعتداء على موظف أثناء المطاردة
+
+تفاصيل التدخل
+
+أثناء قيامي بدورية روتينية، تلقيت بلاغًا من Dispatch يفيد بتوجهي إلى الموجة 3 من أجل مساندة زملائي في حالة سرقة Parking Meter.
+
+عند وصولي إلى الموقع، تبين أن المشتبه به كان يحاول الفرار بواسطة مركبة من نوع Ford بيضاء اللون، وكان يرتدي ملابس سوداء. قمنا بمتابعته إلى حين تعرض مركبته لأضرار، مما مكننا من إيقافه والقبض عليه.
+
+وخلال المطاردة، قام المشتبه به بتوجيه إسقاط على الزميل Nawaf Alzahrani 420، وهو ما أدى إلى إضافة التهم والإجراءات القانونية اللازمة بحقه.
+
+بعد توقيف المشتبه به، توليت إجراءات التعامل معه، حيث قمت بإبلاغه بحقوقه وبالتهم المنسوبة إليه، ثم طبقت بحقه القانون والإجراءات المعمول بها.
+
+المضبوطات
+
+4 × Hook Pick
+Cash
+1 × Hack Device
+
+تم حجز جميع المضبوطات وتسجيلها ضمن أدلة القضية.`,
+
+            images:[
+                "https://cdn.discordapp.com/attachments/1546882783711072276/1547237208195338400/Screenshot_2026-09-09_141314.png?ex=6aa2b070&is=6aa15ef0&hm=5adb8e5d52a21b8346a02ddb8f724a54d6fd3a13d62b9218781ee748ca04dcbf&",
+                "https://cdn.discordapp.com/attachments/1546882783711072276/1547237209352962048/Screenshot_2026-09-09_141022.png?ex=6aa2b070&is=6aa15ef0&hm=0904ece8d078ab1f13f7de3884dea3533781017e33c33eaf27b37f085038d4db&",
+                "https://cdn.discordapp.com/attachments/1546882783711072276/1547237208740728882/Screenshot_2026-09-09_141457.png?ex=6aa2b070&is=6aa15ef0&hm=d8c08cd26d3ea6426da9dd21ed9716d859c38582dd74e107c5bfa690bee7a019&"
+            ]
+        },
+
+        3:{
+            status:"SUCCESS — 100%",
+            fingerprint:"97Y4U32446LBHEF",
+            incident:"سرقة Parking Meter / توقيف مشتبه به",
+            items:"Cash – 1 × Hack Device – 4 × Hook Pick",
+            team:"—",
+
+            report:`تقرير تدخل أمني
+
+البصمة: 97Y4U32446LBHEF
+نوع التدخل: سرقة Parking Meter / توقيف مشتبه به
+
+تفاصيل التدخل
+
+أثناء قيامي بدورية روتينية، لاحظت مشتبهًا به يقوم بسرقة من Parking Meter، فقمت بإبلاغ Dispatch عن الحالة والتوجه مباشرة إلى موقع المشتبه به.
+
+عند وصولي، قام المشتبه به بتسليم نفسه دون محاولة فرار أو مقاومة. تم تأمينه والسيطرة على الحالة، ثم توليت إجراءات التعامل معه.
+
+قمت بإبلاغ المشتبه به بحقوقه وبالتهم المنسوبة إليه، وبعد ذلك تم تطبيق الإجراءات القانونية المعمول بها بحقه.
+
+المضبوطات
+
+Cash
+1 × Hack Device
+4 × Hook Pick
+
+تم حجز جميع المضبوطات وتسجيلها ضمن أدلة القضية.`,
+
+            images:[
+                "https://cdn.discordapp.com/attachments/1546882783711072276/1547264289687994408/Screenshot_2026-09-09_161142.png?ex=6aa2c9a9&is=6aa17829&hm=b07093bdec3e6e018d98bfcdef2e94dca29cded22fb5545622c94389f0929e09&",
+                "https://cdn.discordapp.com/attachments/1546882783711072276/1547264290279661748/Screenshot_2026-09-09_160550.png?ex=6aa2c9a9&is=6aa17829&hm=270aad29d27441aff1eb4463b76a1d4201245614f9b1b80850408ba358bdb236&",
+                "https://cdn.discordapp.com/attachments/1546882783711072276/1547264290875113562/Screenshot_2026-09-09_161044.png?ex=6aa2c9a9&is=6aa17829&hm=74159755179fc291de3d3a8eef9c088b73bf94c836cdee629218322130bfc824&"
+            ]
+        },
+
+        4:{
+            status:"PENDING",
+            fingerprint:"—",
+            incident:"Parking Meter",
+            items:"—",
+            team:"—",
+
+            report:`Case Pending
+
+This case is currently pending.`,
+
+            images:[]
+        }
+
+    },
+
+
+    sandy6: {
+
+        1:{
+            status:"SUCCESS — 100%",
+            fingerprint:"M5BPCEATS20A910",
+            incident:"سرقة بقالة / توقيف مشتبه به",
+            items:"1 × Hook Pick – Cash – 1 × Sticky Note",
+            team:"—",
+
+            report:`تقرير تدخل أمني
+
+البصمة: M5BPCEATS20A910
+نوع التدخل: سرقة بقالة / توقيف مشتبه به
+
+تفاصيل التدخل
+
+أثناء قيامي بدورية روتينية في منطقة Sandy Shores، تلقيت بلاغًا من Dispatch من أجل التوجه والتحقق من حالة سرقة في بقالة قريبة مني.
+
+عند وصولي إلى الموقع، وجدت مشتبهًا به يقوم بالسرقة، كما تبين أن بحوزته مجموعة من المسروقات.
+
+قام المشتبه به بتسليم نفسه والتعاون مع رجال الأمن، وتم تأمينه والسيطرة على الحالة.
+
+بعد ذلك، توليت إجراءات التعامل معه، حيث قمت بإبلاغه بحقوقه والتهم المنسوبة إليه، ثم طبقت بحقه الإجراءات القانونية المعمول بها.
+
+المضبوطات
+
+1 × Hook Pick
+Cash
+1 × Sticky Note
+
+تم حجز جميع المضبوطات وتسجيلها ضمن أدلة القضية.`,
+
+            images:[
+                "https://cdn.discordapp.com/attachments/1546883293591511110/1547256640720478208/Screenshot_2026-09-09_154107.png?ex=6aa2c289&is=6aa17109&hm=1d4c45b1dca987227b253ea898b117a645c8ce5d5cf4eeb74b2de811833bfd2c&",
+                "https://cdn.discordapp.com/attachments/1546883293591511110/1547256641118797844/Screenshot_2026-09-09_152826.png?ex=6aa2c289&is=6aa17109&hm=af4cde70e8ba26a90fc5f1a08c5c3d4af4a5c86ac4b48e166da83db32e15bf5e&"
+            ]
+        },
+
+        2:{
+            status:"PENDING",
+            fingerprint:"—",
+            incident:"Sandy Shores",
+            items:"—",
+            team:"—",
+
+            report:`Case Pending
+
+This case is currently pending.`,
+
+            images:[]
+        },
+
+        3:{
+            status:"PENDING",
+            fingerprint:"—",
+            incident:"Sandy Shores",
+            items:"—",
+            team:"—",
+
+            report:`Case Pending
+
+This case is currently pending.`,
+
+            images:[]
+        }
+
     }
 
 };
@@ -2498,7 +3059,7 @@ function showCategory(category){
 
 
 /* =========================
-   BACK TO QUEST
+   BACK TO QUEST 5
 ========================= */
 
 function backToQuest(){
@@ -2511,6 +3072,28 @@ function backToQuest(){
         .classList.add("active");
 
     currentCategory = "quest5";
+
+    window.scrollTo({
+        top:0,
+        behavior:"smooth"
+    });
+}
+
+
+/* =========================
+   BACK TO QUEST 6
+========================= */
+
+function backToQuest6(){
+
+    document.querySelectorAll(".page").forEach(page=>{
+        page.classList.remove("active");
+    });
+
+    document.getElementById("quest6")
+        .classList.add("active");
+
+    currentCategory = "quest6";
 
     window.scrollTo({
         top:0,
