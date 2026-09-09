@@ -155,6 +155,36 @@ body{
     transform:translateY(-3px);
 }
 
+/* BLUE MEMBERS */
+
+.blue-member{
+    color:#4da6ff !important;
+    border:1px solid #2196ff !important;
+    background:rgba(33,150,243,.08) !important;
+    font-weight:bold !important;
+    box-shadow:
+        0 0 15px rgba(33,150,243,.12),
+        0 0 30px rgba(33,150,243,.04);
+    cursor:pointer;
+    position:relative;
+    transition:.25s !important;
+}
+
+.blue-member:hover{
+    color:#73b9ff !important;
+    border-color:#73b9ff !important;
+    background:rgba(33,150,243,.13) !important;
+    box-shadow:
+        0 0 20px rgba(33,150,243,.2),
+        0 0 35px rgba(33,150,243,.08);
+    transform:translateY(-3px);
+    text-shadow:0 0 8px rgba(77,166,255,.45);
+}
+
+.blue-member .admin-label{
+    color:#4da6ff;
+}
+
 /* RANK / WINGS */
 
 .top-member small{
@@ -632,53 +662,21 @@ body{
         <div class="categories">
 
             <div class="category" onclick="showCategory('parking')">
-
-                <div class="category-icon">
-                    🅿️
-                </div>
-
-                <h2>
-                    PARKING
-                </h2>
-
-                <span>
-                    5 Cases
-                </span>
-
+                <div class="category-icon">🅿️</div>
+                <h2>PARKING</h2>
+                <span>5 Cases</span>
             </div>
-
 
             <div class="category" onclick="showCategory('store')">
-
-                <div class="category-icon">
-                    🏪
-                </div>
-
-                <h2>
-                    STORE
-                </h2>
-
-                <span>
-                    3 Cases
-                </span>
-
+                <div class="category-icon">🏪</div>
+                <h2>STORE</h2>
+                <span>3 Cases</span>
             </div>
 
-
             <div class="category" onclick="showCategory('house')">
-
-                <div class="category-icon">
-                    🏠
-                </div>
-
-                <h2>
-                    HOUSE
-                </h2>
-
-                <span>
-                    1 Case
-                </span>
-
+                <div class="category-icon">🏠</div>
+                <h2>HOUSE</h2>
+                <span>1 Case</span>
             </div>
 
         </div>
@@ -689,15 +687,8 @@ body{
         <div class="squad-section">
 
             <div class="squad-title">
-
-                <h2>
-                    BRAVO SQUAD MEMBER
-                </h2>
-
-                <p>
-                    Bravo Squad Members
-                </p>
-
+                <h2>BRAVO SQUAD MEMBER</h2>
+                <p>Bravo Squad Members</p>
             </div>
 
 
@@ -745,7 +736,7 @@ body{
                      onclick="showMemberProfile('qassim')">
 
                     <div>
-                        Qassim — Shaheen Hamad 7sosah
+                        Qassim — Shaheen Hamad
 
                         <small>
                             Senior Officer • Internal Affairs Management
@@ -763,14 +754,11 @@ body{
 
             <!-- MEMBER PROFILE -->
 
-            <div id="memberProfile"
-                 class="member-profile">
+            <div id="memberProfile" class="member-profile">
 
                 <div class="profile-header">
 
-                    <h3 id="profileName">
-                        MEMBER
-                    </h3>
+                    <h3 id="profileName">MEMBER</h3>
 
                     <button class="profile-close"
                             onclick="closeMemberProfile()">
@@ -783,67 +771,47 @@ body{
                 <div class="profile-grid">
 
                     <div class="profile-box">
-
                         <div class="profile-label">
                             Discord / Squad Name
                         </div>
-
                         <div class="profile-value"
-                             id="profileDiscord">
-                        </div>
-
+                             id="profileDiscord"></div>
                     </div>
 
 
                     <div class="profile-box">
-
                         <div class="profile-label">
                             Administrative / Police Rank
                         </div>
-
                         <div class="profile-value"
-                             id="profileRank">
-                        </div>
-
+                             id="profileRank"></div>
                     </div>
 
 
                     <div class="profile-box">
-
                         <div class="profile-label">
                             Management / Section
                         </div>
-
                         <div class="profile-value"
-                             id="profileManagement">
-                        </div>
-
+                             id="profileManagement"></div>
                     </div>
 
 
                     <div class="profile-box">
-
                         <div class="profile-label">
                             Police Wings
                         </div>
-
                         <div class="profile-value wings-value"
-                             id="profileWings">
-                        </div>
-
+                             id="profileWings"></div>
                     </div>
 
 
                     <div class="profile-box">
-
                         <div class="profile-label">
                             RP Name
                         </div>
-
                         <div class="profile-value"
-                             id="profileRP">
-                        </div>
-
+                             id="profileRP"></div>
                     </div>
 
                 </div>
@@ -855,39 +823,48 @@ body{
 
             <div class="squad-grid">
 
-                <div class="member">
-                    HOSSAM ALMUTAIRI — BAA
+                <div class="member blue-member"
+                     onclick="showMemberProfile('hossam')">
+                    7sosah — HOSSAM ALMUTAIRI
                 </div>
 
-                <div class="member">
-                    Bader Abdullah — OrewaSaad
+                <div class="member blue-member"
+                     onclick="showMemberProfile('baa')">
+                    BAA — Bader Abdullah
                 </div>
 
-                <div class="member">
-                    Jin Freecs — FAISAL
+                <div class="member blue-member"
+                     onclick="showMemberProfile('jin')">
+                    OrewaSaad — Jin Freecs
                 </div>
 
-                <div class="member">
-                    JUMMAH ALZAHRANI — MT
+                <div class="member blue-member"
+                     onclick="showMemberProfile('jummah')">
+                    FAISAL — JUMMAH ALZAHRANI
                 </div>
 
-                <div class="member">
-                    RealWeep — Thiago Morgan
+                <div class="member blue-member"
+                     onclick="showMemberProfile('thiago')">
+                    MT | RealWeep — Thiago Morgan
                 </div>
 
-                <div class="member">
+                <div class="member blue-member"
+                     onclick="showMemberProfile('attaf')">
                     ! Attaf — Abdullah Attaf
                 </div>
 
-                <div class="member">
+                <div class="member blue-member"
+                     onclick="showMemberProfile('void')">
                     M T 3 B — VOID Barrett
                 </div>
 
-                <div class="member">
+                <div class="member blue-member"
+                     onclick="showMemberProfile('raedd')">
                     RAedd — Raedd Ibrahim
                 </div>
 
-                <div class="member">
+                <div class="member blue-member"
+                     onclick="showMemberProfile('mario')">
                     Mario — Mario Smith
                 </div>
 
@@ -903,7 +880,8 @@ body{
                     RAYAN — SHILAYWAYH ALHARBI
                 </div>
 
-                <div class="member">
+                <div class="member blue-member"
+                     onclick="showMemberProfile('tom')">
                     MT | Tom — Tom Chandler
                 </div>
 
@@ -935,7 +913,8 @@ body{
                     Faisal — Faisal Alshehri
                 </div>
 
-                <div class="member">
+                <div class="member blue-member"
+                     onclick="showMemberProfile('amine')">
                     Amine_MxH — Amine Morgan
                 </div>
 
@@ -979,7 +958,8 @@ body{
                     WOLF — Omar AlMutairi
                 </div>
 
-                <div class="member">
+                <div class="member blue-member"
+                     onclick="showMemberProfile('vnx')">
                     V N X — Lucas Hod
                 </div>
 
@@ -992,7 +972,7 @@ body{
                 </div>
 
                 <div class="member">
-                    Rï0 — Rayan Al-Harbi
+                    ! Rï0 — Rayan Al-Harbi
                 </div>
 
                 <div class="member">
@@ -1028,9 +1008,7 @@ body{
 
         <div class="section-title">
 
-            <h2>
-                🅿️ PARKING CASES
-            </h2>
+            <h2>🅿️ PARKING CASES</h2>
 
             <button class="back-btn" onclick="closeAll()">
                 ← Back
@@ -1216,9 +1194,7 @@ body{
 
         <div class="section-title">
 
-            <h2>
-                🏪 STORE CASES
-            </h2>
+            <h2>🏪 STORE CASES</h2>
 
             <button class="back-btn" onclick="closeAll()">
                 ← Back
@@ -1338,9 +1314,7 @@ body{
 
         <div class="section-title">
 
-            <h2>
-                🏠 HOUSE CASES
-            </h2>
+            <h2>🏠 HOUSE CASES</h2>
 
             <button class="back-btn" onclick="closeAll()">
                 ← Back
@@ -1556,11 +1530,107 @@ const squadProfiles = {
     },
 
     qassim:{
-        discord:"Qassim — Shaheen Hamad 7sosah",
+        discord:"Qassim — Shaheen Hamad",
         rank:"Senior Officer",
         management:"Internal Affairs Management",
         wings:"Airship • Motorcycle • Negotiator",
         rp:"Shaheen Hamad"
+    },
+
+    hossam:{
+        discord:"7sosah — HOSSAM ALMUTAIRI",
+        rank:"Senior Officer",
+        management:"Police Academy Management",
+        wings:"Airship • Motorcycle • Negotiator",
+        rp:"HOSSAM ALMUTAIRI"
+    },
+
+    amine:{
+        discord:"Amine_MxH — Amine Morgan",
+        rank:"Solo Cadet",
+        management:"—",
+        wings:"Airship",
+        rp:"Amine Morgan"
+    },
+
+    tom:{
+        discord:"MT | Tom — Tom Chandler",
+        rank:"Officer 1",
+        management:"Internal Affairs Member",
+        wings:"Airship",
+        rp:"Tom Chandler"
+    },
+
+    mario:{
+        discord:"Mario — Mario Smith",
+        rank:"Officer 2",
+        management:"Police Wings",
+        wings:"Airship • Motorcycle • Negotiator",
+        rp:"Mario Smith"
+    },
+
+    vnx:{
+        discord:"V N X — Lucas Hod",
+        rank:"Solo Cadet",
+        management:"—",
+        wings:"No Wings",
+        rp:"Lucas Hod"
+    },
+
+    baa:{
+        discord:"BAA — Bader Abdullah",
+        rank:"Officer 3",
+        management:"Internal Affairs Section Leader",
+        wings:"Airship • Motorcycle • Negotiator",
+        rp:"Bader Abdullah"
+    },
+
+    jin:{
+        discord:"OrewaSaad — Jin Freecs",
+        rank:"Officer 3",
+        management:"Police Academy",
+        wings:"Airship • Motorcycle • Negotiator",
+        rp:"Jin Freecs"
+    },
+
+    jummah:{
+        discord:"FAISAL — JUMMAH ALZAHRANI",
+        rank:"Officer 3",
+        management:"Police Academy Section Leader",
+        wings:"Airship • Motorcycle • Negotiator",
+        rp:"JUMMAH ALZAHRANI"
+    },
+
+    thiago:{
+        discord:"MT | RealWeep — Thiago Morgan",
+        rank:"Officer 3",
+        management:"W.M",
+        wings:"Airship • Motorcycle • Negotiator",
+        rp:"Thiago Morgan"
+    },
+
+    attaf:{
+        discord:"! Attaf — Abdullah Attaf",
+        rank:"Officer 3",
+        management:"Police Academy",
+        wings:"Airship • Motorcycle • Negotiator",
+        rp:"Abdullah Attaf"
+    },
+
+    void:{
+        discord:"M T 3 B — VOID Barrett",
+        rank:"Officer 3",
+        management:"—",
+        wings:"Airship • Motorcycle • Negotiator",
+        rp:"VOID Barrett"
+    },
+
+    raedd:{
+        discord:"RAedd — Raedd Ibrahim",
+        rank:"Officer 2",
+        management:"Police Academy",
+        wings:"Airship • Motorcycle • Negotiator",
+        rp:"Raedd Ibrahim"
     }
 
 };
@@ -1660,7 +1730,7 @@ Hook Pick ×4
             images:[
                 "https://cdn.discordapp.com/attachments/1546882783711072276/1546931141741781032/Screenshot_2026-09-08_180812.png?ex=6aa19364&is=6aa041e4&hm=0b41f8ad3228df845a665e28450af7b70511166d136a3ed3dcfa6b2ea255f589&",
                 "https://cdn.discordapp.com/attachments/1546882783711072276/1546931142454681650/Screenshot_2026-09-08_180838.png?ex=6aa19364&is=6aa041e4&hm=4b608fed221443ee4236fe8999b8d8814e6a95f01d63dbb0d6cfe6d0be02e96e&",
-                "https://cdn.discordapp.com/attachments/1546882783711072276/1546931142945542154/Screenshot_2026-09-08_180605.png?ex=6aa19365&is=6aa041e5&hm=dabab1419faae996550e1f6375c9d18f927584c91c614a44de2658bc863a0a08&"
+                "https://cdn.discordapp.com/attachments/1546921574257660095/1546931142945542154/Screenshot_2026-09-08_180605.png?ex=6aa19365&is=6aa041e5&hm=dabab1419faae996550e1f6375c9d18f927584c91c614a44de2658bc863a0a08&"
             ]
         },
 
