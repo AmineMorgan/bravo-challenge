@@ -42,859 +42,610 @@ body{
     font-weight:bold;
     letter-spacing:2px;
     margin-bottom:18px;
-    background:rgba(255,255,255,.03);
+    background:rgba(255,255,255,.02);
 }
 
 .header h1{
-    font-size:48px;
-    letter-spacing:4px;
-    margin-bottom:10px;
-}
-
-.header p{
-    color:#7f899b;
-    font-size:15px;
-}
-
-
-/* =========================
-   CATEGORIES
-========================= */
-
-.categories{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:20px;
-}
-
-.category{
-    background:rgba(17,22,32,.85);
-    border:1px solid #293140;
-    border-radius:18px;
-    padding:35px 25px;
-    text-align:center;
-    cursor:pointer;
-    transition:.25s;
-}
-
-.category:hover{
-    transform:translateY(-5px);
-    border-color:#66758d;
-    background:#151b27;
-}
-
-.category-icon{
-    font-size:42px;
-    margin-bottom:15px;
-}
-
-.category h2{
-    font-size:20px;
-    letter-spacing:2px;
-    margin-bottom:8px;
-}
-
-.category span{
-    color:#778296;
-    font-size:13px;
-}
-
-
-/* =========================
-   QUEST CARD
-========================= */
-
-.quest-card{
-    grid-column:1 / -1;
-    max-width:650px;
-    width:100%;
-    margin:auto;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(33,150,243,.12),
-            rgba(17,22,32,.94)
-        );
-
-    border:1px solid #2196ff;
-
-    box-shadow:
-        0 0 18px rgba(33,150,243,.12),
-        0 0 40px rgba(33,150,243,.04);
-
-    position:relative;
-    overflow:hidden;
-}
-
-.quest-card:hover{
-    border-color:#73b9ff;
-
-    background:
-        linear-gradient(
-            135deg,
-            rgba(33,150,243,.18),
-            rgba(21,27,39,.97)
-        );
-
-    box-shadow:
-        0 0 25px rgba(33,150,243,.22),
-        0 0 50px rgba(33,150,243,.08);
-}
-
-.quest-card .category-icon{
-    color:#4da6ff;
-    font-size:48px;
-    font-weight:bold;
-    text-shadow:0 0 15px rgba(77,166,255,.4);
-}
-
-.quest-card h2{
-    color:#ffffff;
-    font-size:24px;
+    font-size:46px;
+    font-weight:900;
     letter-spacing:3px;
-    margin-bottom:10px;
-}
-
-.quest-from{
-    color:#4da6ff !important;
-    font-size:13px !important;
-    font-weight:bold;
-    letter-spacing:2px;
-    text-transform:uppercase;
-    display:block;
     margin-bottom:12px;
 }
 
-.quest-complete{
-    display:inline-block;
-    color:#8cf0ae !important;
-    background:rgba(43,150,75,.13);
-    border:1px solid rgba(81,193,108,.35);
-    border-radius:20px;
-    padding:7px 14px;
-    font-size:11px !important;
-    font-weight:bold;
-    letter-spacing:1.5px;
+.header p{
+    color:#8a95a8;
+    font-size:14px;
 }
 
+.section-title{
+    font-size:13px;
+    letter-spacing:2px;
+    color:#7f899b;
+    margin:35px 0 16px;
+    font-weight:bold;
+}
 
 /* =========================
-   QUEST CLOSED MODAL
+   QUESTS
 ========================= */
 
-.closed-modal{
-    display:none;
-    position:fixed;
-    inset:0;
-    z-index:10000;
-    align-items:center;
-    justify-content:center;
-    padding:20px;
-    background:rgba(0,0,0,.82);
-    backdrop-filter:blur(7px);
-    -webkit-backdrop-filter:blur(7px);
+.quest-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:18px;
 }
 
-.closed-modal.active{
-    display:flex;
-}
-
-.closed-box{
-    width:100%;
-    max-width:430px;
-    padding:32px 28px;
-    text-align:center;
-
+.quest-card{
+    position:relative;
+    padding:25px;
+    border:1px solid #273246;
+    border-radius:16px;
     background:
-        linear-gradient(
-            145deg,
-            #151b25,
-            #080b11
-        );
-
-    border:1px solid #4b5566;
-    border-radius:18px;
-
-    box-shadow:
-        0 0 35px rgba(0,0,0,.65),
-        0 0 25px rgba(100,110,125,.10);
-
-    animation:closedPopup .22s ease-out;
+        linear-gradient(145deg,rgba(26,35,52,.92),rgba(8,12,19,.95));
+    cursor:pointer;
+    transition:.25s;
+    min-height:180px;
+    overflow:hidden;
 }
 
-@keyframes closedPopup{
-    from{
-        opacity:0;
-        transform:scale(.92) translateY(10px);
-    }
-
-    to{
-        opacity:1;
-        transform:scale(1) translateY(0);
-    }
+.quest-card:before{
+    content:"";
+    position:absolute;
+    width:130px;
+    height:130px;
+    border-radius:50%;
+    background:rgba(55,112,255,.08);
+    top:-50px;
+    right:-50px;
 }
 
-.closed-icon{
-    font-size:48px;
-    margin-bottom:15px;
-
-    filter:
-        grayscale(.15)
-        drop-shadow(0 0 10px rgba(255,255,255,.12));
+.quest-card:hover{
+    transform:translateY(-4px);
+    border-color:#4a6592;
 }
 
-.closed-box h2{
-    font-size:23px;
+.quest-number{
+    color:#75839a;
+    font-size:11px;
+    font-weight:bold;
     letter-spacing:2px;
+    margin-bottom:18px;
+}
+
+.quest-card h2{
+    font-size:26px;
     margin-bottom:10px;
 }
 
-.closed-box p{
-    color:#8994a6;
+.quest-card p{
+    color:#9ca6b7;
     font-size:13px;
-    line-height:1.7;
-    margin-bottom:23px;
 }
 
-.closed-btn{
-    width:100%;
-    padding:12px 18px;
-    border:1px solid #3b4657;
-    border-radius:10px;
-    background:#1b2431;
-    color:#e2e7ef;
-    font-size:13px;
+.quest-status{
+    display:inline-block;
+    margin-top:22px;
+    padding:7px 12px;
+    border-radius:7px;
+    background:rgba(58,130,246,.12);
+    color:#69a7ff;
+    font-size:10px;
+    letter-spacing:1px;
     font-weight:bold;
-    cursor:pointer;
-    transition:.2s;
 }
 
-.closed-btn:hover{
-    background:#253042;
-    border-color:#64738a;
-    box-shadow:0 0 15px rgba(100,110,125,.12);
+.quest-status.complete{
+    background:rgba(34,197,94,.1);
+    color:#5bd98b;
 }
 
 
 /* =========================
-   QUEST PAGE
+   LEADERS
 ========================= */
 
-.quest-header{
+.leaders-grid{
+    width:100%;
+    max-width:1000px;
+    margin:0 auto 22px;
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+}
+
+.top-member{
+    border:1px solid #374761;
+    background:rgba(13,18,28,.86);
+    border-radius:13px;
+    padding:18px;
+    transition:.2s;
+    cursor:pointer;
     text-align:center;
+}
+
+.top-member:hover{
+    transform:translateY(-3px);
+    border-color:#5572a5;
+}
+
+.top-member .member-name{
+    font-size:14px;
+    font-weight:bold;
+}
+
+.top-member .member-rank{
+    color:#9aa6b9;
+    font-size:11px;
+    margin-top:9px;
+    line-height:1.5;
+}
+
+.top-member .member-wings{
+    color:#69758a;
+    font-size:10px;
+    margin-top:7px;
+}
+
+
+/* =========================
+   OTHER MEMBERS
+========================= */
+
+.members-grid{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+}
+
+.member{
+    border:1px solid #263044;
+    background:rgba(13,18,28,.86);
+    border-radius:13px;
+    padding:16px;
+    transition:.2s;
+    cursor:pointer;
+}
+
+.member:hover{
+    transform:translateY(-3px);
+    border-color:#41608f;
+}
+
+.member-name{
+    font-size:14px;
+    font-weight:bold;
+}
+
+.member-rp{
+    color:#6c9fff;
+    margin-top:5px;
+    font-size:12px;
+}
+
+.member-rank{
+    color:#828da0;
+    font-size:11px;
+    margin-top:8px;
+}
+
+.member-management{
+    color:#9ca6b7;
+    font-size:10px;
+    margin-top:5px;
+}
+
+.member-wings{
+    color:#69758a;
+    font-size:10px;
+    margin-top:4px;
+}
+
+
+/* =========================
+   PAGES
+========================= */
+
+.quest-page{
+    display:none;
+}
+
+.quest-page.active{
+    display:block;
+}
+
+.back-btn{
+    border:1px solid #2d394f;
+    background:#0d131e;
+    color:#dfe6f1;
+    padding:10px 16px;
+    border-radius:9px;
+    cursor:pointer;
+    margin-bottom:25px;
+    font-size:12px;
+    font-weight:bold;
+}
+
+.back-btn:hover{
+    border-color:#4d6490;
+}
+
+.page-header{
     margin-bottom:30px;
 }
 
-.quest-header h2{
-    font-size:27px;
-    letter-spacing:3px;
+.page-header .badge{
+    margin-bottom:13px;
+}
+
+.page-header h2{
+    font-size:36px;
     margin-bottom:8px;
-    color:#4da6ff;
 }
 
-.quest-header p{
-    color:#718096;
-    font-size:13px;
+.page-header p{
+    color:#7f899d;
 }
-
-.quest-completion{
-    display:inline-block;
-    margin-top:12px;
-    color:#8cf0ae !important;
-    background:rgba(43,150,75,.13);
-    border:1px solid rgba(81,193,108,.35);
-    border-radius:20px;
-    padding:7px 15px;
-    font-size:11px !important;
-    font-weight:bold;
-    letter-spacing:1.5px;
-}
-
-
-/* =========================
-   QUEST CATEGORIES
-========================= */
 
 .quest-categories{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
-    gap:20px;
+    grid-template-columns:repeat(2,1fr);
+    gap:18px;
 }
 
 .quest-category{
-    background:rgba(17,22,32,.88);
-    border:1px solid #293140;
-    border-radius:18px;
-    padding:40px 25px;
-    text-align:center;
+    background:rgba(14,20,31,.9);
+    border:1px solid #273247;
+    border-radius:16px;
+    padding:24px;
     cursor:pointer;
     transition:.25s;
 }
 
 .quest-category:hover{
-    transform:translateY(-5px);
-    border-color:#4da6ff;
-    background:#151b27;
-    box-shadow:0 0 22px rgba(33,150,243,.10);
-}
-
-.quest-category .category-icon{
-    font-size:45px;
+    transform:translateY(-4px);
+    border-color:#455f8d;
 }
 
 .quest-category h3{
-    font-size:21px;
-    letter-spacing:2px;
-    margin-bottom:8px;
+    font-size:20px;
+    margin-bottom:9px;
 }
 
-.quest-category span{
-    color:#778296;
-    font-size:13px;
+.quest-category p{
+    color:#818da1;
+    font-size:12px;
 }
-
-
-/* =========================
-   QUEST 7 SPECIAL
-========================= */
 
 .quest7-grid{
     display:grid;
     grid-template-columns:repeat(2,1fr);
-    gap:20px;
-    max-width:900px;
-    margin:auto;
-}
-
-.quest7-card{
-    background:
-        linear-gradient(
-            145deg,
-            rgba(33,150,243,.08),
-            rgba(17,22,32,.94)
-        );
-
-    border:1px solid #293140;
-    border-radius:18px;
-    padding:42px 25px;
-    text-align:center;
-    cursor:pointer;
-    transition:.25s;
-}
-
-.quest7-card:hover{
-    transform:translateY(-5px);
-    border-color:#4da6ff;
-    background:
-        linear-gradient(
-            145deg,
-            rgba(33,150,243,.15),
-            rgba(21,27,39,.97)
-        );
-    box-shadow:0 0 25px rgba(33,150,243,.12);
-}
-
-.quest7-card .category-icon{
-    font-size:48px;
-    margin-bottom:15px;
-}
-
-.quest7-card h3{
-    font-size:21px;
-    letter-spacing:2px;
-    margin-bottom:10px;
-}
-
-.quest7-card span{
-    color:#778296;
-    font-size:13px;
-}
-
-
-/* =========================
-   DISPATCH INFO
-========================= */
-
-.dispatch-detail{
-    background:rgba(12,17,25,.96);
-    border:1px solid #293140;
-    border-radius:18px;
-    padding:30px;
-    max-width:900px;
-    margin:auto;
-}
-
-.dispatch-title{
-    text-align:center;
-    margin-bottom:28px;
-}
-
-.dispatch-title h2{
-    color:#4da6ff;
-    font-size:27px;
-    letter-spacing:3px;
-    margin-bottom:8px;
-}
-
-.dispatch-title p{
-    color:#718096;
-    font-size:13px;
-}
-
-.dispatch-grid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:15px;
-}
-
-.dispatch-box{
-    background:#101620;
-    border:1px solid #252e3d;
-    border-radius:12px;
-    padding:20px;
-}
-
-.dispatch-box.full{
-    grid-column:1 / -1;
-}
-
-.dispatch-label{
-    color:#718096;
-    font-size:10px;
-    text-transform:uppercase;
-    letter-spacing:1.5px;
-    margin-bottom:8px;
-}
-
-.dispatch-value{
-    color:#e7ebf2;
-    font-size:15px;
-    font-weight:bold;
-}
-
-.private-proof{
-    color:#d4d9e2;
-}
-
-.private-proof span{
-    color:#8f9bad;
-    font-size:12px;
-    margin-left:6px;
-}
-
-
-/* =========================
-   SQUAD
-========================= */
-
-.squad-section{
-    margin-top:45px;
-    background:rgba(12,17,25,.88);
-    border:1px solid #293140;
-    border-radius:18px;
-    padding:30px;
-}
-
-.squad-title{
-    text-align:center;
-    margin-bottom:25px;
-}
-
-.squad-title h2{
-    font-size:25px;
-    letter-spacing:3px;
-    margin-bottom:8px;
-}
-
-.squad-title p{
-    color:#718096;
-    font-size:13px;
-}
-
-.top-members{
-    display:flex;
-    justify-content:center;
-    align-items:stretch;
-    gap:12px;
-    margin-bottom:12px;
-    flex-wrap:wrap;
-}
-
-.top-member{
-    flex:0 1 280px;
-    min-height:58px;
-    color:#ffd700;
-    border:1px solid #ffd700;
-    background:rgba(255,215,0,.08);
-    font-weight:bold;
-    box-shadow:0 0 15px rgba(255,215,0,.12);
-    cursor:pointer;
-    position:relative;
-    transition:.25s;
-}
-
-.top-member:hover{
-    color:#ffe866;
-    border-color:#ffe866;
-    background:rgba(255,215,0,.13);
-    box-shadow:0 0 20px rgba(255,215,0,.2);
-    transform:translateY(-3px);
-}
-
-.blue-member{
-    color:#4da6ff !important;
-    border:1px solid #2196ff !important;
-    background:rgba(33,150,243,.08) !important;
-    font-weight:bold !important;
-    box-shadow:
-        0 0 15px rgba(33,150,243,.12),
-        0 0 30px rgba(33,150,243,.04);
-    cursor:pointer;
-    position:relative;
-    transition:.25s !important;
-}
-
-.blue-member:hover{
-    color:#73b9ff !important;
-    border-color:#73b9ff !important;
-    background:rgba(33,150,243,.13) !important;
-    box-shadow:
-        0 0 20px rgba(33,150,243,.2),
-        0 0 35px rgba(33,150,243,.08);
-    transform:translateY(-3px);
-    text-shadow:0 0 8px rgba(77,166,255,.45);
-}
-
-.member-profile{
-    display:none;
-    margin:0 auto 18px;
-    max-width:900px;
-    background:#0b1018;
-    border:1px solid #3a4353;
-    border-radius:14px;
-    padding:22px;
-    box-shadow:0 0 25px rgba(0,0,0,.25);
-}
-
-.member-profile.active{
-    display:block;
-}
-
-.profile-header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    gap:15px;
-    margin-bottom:18px;
-}
-
-.profile-header h3{
-    color:#ffd700;
-    font-size:21px;
-    letter-spacing:1px;
-}
-
-.profile-close{
-    border:1px solid #30394a;
-    background:#101620;
-    color:#cbd3df;
-    padding:7px 12px;
-    border-radius:8px;
-    cursor:pointer;
-}
-
-.profile-close:hover{
-    background:#1a2230;
-}
-
-.profile-grid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:12px;
-}
-
-.profile-box{
-    background:#101620;
-    border:1px solid #252e3d;
-    border-radius:10px;
-    padding:14px;
-}
-
-.profile-label{
-    color:#718096;
-    font-size:10px;
-    text-transform:uppercase;
-    letter-spacing:1.3px;
-    margin-bottom:6px;
-}
-
-.profile-value{
-    color:#e5e9f0;
-    font-size:13px;
-    line-height:1.6;
-}
-
-.wings-value{
-    color:#ffd700;
-}
-
-.squad-grid{
-    display:grid;
-    grid-template-columns:repeat(4,1fr);
-    gap:12px;
-    justify-items:stretch;
-}
-
-.member{
-    background:#101620;
-    border:1px solid #252e3d;
-    border-radius:10px;
-    padding:14px 12px;
-    text-align:center;
-    color:#cfd6e1;
-    font-size:13px;
-    min-height:48px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    transition:.2s;
-}
-
-.member:hover{
-    border-color:#59677c;
-    background:#151c28;
-    transform:translateY(-2px);
-}
-
-
-/* =========================
-   CASES
-========================= */
-
-.section-title{
-    display:flex;
-    align-items:center;
-    justify-content:space-between;
-    margin-bottom:20px;
-}
-
-.section-title h2{
-    font-size:25px;
-    letter-spacing:2px;
-}
-
-.back-btn{
-    border:1px solid #30394a;
-    background:#101620;
-    color:#cbd3df;
-    padding:10px 18px;
-    border-radius:9px;
-    cursor:pointer;
-}
-
-.back-btn:hover{
-    background:#1a2230;
-}
-
-.cases{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
     gap:18px;
 }
 
-.case-card{
-    background:rgba(15,20,29,.92);
-    border:1px solid #293140;
-    border-radius:16px;
-    padding:22px;
-    cursor:pointer;
-    transition:.25s;
-}
-
-.case-card:hover{
-    transform:translateY(-3px);
-    border-color:#58677d;
-}
-
-.case-top{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:20px;
-}
-
-.case-number{
-    font-weight:bold;
-    letter-spacing:1px;
-}
-
-.status{
-    padding:6px 11px;
-    border-radius:20px;
-    font-size:11px;
-    font-weight:bold;
-    letter-spacing:1px;
-}
-
-.success{
-    color:#8cf0ae;
-    background:rgba(43,150,75,.13);
-    border:1px solid rgba(81,193,108,.25);
-}
-
-.pending{
-    color:#e4b95d;
-    background:rgba(184,134,30,.12);
-    border:1px solid rgba(184,134,30,.25);
-}
-
-.case-info{
-    color:#8994a6;
-    font-size:13px;
-    line-height:1.7;
-}
-
-.case-info strong{
-    color:#dce2eb;
-}
-
-
-/* =========================
-   DETAIL
-========================= */
-
-.detail{
-    background:rgba(12,17,25,.96);
-    border:1px solid #293140;
-    border-radius:18px;
-    padding:30px;
-}
-
-.detail-header{
-    display:flex;
-    justify-content:space-between;
-    align-items:center;
-    margin-bottom:28px;
-}
-
-.detail-header h2{
-    font-size:27px;
-    letter-spacing:2px;
-}
-
-.grid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:18px;
-    margin-bottom:25px;
-}
-
-.info-box{
-    background:#101620;
-    border:1px solid #252e3d;
-    border-radius:12px;
-    padding:18px;
-}
-
-.info-label{
-    color:#718096;
-    font-size:11px;
-    text-transform:uppercase;
+.category-title{
+    font-size:14px;
+    color:#aab5c7;
     letter-spacing:1.5px;
-    margin-bottom:8px;
+    font-weight:bold;
+    margin:28px 0 14px;
 }
 
-.info-value{
-    color:#e7ebf2;
-    font-size:14px;
-    line-height:1.7;
-}
-
-.report{
-    margin-top:20px;
-}
-
-.report h3,
-.evidence h3{
-    font-size:16px;
-    letter-spacing:1px;
-    margin-bottom:14px;
-}
-
-.report-box{
-    background:#0b1018;
-    border:1px solid #252e3d;
-    border-radius:12px;
-    padding:22px;
-}
-
-.report-text{
-    direction:rtl;
-    text-align:right;
-    white-space:pre-line;
-    line-height:2;
-    color:#d7dce5;
-    font-size:14px;
-}
-
-.evidence{
-    margin-top:28px;
-}
-
-.gallery{
+.case-grid{
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:14px;
 }
 
+.case-card{
+    background:rgba(13,18,28,.9);
+    border:1px solid #273247;
+    border-radius:14px;
+    padding:19px;
+    cursor:pointer;
+    transition:.22s;
+}
+
+.case-card:hover{
+    transform:translateY(-3px);
+    border-color:#446397;
+}
+
+.case-number{
+    color:#63718a;
+    font-size:10px;
+    letter-spacing:2px;
+    font-weight:bold;
+    margin-bottom:11px;
+}
+
+.case-card h3{
+    font-size:17px;
+    margin-bottom:7px;
+}
+
+.case-card .location{
+    color:#7d899d;
+    font-size:11px;
+    margin-bottom:13px;
+}
+
+.ready,
+.pending{
+    display:inline-block;
+    border-radius:7px;
+    padding:6px 9px;
+    font-size:9px;
+    font-weight:bold;
+    letter-spacing:1px;
+}
+
+.ready{
+    color:#72adff;
+    background:rgba(59,130,246,.1);
+}
+
+.pending{
+    color:#e4bb58;
+    background:rgba(234,179,8,.1);
+}
+
+
+/* =========================
+   DETAILS
+========================= */
+
+.detail-page{
+    display:none;
+}
+
+.detail-page.active{
+    display:block;
+}
+
+.detail-box{
+    background:rgba(11,16,25,.92);
+    border:1px solid #273247;
+    border-radius:17px;
+    padding:26px;
+}
+
+.detail-head{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-start;
+    margin-bottom:24px;
+    gap:20px;
+}
+
+.detail-head h2{
+    font-size:28px;
+}
+
+.detail-location{
+    color:#7f8b9f;
+    font-size:12px;
+    margin-top:7px;
+}
+
+.detail-status{
+    border:1px solid rgba(59,130,246,.24);
+    background:rgba(59,130,246,.09);
+    color:#72abff;
+    font-size:10px;
+    font-weight:bold;
+    letter-spacing:1px;
+    border-radius:8px;
+    padding:7px 10px;
+}
+
+.info-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:14px;
+}
+
+.info-card{
+    background:rgba(6,10,16,.75);
+    border:1px solid #202a3a;
+    border-radius:12px;
+    padding:18px;
+}
+
+.info-card.full{
+    grid-column:1/-1;
+}
+
+.info-card h4{
+    color:#697b96;
+    font-size:10px;
+    letter-spacing:1.4px;
+    margin-bottom:11px;
+    text-transform:uppercase;
+}
+
+.info-card p,
+.info-card li{
+    color:#d4dbe6;
+    font-size:13px;
+    line-height:1.75;
+}
+
+.info-card ul{
+    padding-left:18px;
+}
+
+.report{
+    white-space:pre-line;
+    direction:rtl;
+    text-align:right;
+}
+
+.evidence-title{
+    margin:25px 0 13px;
+    font-size:15px;
+    font-weight:bold;
+    letter-spacing:1px;
+}
+
+.gallery{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:10px;
+}
+
 .gallery img{
     width:100%;
-    height:220px;
+    height:190px;
     object-fit:cover;
-    border-radius:12px;
-    border:1px solid #293140;
+    border-radius:10px;
+    border:1px solid #273247;
     cursor:pointer;
-    transition:.25s;
+    transition:.2s;
 }
 
 .gallery img:hover{
-    transform:scale(1.02);
-    border-color:#64738a;
+    transform:scale(1.015);
+    border-color:#5572a5;
 }
 
+
+/* =========================
+   MODALS
+========================= */
+
+.closed-modal,
+.profile-modal,
 .lightbox{
-    display:none;
     position:fixed;
     inset:0;
-    background:rgba(0,0,0,.92);
-    z-index:9999;
+    display:none;
     align-items:center;
     justify-content:center;
-    padding:30px;
+    z-index:9999;
+    background:rgba(0,0,0,.8);
+    backdrop-filter:blur(7px);
+    padding:20px;
+}
+
+.closed-modal.active,
+.profile-modal.active,
+.lightbox.active{
+    display:flex;
+}
+
+.closed-box,
+.profile-box{
+    width:100%;
+    max-width:500px;
+    background:#0b1018;
+    border:1px solid #334057;
+    border-radius:17px;
+    padding:28px;
+    position:relative;
+}
+
+.closed-box{
+    text-align:center;
+}
+
+.closed-box h2{
+    font-size:27px;
+    margin-bottom:10px;
+}
+
+.closed-box p{
+    color:#929daf;
+    line-height:1.7;
+    font-size:13px;
+}
+
+.success{
+    color:#55d683;
+}
+
+.close{
+    position:absolute;
+    right:16px;
+    top:13px;
+    font-size:25px;
+    color:#7d899c;
+    cursor:pointer;
+}
+
+.profile-box h2{
+    font-size:26px;
+    margin-bottom:5px;
+}
+
+.profile-box .rp{
+    color:#669eff;
+    margin-bottom:21px;
+}
+
+.profile-info{
+    background:#070b11;
+    border:1px solid #1e2735;
+    border-radius:11px;
+    padding:14px 17px;
+}
+
+.profile-info div{
+    padding:9px 0;
+    border-bottom:1px solid #1c2431;
+    font-size:12px;
+}
+
+.profile-info div:last-child{
+    border-bottom:none;
+}
+
+.profile-info span{
+    display:inline-block;
+    color:#727f93;
+    width:110px;
+}
+
+.dispatch-box{
+    background:rgba(11,16,25,.92);
+    border:1px solid #273247;
+    border-radius:16px;
+    padding:23px;
+}
+
+.dispatch-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:13px;
+}
+
+.dispatch-item{
+    background:#070b12;
+    border:1px solid #202a3a;
+    border-radius:11px;
+    padding:17px;
+}
+
+.dispatch-item span{
+    display:block;
+    color:#737f92;
+    font-size:10px;
+    letter-spacing:1px;
+    margin-bottom:7px;
+    text-transform:uppercase;
 }
 
 .lightbox img{
     max-width:95%;
     max-height:90vh;
-    border-radius:12px;
+    object-fit:contain;
+    border-radius:10px;
 }
 
-.close-lightbox{
-    position:absolute;
-    top:20px;
-    right:30px;
-    font-size:35px;
+.lightbox .close{
+    font-size:36px;
     color:#fff;
-    cursor:pointer;
-}
-
-.page{
-    display:none;
-}
-
-.page.active{
-    display:block;
+    right:25px;
+    top:18px;
 }
 
 
@@ -904,106 +655,60 @@ body{
 
 @media(max-width:900px){
 
-    .squad-grid{
+    .leaders-grid{
+        grid-template-columns:1fr;
+        max-width:600px;
+    }
+
+    .members-grid{
         grid-template-columns:repeat(3,1fr);
     }
 
+    .quest-grid,
+    .case-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
 }
 
-@media(max-width:800px){
+@media(max-width:650px){
 
-    .categories{
+    .container{
+        padding:20px 15px 40px;
+    }
+
+    .header h1{
+        font-size:32px;
+    }
+
+    .quest-grid,
+    .quest-categories,
+    .quest7-grid,
+    .case-grid,
+    .members-grid,
+    .info-grid,
+    .dispatch-grid{
         grid-template-columns:1fr;
     }
 
-    .quest-categories{
+    .leaders-grid{
         grid-template-columns:1fr;
     }
 
-    .quest7-grid{
-        grid-template-columns:1fr;
-    }
-
-    .cases{
-        grid-template-columns:1fr;
-    }
-
-    .grid{
-        grid-template-columns:1fr;
+    .info-card.full{
+        grid-column:auto;
     }
 
     .gallery{
         grid-template-columns:1fr;
     }
 
-    .squad-grid{
-        grid-template-columns:repeat(2,1fr);
+    .gallery img{
+        height:220px;
     }
 
-    .top-members{
-        flex-direction:row;
-        flex-wrap:wrap;
-    }
-
-    .top-member{
-        flex:1 1 200px;
-        max-width:280px;
-    }
-
-    .profile-grid{
-        grid-template-columns:1fr;
-    }
-
-    .dispatch-grid{
-        grid-template-columns:1fr;
-    }
-
-    .dispatch-box.full{
-        grid-column:auto;
-    }
-
-    .header h1{
-        font-size:34px;
-    }
-
-    .detail{
-        padding:20px;
-    }
-
-    .detail-header{
+    .detail-head{
         flex-direction:column;
-        align-items:flex-start;
-        gap:15px;
     }
-
-}
-
-@media(max-width:500px){
-
-    .top-members{
-        flex-direction:column;
-        align-items:center;
-    }
-
-    .top-member{
-        width:100%;
-        max-width:320px;
-    }
-
-    .squad-grid{
-        grid-template-columns:1fr;
-    }
-
-    .profile-header{
-        flex-direction:column;
-        align-items:flex-start;
-    }
-
-    .closed-box{
-        max-width:350px;
-        padding:28px 22px;
-    }
-
 }
 </style>
 </head>
@@ -1013,19 +718,9 @@ body{
 <div class="container">
 
 <div class="header">
-
-    <div class="badge">
-        BRAVO DAILY CHALLENGE
-    </div>
-
-    <h1>
-        BRAVO CHALLENGE
-    </h1>
-
-    <p>
-        Select a category to view cases
-    </p>
-
+    <div class="badge">BRAVO SQUAD</div>
+    <h1>BRAVO CHALLENGE</h1>
+    <p>Police Operations • Challenge Tracker</p>
 </div>
 
 
@@ -1033,343 +728,284 @@ body{
      HOME
 ========================= -->
 
-<div id="home" class="page active">
+<div id="homePage">
 
-    <div class="categories">
+    <div class="section-title">CHALLENGES</div>
 
-        <!-- #5 QUEST CLOSED -->
+    <div class="quest-grid">
 
-        <div class="category quest-card"
-             onclick="showClosedQuest()">
+        <div class="quest-card" onclick="showClosedQuest()">
+            <div class="quest-number">#5 QUEST</div>
+            <h2>QUEST #5</h2>
+            <p>FROM AMINE MORGAN</p>
+            <div class="quest-status complete">MISSION COMPLETE — 100%</div>
+        </div>
 
-            <div class="category-icon">
-                #5
+        <div class="quest-card" onclick="showClosedQuest()">
+            <div class="quest-number">#6 QUEST</div>
+            <h2>QUEST #6</h2>
+            <p>FROM AMINE MORGAN</p>
+            <div class="quest-status complete">MISSION COMPLETE — 100%</div>
+        </div>
+
+        <div class="quest-card" onclick="showCategory('quest7')">
+            <div class="quest-number">#7 QUEST</div>
+            <h2>QUEST #7</h2>
+            <p>FROM AMINE MORGAN</p>
+            <div class="quest-status">NEW CHALLENGE</div>
+        </div>
+
+    </div>
+
+
+    <div class="section-title">BRAVO SQUAD MEMBERS</div>
+
+
+    <!-- =========================
+         TOP 3 - CENTERED
+    ========================= -->
+
+    <div class="leaders-grid">
+
+        <div class="top-member" onclick="showMemberProfile('dark')">
+            <div class="member-name">Dark — Abdulilah Nawaf</div>
+            <div class="member-rank">
+                Sergeant • Police Wings Management
             </div>
-
-            <h2>
-                #5 QUEST
-            </h2>
-
-            <span class="quest-from">
-                FROM AMINE MORGAN
-            </span>
-
-            <span class="quest-complete">
-                MISSION COMPLETE — 100%
-            </span>
-
+            <div class="member-wings">
+                Airship • Motorcycle • Negotiator
+            </div>
         </div>
 
 
-        <!-- #6 QUEST CLOSED -->
-
-        <div class="category quest-card"
-             onclick="showClosedQuest()">
-
-            <div class="category-icon">
-                #6
+        <div class="top-member" onclick="showMemberProfile('feras')">
+            <div class="member-name">Feras — Feras BinOmar</div>
+            <div class="member-rank">
+                Senior Lead Officer • Police Academy Section Leader
             </div>
-
-            <h2>
-                #6 QUEST
-            </h2>
-
-            <span class="quest-from">
-                FROM AMINE MORGAN
-            </span>
-
-            <span class="quest-complete">
-                MISSION COMPLETE — 100%
-            </span>
-
+            <div class="member-wings">
+                Airship • Motorcycle • Negotiator
+            </div>
         </div>
 
 
-        <!-- #7 QUEST -->
-
-        <div class="category quest-card"
-             onclick="showCategory('quest7')">
-
-            <div class="category-icon">
-                #7
+        <div class="top-member" onclick="showMemberProfile('qassim')">
+            <div class="member-name">Qassim — Shaheen Hamad</div>
+            <div class="member-rank">
+                Senior Officer • Internal Affairs Management
             </div>
-
-            <h2>
-                #7 QUEST
-            </h2>
-
-            <span class="quest-from">
-                FROM AMINE MORGAN
-            </span>
-
-            <span class="quest-complete">
-                NEW CHALLENGE
-            </span>
-
+            <div class="member-wings">
+                Airship • Motorcycle • Negotiator
+            </div>
         </div>
 
     </div>
 
 
     <!-- =========================
-         BRAVO SQUAD
-    ========================== -->
+         OTHER MEMBERS
+    ========================= -->
 
-    <div class="squad-section">
+    <div class="members-grid">
 
-        <div class="squad-title">
-
-            <h2>
-                BRAVO SQUAD MEMBER
-            </h2>
-
-            <p>
-                Bravo Squad Members
-            </p>
-
+        <div class="member" onclick="showMemberProfile('hossam')">
+            <div class="member-name">7sosah</div>
+            <div class="member-rp">HOSSAM ALMUTAIRI</div>
         </div>
 
-
-        <div class="top-members">
-
-            <div class="member top-member"
-                 onclick="showMemberProfile('dark')">
-
-                <div>
-                    Dark — Abdulilah Nawaf
-
-                    <small>
-                        Sergeant • Police Wings Management
-                    </small>
-
-                    <div class="admin-label">
-                        Airship • Motorcycle • Negotiator
-                    </div>
-                </div>
-
-            </div>
-
-
-            <div class="member top-member"
-                 onclick="showMemberProfile('feras')">
-
-                <div>
-                    Feras — Feras BinOmar
-
-                    <small>
-                        Senior Lead Officer • Police Academy Section Leader
-                    </small>
-
-                    <div class="admin-label">
-                        Airship • Motorcycle • Negotiator
-                    </div>
-                </div>
-
-            </div>
-
-
-            <div class="member top-member"
-                 onclick="showMemberProfile('qassim')">
-
-                <div>
-                    Qassim — Shaheen Hamad
-
-                    <small>
-                        Senior Officer • Internal Affairs Management
-                    </small>
-
-                    <div class="admin-label">
-                        Airship • Motorcycle • Negotiator
-                    </div>
-                </div>
-
-            </div>
-
+        <div class="member" onclick="showMemberProfile('baa')">
+            <div class="member-name">BAA</div>
+            <div class="member-rp">Bader Abdullah</div>
         </div>
 
-
-        <div id="memberProfile"
-             class="member-profile">
-
-            <div class="profile-header">
-
-                <h3 id="profileName">
-                    MEMBER
-                </h3>
-
-                <button class="profile-close"
-                        onclick="closeMemberProfile()">
-                    × Close
-                </button>
-
-            </div>
-
-
-            <div class="profile-grid">
-
-                <div class="profile-box">
-                    <div class="profile-label">
-                        Discord / Squad Name
-                    </div>
-
-                    <div class="profile-value"
-                         id="profileDiscord"></div>
-                </div>
-
-
-                <div class="profile-box">
-                    <div class="profile-label">
-                        Administrative / Police Rank
-                    </div>
-
-                    <div class="profile-value"
-                         id="profileRank"></div>
-                </div>
-
-
-                <div class="profile-box">
-                    <div class="profile-label">
-                        Management / Section
-                    </div>
-
-                    <div class="profile-value"
-                         id="profileManagement"></div>
-                </div>
-
-
-                <div class="profile-box">
-                    <div class="profile-label">
-                        Police Wings
-                    </div>
-
-                    <div class="profile-value wings-value"
-                         id="profileWings"></div>
-                </div>
-
-
-                <div class="profile-box">
-                    <div class="profile-label">
-                        RP Name
-                    </div>
-
-                    <div class="profile-value"
-                         id="profileRP"></div>
-                </div>
-
-            </div>
-
+        <div class="member" onclick="showMemberProfile('jin')">
+            <div class="member-name">OrewaSaad</div>
+            <div class="member-rp">Jin Freecs</div>
         </div>
 
+        <div class="member" onclick="showMemberProfile('jummah')">
+            <div class="member-name">FAISAL</div>
+            <div class="member-rp">JUMMAH ALZAHRANI</div>
+        </div>
 
-        <div class="squad-grid">
+        <div class="member" onclick="showMemberProfile('thiago')">
+            <div class="member-name">MT | RealWeep</div>
+            <div class="member-rp">Thiago Morgan</div>
+        </div>
 
-            <div class="member blue-member" onclick="showMemberProfile('hossam')">
-                7sosah — HOSSAM ALMUTAIRI
-            </div>
+        <div class="member" onclick="showMemberProfile('attaf')">
+            <div class="member-name">! Attaf</div>
+            <div class="member-rp">Abdullah Attaf</div>
+        </div>
 
-            <div class="member blue-member" onclick="showMemberProfile('baa')">
-                BAA — Bader Abdullah
-            </div>
+        <div class="member" onclick="showMemberProfile('void')">
+            <div class="member-name">M T 3 B</div>
+            <div class="member-rp">VOID Barrett</div>
+        </div>
 
-            <div class="member blue-member" onclick="showMemberProfile('jin')">
-                OrewaSaad — Jin Freecs
-            </div>
+        <div class="member" onclick="showMemberProfile('raedd')">
+            <div class="member-name">RAedd</div>
+            <div class="member-rp">Raedd Ibrahim</div>
+        </div>
 
-            <div class="member blue-member" onclick="showMemberProfile('jummah')">
-                FAISAL — JUMMAH ALZAHRANI
-            </div>
+        <div class="member" onclick="showMemberProfile('mario')">
+            <div class="member-name">Mario</div>
+            <div class="member-rp">Mario Smith</div>
+        </div>
 
-            <div class="member blue-member" onclick="showMemberProfile('thiago')">
-                MT | RealWeep — Thiago Morgan
-            </div>
+        <div class="member" onclick="showMemberProfile('ahmed')">
+            <div class="member-name">Dktrr</div>
+            <div class="member-rp">Ahmed Al-Qahtani</div>
+        </div>
 
-            <div class="member blue-member" onclick="showMemberProfile('attaf')">
-                ! Attaf — Abdullah Attaf
-            </div>
+        <div class="member" onclick="showMemberProfile('layla')">
+            <div class="member-name">Layla</div>
+            <div class="member-rp">Layla Almutairi</div>
+        </div>
 
-            <div class="member blue-member" onclick="showMemberProfile('void')">
-                M T 3 B — VOID Barrett
-            </div>
+        <div class="member" onclick="showMemberProfile('rayan')">
+            <div class="member-name">RAYAN</div>
+            <div class="member-rp">SHILAYWAYH ALHARBI</div>
+        </div>
 
-            <div class="member blue-member" onclick="showMemberProfile('raedd')">
-                RAedd — Raedd Ibrahim
-            </div>
+        <div class="member" onclick="showMemberProfile('faisalFailachwe')">
+            <div class="member-name">FAISAL</div>
+            <div class="member-rp">Faisal Failachwe</div>
+        </div>
 
-            <div class="member blue-member" onclick="showMemberProfile('mario')">
-                Mario — Mario Smith
-            </div>
+        <div class="member" onclick="showMemberProfile('nf3a')">
+            <div class="member-name">NF3A</div>
+            <div class="member-rp">Nawaf Abdullah</div>
+        </div>
 
-            <div class="member blue-member" onclick="showMemberProfile('ahmed')">
-                Dktrr — Ahmed Al-Qahtani
-            </div>
+        <div class="member" onclick="showMemberProfile('baraa')">
+            <div class="member-name">! Bara'a</div>
+            <div class="member-rp">Baraa Chandler</div>
+        </div>
 
-            <div class="member blue-member" onclick="showMemberProfile('layla')">
-                Layla — Layla Almutairi
-            </div>
+        <div class="member" onclick="showMemberProfile('rashed')">
+            <div class="member-name">Rashed</div>
+            <div class="member-rp">Rashed AlHarbi</div>
+        </div>
 
-            <div class="member blue-member" onclick="showMemberProfile('rayan')">
-                RAYAN — SHILAYWAYH ALHARBI
-            </div>
+        <div class="member" onclick="showMemberProfile('abdullahZ')">
+            <div class="member-name">Abdullah</div>
+            <div class="member-rp">Abdullah Al-Zahrani</div>
+        </div>
 
-            <div class="member blue-member" onclick="showMemberProfile('faisalFailachwe')">
-                FAISAL — Faisal Failachwe
-            </div>
+        <div class="member" onclick="showMemberProfile('binTalal')">
+            <div class="member-name">Bin Talal</div>
+            <div class="member-rp">Mohammed Talal</div>
+        </div>
 
-            <div class="member blue-member" onclick="showMemberProfile('nf3a')">
-                NF3A — Nawaf Abdullah
-            </div>
+        <div class="member" onclick="showMemberProfile('faisalAlshehri')">
+            <div class="member-name">Faisal</div>
+            <div class="member-rp">Faisal Alshehri</div>
+        </div>
 
-            <div class="member blue-member" onclick="showMemberProfile('baraa')">
-                ! Bara'a — Baraa Chandler
-            </div>
+        <div class="member" onclick="showMemberProfile('tom')">
+            <div class="member-name">MT | Tom</div>
+            <div class="member-rp">Tom Chandler</div>
+        </div>
 
-            <div class="member blue-member" onclick="showMemberProfile('rashed')">
-                Rashed — Rashed AlHarbi
-            </div>
+        <div class="member" onclick="showMemberProfile('amine')">
+            <div class="member-name">Amine_MxH</div>
+            <div class="member-rp">Amine Morgan</div>
+        </div>
 
-            <div class="member blue-member" onclick="showMemberProfile('abdullahZ')">
-                Abdullah — Abdullah Al-Zahrani
-            </div>
+        <div class="member" onclick="showMemberProfile('vnx')">
+            <div class="member-name">V N X</div>
+            <div class="member-rp">Lucas Hod</div>
+        </div>
 
-            <div class="member blue-member" onclick="showMemberProfile('binTalal')">
-                Bin Talal — Mohammed Talal
-            </div>
+        <div class="member">
+            <div class="member-name">Abu Saleh</div>
+            <div class="member-rp">David Rick</div>
+        </div>
 
-            <div class="member blue-member" onclick="showMemberProfile('faisalAlshehri')">
-                Faisal — Faisal Alshehri
-            </div>
+        <div class="member">
+            <div class="member-name">D7i</div>
+            <div class="member-rp">Abdulrahman Al-Hakami</div>
+        </div>
 
-            <div class="member blue-member" onclick="showMemberProfile('tom')">
-                MT | Tom — Tom Chandler
-            </div>
+        <div class="member">
+            <div class="member-name">Tea</div>
+            <div class="member-rp">Thaar Alotaibi</div>
+        </div>
 
-            <div class="member blue-member" onclick="showMemberProfile('amine')">
-                Amine_MxH — Amine Morgan
-            </div>
+        <div class="member">
+            <div class="member-name">966abdullah</div>
+            <div class="member-rp">GHYATH ALDOSSARY</div>
+        </div>
 
-            <div class="member blue-member" onclick="showMemberProfile('vnx')">
-                V N X — Lucas Hod
-            </div>
+        <div class="member">
+            <div class="member-name">sAAD</div>
+            <div class="member-rp">Saad Alsubaie</div>
+        </div>
 
-            <div class="member">Abu Saleh — David Rick</div>
-            <div class="member">D7i — Abdulrahman Al-Hakami</div>
-            <div class="member">Tea — Thaar Alotaibi</div>
-            <div class="member">966abdullah — GHYATH ALDOSSARY</div>
-            <div class="member">sAAD — Saad Alsubaie</div>
-            <div class="member">Tariq — Tariq Waleed</div>
-            <div class="member">NA_Y52 — Yazeed Meshal</div>
-            <div class="member">Botangy — Lattam Bobsheet</div>
-            <div class="member">Br1ghtSide — Kai Proctor</div>
-            <div class="member">WOLF — Omar AlMutairi</div>
-            <div class="member">Alhajri — MOHAMMED ALHAJRI</div>
-            <div class="member">AJ — MOHAMMED ALHAJRI</div>
-            <div class="member">! Rï0 — Rayan Al-Harbi</div>
-            <div class="member">Shgardii — Mohammed Almeri</div>
-            <div class="member">Hasan — Hasan Alsharif</div>
-            <div class="member">! Fly — Robert Navarro</div>
-            <div class="member">Musaad — Musaad BinAbdullah</div>
-            <div class="member">!os.qr2 — Zeyad Omar</div>
+        <div class="member">
+            <div class="member-name">Tariq</div>
+            <div class="member-rp">Tariq Waleed</div>
+        </div>
 
+        <div class="member">
+            <div class="member-name">NA_Y52</div>
+            <div class="member-rp">Yazeed Meshal</div>
+        </div>
+
+        <div class="member">
+            <div class="member-name">Botangy</div>
+            <div class="member-rp">Lattam Bobsheet</div>
+        </div>
+
+        <div class="member">
+            <div class="member-name">Br1ghtSide</div>
+            <div class="member-rp">Kai Proctor</div>
+        </div>
+
+        <div class="member">
+            <div class="member-name">WOLF</div>
+            <div class="member-rp">Omar AlMutairi</div>
+        </div>
+
+        <div class="member">
+            <div class="member-name">Alhajri</div>
+            <div class="member-rp">MOHAMMED ALHAJRI</div>
+        </div>
+
+        <div class="member">
+            <div class="member-name">AJ</div>
+            <div class="member-rp">MOHAMMED ALHAJRI</div>
+        </div>
+
+        <div class="member">
+            <div class="member-name">! Rï0</div>
+            <div class="member-rp">Rayan Al-Harbi</div>
+        </div>
+
+        <div class="member">
+            <div class="member-name">Shgardii</div>
+            <div class="member-rp">Mohammed Almeri</div>
+        </div>
+
+        <div class="member">
+            <div class="member-name">Hasan</div>
+            <div class="member-rp">Hasan Alsharif</div>
+        </div>
+
+        <div class="member">
+            <div class="member-name">! Fly</div>
+            <div class="member-rp">Robert Navarro</div>
+        </div>
+
+        <div class="member">
+            <div class="member-name">Musaad</div>
+            <div class="member-rp">Musaad BinAbdullah</div>
+        </div>
+
+        <div class="member">
+            <div class="member-name">!os.qr2</div>
+            <div class="member-rp">Zeyad Omar</div>
         </div>
 
     </div>
@@ -1378,198 +1014,29 @@ body{
 
 
 <!-- =========================
-     #5 QUEST
+     QUEST 7
 ========================= -->
 
-<div id="quest5" class="page">
+<div id="quest7" class="quest-page">
 
-    <div class="section-title">
+    <button class="back-btn" onclick="closeAll()">← BACK</button>
 
-        <h2>#5 QUEST</h2>
-
-        <button class="back-btn" onclick="closeAll()">
-            ← Back
-        </button>
-
-    </div>
-
-    <div class="quest-header">
-
-        <h2>FROM AMINE MORGAN</h2>
-
-        <p>MISSION COMPLETE</p>
-
-        <span class="quest-completion">
-            100% COMPLETE
-        </span>
-
-    </div>
-
-    <div class="quest-categories">
-
-        <div class="quest-category"
-             onclick="showCategory('parking')">
-
-            <div class="category-icon">🅿️</div>
-
-            <h3>PARKING</h3>
-
-            <span>5 Cases</span>
-
-        </div>
-
-
-        <div class="quest-category"
-             onclick="showCategory('store')">
-
-            <div class="category-icon">🏪</div>
-
-            <h3>STORE</h3>
-
-            <span>3 Cases</span>
-
-        </div>
-
-
-        <div class="quest-category"
-             onclick="showCategory('house')">
-
-            <div class="category-icon">🏠</div>
-
-            <h3>HOUSE</h3>
-
-            <span>1 Case</span>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-<!-- =========================
-     #6 QUEST
-========================= -->
-
-<div id="quest6" class="page">
-
-    <div class="section-title">
-
-        <h2>#6 QUEST</h2>
-
-        <button class="back-btn" onclick="closeAll()">
-            ← Back
-        </button>
-
-    </div>
-
-    <div class="quest-header">
-
-        <h2>FROM AMINE MORGAN</h2>
-
-        <p>MISSION COMPLETE</p>
-
-        <span class="quest-completion">
-            100% COMPLETE
-        </span>
-
-    </div>
-
-    <div class="quest-categories">
-
-        <div class="quest-category"
-             onclick="showCategory('parking6')">
-
-            <div class="category-icon">🅿️</div>
-
-            <h3>PARKING METER</h3>
-
-            <span>4 Cases</span>
-
-        </div>
-
-
-        <div class="quest-category"
-             onclick="showCategory('sandy6')">
-
-            <div class="category-icon">🏪</div>
-
-            <h3>SANDY SHORES</h3>
-
-            <span>3 Cases</span>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-<!-- =========================
-     #7 QUEST
-========================= -->
-
-<div id="quest7" class="page">
-
-    <div class="section-title">
-
-        <h2>#7 QUEST</h2>
-
-        <button class="back-btn"
-                onclick="closeAll()">
-            ← Back
-        </button>
-
-    </div>
-
-    <div class="quest-header">
-
-        <h2>FROM AMINE MORGAN</h2>
-
+    <div class="page-header">
+        <div class="badge">QUEST #7</div>
+        <h2>Challenge #7</h2>
         <p>NEW CHALLENGE</p>
-
-        <span class="quest-completion">
-            4 CASES TOTAL
-        </span>
-
     </div>
-
 
     <div class="quest7-grid">
 
-        <div class="quest7-card"
-             onclick="showCategory('store7')">
-
-            <div class="category-icon">
-                🏪
-            </div>
-
-            <h3>
-                LOS SANTOS STORE
-            </h3>
-
-            <span>
-                3 CASES
-            </span>
-
+        <div class="quest-category" onclick="showStore7Cases()">
+            <h3>Los Santos Store</h3>
+            <p>3 Store Robbery Cases</p>
         </div>
 
-
-        <div class="quest7-card"
-             onclick="showCategory('dispatch7')">
-
-            <div class="category-icon">
-                📡
-            </div>
-
-            <h3>
-                DISPATCH MISSION
-            </h3>
-
-            <span>
-                1 CASE
-            </span>
-
+        <div class="quest-category" onclick="showDispatch7()">
+            <h3>Dispatch Mission</h3>
+            <p>1 Dispatch Mission</p>
         </div>
 
     </div>
@@ -1578,127 +1045,40 @@ body{
 
 
 <!-- =========================
-     #7 LOS SANTOS STORE
+     STORE 7
 ========================= -->
 
-<div id="store7" class="page">
+<div id="store7Page" class="quest-page">
 
-    <div class="section-title">
+    <button class="back-btn" onclick="backToQuest7()">← BACK</button>
 
-        <h2>🏪 LOS SANTOS STORE CASES</h2>
-
-        <button class="back-btn"
-                onclick="backToQuest7()">
-            ← Back
-        </button>
-
+    <div class="page-header">
+        <div class="badge">QUEST #7</div>
+        <h2>Los Santos Store</h2>
+        <p>STORE ROBBERY CASES</p>
     </div>
 
+    <div class="case-grid">
 
-    <div class="cases">
-
-        <!-- CASE 01 -->
-
-        <div class="case-card"
-             onclick="showCase('store7',1)">
-
-            <div class="case-top">
-
-                <div class="case-number">
-                    CASE 01
-                </div>
-
-                <div class="status success">
-                    SUCCESS — 100%
-                </div>
-
-            </div>
-
-            <div class="case-info">
-
-                <strong>Fingerprints:</strong>
-                96XPOWOB0VL9N82 / 9POY1BO69NIVZ84
-                <br>
-
-                <strong>Incident:</strong>
-                Store Robbery
-                <br>
-
-                <strong>Team Members:</strong>
-                Ahmed Al-Qahtani — 343 + Lucas Hod — 391
-
-            </div>
-
+        <div class="case-card" onclick="showCase('store7',1)">
+            <div class="case-number">CASE 01</div>
+            <h3>Store Robbery</h3>
+            <div class="location">Los Santos Store</div>
+            <span class="ready">VIEW CASE</span>
         </div>
 
-
-        <!-- CASE 02 -->
-
-        <div class="case-card"
-             onclick="showCase('store7',2)">
-
-            <div class="case-top">
-
-                <div class="case-number">
-                    CASE 02
-                </div>
-
-                <div class="status success">
-                    SUCCESS — 100%
-                </div>
-
-            </div>
-
-            <div class="case-info">
-
-                <strong>Fingerprints:</strong>
-                7YO0Z2K84KFU1I1 / 7YO0Z2K84KFU1I1
-                <br>
-
-                <strong>Incident:</strong>
-                Store Robbery
-                <br>
-
-                <strong>Team Members:</strong>
-                Lucas Hod — 391 + Ahmed Al-Qahtani — 343
-
-            </div>
-
+        <div class="case-card" onclick="showCase('store7',2)">
+            <div class="case-number">CASE 02</div>
+            <h3>Store Robbery</h3>
+            <div class="location">Los Santos Store</div>
+            <span class="ready">VIEW CASE</span>
         </div>
 
-
-        <!-- CASE 03 -->
-
-        <div class="case-card"
-             onclick="showCase('store7',3)">
-
-            <div class="case-top">
-
-                <div class="case-number">
-                    CASE 03
-                </div>
-
-                <div class="status pending">
-                    DETAILS PENDING
-                </div>
-
-            </div>
-
-            <div class="case-info">
-
-                <strong>Location:</strong>
-                Los Santos Store
-                <br>
-
-                <strong>Incident:</strong>
-                Store Robbery
-                <br>
-
-                <strong>Status:</strong>
-                Waiting for case details
-
-            </div>
-
+        <div class="case-card" onclick="showCase('store7',3)">
+            <div class="case-number">CASE 03</div>
+            <h3>Store Robbery</h3>
+            <div class="location">Los Santos Store</div>
+            <span class="ready">VIEW CASE</span>
         </div>
 
     </div>
@@ -1707,107 +1087,51 @@ body{
 
 
 <!-- =========================
-     #7 DISPATCH MISSION
+     DISPATCH 7
 ========================= -->
 
-<div id="dispatch7" class="page">
+<div id="dispatch7Page" class="quest-page">
 
-    <div class="section-title">
+    <button class="back-btn" onclick="backToQuest7()">← BACK</button>
 
-        <h2>📡 DISPATCH MISSION</h2>
-
-        <button class="back-btn"
-                onclick="backToQuest7()">
-            ← Back
-        </button>
-
+    <div class="page-header">
+        <div class="badge">QUEST #7</div>
+        <h2>Dispatch Mission</h2>
+        <p>MISSION DETAILS</p>
     </div>
 
-
-    <div class="dispatch-detail">
-
-        <div class="dispatch-title">
-
-            <h2>
-                DISPATCH MISSION
-            </h2>
-
-            <p>
-                Quest #7 — Dispatch Mission
-            </p>
-
-        </div>
-
+    <div class="dispatch-box">
 
         <div class="dispatch-grid">
 
-            <div class="dispatch-box">
-
-                <div class="dispatch-label">
-                    Commander / Shift Supervisor
-                </div>
-
-                <div class="dispatch-value">
-                    207 Muqrin Fahad
-                </div>
-
+            <div class="dispatch-item">
+                <span>Commander / Shift Supervisor</span>
+                <strong>207 Muqrin Fahad</strong>
             </div>
 
-
-            <div class="dispatch-box">
-
-                <div class="dispatch-label">
-                    Assistant Dispatch
-                </div>
-
-                <div class="dispatch-value">
-                    383 Ammar Asiri
-                </div>
-
+            <div class="dispatch-item">
+                <span>Assistant Dispatch</span>
+                <strong>383 Ammar Asiri</strong>
             </div>
 
-
-            <div class="dispatch-box">
-
-                <div class="dispatch-label">
-                    Dispatch Duration
-                </div>
-
-                <div class="dispatch-value">
-                    1 Hour
-                </div>
-
+            <div class="dispatch-item">
+                <span>Dispatch Duration</span>
+                <strong>1 Hour</strong>
             </div>
 
-
-            <div class="dispatch-box">
-
-                <div class="dispatch-label">
-                    Mission Status
-                </div>
-
-                <div class="dispatch-value">
-                    <span class="status success">
-                        SUCCESS — 100%
-                    </span>
-                </div>
-
+            <div class="dispatch-item">
+                <span>Mission Status</span>
+                <strong class="success">SUCCESS — 100%</strong>
             </div>
 
+            <div class="dispatch-item">
+                <span>Proof</span>
+                <strong>🔒 PRIVATE PROOF</strong>
+            </div>
 
-            <div class="dispatch-box full">
-
-                <div class="dispatch-label">
-                    Proof
-                </div>
-
-                <div class="dispatch-value private-proof">
-                    🔒 PRIVATE PROOF
-                    <span>
-                        Proof link is private
-                    </span>
-                </div>
-
+            <div class="dispatch-item">
+                <span>Proof Link</span>
+                <strong>Private</strong>
             </div>
 
         </div>
@@ -1818,582 +1142,60 @@ body{
 
 
 <!-- =========================
-     #6 PARKING METER
+     DETAIL PAGE
 ========================= -->
 
-<div id="parking6" class="page">
+<div id="detailPage" class="detail-page">
 
-    <div class="section-title">
+    <button class="back-btn" onclick="backToCases()">← BACK</button>
 
-        <h2>🅿️ PARKING METER CASES</h2>
+    <div class="detail-box">
 
-        <button class="back-btn"
-                onclick="backToQuest6()">
-            ← Back
-        </button>
+        <div class="detail-head">
 
-    </div>
-
-    <div class="cases">
-
-        <div class="case-card"
-             onclick="showCase('parking6',1)">
-
-            <div class="case-top">
-                <div class="case-number">CASE 01</div>
-
-                <div class="status success">
-                    SUCCESS — 100%
-                </div>
+            <div>
+                <h2 id="detailTitle"></h2>
+                <div class="detail-location" id="detailLocation"></div>
             </div>
 
-            <div class="case-info">
+            <div class="detail-status">VERIFIED</div>
 
-                <strong>Fingerprint:</strong>
-                9DM2EJA8275VD34
-                <br>
+        </div>
 
-                <strong>Incident:</strong>
-                سرقة Parking Meter
-                <br>
+        <div class="info-grid">
 
-                <strong>Team Member:</strong>
-                Lucas Hod — 191
+            <div class="info-card">
+                <h4>Fingerprint</h4>
+                <p id="detailFingerprint"></p>
+            </div>
 
+            <div class="info-card">
+                <h4>Incident</h4>
+                <p id="detailIncident"></p>
+            </div>
+
+            <div class="info-card">
+                <h4>Confiscated Items</h4>
+                <ul id="detailItems"></ul>
+            </div>
+
+            <div class="info-card">
+                <h4>Team Members</h4>
+                <p id="detailTeam"></p>
+            </div>
+
+            <div class="info-card full">
+                <h4>Intervention Report</h4>
+                <p id="detailReport" class="report"></p>
             </div>
 
         </div>
 
+        <div id="evidenceSection">
 
-        <div class="case-card"
-             onclick="showCase('parking6',2)">
+            <div class="evidence-title">EVIDENCE</div>
 
-            <div class="case-top">
-                <div class="case-number">CASE 02</div>
-
-                <div class="status success">
-                    SUCCESS — 100%
-                </div>
-            </div>
-
-            <div class="case-info">
-
-                <strong>Fingerprint:</strong>
-                4V1CXR1KIBHD768
-                <br>
-
-                <strong>Incident:</strong>
-                سرقة Parking Meter / مطاردة مركبة / محاولة فرار / الاعتداء على موظف أثناء المطاردة
-                <br>
-
-                <strong>Team Member:</strong>
-                JUMMAH ALZAHRANI
-
-            </div>
-
-        </div>
-
-
-        <div class="case-card"
-             onclick="showCase('parking6',3)">
-
-            <div class="case-top">
-                <div class="case-number">CASE 03</div>
-
-                <div class="status success">
-                    SUCCESS — 100%
-                </div>
-            </div>
-
-            <div class="case-info">
-
-                <strong>Fingerprint:</strong>
-                97Y4U32446LBHEF
-                <br>
-
-                <strong>Incident:</strong>
-                سرقة Parking Meter / توقيف مشتبه به
-                <br>
-
-                <strong>Team Member:</strong>
-                Lucas Hod — 191
-
-            </div>
-
-        </div>
-
-
-        <div class="case-card"
-             onclick="showCase('parking6',4)">
-
-            <div class="case-top">
-                <div class="case-number">CASE 04</div>
-
-                <div class="status success">
-                    SUCCESS — 100%
-                </div>
-            </div>
-
-            <div class="case-info">
-
-                <strong>Fingerprint:</strong>
-                GDEFP46YOEN5VRO
-                <br>
-
-                <strong>Incident:</strong>
-                سرقة Parking Meter / سرقة مركبة / هروب / اعتداء على موظف أثناء المطاردة
-                <br>
-
-                <strong>Team Member:</strong>
-                —
-
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-<!-- =========================
-     #6 SANDY SHORES
-========================= -->
-
-<div id="sandy6" class="page">
-
-    <div class="section-title">
-
-        <h2>🏪 SANDY SHORES CASES</h2>
-
-        <button class="back-btn"
-                onclick="backToQuest6()">
-            ← Back
-        </button>
-
-    </div>
-
-    <div class="cases">
-
-        <div class="case-card"
-             onclick="showCase('sandy6',1)">
-
-            <div class="case-top">
-                <div class="case-number">
-                    CASE 01
-                </div>
-
-                <div class="status success">
-                    SUCCESS — 100%
-                </div>
-            </div>
-
-            <div class="case-info">
-
-                <strong>Fingerprint:</strong>
-                M5BPCEATS20A910
-                <br>
-
-                <strong>Incident:</strong>
-                سرقة بقالة / توقيف مشتبه به
-                <br>
-
-                <strong>Team Member:</strong>
-                Lucas Hod — 191
-
-            </div>
-
-        </div>
-
-
-        <div class="case-card"
-             onclick="showCase('sandy6',2)">
-
-            <div class="case-top">
-                <div class="case-number">
-                    CASE 02
-                </div>
-
-                <div class="status success">
-                    SUCCESS — 100%
-                </div>
-            </div>
-
-            <div class="case-info">
-
-                <strong>Fingerprints:</strong>
-                V4V9842MFLI6QL8
-                <br>
-
-                <strong>Incident:</strong>
-                House Robbery
-                <br>
-
-                <strong>Team Members:</strong>
-                Lucas Hod — 391 + Bravo Squad
-
-            </div>
-
-        </div>
-
-
-        <div class="case-card"
-             onclick="showCase('sandy6',3)">
-
-            <div class="case-top">
-                <div class="case-number">
-                    CASE 03
-                </div>
-
-                <div class="status success">
-                    SUCCESS — 100%
-                </div>
-            </div>
-
-            <div class="case-info">
-
-                <strong>Fingerprints:</strong>
-                34745D75TKL5M7Y
-                <br>
-
-                <strong>Incident:</strong>
-                House Robbery
-                <br>
-
-                <strong>Team Members:</strong>
-                Bravo Squad
-
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-<!-- =========================
-     QUEST 5 PARKING
-========================= -->
-
-<div id="parking" class="page">
-
-    <div class="section-title">
-
-        <h2>🅿️ PARKING CASES</h2>
-
-        <button class="back-btn"
-                onclick="backToQuest()">
-            ← Back
-        </button>
-
-    </div>
-
-    <div class="cases">
-
-        <div class="case-card" onclick="showCase('parking',1)">
-            <div class="case-top">
-                <div class="case-number">CASE 01</div>
-                <div class="status success">SUCCESS — 100%</div>
-            </div>
-
-            <div class="case-info">
-                <strong>Fingerprint:</strong> DVB7K0FRKHH394Q
-                <br>
-                <strong>Incident:</strong> سرقة Parking Meter
-                <br>
-                <strong>Officer:</strong> Faisal Alshehri — 390
-            </div>
-        </div>
-
-
-        <div class="case-card" onclick="showCase('parking',2)">
-            <div class="case-top">
-                <div class="case-number">CASE 02</div>
-                <div class="status success">SUCCESS — 100%</div>
-            </div>
-
-            <div class="case-info">
-                <strong>Fingerprint:</strong> ARM12HHCE9KZ19R
-                <br>
-                <strong>Incident:</strong> سرقة Parking Meter
-                <br>
-                <strong>Officer:</strong> Faisal Alshehri — 390
-            </div>
-        </div>
-
-
-        <div class="case-card" onclick="showCase('parking',3)">
-            <div class="case-top">
-                <div class="case-number">CASE 03</div>
-                <div class="status success">SUCCESS — 100%</div>
-            </div>
-
-            <div class="case-info">
-                <strong>Fingerprint:</strong> V230S6DD1YSB5QZ
-                <br>
-                <strong>Incident:</strong> Parking Meter
-                <br>
-                <strong>Officer:</strong> Mohammed Talal — 379
-            </div>
-        </div>
-
-
-        <div class="case-card" onclick="showCase('parking',4)">
-            <div class="case-top">
-                <div class="case-number">CASE 04</div>
-                <div class="status success">SUCCESS — 100%</div>
-            </div>
-
-            <div class="case-info">
-                <strong>Fingerprint:</strong> 8KGKRKLM24UO82J
-                <br>
-                <strong>Incident:</strong> Parking Meter
-                <br>
-                <strong>Officer:</strong> Lucas Hod — 391
-            </div>
-        </div>
-
-
-        <div class="case-card" onclick="showCase('parking',5)">
-            <div class="case-top">
-                <div class="case-number">CASE 05</div>
-                <div class="status success">SUCCESS — 100%</div>
-            </div>
-
-            <div class="case-info">
-                <strong>Fingerprint:</strong> X653659YE3632CW
-                <br>
-                <strong>Incident:</strong> Parking Meter
-                <br>
-                <strong>Officer:</strong> Lucas Hod — 391
-            </div>
-        </div>
-
-    </div>
-
-</div>
-
-
-<!-- =========================
-     QUEST 5 STORE
-========================= -->
-
-<div id="store" class="page">
-
-    <div class="section-title">
-
-        <h2>🏪 STORE CASES</h2>
-
-        <button class="back-btn"
-                onclick="backToQuest()">
-            ← Back
-        </button>
-
-    </div>
-
-    <div class="cases">
-
-        <div class="case-card" onclick="showCase('store',1)">
-            <div class="case-top">
-                <div class="case-number">CASE 01</div>
-                <div class="status success">SUCCESS — 100%</div>
-            </div>
-
-            <div class="case-info">
-                <strong>Fingerprint:</strong> P76UY7QTPC91023
-                <br>
-                <strong>Incident:</strong> Store Robbery
-                <br>
-                <strong>Officer:</strong> Lucas Hod — 391
-            </div>
-        </div>
-
-
-        <div class="case-card" onclick="showCase('store',2)">
-            <div class="case-top">
-                <div class="case-number">CASE 02</div>
-                <div class="status success">SUCCESS — 100%</div>
-            </div>
-
-            <div class="case-info">
-                <strong>Fingerprint:</strong> E44UY3E1169808K
-                <br>
-                <strong>Incident:</strong> Store Robbery
-                <br>
-                <strong>Officer:</strong> Lucas Hod — 391
-            </div>
-        </div>
-
-
-        <div class="case-card" onclick="showCase('store',3)">
-            <div class="case-top">
-                <div class="case-number">CASE 03</div>
-                <div class="status success">SUCCESS — 100%</div>
-            </div>
-
-            <div class="case-info">
-                <strong>Fingerprint:</strong> ZCXYMH69D89B209
-                <br>
-                <strong>Incident:</strong> Store Robbery
-                <br>
-                <strong>Officer:</strong> Mohammed Talal — 379
-            </div>
-        </div>
-
-    </div>
-
-</div>
-
-
-<!-- =========================
-     QUEST 5 HOUSE
-========================= -->
-
-<div id="house" class="page">
-
-    <div class="section-title">
-
-        <h2>🏠 HOUSE CASES</h2>
-
-        <button class="back-btn"
-                onclick="backToQuest()">
-            ← Back
-        </button>
-
-    </div>
-
-    <div class="cases">
-
-        <div class="case-card" onclick="showCase('house',1)">
-
-            <div class="case-top">
-                <div class="case-number">CASE 01</div>
-                <div class="status success">SUCCESS — 100%</div>
-            </div>
-
-            <div class="case-info">
-                <strong>Fingerprint:</strong>
-                1R665O249FYTB68
-                <br>
-
-                <strong>Incident:</strong>
-                House Robbery
-                <br>
-
-                <strong>Officers:</strong>
-                Mohammed Talal — 379 | Lucas Hod — 391
-            </div>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-<!-- =========================
-     DETAIL
-========================= -->
-
-<div id="detail" class="page">
-
-    <div class="detail">
-
-        <div class="detail-header">
-
-            <h2 id="detailTitle">
-                CASE
-            </h2>
-
-            <button class="back-btn"
-                    onclick="backToCases()">
-                ← Back to Cases
-            </button>
-
-        </div>
-
-
-        <div class="grid">
-
-            <div class="info-box">
-                <div class="info-label">
-                    Case Status
-                </div>
-
-                <div class="info-value"
-                     id="detailStatus"></div>
-            </div>
-
-
-            <div class="info-box">
-                <div class="info-label">
-                    Fingerprint
-                </div>
-
-                <div class="info-value"
-                     id="detailFingerprint"></div>
-            </div>
-
-
-            <div class="info-box">
-                <div class="info-label">
-                    Incident Type
-                </div>
-
-                <div class="info-value"
-                     id="detailIncident"></div>
-            </div>
-
-
-            <div class="info-box">
-                <div class="info-label">
-                    Evidence / Items
-                </div>
-
-                <div class="info-value"
-                     id="detailItems"></div>
-            </div>
-
-
-            <div class="info-box">
-                <div class="info-label">
-                    Team Member
-                </div>
-
-                <div class="info-value"
-                     id="detailTeam"></div>
-            </div>
-
-        </div>
-
-
-        <div class="report">
-
-            <h3>
-                INCIDENT REPORT
-            </h3>
-
-            <div class="report-box">
-
-                <div class="report-text"
-                     id="detailReport"></div>
-
-            </div>
-
-        </div>
-
-
-        <div class="evidence"
-             id="evidenceSection">
-
-            <h3>
-                EVIDENCE / SCREENSHOTS
-            </h3>
-
-            <div class="gallery"
-                 id="gallery">
-            </div>
+            <div id="detailGallery" class="gallery"></div>
 
         </div>
 
@@ -2405,31 +1207,66 @@ body{
 
 
 <!-- =========================
-     QUEST CLOSED MODAL
+     CLOSED MODAL
 ========================= -->
 
-<div class="closed-modal"
-     id="closedModal">
+<div id="closedModal" class="closed-modal">
 
     <div class="closed-box">
 
-        <div class="closed-icon">
-            🔒
-        </div>
+        <div class="close" onclick="closeClosedQuest()">×</div>
 
-        <h2>
-            QUEST CLOSED
-        </h2>
+        <h2>QUEST CLOSED</h2>
 
         <p>
-            This quest is closed.<br>
-            You cannot access this quest anymore.
+            This challenge has already been completed.
+            <br><br>
+            <strong class="success">
+                MISSION COMPLETE — 100%
+            </strong>
         </p>
 
-        <button class="closed-btn"
-                onclick="closeClosedQuest()">
-            CLOSE
-        </button>
+    </div>
+
+</div>
+
+
+<!-- =========================
+     PROFILE MODAL
+========================= -->
+
+<div id="profileModal" class="profile-modal">
+
+    <div class="profile-box">
+
+        <div class="close" onclick="closeProfile()">×</div>
+
+        <h2 id="profileDiscord"></h2>
+        <div class="rp" id="profileRP"></div>
+
+        <div class="profile-info">
+
+            <div>
+                <span>Rank</span>
+                <strong id="profileRank"></strong>
+            </div>
+
+            <div>
+                <span>Management</span>
+                <strong id="profileManagement"></strong>
+            </div>
+
+            <div>
+                <span>Wings</span>
+                <strong id="profileWings"></strong>
+            </div>
+
+            <div>
+                <span>RP Name</span>
+                <strong id="profileRpName"></strong>
+            </div>
+
+        </div>
 
     </div>
 
@@ -2440,17 +1277,11 @@ body{
      LIGHTBOX
 ========================= -->
 
-<div class="lightbox"
-     id="lightbox"
-     onclick="closeLightbox()">
+<div id="lightbox" class="lightbox">
 
-    <div class="close-lightbox">
-        ×
-    </div>
+    <div class="close" onclick="closeLightbox()">×</div>
 
-    <img id="lightboxImg"
-         src=""
-         onclick="event.stopPropagation()">
+    <img id="lightboxImage" src="" alt="Evidence">
 
 </div>
 
@@ -2458,210 +1289,210 @@ body{
 <script>
 
 /* =========================
-   BRAVO SQUAD PROFILES
+   SQUAD PROFILES
 ========================= */
 
-const squadProfiles = {
+const squadProfiles={
 
-    dark:{
-        discord:"Dark — Abdulilah Nawaf",
-        rank:"Sergeant",
-        management:"Police Wings Management",
-        wings:"Airship • Motorcycle • Negotiator",
-        rp:"Abdulilah Nawaf"
-    },
+dark:{
+    discord:"Dark — Abdulilah Nawaf",
+    rank:"Sergeant",
+    management:"Police Wings Management",
+    wings:"Airship • Motorcycle • Negotiator",
+    rp:"Abdulilah Nawaf"
+},
 
-    feras:{
-        discord:"Feras — Feras BinOmar",
-        rank:"Senior Lead Officer",
-        management:"Police Academy Section Leader",
-        wings:"Airship • Motorcycle • Negotiator",
-        rp:"Feras BinOmar"
-    },
+feras:{
+    discord:"Feras — Feras BinOmar",
+    rank:"Senior Lead Officer",
+    management:"Police Academy Section Leader",
+    wings:"Airship • Motorcycle • Negotiator",
+    rp:"Feras BinOmar"
+},
 
-    qassim:{
-        discord:"Qassim — Shaheen Hamad",
-        rank:"Senior Officer",
-        management:"Internal Affairs Management",
-        wings:"Airship • Motorcycle • Negotiator",
-        rp:"Shaheen Hamad"
-    },
+qassim:{
+    discord:"Qassim — Shaheen Hamad",
+    rank:"Senior Officer",
+    management:"Internal Affairs Management",
+    wings:"Airship • Motorcycle • Negotiator",
+    rp:"Shaheen Hamad"
+},
 
-    hossam:{
-        discord:"7sosah — HOSSAM ALMUTAIRI",
-        rank:"Senior Officer",
-        management:"Police Academy Management",
-        wings:"Airship • Motorcycle • Negotiator",
-        rp:"HOSSAM ALMUTAIRI"
-    },
+hossam:{
+    discord:"7sosah — HOSSAM ALMUTAIRI",
+    rank:"Senior Officer",
+    management:"Police Academy Management",
+    wings:"Airship • Motorcycle • Negotiator",
+    rp:"HOSSAM ALMUTAIRI"
+},
 
-    amine:{
-        discord:"Amine_MxH — Amine Morgan",
-        rank:"Solo Cadet",
-        management:"—",
-        wings:"Airship",
-        rp:"Amine Morgan"
-    },
+baa:{
+    discord:"BAA — Bader Abdullah",
+    rank:"Officer 3",
+    management:"Internal Affairs Section Leader",
+    wings:"Airship • Motorcycle • Negotiator",
+    rp:"Bader Abdullah"
+},
 
-    tom:{
-        discord:"MT | Tom — Tom Chandler",
-        rank:"Officer 1",
-        management:"Internal Affairs Member",
-        wings:"Airship",
-        rp:"Tom Chandler"
-    },
+jin:{
+    discord:"OrewaSaad — Jin Freecs",
+    rank:"Officer 3",
+    management:"Police Academy",
+    wings:"Airship • Motorcycle • Negotiator",
+    rp:"Jin Freecs"
+},
 
-    mario:{
-        discord:"Mario — Mario Smith",
-        rank:"Officer 2",
-        management:"Police Wings",
-        wings:"Airship • Motorcycle • Negotiator",
-        rp:"Mario Smith"
-    },
+jummah:{
+    discord:"FAISAL — JUMMAH ALZAHRANI",
+    rank:"Officer 3",
+    management:"Police Academy Section Leader",
+    wings:"Airship • Motorcycle • Negotiator",
+    rp:"JUMMAH ALZAHRANI"
+},
 
-    vnx:{
-        discord:"V N X — Lucas Hod",
-        rank:"Solo Cadet",
-        management:"—",
-        wings:"No Wings",
-        rp:"Lucas Hod"
-    },
+thiago:{
+    discord:"MT | RealWeep — Thiago Morgan",
+    rank:"Officer 3",
+    management:"W.M",
+    wings:"Airship • Motorcycle • Negotiator",
+    rp:"Thiago Morgan"
+},
 
-    baa:{
-        discord:"BAA — Bader Abdullah",
-        rank:"Officer 3",
-        management:"Internal Affairs Section Leader",
-        wings:"Airship • Motorcycle • Negotiator",
-        rp:"Bader Abdullah"
-    },
+attaf:{
+    discord:"! Attaf — Abdullah Attaf",
+    rank:"Officer 3",
+    management:"Police Academy",
+    wings:"Airship • Motorcycle • Negotiator",
+    rp:"Abdullah Attaf"
+},
 
-    jin:{
-        discord:"OrewaSaad — Jin Freecs",
-        rank:"Officer 3",
-        management:"Police Academy",
-        wings:"Airship • Motorcycle • Negotiator",
-        rp:"Jin Freecs"
-    },
+void:{
+    discord:"M T 3 B — VOID Barrett",
+    rank:"Officer 3",
+    management:"—",
+    wings:"Airship • Motorcycle • Negotiator",
+    rp:"VOID Barrett"
+},
 
-    jummah:{
-        discord:"FAISAL — JUMMAH ALZAHRANI",
-        rank:"Officer 3",
-        management:"Police Academy Section Leader",
-        wings:"Airship • Motorcycle • Negotiator",
-        rp:"JUMMAH ALZAHRANI"
-    },
+raedd:{
+    discord:"RAedd — Raedd Ibrahim",
+    rank:"Officer 2",
+    management:"Police Academy",
+    wings:"Airship • Motorcycle • Negotiator",
+    rp:"Raedd Ibrahim"
+},
 
-    thiago:{
-        discord:"MT | RealWeep — Thiago Morgan",
-        rank:"Officer 3",
-        management:"W.M",
-        wings:"Airship • Motorcycle • Negotiator",
-        rp:"Thiago Morgan"
-    },
+mario:{
+    discord:"Mario — Mario Smith",
+    rank:"Officer 2",
+    management:"Police Wings",
+    wings:"Airship • Motorcycle • Negotiator",
+    rp:"Mario Smith"
+},
 
-    attaf:{
-        discord:"! Attaf — Abdullah Attaf",
-        rank:"Officer 3",
-        management:"Police Academy",
-        wings:"Airship • Motorcycle • Negotiator",
-        rp:"Abdullah Attaf"
-    },
+ahmed:{
+    discord:"Dktrr — Ahmed Al-Qahtani",
+    rank:"Officer 2",
+    management:"D.B",
+    wings:"Airship • Motorcycle • Negotiator",
+    rp:"Ahmed Al-Qahtani"
+},
 
-    void:{
-        discord:"M T 3 B — VOID Barrett",
-        rank:"Officer 3",
-        management:"—",
-        wings:"Airship • Motorcycle • Negotiator",
-        rp:"VOID Barrett"
-    },
+layla:{
+    discord:"Layla — Layla Almutairi",
+    rank:"Officer 2",
+    management:"D.B",
+    wings:"Airship • Motorcycle • Negotiator",
+    rp:"Layla Almutairi"
+},
 
-    raedd:{
-        discord:"RAedd — Raedd Ibrahim",
-        rank:"Officer 2",
-        management:"Police Academy",
-        wings:"Airship • Motorcycle • Negotiator",
-        rp:"Raedd Ibrahim"
-    },
+rayan:{
+    discord:"RAYAN — SHILAYWAYH ALHARBI",
+    rank:"Officer 1",
+    management:"—",
+    wings:"Airship • Negotiator",
+    rp:"SHILAYWAYH ALHARBI"
+},
 
-    ahmed:{
-        discord:"Dktrr — Ahmed Al-Qahtani",
-        rank:"Officer 2",
-        management:"D.B",
-        wings:"Airship • Motorcycle • Negotiator",
-        rp:"Ahmed Al-Qahtani"
-    },
+faisalFailachwe:{
+    discord:"FAISAL — Faisal Failachwe",
+    rank:"Officer 1",
+    management:"Police Wings Section Leader",
+    wings:"Airship • Motorcycle • Negotiator",
+    rp:"Faisal Failachwe"
+},
 
-    layla:{
-        discord:"Layla — Layla Almutairi",
-        rank:"Officer 2",
-        management:"D.B",
-        wings:"Airship • Motorcycle • Negotiator",
-        rp:"Layla Almutairi"
-    },
+nf3a:{
+    discord:"NF3A — Nawaf Abdullah",
+    rank:"Officer 1",
+    management:"Police Academy",
+    wings:"Airship • Negotiator",
+    rp:"Nawaf Abdullah"
+},
 
-    rayan:{
-        discord:"RAYAN — SHILAYWAYH ALHARBI",
-        rank:"Officer 1",
-        management:"—",
-        wings:"Airship • Negotiator",
-        rp:"SHILAYWAYH ALHARBI"
-    },
+baraa:{
+    discord:"! Bara'a — Baraa Chandler",
+    rank:"Officer 1",
+    management:"—",
+    wings:"No Wings",
+    rp:"Baraa Chandler"
+},
 
-    faisalFailachwe:{
-        discord:"FAISAL — Faisal Failachwe",
-        rank:"Officer 1",
-        management:"Police Wings Section Leader",
-        wings:"Airship • Motorcycle • Negotiator",
-        rp:"Faisal Failachwe"
-    },
+rashed:{
+    discord:"Rashed — Rashed AlHarbi",
+    rank:"Solo Cadet",
+    management:"Internal Affairs",
+    wings:"No Wings",
+    rp:"Rashed AlHarbi"
+},
 
-    nf3a:{
-        discord:"NF3A — Nawaf Abdullah",
-        rank:"Officer 1",
-        management:"Police Academy",
-        wings:"Airship • Negotiator",
-        rp:"Nawaf Abdullah"
-    },
+abdullahZ:{
+    discord:"Abdullah — Abdullah Al-Zahrani",
+    rank:"Solo Cadet",
+    management:"—",
+    wings:"No Wings",
+    rp:"Abdullah Al-Zahrani"
+},
 
-    baraa:{
-        discord:"! Bara'a — Baraa Chandler",
-        rank:"Officer 1",
-        management:"—",
-        wings:"No Wings",
-        rp:"Baraa Chandler"
-    },
+binTalal:{
+    discord:"Bin Talal — Mohammed Talal",
+    rank:"Solo Cadet",
+    management:"—",
+    wings:"No Wings",
+    rp:"Mohammed Talal"
+},
 
-    rashed:{
-        discord:"Rashed — Rashed AlHarbi",
-        rank:"Solo Cadet",
-        management:"Internal Affairs",
-        wings:"No Wings",
-        rp:"Rashed AlHarbi"
-    },
+faisalAlshehri:{
+    discord:"Faisal — Faisal Alshehri",
+    rank:"Solo Cadet",
+    management:"—",
+    wings:"Negotiator",
+    rp:"Faisal Alshehri"
+},
 
-    abdullahZ:{
-        discord:"Abdullah — Abdullah Al-Zahrani",
-        rank:"Solo Cadet",
-        management:"—",
-        wings:"No Wings",
-        rp:"Abdullah Al-Zahrani"
-    },
+tom:{
+    discord:"MT | Tom — Tom Chandler",
+    rank:"Officer 1",
+    management:"Internal Affairs Member",
+    wings:"Airship",
+    rp:"Tom Chandler"
+},
 
-    binTalal:{
-        discord:"Bin Talal — Mohammed Talal",
-        rank:"Solo Cadet",
-        management:"—",
-        wings:"No Wings",
-        rp:"Mohammed Talal"
-    },
+amine:{
+    discord:"Amine_MxH — Amine Morgan",
+    rank:"Solo Cadet",
+    management:"—",
+    wings:"Airship",
+    rp:"Amine Morgan"
+},
 
-    faisalAlshehri:{
-        discord:"Faisal — Faisal Alshehri",
-        rank:"Solo Cadet",
-        management:"—",
-        wings:"Negotiator",
-        rp:"Faisal Alshehri"
-    }
+vnx:{
+    discord:"V N X — Lucas Hod",
+    rank:"Solo Cadet",
+    management:"—",
+    wings:"No Wings",
+    rp:"Lucas Hod"
+}
 
 };
 
@@ -2670,620 +1501,28 @@ const squadProfiles = {
    CASE DATA
 ========================= */
 
-const cases = {
+const cases={
 
-    parking: {
+store7:{
 
-        1:{
-            status:"SUCCESS — 100%",
-            fingerprint:"DVB7K0FRKHH394Q",
-            incident:"سرقة Parking Meter",
-            items:"Hack Device – Hook Pick – Cash",
-            team:"Faisal Alshehri — 390",
+1:{
+    location:"Los Santos Store",
 
-            report:`تقرير تدخل أمني
+    fingerprint:`96XPOWOB0VL9N82
+9POY1BO69NIVZ84`,
 
-أثناء قيامي بدوريتي الاعتيادية، تلقيت توجيهاً من Dispatch بالتوجه إلى موجة 2 من أجل تقديم الدعم لزملائي في تدخل أمني يتعلق بحالة سرقة Parking Meter.
+    incident:"Store Robbery",
 
-عند وصولي إلى المكان، تبين أن الأمر يتعلق بثلاثة مشتبه فيهم كانوا يستعملون سيارة أجرة من أجل الفرار من مكان الواقعة.
+    items:[
+        "Cash",
+        "Lock Pick",
+        "Sticky Note",
+        "Lollipop Sign"
+    ],
 
-تمت ملاحقة المشتبه فيهم، واستمرت المطاردة إلى أن تعرضت مركبتهم لأضرار أدت إلى توقفها. بعد ذلك، حاول المشتبه فيهم مواصلة الفرار على الأقدام، إلا أن الوحدات المتدخلة تمكنت من السيطرة على الوضع وتوقيفهم.
+    team:"Ahmed Al-Qahtani — 343 | Lucas Hod — 391",
 
-تكفلت شخصياً بالتعامل مع أحد المشتبه فيه، والذي كان يرتدي ملابس سوداء وقناعاً أسود، وتحمل بصمة: DVB7K0FRKHH394Q
-
-بعد توقيفه، قمت بإبلاغه بحقوقه والتهم الموجهة إليه، ثم تعاملت معه وفق الإجراءات القانونية المعمول بها، مع احترام كامل للقوانين والبروتوكولات المعتمدة.
-
-المحجوزات
-Hack Device
-Hook Pick
-Cash
-
-تمت السيطرة على جميع المشتبه فيهم وتأمين مكان التدخل، وإنهاء الحالة وفق الإجراءات القانونية المعمول بها.`,
-
-            images:[
-                "images/quest5/1 (1).png",
-                "images/quest5/1 (2).png",
-                "images/quest5/1 (3).png"
-            ]
-        },
-
-        2:{
-            status:"SUCCESS — 100%",
-            fingerprint:"ARM12HHCE9KZ19R",
-            incident:"سرقة Parking Meter",
-            items:"Hack Device ×2 – Cash",
-            team:"Faisal Alshehri — 390",
-
-            report:`تقرير تدخل أمني
-
-أثناء قيامي بدوريتي الاعتيادية، تلقيت بلاغاً من Dispatch بالتوجه إلى موجة 6 من أجل تقديم الدعم لزملائي في حالة سرقة Parking Meter.
-
-عند وصولي إلى الموقع، تبين وجود سيارة أجرة (Taxi) بداخلها شخص يرتدي ملابس زرقاء. تمت متابعة المركبة إلى أن تعرضت لأضرار أدت إلى توقفها، حيث تمكنا من توقيف المشتبه فيه والسيطرة على الوضع.
-
-بعد ذلك، تكفلت شخصياً بالتعامل مع المشتبه فيه، وقمت بإبلاغه بحقوقه والتهم الموجهة إليه، ثم تم تطبيق الإجراءات القانونية اللازمة بحقه وفقاً للقانون والبروتوكولات المعمول بها.
-
-المحجوزات
-Hack Device ×2
-Cash
-
-تم تأمين الحالة وإنهاء التدخل وفق الإجراءات القانونية المعمول بها.`,
-
-            images:[
-                "images/quest5/2 (1).png",
-                "images/quest5/2 (2).png"
-            ]
-        },
-
-        3:{
-            status:"SUCCESS — 100%",
-            fingerprint:"V230S6DD1YSB5QZ",
-            incident:"Parking Meter",
-            items:"Bucher Knife – Cash – Hack Device – Hook Pick ×4",
-            team:"Mohammed Talal — 379",
-
-            report:`تقرير تدخل أمني
-
-أثناء قيامي بدوريتي الاعتيادية، تلقيت توجيهاً من Dispatch بالتوجه إلى موجة 6 من أجل تقديم الدعم لزملائي في حالة سرقة Parking Meter.
-
-عند وصولي إلى الموقع، تبين وجود مشتبه فيه يرتدي ملابس سوداء ويستعمل سيارة سوداء. تمت متابعة المشتبه فيه إلى أن تمكنا من السيطرة على الوضع وتوقيفه.
-
-بعد ذلك، تكفلت شخصياً بالتعامل مع المشتبه فيه، وقمت بإبلاغه بحقوقه والتهم الموجهة إليه، ثم طبقت بحقه الإجراءات القانونية اللازمة وفقاً للقانون والبروتوكولات المعمول بها.
-
-المحجوزات
-Bucher Knife
-Cash
-Hack Device
-Hook Pick ×4
-
-تم تأمين المشتبه فيه وإنهاء الحالة وفق الإجراءات القانونية المعمول بها.`,
-
-            images:[
-                "images/quest5/3 (1).png",
-                "images/quest5/3 (2).png"
-            ]
-        },
-
-        4:{
-            status:"SUCCESS — 100%",
-            fingerprint:"8KGKRKLM24UO82J",
-            incident:"Parking Meter",
-            items:"Hack Device – Hammer – Cash – Hook Pick",
-            team:"Lucas Hod — 391",
-
-            report:`تقرير تدخل أمني
-
-أثناء قيامي بدوريتي الاعتيادية، لاحظت وجود شخصين مشتبه فيهما يرتديان ملابس سوداء ويستعملان سيارة خضراء، وكانا يقومان بسرقة Parking Meter.
-
-قمت بإبلاغهما بالتوقف والوقوف إلى جانب الطريق، وقد استجاب المشتبه فيهما للأوامر وقاما بتسليم نفسيهما دون مقاومة. بعد ذلك، قمت بإبلاغ Dispatch بالوضع وتزويدهم بمواصفات المشتبه فيهما والمركبة المستعملة، حيث تم إرسال وحدة دعم إلى الموقع.
-
-بعد وصول وحدة الدعم، تمت السيطرة على المشتبه فيهما وتأمينهما. قمت بإبلاغهما بحقوقهما والتهم الموجهة إليهما، ثم طبقت بحقهما الإجراءات القانونية اللازمة وفقاً للقانون والبروتوكولات المعمول بها.
-
-المحجوزات
-Hack Device
-Hammer
-Cash
-Hook Pick
-
-تم تأمين المشتبه فيهما وإنهاء الحالة وفق الإجراءات القانونية المعمول بها.`,
-
-            images:[
-                "images/quest5/4 (1).png",
-                "images/quest5/4 (2).png",
-                "images/quest5/4 (3).png"
-            ]
-        },
-
-        5:{
-            status:"SUCCESS — 100%",
-            fingerprint:"X653659YE3632CW",
-            incident:"Parking Meter",
-            items:"Hack Device – Cash – Lockpick ×3",
-            team:"Lucas Hod — 391",
-
-            report:`تقرير تدخل أمني
-
-البصمة : X653659YE3632CW
-نوع التدخل: Parking Meter
-المحجوزات: Hack Device – Cash – Lockpick ×3
-
-وقائع التدخل
-
-أثناء قيامي بدوريتي الاعتيادية، لاحظت وجود مشتبه فيه يرتدي ملابس سوداء ويستعمل سيارة حمراء، وكان يقوم بسرقة Parking Meter.
-
-بلغت الدسباتش بالحالة وبمواصفات المجرم ومركبته كذلك طلبت دعم وتم توجيهي إلى موجة 8.
-
-بعد ملاحظته، حاول المشتبه فيه الفرار، حيث قمت بمتابعته رفقة الوحدات المتدخلة. استمرت المطاردة إلى أن تعرضت مركبته لأضرار أدت إلى توقفها، وتمكنت من توقيف المشتبه فيه والسيطرة على الوضع.
-
-بعد توقيفه، تكفلت شخصياً بالتعامل معه، وقمت بإبلاغه بحقوقه والتهم الموجهة إليه، ثم طبقت بحقه الإجراءات القانونية اللازمة وفقاً للقانون والبروتوكولات المعمول بها.
-
-المحجوزات
-
-Hack Device
-Cash
-Lockpick ×3
-
-تم تأمين المشتبه فيه وإنهاء الحالة وفق الإجراءات القانونية المعمول بها.`,
-
-            images:[
-                "images/quest5/5 (1).png",
-                "images/quest5/5 (2).png",
-                "images/quest5/5 (3).png"
-            ]
-        }
-
-    },
-
-
-    store: {
-
-        1:{
-            status:"SUCCESS — 100%",
-            fingerprint:"P76UY7QTPC91023",
-            incident:"Store Robbery",
-            items:"Hook Pick ×4 – Cash",
-            team:"Lucas Hod — 391",
-
-            report:`تقرير تدخل أمني
-
-البصمة: P76UY7QTPC91023
-نوع التدخل: Store Robbery
-المحجوزات: Hook Pick ×4 – Cash
-
-وقائع التدخل
-
-أثناء قيامي بدوريتي الاعتيادية، تلقيت بلاغاً من أحد المواطنين يفيد بوجود حالة Store Robbery. توجهت مباشرة إلى الموقع من أجل التحقق من البلاغ.
-
-عند وصولي، تبين فعلاً وجود شخصين مشتبه فيهما يرتديان ملابس سوداء، وكانا يقومان بسرقة أحد المتاجر. قمت بإبلاغ Dispatch بالوضع وطلبت الدعم، كما زودتهم بمواصفات المشتبه فيهما وبمواصفات المركبة السوداء التي كانا يستعملانها للفرار.
-
-بعد ذلك، وجهني Dispatch إلى موجة 2 من أجل التعامل مع الحالة رفقة زميلي Rashed AlHarbi – 376.
-
-باشرنا عملية تتبع المشتبه فيهما، واستمرت المطاردة إلى أن تعرضت مركبتهما لأضرار أدت إلى توقفها، حيث حاولا مواصلة الفرار.
-
-تمكنت أنا وزميلي Rashed من توقيف المشتبه فيهما والسيطرة على الوضع. بعد ذلك، تكفلت بالتعامل مع المشتبه فيه الذي يحمل البصمة P76UY7QTPC91023، حيث قمت بإبلاغه بحقوقه والتهم الموجهة إليه، ثم تم تطبيق الإجراءات القانونية اللازمة بحقه وفقاً للقانون والبروتوكولات المعمول بها.
-
-المحجوزات
-
-Hook Pick ×4
-Cash
-
-تمت السيطرة على الحالة وتأمين الموقع، واتخاذ الإجراءات القانونية اللازمة بحق المشتبه فيهما.`,
-
-            images:[
-                "https://cdn.discordapp.com/attachments/1546883293591511110/1546885134475858000/Screenshot_2026-09-08_145346.png?ex=6aa1688b&is=6aa0170b&hm=bd63bff9a951fca9128e12017b0317263d447e2b5fc7f33fd2c44149a20f76f7&",
-                "https://cdn.discordapp.com/attachments/1546883293591511110/1546885135037636730/Screenshot_2026-09-08_145917.png?ex=6aa1688b&is=6aa0170b&hm=b32670e969b13a2ebb7c638762d28c32f2a7e675a621ac406e57cafe5708f2f3&"
-            ]
-        },
-
-        2:{
-            status:"SUCCESS — 100%",
-            fingerprint:"E44UY3E1169808K",
-            incident:"Store Robbery",
-            items:"Hook Pick ×4",
-            team:"Lucas Hod — 391",
-
-            report:`تقرير تدخل أمني
-
-البصمة: E44UY3E1169808K
-نوع التدخل: Store Robbery
-المحجوزات: Hook Pick ×4
-
-وقائع التدخل
-
-أثناء تواجدي في الميدان، تلقيت توجيهاً من Dispatch بالتوجه إلى موجة 2 من أجل تأمين أحد المشتبه فيه، والذي كان قد تم توقيفه من طرف زميلي Carlos وتم نقله إلى المستشفى.
-
-توجهت إلى المستشفى من أجل تأمين المشتبه فيه، وأوضح لي زميلي أنه متهم بارتكاب Store Robbery، بالإضافة إلى الفرار من الشرطة.
-
-قمت بتأمين المشتبه فيه، ثم قمت بإبلاغه بحقوقه والتهم الموجهة إليه، وبعد ذلك تم تطبيق الإجراءات القانونية اللازمة بحقه وفقاً للقانون والبروتوكولات المعمول بها.
-
-المحجوزات
-
-Hook Pick ×4
-
-تم تأمين المشتبه فيه والتعامل مع الحالة وفق الإجراءات القانونية المعمول بها.`,
-
-            images:[
-                "https://cdn.discordapp.com/attachments/1546883293591511110/1546892094398795876/Screenshot_2026-09-08_152359.png?ex=6aa16f07&is=6aa01d87&hm=9528140e9b0fc37502062fb308233a5fa46c68d4e9ce36d316b3c88c991105bf&",
-                "https://cdn.discordapp.com/attachments/1546883293591511110/1546892094843658240/Screenshot_2026-09-08_152815.png?ex=6aa16f07&is=6aa01d87&hm=96594ac6b61469592cd5781204e9c672e7677b70d2720a7e8073c0368867c7fb&"
-            ]
-        },
-
-        3:{
-            status:"SUCCESS — 100%",
-            fingerprint:"ZCXYMH69D89B209",
-            incident:"Store Robbery",
-            items:"Hook Pick ×3 – Sticky Note ×3 – Cash",
-            team:"Mohammed Talal — 379",
-
-            report:`تقرير تدخل أمني
-
-البصمة: ZCXYMH69D89B209
-نوع التدخل: Store Robbery
-المحجوزات: Hook Pick ×3 – Sticky Note ×3 – Cash
-
-وقائع التدخل
-
-أثناء قيامي بدوريتي الاعتيادية في Zone 6، لاحظت وجود شخصين مشتبه فيهما يقومان بسرقة أحد المتاجر، حيث كان أحدهما يرتدي ملابس حمراء والآخر يرتدي ملابس سوداء، وكانا يستعملان سيارة أجرة صفراء (Taxi).
-
-قمت بإبلاغ Dispatch بالوضع وتزويدهم بمواصفات المشتبه فيهما والمركبة المستعملة، ليتم توجيهي إلى موجة 3، كما وصلت وحدة دعم إلى الموقع من أجل المساعدة في التعامل مع الحالة.
-
-عند وصول الدعم، قام المشتبه فيهما بتسليم نفسيهما دون مقاومة. تم تأمينهما واتخاذ الإجراءات اللازمة بحقهما.
-
-قمت بإبلاغ المشتبه فيهما بحقوقهما والتهم الموجهة إليهما، ثم تم التعامل معهما وتطبيق الإجراءات القانونية المعمول بها وفقاً للقانون والبروتوكولات المعتمدة.
-
-المحجوزات
-
-Hook Pick ×3
-Sticky Note ×3
-Cash
-
-تم تأمين المشتبه فيهما وإنهاء الحالة وفق الإجراءات القانونية المعمول بها.`,
-
-            images:[
-                "https://cdn.discordapp.com/attachments/1546921574257660095/1546921660186099875/Screenshot_2026-09-08_171910.png?ex=6aa18a90&is=6aa03910&hm=895b0ac0485d2b180462002cc319f9fc912b80ea5b6cabe2aa2d1e6b03ebb558&",
-                "https://cdn.discordapp.com/attachments/1546921574257660095/1546921660567916644/Screenshot_2026-09-08_172559.png?ex=6aa18a90&is=6aa03910&hm=8c4bf823ad16fc6a430c4374694533e8c5d45864cea9011e632319053e3134c0&",
-                "https://cdn.discordapp.com/attachments/1546921574257660095/1546921661050257518/Screenshot_2026-09-08_171415.png?ex=6aa18a90&is=6aa03910&hm=6b3b0cf280eef98a78bb5c80834b9b07aa423d7c47fd090a492a14ef15d242fb&"
-            ]
-        }
-
-    },
-
-
-    house: {
-
-        1:{
-            status:"SUCCESS — 100%",
-            fingerprint:"1R665O249FYTB68",
-            incident:"House Robbery",
-            items:"UK Machette ZK – UK Russian Magazin",
-            team:"Mohammed Talal — 379 | Lucas Hod — 391",
-
-            report:`تقرير تدخل أمني
-
-البصمة: 1R665O249FYTB68
-نوع التدخل: House Robbery
-المحجوزات: UK Machette ZK – UK Russian Magazin
-
-وقائع التدخل
-
-أثناء قيامي بدوريتي الاعتيادية كدورية حرة، تلقيت توجيهاً من Dispatch بالتوجه إلى موجة 2 من أجل التعامل مع حالة House Robbery.
-
-عند وصولي إلى الموقع، تبين وجود مشتبه فيه داخل المنزل يقوم بعملية السرقة. بعد تجمع الوحدات في الموقع، تم التأكد من عدم وجود أي رهائن داخل المنزل، وعلى إثر ذلك تم تنفيذ عملية المداهمة.
-
-أثناء التدخل، حاول المشتبه فيه الاعتداء على أحد زملائي باستعمال Machette، إلا أن الوحدات تمكنت من السيطرة عليه وطرحه أرضاً، مما أدى إلى تعرضه لإصابات نتيجة عملية التوقيف.
-
-تم نقل المشتبه فيه إلى المستشفى من أجل تلقي العلاج اللازم. وبعد الانتهاء من علاجه، تكفلت شخصياً بالتعامل معه، حيث قمت بإبلاغه بحقوقه والتهم الموجهة إليه، ثم تم تطبيق الإجراءات القانونية اللازمة بحقه وفقاً للقانون والبروتوكولات المعمول بها.
-
-المحجوزات
-
-UK Machette ZK
-UK Russian Magazin
-
-تم تأمين المشتبه فيه وإنهاء الحالة وفق الإجراءات القانونية المعمول بها.`,
-
-            images:[
-                "https://cdn.discordapp.com/attachments/1546921574257660095/1546921660186099875/Screenshot_2026-09-08_171910.png?ex=6aa18a90&is=6aa03910&hm=895b0ac0485d2b180462002cc319f9fc912b80ea5b6cabe2aa2d1e6b03ebb558&",
-                "https://cdn.discordapp.com/attachments/1546921574257660095/1546921660567916644/Screenshot_2026-09-08_172559.png?ex=6aa18a90&is=6aa03910&hm=8c4bf823ad16fc6a430c4374694533e8c5d45864cea9011e632319053e3134c0&",
-                "https://cdn.discordapp.com/attachments/1546921574257660095/1546921661050257518/Screenshot_2026-09-08_171415.png?ex=6aa18a90&is=6aa03910&hm=6b3b0cf280eef98a78bb5c80834b9b07aa423d7c47fd090a492a14ef15d242fb&"
-            ]
-        }
-
-    },
-
-
-    parking6: {
-
-        1:{
-            status:"SUCCESS — 100%",
-            fingerprint:"9DM2EJA8275VD34",
-            incident:"سرقة Parking Meter",
-            items:"Cash – Hook Pick",
-            team:"Lucas Hod — 191",
-
-            report:`تقرير تدخل أمني
-
-البصمة: 9DM2EJA8275VD34
-المضبوطات: Cash و Hook Pick
-
-تفاصيل التدخل
-
-أثناء قيامي بدورية روتينية، تلقيت بلاغًا من Dispatch يفيد بضرورة التوجه إلى الموجة 3 من أجل مساندة زملائي في حالة سرقة Parking Meter كانت مسجلة في الجهة الغربية من المدينة.
-
-عند وصولي إلى الموقع، تبين وجود مشتبه به يرتدي ملابس بيضاء ويستعمل مركبة برتقالية. قمنا بمتابعته إلى حين تنفيذ صدمة احترافية، مما أدى إلى إيقافه.
-
-بعد ذلك، حاول المشتبه به الفرار سيرًا على الأقدام، إلا أنني تمكنت من اللحاق به وتوقيفه والسيطرة عليه.
-
-توليت شخصيًا إجراءات التعامل مع المشتبه به، حيث قمت بإبلاغه بحقوقه وبالتهم المنسوبة إليه، ثم طبقت بحقه الإجراءات القانونية المعمول بها.`,
-
-            images:[
-                "https://cdn.discordapp.com/attachments/1546882783711072276/1547228699525513296/Screenshot_2026-09-09_134328.png?ex=6aa2a884&is=6aa15704&hm=b968b3108a00d6a737c431f8a20d9510c779a832a31b551410bd2da1a2f40e27&",
-                "https://cdn.discordapp.com/attachments/1546882783711072276/1547228699953340416/Screenshot_2026-09-09_134815.png?ex=6aa2a884&is=6aa15704&hm=b3c28bde222bbd09b751da9e98ae8fc86cbd991651b00d779e828c7b5b00fa2c&"
-            ]
-        },
-
-        2:{
-            status:"SUCCESS — 100%",
-            fingerprint:"4V1CXR1KIBHD768",
-            incident:"سرقة Parking Meter / مطاردة مركبة / محاولة فرار / الاعتداء على موظف أثناء المطاردة",
-            items:"4 × Hook Pick – Cash – 1 × Hack Device",
-            team:"JUMMAH ALZAHRANI",
-
-            report:`تقرير تدخل أمني
-
-البصمة: 4V1CXR1KIBHD768
-نوع التدخل: سرقة Parking Meter / مطاردة مركبة / محاولة فرار / الاعتداء على موظف أثناء المطاردة
-
-تفاصيل التدخل
-
-أثناء قيامي بدورية روتينية، تلقيت بلاغًا من Dispatch يفيد بتوجهي إلى الموجة 3 من أجل مساندة زملائي في حالة سرقة Parking Meter.
-
-عند وصولي إلى الموقع، تبين أن المشتبه به كان يحاول الفرار بواسطة مركبة من نوع Ford بيضاء اللون، وكان يرتدي ملابس سوداء. قمنا بمتابعته إلى حين تعرض مركبته لأضرار، مما مكننا من إيقافه والقبض عليه.
-
-وخلال المطاردة، قام المشتبه به بتوجيه إسقاط على الزميل Nawaf Alzahrani 420، وهو ما أدى إلى إضافة التهم والإجراءات القانونية اللازمة بحقه.
-
-بعد توقيف المشتبه به، توليت إجراءات التعامل معه، حيث قمت بإبلاغه بحقوقه وبالتهم المنسوبة إليه، ثم طبقت بحقه القانون والإجراءات المعمول بها.
-
-المضبوطات
-
-4 × Hook Pick
-Cash
-1 × Hack Device
-
-تم حجز جميع المضبوطات وتسجيلها ضمن أدلة القضية.`,
-
-            images:[
-                "https://cdn.discordapp.com/attachments/1546882783711072276/1547237208195338400/Screenshot_2026-09-09_141314.png?ex=6aa2b070&is=6aa15ef0&hm=5adb8e5d52a21b8346a02ddb8f724a54d6fd3a13d62b9218781ee748ca04dcbf&",
-                "https://cdn.discordapp.com/attachments/1546882783711072276/1547237209352962048/Screenshot_2026-09-09_141022.png?ex=6aa2b070&is=6aa15ef0&hm=0904ece8d078ab1f13f7de3884dea3533781017e33c33eaf27b37f085038d4db&",
-                "https://cdn.discordapp.com/attachments/1546882783711072276/1547237208740728882/Screenshot_2026-09-09_141457.png?ex=6aa2b070&is=6aa15ef0&hm=d8c08cd26d3ea6426da9dd21ed9716d859c38582dd74e107c5bfa690bee7a019&"
-            ]
-        },
-
-        3:{
-            status:"SUCCESS — 100%",
-            fingerprint:"97Y4U32446LBHEF",
-            incident:"سرقة Parking Meter / توقيف مشتبه به",
-            items:"Cash – 1 × Hack Device – 4 × Hook Pick",
-            team:"Lucas Hod — 191",
-
-            report:`تقرير تدخل أمني
-
-البصمة: 97Y4U32446LBHEF
-نوع التدخل: سرقة Parking Meter / توقيف مشتبه به
-
-تفاصيل التدخل
-
-أثناء قيامي بدورية روتينية، لاحظت مشتبهًا به يقوم بسرقة من Parking Meter، فقمت بإبلاغ Dispatch عن الحالة والتوجه مباشرة إلى موقع المشتبه به.
-
-عند وصولي، قام المشتبه به بتسليم نفسه دون محاولة فرار أو مقاومة. تم تأمينه والسيطرة على الحالة، ثم توليت إجراءات التعامل معه.
-
-قمت بإبلاغ المشتبه به بحقوقه وبالتهم المنسوبة إليه، وبعد ذلك تم تطبيق الإجراءات القانونية المعمول بها بحقه.
-
-المضبوطات
-
-Cash
-1 × Hack Device
-4 × Hook Pick
-
-تم حجز جميع المضبوطات وتسجيلها ضمن أدلة القضية.`,
-
-            images:[
-                "https://cdn.discordapp.com/attachments/1546882783711072276/1547264289687994408/Screenshot_2026-09-09_161142.png?ex=6aa2c9a9&is=6aa17829&hm=b07093bdec3e6e018d98bfcdef2e94dca29cded22fb5545622c94389f0929e09&",
-                "https://cdn.discordapp.com/attachments/1546882783711072276/1547264290279661748/Screenshot_2026-09-09_160550.png?ex=6aa2c9a9&is=6aa17829&hm=270aad29d27441aff1eb4463b76a1d4201245614f9b1b80850408ba358bdb236&",
-                "https://cdn.discordapp.com/attachments/1546882783711072276/1547264290875113562/Screenshot_2026-09-09_161044.png?ex=6aa2c9a9&is=6aa17829&hm=74159755179fc291de3d3a8eef9c088b73bf94c836cdee629218322130bfc824&"
-            ]
-        },
-
-        4:{
-            status:"SUCCESS — 100%",
-            fingerprint:"GDEFP46YOEN5VRO",
-            incident:"سرقة Parking Meter / سرقة مركبة / هروب / اعتداء على موظف أثناء المطاردة",
-            items:"5 × Sticky Note – 1 × Hack Device – 4 × Hook Pick – Cash – 1 × Butcher Knife",
-            team:"—",
-
-            report:`تقرير تدخل أمني
-
-البصمة: GDEFP46YOEN5VRO
-نوع التدخل: سرقة Parking Meter / سرقة مركبة / هروب / اعتداء على موظف أثناء المطاردة
-
-تفاصيل التدخل
-
-أثناء قيامي بدورية روتينية، وجهني Dispatch للتحقق من حالة مشتبه بها في الجهة الجنوبية من Los Santos.
-
-عند وصولي إلى الموقع، تبين وجود مشتبه به يقوم بسرقة Parking Meter، وكان يرتدي ملابس سوداء ويستعمل مركبة Porsche بيضاء. تم توجيهي إلى الموجة 3 من أجل استكمال الحالة ومساندة الوحدات المتدخلة.
-
-قمنا بمتابعة المشتبه به، وخلال المطاردة نزل من مركبته وقام بسرقة مركبة أخرى تعود لأحد المواطنين، فواصلنا مراقبته وملاحقته إلى حين تعرض مركبته لأضرار.
-
-بعد ذلك، حاول المشتبه به الفرار سيرًا على الأقدام. وأثناء متابعته على الأقدام، قام بإخراج ساطور (Butcher Knife) واستعمله للاعتداء على أحد زملائي وإسقاطه، مما استدعى السيطرة عليه وتوقيفه.
-
-تم طلب مسعف إلى الموقع من أجل تقديم الإسعافات اللازمة للزميل المصاب، وبعد علاجه وتأمين المكان، توليت إجراءات التعامل مع المشتبه به.
-
-قمت بإبلاغه بحقوقه وبالتهم المنسوبة إليه، ثم طبقت بحقه الإجراءات القانونية المعمول بها.
-
-المضبوطات
-
-5 × Sticky Note
-1 × Hack Device
-4 × Hook Pick
-Cash
-1 × Butcher Knife
-
-تم حجز جميع المضبوطات وتسجيلها ضمن أدلة القضية.`,
-
-            images:[
-                "https://cdn.discordapp.com/attachments/1546882783711072276/1547298569961214065/Screenshot_2026-09-09_181507.png?ex=6aa2e996&is=6aa19816&hm=4848e950bc3415b28342a9d1ca9687a18360640d368f7fe18e0b9e32f23375b0&",
-                "https://cdn.discordapp.com/attachments/1546882783711072276/1547298570665721866/Screenshot_2026-09-09_175949.png?ex=6aa2e996&is=6aa19816&hm=54875def61b81674d018b57072dbc22c30592873d47f8aa9bf8e36a983977201&",
-                "https://cdn.discordapp.com/attachments/1546882783711072276/1547298571139813499/Screenshot_2026-09-09_181210.png?ex=6aa2e996&is=6aa19816&hm=ccc95c71004d325c69c9a97b78dda780f1e1b184d5faa0101682d9dc0ff3c1a2&"
-            ]
-        }
-
-    },
-
-
-    /* =========================
-       SANDY SHORES
-    ========================= */
-
-    sandy6: {
-
-        1:{
-            status:"SUCCESS — 100%",
-            fingerprint:"M5BPCEATS20A910",
-            incident:"سرقة بقالة / توقيف مشتبه به",
-            items:"1 × Hook Pick – Cash – 1 × Sticky Note",
-            team:"Lucas Hod — 191",
-
-            report:`تقرير تدخل أمني
-
-البصمة: M5BPCEATS20A910
-نوع التدخل: سرقة بقالة / توقيف مشتبه به
-
-تفاصيل التدخل
-
-أثناء قيامي بدورية روتينية في منطقة Sandy Shores، تلقيت بلاغًا من Dispatch من أجل التوجه والتحقق من حالة سرقة في بقالة قريبة مني.
-
-عند وصولي إلى الموقع، وجدت مشتبهًا به يقوم بالسرقة، كما تبين أن بحوزته مجموعة من المسروقات.
-
-قام المشتبه به بتسليم نفسه والتعاون مع رجال الأمن، وتم تأمينه والسيطرة على الحالة.
-
-بعد ذلك، توليت إجراءات التعامل معه، حيث قمت بإبلاغه بحقوقه والتهم المنسوبة إليه، ثم طبقت بحقه الإجراءات القانونية المعمول بها.
-
-المضبوطات
-
-1 × Hook Pick
-Cash
-1 × Sticky Note
-
-تم حجز جميع المضبوطات وتسجيلها ضمن أدلة القضية.`,
-
-            images:[
-                "https://cdn.discordapp.com/attachments/1546883293591511110/1547256640720478208/Screenshot_2026-09-09_154107.png?ex=6aa2c289&is=6aa17109&hm=1d4c45b1dca987227b253ea898b117a645c8ce5d5cf4eeb74b2de811833bfd2c&",
-                "https://cdn.discordapp.com/attachments/1546883293591511110/1547256641118797844/Screenshot_2026-09-09_152826.png?ex=6aa2c289&is=6aa17109&hm=af4cde70e8ba26a90fc5f1a08c5c3d4af4a5c86ac4b48e166da83db32e15bf5e&"
-            ]
-        },
-
-        2:{
-            status:"SUCCESS — 100%",
-            fingerprint:"V4V9842MFLI6QL8 / G675L9M6DOME38 / QU37U9TFI3T4491",
-            incident:"House Robbery",
-            items:"Lock Pick – Hook Pick ×3 – Hack Device – Magazine",
-            team:"Amine Morgan 405 | Lucas Hod 391 | Mohammed Talal 379 | Jummah Alzahrani 324 | Ahmed Al-Qahtani 343 | Robert Navarro 401",
-
-            report:`تقرير تدخل أمني
-
-البصمات:
-
-V4V9842MFLI6QL8
-G675L9M6DOME38
-QU37U9TFI3T4491
-
-نوع التدخل: House Robbery
-
-المحجوزات:
-
-Lock Pick
-Hook Pick ×3
-Hack Device
-Magazine
-
-وقائع التدخل
-
-كنتُ أُباشر دوريتي الاعتيادية في منطقة Sandy رفقة زملائي ضمن موجة 9، إلى أن وردنا بلاغ من قسم Dispatch يفيد بوجود حالة سرقة منزل.
-
-على الفور، توجهنا إلى الموقع المحدد للتحقق من البلاغ واتخاذ الإجراءات اللازمة. وعند وصولنا إلى المكان، تبيّن لنا وجود ثلاثة مشتبه بهم داخل الموقع، حيث قمنا بالسيطرة عليهم وتأمينهم وفق الإجراءات والبروتوكولات المعتمدة.
-
-بعد ذلك، توليتُ أنا وزميلي Lucas Hod التعامل مع المشتبه بهم، حيث تم تعريفهم بحقوقهم وإبلاغهم بالتهم المنسوبة إليهم، كما تم اتخاذ الإجراءات القانونية اللازمة بحقهم وتطبيق القانون والبروتوكولات المعمول بها.
-
-وبعد استكمال الإجراءات، تم التعامل مع الحالة وفق الأصول القانونية المعتمدة، مع توثيق المضبوطات والبصمات الخاصة بالموقوفين.`,
-
-            images:[
-                "https://cdn.discordapp.com/attachments/1546882804254515200/1547394151010672721/image.png?ex=6aa3429a&is=6aa1f11a&hm=1ac3c48c94a1891a5437f3616e909b45f7fe42556af4b5265bcac311fb47a8e3&",
-                "https://cdn.discordapp.com/attachments/1546882804254515200/1547394151572836452/image.png?ex=6aa3429a&is=6aa1f11a&hm=afb5b245b15d27429b80f1250cf45675b1085824d89797b14e84db1fb964c091&",
-                "https://cdn.discordapp.com/attachments/1546882804254515200/1547394175560065134/image.png?ex=6aa342a0&is=6aa1f120&hm=b1c7d3b918caf8646b3770870194be7bc597fd398eedd7cb479b949fb2e5029a&",
-                "https://cdn.discordapp.com/attachments/1546882804254515200/1547395849590546513/image.png?ex=6aa3442f&is=6aa1f2af&hm=4aeae76d642086ce04a775112d770a7f5987a50ae22111645f0f874f59e3b3fb4&",
-                "https://cdn.discordapp.com/attachments/1546882804254515200/1547395850395983902/image.png?ex=6aa3442f&is=6aa1f2af&hm=c70e06bf892c341d08e553ee644768a9e32828e3db10f16e4499155bc959f916&"
-            ]
-        },
-
-        3:{
-            status:"SUCCESS — 100%",
-            fingerprint:"34745D75TKL5M7Y / 8O9U12503M6D580",
-            incident:"House Robbery",
-            items:"Hook Pick ×3 – Bat – Lollipop Sign – Bullet",
-            team:"Amine Morgan 405 | Lucas Hod 391 | Mohammed Talal 379 | Jummah Alzahrani 324 | Ahmed Al-Qahtani 343 | Robert Navarro 401",
-
-            report:`تقرير تدخل أمني
-
-البصمات:
-
-34745D75TKL5M7Y
-8O9U12503M6D580
-
-نوع التدخل: House Robbery
-
-المحجوزات:
-
-Hook Pick ×3
-Bat
-Lollipop Sign
-Bullet
-
-وقائع التدخل
-
-كنتُ أُباشر دوريتي الاعتيادية في منطقة Sandy ضمن موجة 9 رفقة عناصر Bravo Squad، إلى أن وردنا بلاغ من قسم Dispatch يفيد بوجود حالة House Robbery.
-
-على الفور، توجهنا إلى الموقع المحدد للتعامل مع الحالة. وعند وصولنا، تبيّن لنا وجود عدد من المشتبه بهم يرتدون اللون الأزرق. حاولنا السيطرة على الوضع وتأمين الموقع، إلا أن المشتبه بهم قاموا بإشهار أسلحة بيضاء والاعتداء على عناصر من القوة، مما أدى إلى سقوط اثنين من زملائنا.
-
-رغم ذلك، تمكنا من السيطرة على الوضع وتأمين المشتبه بهم والتعامل مع الحالة وفق الإجراءات والبروتوكولات المعتمدة.
-
-توليتُ أنا مهمة التعامل مع المشتبه بهم، حيث قمتُ بتأمينهم وإبلاغهم بحقوقهم والتهم الموجهة إليهم، ثم تم اتخاذ الإجراءات القانونية اللازمة وتطبيق القانون والبروتوكولات المعمول بها.
-
-تم توثيق البصمات والمضبوطات الخاصة بالحالة ضمن التقرير.`,
-
-            images:[
-                "https://cdn.discordapp.com/attachments/1546882804254515200/1547407862144307260/image.png?ex=6aa34f5f&is=6aa1fddf&hm=40c1f3c8c65abff7ef10f276519911b845965045d8cb6a05a367c0e79e9e91d4&",
-                "https://cdn.discordapp.com/attachments/1546882804254515200/1547407862605807687/image.png?ex=6aa34f5f&is=6aa1fddf&hm=d282032343f99d88b27eb09c6d944a7b8eefa297f08beb662eb407cf17f57f63&",
-                "https://cdn.discordapp.com/attachments/1546882804254515200/1547407863004135485/image.png?ex=6aa34f5f&is=6aa1fddf&hm=51a45a48689a2f941d8ceb5d11d2227584824a042677c721c9ffe1a51e6c8046&",
-                "https://cdn.discordapp.com/attachments/1546882804254515200/1547408487716491274/image.png?ex=6aa34ff4&is=6aa1fe74&hm=4aeae76d642086ce04a775112d770a7f5987a50ae22111645f0f874f59e3b3fb4&",
-                "https://cdn.discordapp.com/attachments/1546882804254515200/1547408488039448586/image.png?ex=6aa34ff5&is=6aa1fe75&hm=7e489d165ff59801f2b2f3801767ba7dbc34463dfed3c1eacdc887caf3b76e01&"
-            ]
-        }
-
-    },
-
-
-    /* =========================
-       QUEST #7 STORE
-    ========================= */
-
-    store7: {
-
-        1:{
-            status:"SUCCESS — 100%",
-            fingerprint:"96XPOWOB0VL9N82 / 9POY1BO69NIVZ84",
-            incident:"Store Robbery",
-            items:"Cash – Lock Pick – Sticky Note – Lollipop Sign",
-            team:"Ahmed Al-Qahtani — 343 | Lucas Hod — 391",
-
-            report:`البصمات:
+    report:`البصمات:
 
 96XPOWOB0VL9N82
 9POY1BO69NIVZ84
@@ -3292,6 +1531,7 @@ Bullet
 Store Robbery
 
 المحجوزات:
+
 Cash
 Lock Pick
 Sticky Note
@@ -3307,24 +1547,34 @@ Lollipop Sign
 
 تم توثيق البصمات والمضبوطات الخاصة بالحالة ضمن التقرير.`,
 
-            images:[
-                "https://cdn.discordapp.com/attachments/1546882804254515200/1547619474033614888/image.png?ex=6aa41473&is=6aa2c2f3&hm=bef260dcc9e82a31df1ac647a6579c73eebe4f5a46410984909620d91b7d28c8&",
-                "https://cdn.discordapp.com/attachments/1546882804254515200/1547619474474139719/image.png?ex=6aa41474&is=6aa2c2f4&hm=525e96982c36ebc1f7bf5aece0191e0da30b7f006dafbcc133a359ec96834d4c&",
-                "https://cdn.discordapp.com/attachments/1546882804254515200/1547619474876666006/image.png?ex=6aa41474&is=6aa2c2f4&hm=f7611e85ad3658cce14b131635928c2b1aed81eab41e198bec793e38861d0995&",
-                "https://cdn.discordapp.com/attachments/1546882804254515200/1547619475216400505/image.png?ex=6aa41474&is=6aa2c2f4&hm=8acd5f5d01f277091debf64a7766d08f4e1d57beafbefc00bd3acf29f8f8f2e0&",
-                "https://cdn.discordapp.com/attachments/1546882804254515200/1547620358700404937/image.png?ex=6aa41546&is=6aa2c3c6&hm=7ca0d1780158fb0f59ad3766121107c357311728658d6470f75fcab69697382e&",
-                "https://cdn.discordapp.com/attachments/1546882804254515200/1547620359149330563/image.png?ex=6aa41547&is=6aa2c3c7&hm=a0a07cbde32739f25f88eb5b169901a340846e86faa1904e12d38906b04a7f1e&"
-            ]
-        },
+    images:[
+"https://cdn.discordapp.com/attachments/1546882804254515200/1547619474033614888/image.png?ex=6aa41473&is=6aa2c2f3&hm=bef260dcc9e82a31df1ac647a6579c73eebe4f5a46410984909620d91b7d28c8&",
+"https://cdn.discordapp.com/attachments/1546882804254515200/1547619474474139719/image.png?ex=6aa41474&is=6aa2c2f4&hm=525e96982c36ebc1f7bf5aece0191e0da30b7f006dafbcc133a359ec96834d4c&",
+"https://cdn.discordapp.com/attachments/1546882804254515200/1547619474876666006/image.png?ex=6aa41474&is=6aa2c2f4&hm=f7611e85ad3658cce14b131635928c2b1aed81eab41e198bec793e38861d0995&",
+"https://cdn.discordapp.com/attachments/1546882804254515200/1547619475216400505/image.png?ex=6aa41474&is=6aa2c2f4&hm=8acd5f5d01f277091debf64a7766d08f4e1d57beafbefc00bd3acf29f8f8f2e0&",
+"https://cdn.discordapp.com/attachments/1546882804254515200/1547620358700404937/image.png?ex=6aa41546&is=6aa2c3c6&hm=7ca0d1780158fb0f59ad3766121107c357311728658d6470f75fcab69697382e&",
+"https://cdn.discordapp.com/attachments/1546882804254515200/1547620359149330563/image.png?ex=6aa41547&is=6aa2c3c7&hm=a0a07cbde32739f25f88eb5b169901a340846e86faa1904e12d38906b04a7f1e&"
+    ]
+},
 
-        2:{
-            status:"SUCCESS — 100%",
-            fingerprint:"7YO0Z2K84KFU1I1 / 7YO0Z2K84KFU1I1",
-            incident:"Store Robbery",
-            items:"Hook Pick ×3 – Sticky Note ×2 – Hack Device ×2",
-            team:"Lucas Hod — 391 | Ahmed Al-Qahtani — 343",
 
-            report:`البصمات:
+2:{
+    location:"Los Santos Store",
+
+    fingerprint:`7YO0Z2K84KFU1I1
+7YO0Z2K84KFU1I1`,
+
+    incident:"Store Robbery",
+
+    items:[
+        "Hook Pick ×3",
+        "Sticky Note ×2",
+        "Hack Device ×2"
+    ],
+
+    team:"Lucas Hod — 391 | Ahmed Al-Qahtani — 343",
+
+    report:`البصمات:
 
 7YO0Z2K84KFU1I1
 7YO0Z2K84KFU1I1
@@ -3333,6 +1583,7 @@ Lollipop Sign
 Store Robbery
 
 المحجوزات:
+
 Hook Pick ×3
 Sticky Note ×2
 Hack Device ×2
@@ -3349,284 +1600,217 @@ Hack Device ×2
 
 تم توثيق البصمات والمضبوطات الخاصة بالحالة ضمن التقرير.`,
 
-            images:[
-                "https://cdn.discordapp.com/attachments/1546882783711072276/1547641417696944128/image.png?ex=6aa428e3&is=6aa2d763&hm=04029826816327953ed7af6476686d820e5da43e8d15a332cb069bd892f1d0ee&",
-                "https://cdn.discordapp.com/attachments/1546882783711072276/1547641418057515048/image.png?ex=6aa428e3&is=6aa2d763&hm=5113e6aa06c393fed78cee6369cf466207e84eb6c7d0a8937d04b014c14b933e&",
-                "https://cdn.discordapp.com/attachments/1546882783711072276/1547643517407469678/image.png?ex=6aa42ad8&is=6aa2d958&hm=2ac61c0008d1db4779531245db3a29a075f951fe3e0a2ed6e1f424bc9b8da9d2&",
-                "https://cdn.discordapp.com/attachments/1546882783711072276/1547643517747331152/image.png?ex=6aa42ad8&is=6aa2d958&hm=0a26c1d7ae80fc5c3371312b4600beed64025dc9db964994aca2c7935fd656f0&",
-                "https://cdn.discordapp.com/attachments/1546882783711072276/1547643518103715951/image.png?ex=6aa42ad8&is=6aa2d958&hm=c6a67fbcf9ff9187d30e001dca72520f68cbb20ed77fa1d816f2f36791d8087f&",
-                "https://cdn.discordapp.com/attachments/1546882783711072276/1547643518703374356/image.png?ex=6aa42ad8&is=6aa2d958&hm=9192a801d880690ce72cc0aa37452482e47e388c6d79415e3275cec983543209&"
-            ]
-        },
+    images:[
+"https://cdn.discordapp.com/attachments/1546882783711072276/1547641417696944128/image.png?ex=6aa428e3&is=6aa2d763&hm=04029826816327953ed7af6476686d820e5da43e8d15a332cb069bd892f1d0ee&",
+"https://cdn.discordapp.com/attachments/1546882783711072276/1547641418057515048/image.png?ex=6aa428e3&is=6aa2d763&hm=5113e6aa06c393fed78cee6369cf466207e84eb6c7d0a8937d04b014c14b933e&",
+"https://cdn.discordapp.com/attachments/1546882783711072276/1547643517407469678/image.png?ex=6aa42ad8&is=6aa2d958&hm=2ac61c0008d1db4779531245db3a29a075f951fe3e0a2ed6e1f424bc9b8da9d2&",
+"https://cdn.discordapp.com/attachments/1546882783711072276/1547643517747331152/image.png?ex=6aa42ad8&is=6aa2d958&hm=0a26c1d7ae80fc5c3371312b4600beed64025dc9db964994aca2c7935fd656f0&",
+"https://cdn.discordapp.com/attachments/1546882783711072276/1547643518103715951/image.png?ex=6aa42ad8&is=6aa2d958&hm=c6a67fbcf9ff9187d30e001dca72520f68cbb20ed77fa1d816f2f36791d8087f&",
+"https://cdn.discordapp.com/attachments/1546882783711072276/1547643518703374356/image.png?ex=6aa42ad8&is=6aa2d958&hm=9192a801d880690ce72cc0aa37452482e47e388c6d79415e3275cec983543209&"
+    ]
+},
 
-        3:{
-            status:"DETAILS PENDING",
-            fingerprint:"—",
-            incident:"Store Robbery",
-            items:"—",
-            team:"—",
 
-            report:`Quest #7 — Los Santos Store
+3:{
+    location:"Los Santos Store",
 
-Case 03
+    fingerprint:"MU68592S9Z5079R",
 
-Case details are currently pending.
+    incident:"Store Robbery",
 
-Waiting for the fingerprint, seized items, team members, incident report and evidence.`,
+    items:[
+        "Hack Device",
+        "Cash",
+        "Butcher Knife",
+        "Hook Pick"
+    ],
 
-            images:[]
-        }
+    team:"Lucas Hod — 391",
 
-    }
+    report:`البصمة:
+MU68592S9Z5079R
+
+نوع التدخل:
+Store Robbery
+
+المحجوزات:
+
+Hack Device
+Cash
+Butcher Knife
+Hook Pick
+
+وقائع التدخل:
+
+كنتُ أُباشر دوريتي الاعتيادية، إلى أن قام قسم Dispatch بتوجيهي رفقة زميلي Lucas Hod — 391 إلى حالة Store Robbery.
+
+على الفور، توجهنا إلى الموقع المحدد، وعند وصولنا تبيّن لنا وجود مشتبه به يرتدي ملابس زرقاء داخل المتجر ويقوم بعملية السرقة.
+
+أثناء محاولتنا السيطرة على الحالة، قام المشتبه به بإشهار Butcher Knife وحاول الاعتداء علينا وإسقاطنا، إلا أننا تمكنا من السيطرة عليه وتوقيفه وتأمينه دون فقدان السيطرة على الحالة.
+
+بعد ذلك، توليتُ شخصياً مهمة التعامل مع المشتبه به، حيث قمتُ بإبلاغه بحقوقه والتهم المنسوبة إليه، ثم تم اتخاذ الإجراءات القانونية اللازمة بحقه وتطبيق القانون والبروتوكولات المعمول بها.
+
+وبعد تفتيشه، تم العثور بحوزته على Hack Device وCash وButcher Knife وHook Pick، حيث تم حجز جميع المضبوطات وتوثيقها ضمن القضية.
+
+تم إنهاء الحالة وتأمين المشتبه به وفق الإجراءات القانونية المعتمدة.`,
+
+    images:[
+"https://cdn.discordapp.com/attachments/1444666123370102885/1547660752842788894/image.png?ex=6aa43ae5&is=6aa2e965&hm=61a98e32b604e1247f5689143e29f9cc1921a2be03ac34ac13a81e384ebc00ba&",
+"https://cdn.discordapp.com/attachments/1444666123370102885/1547660753480319097/image.png?ex=6aa43ae5&is=6aa2e965&hm=8ec64bbffbe6fecfd16e0670d42dbca9932035fdcc1fbcdcc995f0186f569925&",
+"https://cdn.discordapp.com/attachments/1444666123370102885/1547660754025582743/image.png?ex=6aa43ae5&is=6aa2e965&hm=91f0af6c86b5449a3ebea168df386b77d09901831396f3287f55b4a33e0b123a&"
+    ]
+}
+
+}
 
 };
 
 
 /* =========================
-   CURRENT CATEGORY
+   NAVIGATION
 ========================= */
 
-let currentCategory = "home";
+let currentCategory="home";
 
 
-/* =========================
-   SHOW CLOSED QUEST
-========================= */
+function hidePages(){
+
+    document.getElementById("homePage").style.display="none";
+
+    document.querySelectorAll(".quest-page").forEach(page=>{
+        page.classList.remove("active");
+    });
+
+    document.getElementById("detailPage").classList.remove("active");
+
+}
+
 
 function showClosedQuest(){
 
-    document.getElementById("closedModal")
-        .classList.add("active");
+    document.getElementById("closedModal").classList.add("active");
 
 }
 
-
-/* =========================
-   CLOSE CLOSED QUEST
-========================= */
 
 function closeClosedQuest(){
 
-    document.getElementById("closedModal")
-        .classList.remove("active");
+    document.getElementById("closedModal").classList.remove("active");
 
 }
 
-
-/* =========================
-   SHOW MEMBER PROFILE
-========================= */
-
-function showMemberProfile(member){
-
-    const data = squadProfiles[member];
-
-    if(!data){
-        return;
-    }
-
-    document.getElementById("profileName").textContent = data.discord;
-    document.getElementById("profileDiscord").textContent = data.discord;
-    document.getElementById("profileRank").textContent = data.rank;
-    document.getElementById("profileManagement").textContent = data.management;
-    document.getElementById("profileWings").textContent = data.wings;
-    document.getElementById("profileRP").textContent = data.rp;
-
-    document.getElementById("memberProfile")
-        .classList.add("active");
-
-    document.getElementById("memberProfile")
-        .scrollIntoView({
-            behavior:"smooth",
-            block:"center"
-        });
-}
-
-
-/* =========================
-   CLOSE MEMBER PROFILE
-========================= */
-
-function closeMemberProfile(){
-
-    document.getElementById("memberProfile")
-        .classList.remove("active");
-
-}
-
-
-/* =========================
-   SHOW CATEGORY
-========================= */
 
 function showCategory(category){
 
-    /* #5 AND #6 ARE CLOSED */
-
-    if(category === "quest5" || category === "quest6"){
-
+    if(category==="quest5" || category==="quest6"){
         showClosedQuest();
-
         return;
     }
 
-    currentCategory = category;
+    hidePages();
 
-    closeMemberProfile();
+    document.getElementById(category).classList.add("active");
 
-    document.querySelectorAll(".page").forEach(page=>{
-        page.classList.remove("active");
-    });
-
-    const targetPage =
-        document.getElementById(category);
-
-    if(!targetPage){
-        return;
-    }
-
-    targetPage.classList.add("active");
-
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
-}
-
-
-/* =========================
-   BACK TO QUEST 5
-========================= */
-
-function backToQuest(){
-
-    closeAll();
+    currentCategory=category;
 
 }
 
 
-/* =========================
-   BACK TO QUEST 6
-========================= */
+function showStore7Cases(){
 
-function backToQuest6(){
+    hidePages();
 
-    showClosedQuest();
+    document.getElementById("store7Page").classList.add("active");
+
+    currentCategory="store7";
 
 }
 
 
-/* =========================
-   BACK TO QUEST 7
-========================= */
+function showDispatch7(){
+
+    hidePages();
+
+    document.getElementById("dispatch7Page").classList.add("active");
+
+    currentCategory="dispatch7";
+
+}
+
 
 function backToQuest7(){
 
-    document.querySelectorAll(".page").forEach(page=>{
-        page.classList.remove("active");
-    });
+    hidePages();
 
-    document.getElementById("quest7")
-        .classList.add("active");
+    document.getElementById("quest7").classList.add("active");
 
-    currentCategory = "quest7";
+    currentCategory="quest7";
 
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
 }
 
 
-/* =========================
-   SHOW CASE
-========================= */
-
 function showCase(category,caseNumber){
 
-    currentCategory = category;
+    const data=cases[category]?.[caseNumber];
 
-    const categoryData = cases[category];
+    if(!data) return;
 
-    if(!categoryData){
-        return;
-    }
+    hidePages();
 
-    const data = categoryData[caseNumber];
+    document.getElementById("detailPage").classList.add("active");
 
-    if(!data){
-        return;
-    }
+    document.getElementById("detailTitle").textContent=
+        "CASE "+String(caseNumber).padStart(2,"0");
 
-    document.querySelectorAll(".page").forEach(page=>{
-        page.classList.remove("active");
+    document.getElementById("detailLocation").textContent=
+        data.location || "";
+
+    document.getElementById("detailFingerprint").textContent=
+        data.fingerprint || "—";
+
+    document.getElementById("detailIncident").textContent=
+        data.incident || "—";
+
+    document.getElementById("detailTeam").textContent=
+        data.team || "—";
+
+    document.getElementById("detailReport").textContent=
+        data.report || "—";
+
+
+    const items=document.getElementById("detailItems");
+
+    items.innerHTML="";
+
+    data.items.forEach(item=>{
+
+        const li=document.createElement("li");
+
+        li.textContent=item;
+
+        items.appendChild(li);
+
     });
 
-    document.getElementById("detail")
-        .classList.add("active");
 
-    document.getElementById("detailTitle")
-        .textContent =
-        category.toUpperCase() +
-        " — CASE " +
-        String(caseNumber).padStart(2,"0");
+    const gallery=document.getElementById("detailGallery");
 
-    document.getElementById("detailStatus")
-        .textContent = data.status;
+    gallery.innerHTML="";
 
-    document.getElementById("detailFingerprint")
-        .textContent = data.fingerprint;
 
-    document.getElementById("detailIncident")
-        .textContent = data.incident;
+    if(data.images && data.images.length){
 
-    document.getElementById("detailItems")
-        .textContent = data.items;
+        document.getElementById("evidenceSection").style.display="block";
 
-    document.getElementById("detailTeam")
-        .textContent = data.team;
+        data.images.forEach(src=>{
 
-    document.getElementById("detailReport")
-        .textContent = data.report;
+            const img=document.createElement("img");
 
-    const gallery =
-        document.getElementById("gallery");
+            img.src=src;
 
-    gallery.innerHTML = "";
+            img.loading="lazy";
 
-    if(data.images && data.images.length > 0){
-
-        document.getElementById(
-            "evidenceSection"
-        ).style.display = "block";
-
-        data.images.forEach(url=>{
-
-            const img =
-                document.createElement("img");
-
-            img.src = url;
-
-            img.alt = "Evidence";
-
-            img.loading = "lazy";
-
-            img.onerror = function(){
-
-                this.style.opacity = "0.35";
-
-                this.title =
-                    "Image could not be loaded";
-
-            };
-
-            img.onclick = function(event){
-
-                event.stopPropagation();
-
-                openLightbox(url);
-
-            };
+            img.onclick=()=>openLightbox(src);
 
             gallery.appendChild(img);
 
@@ -3634,142 +1818,136 @@ function showCase(category,caseNumber){
 
     }else{
 
-        document.getElementById(
-            "evidenceSection"
-        ).style.display = "none";
+        document.getElementById("evidenceSection").style.display="none";
 
     }
 
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
+
+    currentCategory=category;
+
 }
 
-
-/* =========================
-   BACK TO CASES
-========================= */
 
 function backToCases(){
 
-    document.querySelectorAll(".page").forEach(page=>{
-        page.classList.remove("active");
-    });
+    hidePages();
 
-    const target =
-        document.getElementById(currentCategory);
+    if(currentCategory==="store7"){
 
-    if(target){
-
-        target.classList.add("active");
+        document.getElementById("store7Page").classList.add("active");
 
     }else{
 
-        document.getElementById("home")
-            .classList.add("active");
-
-        currentCategory = "home";
+        document.getElementById("homePage").style.display="block";
 
     }
 
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
 }
 
-
-/* =========================
-   CLOSE ALL
-========================= */
 
 function closeAll(){
 
-    document.querySelectorAll(".page").forEach(page=>{
-        page.classList.remove("active");
-    });
+    hidePages();
 
-    document.getElementById("home")
-        .classList.add("active");
+    document.getElementById("homePage").style.display="block";
 
-    currentCategory = "home";
+    currentCategory="home";
 
-    closeMemberProfile();
-
-    closeClosedQuest();
-
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
 }
 
 
-/* =========================
-   LIGHTBOX
-========================= */
+function showMemberProfile(member){
 
-function openLightbox(url){
+    const data=squadProfiles[member];
 
-    document.getElementById(
-        "lightboxImg"
-    ).src = url;
+    if(!data) return;
 
-    document.getElementById(
-        "lightbox"
-    ).style.display = "flex";
+    document.getElementById("profileDiscord").textContent=
+        data.discord;
+
+    document.getElementById("profileRP").textContent=
+        data.rp;
+
+    document.getElementById("profileRank").textContent=
+        data.rank;
+
+    document.getElementById("profileManagement").textContent=
+        data.management;
+
+    document.getElementById("profileWings").textContent=
+        data.wings;
+
+    document.getElementById("profileRpName").textContent=
+        data.rp;
+
+    document.getElementById("profileModal").classList.add("active");
+
+}
+
+
+function closeProfile(){
+
+    document.getElementById("profileModal").classList.remove("active");
+
+}
+
+
+function openLightbox(src){
+
+    document.getElementById("lightboxImage").src=src;
+
+    document.getElementById("lightbox").classList.add("active");
+
 }
 
 
 function closeLightbox(){
 
-    document.getElementById(
-        "lightbox"
-    ).style.display = "none";
+    document.getElementById("lightbox").classList.remove("active");
 
-    document.getElementById(
-        "lightboxImg"
-    ).src = "";
+    document.getElementById("lightboxImage").src="";
+
 }
 
 
-/* =========================
-   CLOSED MODAL CLICK OUTSIDE
-========================= */
+document.getElementById("closedModal").addEventListener("click",function(e){
 
-document.getElementById("closedModal")
-    .addEventListener("click", function(event){
+    if(e.target===this){
+        closeClosedQuest();
+    }
 
-        if(event.target === this){
-
-            closeClosedQuest();
-
-        }
-
-    });
+});
 
 
-/* =========================
-   ESCAPE
-========================= */
+document.getElementById("profileModal").addEventListener("click",function(e){
 
-document.addEventListener(
-    "keydown",
-    function(event){
+    if(e.target===this){
+        closeProfile();
+    }
 
-        if(event.key === "Escape"){
+});
 
-            closeLightbox();
 
-            closeMemberProfile();
+document.getElementById("lightbox").addEventListener("click",function(e){
 
-            closeClosedQuest();
+    if(e.target===this){
+        closeLightbox();
+    }
 
-        }
+});
+
+
+document.addEventListener("keydown",function(e){
+
+    if(e.key==="Escape"){
+
+        closeClosedQuest();
+        closeProfile();
+        closeLightbox();
 
     }
-);
+
+});
 
 </script>
 
