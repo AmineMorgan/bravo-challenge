@@ -188,14 +188,10 @@ body{
     position:fixed;
     inset:0;
     z-index:10000;
-
     align-items:center;
     justify-content:center;
-
     padding:20px;
-
     background:rgba(0,0,0,.82);
-
     backdrop-filter:blur(7px);
     -webkit-backdrop-filter:blur(7px);
 }
@@ -207,9 +203,7 @@ body{
 .closed-box{
     width:100%;
     max-width:430px;
-
     padding:32px 28px;
-
     text-align:center;
 
     background:
@@ -230,7 +224,6 @@ body{
 }
 
 @keyframes closedPopup{
-
     from{
         opacity:0;
         transform:scale(.92) translateY(10px);
@@ -240,7 +233,6 @@ body{
         opacity:1;
         transform:scale(1) translateY(0);
     }
-
 }
 
 .closed-icon{
@@ -267,30 +259,21 @@ body{
 
 .closed-btn{
     width:100%;
-
     padding:12px 18px;
-
     border:1px solid #3b4657;
     border-radius:10px;
-
     background:#1b2431;
-
     color:#e2e7ef;
-
     font-size:13px;
     font-weight:bold;
-
     cursor:pointer;
-
     transition:.2s;
 }
 
 .closed-btn:hover{
     background:#253042;
     border-color:#64738a;
-
-    box-shadow:
-        0 0 15px rgba(100,110,125,.12);
+    box-shadow:0 0 15px rgba(100,110,125,.12);
 }
 
 
@@ -369,6 +352,135 @@ body{
 .quest-category span{
     color:#778296;
     font-size:13px;
+}
+
+
+/* =========================
+   QUEST 7 SPECIAL
+========================= */
+
+.quest7-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:20px;
+    max-width:900px;
+    margin:auto;
+}
+
+.quest7-card{
+    background:
+        linear-gradient(
+            145deg,
+            rgba(33,150,243,.08),
+            rgba(17,22,32,.94)
+        );
+
+    border:1px solid #293140;
+    border-radius:18px;
+    padding:42px 25px;
+    text-align:center;
+    cursor:pointer;
+    transition:.25s;
+}
+
+.quest7-card:hover{
+    transform:translateY(-5px);
+    border-color:#4da6ff;
+    background:
+        linear-gradient(
+            145deg,
+            rgba(33,150,243,.15),
+            rgba(21,27,39,.97)
+        );
+    box-shadow:0 0 25px rgba(33,150,243,.12);
+}
+
+.quest7-card .category-icon{
+    font-size:48px;
+    margin-bottom:15px;
+}
+
+.quest7-card h3{
+    font-size:21px;
+    letter-spacing:2px;
+    margin-bottom:10px;
+}
+
+.quest7-card span{
+    color:#778296;
+    font-size:13px;
+}
+
+
+/* =========================
+   DISPATCH INFO
+========================= */
+
+.dispatch-detail{
+    background:rgba(12,17,25,.96);
+    border:1px solid #293140;
+    border-radius:18px;
+    padding:30px;
+    max-width:900px;
+    margin:auto;
+}
+
+.dispatch-title{
+    text-align:center;
+    margin-bottom:28px;
+}
+
+.dispatch-title h2{
+    color:#4da6ff;
+    font-size:27px;
+    letter-spacing:3px;
+    margin-bottom:8px;
+}
+
+.dispatch-title p{
+    color:#718096;
+    font-size:13px;
+}
+
+.dispatch-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+}
+
+.dispatch-box{
+    background:#101620;
+    border:1px solid #252e3d;
+    border-radius:12px;
+    padding:20px;
+}
+
+.dispatch-box.full{
+    grid-column:1 / -1;
+}
+
+.dispatch-label{
+    color:#718096;
+    font-size:10px;
+    text-transform:uppercase;
+    letter-spacing:1.5px;
+    margin-bottom:8px;
+}
+
+.dispatch-value{
+    color:#e7ebf2;
+    font-size:15px;
+    font-weight:bold;
+}
+
+.private-proof{
+    color:#d4d9e2;
+}
+
+.private-proof span{
+    color:#8f9bad;
+    font-size:12px;
+    margin-left:6px;
 }
 
 
@@ -808,6 +920,10 @@ body{
         grid-template-columns:1fr;
     }
 
+    .quest7-grid{
+        grid-template-columns:1fr;
+    }
+
     .cases{
         grid-template-columns:1fr;
     }
@@ -836,6 +952,14 @@ body{
 
     .profile-grid{
         grid-template-columns:1fr;
+    }
+
+    .dispatch-grid{
+        grid-template-columns:1fr;
+    }
+
+    .dispatch-box.full{
+        grid-column:auto;
     }
 
     .header h1{
@@ -937,10 +1061,10 @@ body{
         </div>
 
 
-        <!-- #6 QUEST -->
+        <!-- #6 QUEST CLOSED -->
 
         <div class="category quest-card"
-             onclick="showCategory('quest6')">
+             onclick="showClosedQuest()">
 
             <div class="category-icon">
                 #6
@@ -955,7 +1079,31 @@ body{
             </span>
 
             <span class="quest-complete">
-                MISSION IN PROGRESS
+                MISSION COMPLETE — 100%
+            </span>
+
+        </div>
+
+
+        <!-- #7 QUEST -->
+
+        <div class="category quest-card"
+             onclick="showCategory('quest7')">
+
+            <div class="category-icon">
+                #7
+            </div>
+
+            <h2>
+                #7 QUEST
+            </h2>
+
+            <span class="quest-from">
+                FROM AMINE MORGAN
+            </span>
+
+            <span class="quest-complete">
+                NEW CHALLENGE
             </span>
 
         </div>
@@ -1309,8 +1457,7 @@ body{
 
         <h2>#6 QUEST</h2>
 
-        <button class="back-btn"
-                onclick="closeAll()">
+        <button class="back-btn" onclick="closeAll()">
             ← Back
         </button>
 
@@ -1320,10 +1467,10 @@ body{
 
         <h2>FROM AMINE MORGAN</h2>
 
-        <p>MISSION IN PROGRESS</p>
+        <p>MISSION COMPLETE</p>
 
         <span class="quest-completion">
-            2 CATEGORIES
+            100% COMPLETE
         </span>
 
     </div>
@@ -1350,6 +1497,318 @@ body{
             <h3>SANDY SHORES</h3>
 
             <span>3 Cases</span>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     #7 QUEST
+========================= -->
+
+<div id="quest7" class="page">
+
+    <div class="section-title">
+
+        <h2>#7 QUEST</h2>
+
+        <button class="back-btn"
+                onclick="closeAll()">
+            ← Back
+        </button>
+
+    </div>
+
+    <div class="quest-header">
+
+        <h2>FROM AMINE MORGAN</h2>
+
+        <p>NEW CHALLENGE</p>
+
+        <span class="quest-completion">
+            4 CASES TOTAL
+        </span>
+
+    </div>
+
+
+    <div class="quest7-grid">
+
+        <div class="quest7-card"
+             onclick="showCategory('store7')">
+
+            <div class="category-icon">
+                🏪
+            </div>
+
+            <h3>
+                LOS SANTOS STORE
+            </h3>
+
+            <span>
+                3 CASES
+            </span>
+
+        </div>
+
+
+        <div class="quest7-card"
+             onclick="showCategory('dispatch7')">
+
+            <div class="category-icon">
+                📡
+            </div>
+
+            <h3>
+                DISPATCH MISSION
+            </h3>
+
+            <span>
+                1 CASE
+            </span>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     #7 LOS SANTOS STORE
+========================= -->
+
+<div id="store7" class="page">
+
+    <div class="section-title">
+
+        <h2>🏪 LOS SANTOS STORE CASES</h2>
+
+        <button class="back-btn"
+                onclick="backToQuest7()">
+            ← Back
+        </button>
+
+    </div>
+
+
+    <div class="cases">
+
+        <!-- CASE 01 -->
+
+        <div class="case-card"
+             onclick="showCase('store7',1)">
+
+            <div class="case-top">
+
+                <div class="case-number">
+                    CASE 01
+                </div>
+
+                <div class="status pending">
+                    DETAILS PENDING
+                </div>
+
+            </div>
+
+            <div class="case-info">
+
+                <strong>Location:</strong>
+                Los Santos Store
+                <br>
+
+                <strong>Incident:</strong>
+                Store Robbery
+                <br>
+
+                <strong>Status:</strong>
+                Waiting for case details
+
+            </div>
+
+        </div>
+
+
+        <!-- CASE 02 -->
+
+        <div class="case-card"
+             onclick="showCase('store7',2)">
+
+            <div class="case-top">
+
+                <div class="case-number">
+                    CASE 02
+                </div>
+
+                <div class="status pending">
+                    DETAILS PENDING
+                </div>
+
+            </div>
+
+            <div class="case-info">
+
+                <strong>Location:</strong>
+                Los Santos Store
+                <br>
+
+                <strong>Incident:</strong>
+                Store Robbery
+                <br>
+
+                <strong>Status:</strong>
+                Waiting for case details
+
+            </div>
+
+        </div>
+
+
+        <!-- CASE 03 -->
+
+        <div class="case-card"
+             onclick="showCase('store7',3)">
+
+            <div class="case-top">
+
+                <div class="case-number">
+                    CASE 03
+                </div>
+
+                <div class="status pending">
+                    DETAILS PENDING
+                </div>
+
+            </div>
+
+            <div class="case-info">
+
+                <strong>Location:</strong>
+                Los Santos Store
+                <br>
+
+                <strong>Incident:</strong>
+                Store Robbery
+                <br>
+
+                <strong>Status:</strong>
+                Waiting for case details
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
+     #7 DISPATCH MISSION
+========================= -->
+
+<div id="dispatch7" class="page">
+
+    <div class="section-title">
+
+        <h2>📡 DISPATCH MISSION</h2>
+
+        <button class="back-btn"
+                onclick="backToQuest7()">
+            ← Back
+        </button>
+
+    </div>
+
+
+    <div class="dispatch-detail">
+
+        <div class="dispatch-title">
+
+            <h2>
+                DISPATCH MISSION
+            </h2>
+
+            <p>
+                Quest #7 — Dispatch Mission
+            </p>
+
+        </div>
+
+
+        <div class="dispatch-grid">
+
+            <div class="dispatch-box">
+
+                <div class="dispatch-label">
+                    Commander / Shift Supervisor
+                </div>
+
+                <div class="dispatch-value">
+                    207 Muqrin Fahad
+                </div>
+
+            </div>
+
+
+            <div class="dispatch-box">
+
+                <div class="dispatch-label">
+                    Assistant Dispatch
+                </div>
+
+                <div class="dispatch-value">
+                    383 Ammar Asiri
+                </div>
+
+            </div>
+
+
+            <div class="dispatch-box">
+
+                <div class="dispatch-label">
+                    Dispatch Duration
+                </div>
+
+                <div class="dispatch-value">
+                    1 Hour
+                </div>
+
+            </div>
+
+
+            <div class="dispatch-box">
+
+                <div class="dispatch-label">
+                    Mission Status
+                </div>
+
+                <div class="dispatch-value">
+                    <span class="status success">
+                        SUCCESS — 100%
+                    </span>
+                </div>
+
+            </div>
+
+
+            <div class="dispatch-box full">
+
+                <div class="dispatch-label">
+                    Proof
+                </div>
+
+                <div class="dispatch-value private-proof">
+                    🔒 PRIVATE PROOF
+                    <span>
+                        Proof link is private
+                    </span>
+                </div>
+
+            </div>
 
         </div>
 
@@ -1516,13 +1975,10 @@ body{
 
     <div class="cases">
 
-        <!-- CASE 01 -->
-
         <div class="case-card"
              onclick="showCase('sandy6',1)">
 
             <div class="case-top">
-
                 <div class="case-number">
                     CASE 01
                 </div>
@@ -1530,7 +1986,6 @@ body{
                 <div class="status success">
                     SUCCESS — 100%
                 </div>
-
             </div>
 
             <div class="case-info">
@@ -1551,13 +2006,10 @@ body{
         </div>
 
 
-        <!-- CASE 02 -->
-
         <div class="case-card"
              onclick="showCase('sandy6',2)">
 
             <div class="case-top">
-
                 <div class="case-number">
                     CASE 02
                 </div>
@@ -1565,7 +2017,6 @@ body{
                 <div class="status success">
                     SUCCESS — 100%
                 </div>
-
             </div>
 
             <div class="case-info">
@@ -1586,13 +2037,10 @@ body{
         </div>
 
 
-        <!-- CASE 03 -->
-
         <div class="case-card"
              onclick="showCase('sandy6',3)">
 
             <div class="case-top">
-
                 <div class="case-number">
                     CASE 03
                 </div>
@@ -1600,7 +2048,6 @@ body{
                 <div class="status success">
                     SUCCESS — 100%
                 </div>
-
             </div>
 
             <div class="case-info">
@@ -1626,7 +2073,7 @@ body{
 
 
 <!-- =========================
-     PARKING OLD / QUEST 5
+     QUEST 5 PARKING
 ========================= -->
 
 <div id="parking" class="page">
@@ -1644,168 +2091,83 @@ body{
 
     <div class="cases">
 
-        <div class="case-card"
-             onclick="showCase('parking',1)">
-
+        <div class="case-card" onclick="showCase('parking',1)">
             <div class="case-top">
-
-                <div class="case-number">
-                    CASE 01
-                </div>
-
-                <div class="status success">
-                    SUCCESS — 100%
-                </div>
-
+                <div class="case-number">CASE 01</div>
+                <div class="status success">SUCCESS — 100%</div>
             </div>
 
             <div class="case-info">
-
-                <strong>Fingerprint:</strong>
-                DVB7K0FRKHH394Q
+                <strong>Fingerprint:</strong> DVB7K0FRKHH394Q
                 <br>
-
-                <strong>Incident:</strong>
-                سرقة Parking Meter
+                <strong>Incident:</strong> سرقة Parking Meter
                 <br>
-
-                <strong>Officer:</strong>
-                Faisal Alshehri — 390
-
+                <strong>Officer:</strong> Faisal Alshehri — 390
             </div>
-
         </div>
 
 
-        <div class="case-card"
-             onclick="showCase('parking',2)">
-
+        <div class="case-card" onclick="showCase('parking',2)">
             <div class="case-top">
-
-                <div class="case-number">
-                    CASE 02
-                </div>
-
-                <div class="status success">
-                    SUCCESS — 100%
-                </div>
-
+                <div class="case-number">CASE 02</div>
+                <div class="status success">SUCCESS — 100%</div>
             </div>
 
             <div class="case-info">
-
-                <strong>Fingerprint:</strong>
-                ARM12HHCE9KZ19R
+                <strong>Fingerprint:</strong> ARM12HHCE9KZ19R
                 <br>
-
-                <strong>Incident:</strong>
-                سرقة Parking Meter
+                <strong>Incident:</strong> سرقة Parking Meter
                 <br>
-
-                <strong>Officer:</strong>
-                Faisal Alshehri — 390
-
+                <strong>Officer:</strong> Faisal Alshehri — 390
             </div>
-
         </div>
 
 
-        <div class="case-card"
-             onclick="showCase('parking',3)">
-
+        <div class="case-card" onclick="showCase('parking',3)">
             <div class="case-top">
-
-                <div class="case-number">
-                    CASE 03
-                </div>
-
-                <div class="status success">
-                    SUCCESS — 100%
-                </div>
-
+                <div class="case-number">CASE 03</div>
+                <div class="status success">SUCCESS — 100%</div>
             </div>
 
             <div class="case-info">
-
-                <strong>Fingerprint:</strong>
-                V230S6DD1YSB5QZ
+                <strong>Fingerprint:</strong> V230S6DD1YSB5QZ
                 <br>
-
-                <strong>Incident:</strong>
-                Parking Meter
+                <strong>Incident:</strong> Parking Meter
                 <br>
-
-                <strong>Officer:</strong>
-                Mohammed Talal — 379
-
+                <strong>Officer:</strong> Mohammed Talal — 379
             </div>
-
         </div>
 
 
-        <div class="case-card"
-             onclick="showCase('parking',4)">
-
+        <div class="case-card" onclick="showCase('parking',4)">
             <div class="case-top">
-
-                <div class="case-number">
-                    CASE 04
-                </div>
-
-                <div class="status success">
-                    SUCCESS — 100%
-                </div>
-
+                <div class="case-number">CASE 04</div>
+                <div class="status success">SUCCESS — 100%</div>
             </div>
 
             <div class="case-info">
-
-                <strong>Fingerprint:</strong>
-                8KGKRKLM24UO82J
+                <strong>Fingerprint:</strong> 8KGKRKLM24UO82J
                 <br>
-
-                <strong>Incident:</strong>
-                Parking Meter
+                <strong>Incident:</strong> Parking Meter
                 <br>
-
-                <strong>Officer:</strong>
-                Lucas Hod — 391
-
+                <strong>Officer:</strong> Lucas Hod — 391
             </div>
-
         </div>
 
 
-        <div class="case-card"
-             onclick="showCase('parking',5)">
-
+        <div class="case-card" onclick="showCase('parking',5)">
             <div class="case-top">
-
-                <div class="case-number">
-                    CASE 05
-                </div>
-
-                <div class="status success">
-                    SUCCESS — 100%
-                </div>
-
+                <div class="case-number">CASE 05</div>
+                <div class="status success">SUCCESS — 100%</div>
             </div>
 
             <div class="case-info">
-
-                <strong>Fingerprint:</strong>
-                X653659YE3632CW
+                <strong>Fingerprint:</strong> X653659YE3632CW
                 <br>
-
-                <strong>Incident:</strong>
-                Parking Meter
+                <strong>Incident:</strong> Parking Meter
                 <br>
-
-                <strong>Officer:</strong>
-                Lucas Hod — 391
-
+                <strong>Officer:</strong> Lucas Hod — 391
             </div>
-
         </div>
 
     </div>
@@ -1814,7 +2176,7 @@ body{
 
 
 <!-- =========================
-     STORE
+     QUEST 5 STORE
 ========================= -->
 
 <div id="store" class="page">
@@ -1832,102 +2194,51 @@ body{
 
     <div class="cases">
 
-        <div class="case-card"
-             onclick="showCase('store',1)">
-
+        <div class="case-card" onclick="showCase('store',1)">
             <div class="case-top">
-
-                <div class="case-number">
-                    CASE 01
-                </div>
-
-                <div class="status success">
-                    SUCCESS — 100%
-                </div>
-
+                <div class="case-number">CASE 01</div>
+                <div class="status success">SUCCESS — 100%</div>
             </div>
 
             <div class="case-info">
-
-                <strong>Fingerprint:</strong>
-                P76UY7QTPC91023
+                <strong>Fingerprint:</strong> P76UY7QTPC91023
                 <br>
-
-                <strong>Incident:</strong>
-                Store Robbery
+                <strong>Incident:</strong> Store Robbery
                 <br>
-
-                <strong>Officer:</strong>
-                Lucas Hod — 391
-
+                <strong>Officer:</strong> Lucas Hod — 391
             </div>
-
         </div>
 
 
-        <div class="case-card"
-             onclick="showCase('store',2)">
-
+        <div class="case-card" onclick="showCase('store',2)">
             <div class="case-top">
-
-                <div class="case-number">
-                    CASE 02
-                </div>
-
-                <div class="status success">
-                    SUCCESS — 100%
-                </div>
-
+                <div class="case-number">CASE 02</div>
+                <div class="status success">SUCCESS — 100%</div>
             </div>
 
             <div class="case-info">
-
-                <strong>Fingerprint:</strong>
-                E44UY3E1169808K
+                <strong>Fingerprint:</strong> E44UY3E1169808K
                 <br>
-
-                <strong>Incident:</strong>
-                Store Robbery
+                <strong>Incident:</strong> Store Robbery
                 <br>
-
-                <strong>Officer:</strong>
-                Lucas Hod — 391
-
+                <strong>Officer:</strong> Lucas Hod — 391
             </div>
-
         </div>
 
 
-        <div class="case-card"
-             onclick="showCase('store',3)">
-
+        <div class="case-card" onclick="showCase('store',3)">
             <div class="case-top">
-
-                <div class="case-number">
-                    CASE 03
-                </div>
-
-                <div class="status success">
-                    SUCCESS — 100%
-                </div>
-
+                <div class="case-number">CASE 03</div>
+                <div class="status success">SUCCESS — 100%</div>
             </div>
 
             <div class="case-info">
-
-                <strong>Fingerprint:</strong>
-                ZCXYMH69D89B209
+                <strong>Fingerprint:</strong> ZCXYMH69D89B209
                 <br>
-
-                <strong>Incident:</strong>
-                Store Robbery
+                <strong>Incident:</strong> Store Robbery
                 <br>
-
-                <strong>Officer:</strong>
-                Mohammed Talal — 379
-
+                <strong>Officer:</strong> Mohammed Talal — 379
             </div>
-
         </div>
 
     </div>
@@ -1936,7 +2247,7 @@ body{
 
 
 <!-- =========================
-     HOUSE
+     QUEST 5 HOUSE
 ========================= -->
 
 <div id="house" class="page">
@@ -1954,23 +2265,14 @@ body{
 
     <div class="cases">
 
-        <div class="case-card"
-             onclick="showCase('house',1)">
+        <div class="case-card" onclick="showCase('house',1)">
 
             <div class="case-top">
-
-                <div class="case-number">
-                    CASE 01
-                </div>
-
-                <div class="status success">
-                    SUCCESS — 100%
-                </div>
-
+                <div class="case-number">CASE 01</div>
+                <div class="status success">SUCCESS — 100%</div>
             </div>
 
             <div class="case-info">
-
                 <strong>Fingerprint:</strong>
                 1R665O249FYTB68
                 <br>
@@ -1981,7 +2283,6 @@ body{
 
                 <strong>Officers:</strong>
                 Mohammed Talal — 379 | Lucas Hod — 391
-
             </div>
 
         </div>
@@ -2016,62 +2317,52 @@ body{
         <div class="grid">
 
             <div class="info-box">
-
                 <div class="info-label">
                     Case Status
                 </div>
 
                 <div class="info-value"
                      id="detailStatus"></div>
-
             </div>
 
 
             <div class="info-box">
-
                 <div class="info-label">
                     Fingerprint
                 </div>
 
                 <div class="info-value"
                      id="detailFingerprint"></div>
-
             </div>
 
 
             <div class="info-box">
-
                 <div class="info-label">
                     Incident Type
                 </div>
 
                 <div class="info-value"
                      id="detailIncident"></div>
-
             </div>
 
 
             <div class="info-box">
-
                 <div class="info-label">
                     Evidence / Items
                 </div>
 
                 <div class="info-value"
                      id="detailItems"></div>
-
             </div>
 
 
             <div class="info-box">
-
                 <div class="info-label">
                     Team Member
                 </div>
 
                 <div class="info-value"
                      id="detailTeam"></div>
-
             </div>
 
         </div>
@@ -2853,8 +3144,6 @@ Cash
 
     sandy6: {
 
-        /* CASE 01 */
-
         1:{
             status:"SUCCESS — 100%",
             fingerprint:"M5BPCEATS20A910",
@@ -2890,9 +3179,6 @@ Cash
                 "https://cdn.discordapp.com/attachments/1546883293591511110/1547256641118797844/Screenshot_2026-09-09_152826.png?ex=6aa2c289&is=6aa17109&hm=af4cde70e8ba26a90fc5f1a08c5c3d4af4a5c86ac4b48e166da83db32e15bf5e&"
             ]
         },
-
-
-        /* CASE 02 */
 
         2:{
             status:"SUCCESS — 100%",
@@ -2937,9 +3223,6 @@ Magazine
             ]
         },
 
-
-        /* CASE 03 */
-
         3:{
             status:"SUCCESS — 100%",
             fingerprint:"34745D75TKL5M7Y / 8O9U12503M6D580",
@@ -2979,9 +3262,72 @@ Bullet
                 "https://cdn.discordapp.com/attachments/1546882804254515200/1547407862144307260/image.png?ex=6aa34f5f&is=6aa1fddf&hm=40c1f3c8c65abff7ef10f276519911b845965045d8cb6a05a367c0e79e9e91d4&",
                 "https://cdn.discordapp.com/attachments/1546882804254515200/1547407862605807687/image.png?ex=6aa34f5f&is=6aa1fddf&hm=d282032343f99d88b27eb09c6d944a7b8eefa297f08beb662eb407cf17f57f63&",
                 "https://cdn.discordapp.com/attachments/1546882804254515200/1547407863004135485/image.png?ex=6aa34f5f&is=6aa1fddf&hm=51a45a48689a2f941d8ceb5d11d2227584824a042677c721c9ffe1a51e6c8046&",
-                "https://cdn.discordapp.com/attachments/1546882804254515200/1547408487716491274/image.png?ex=6aa34ff4&is=6aa1fe74&hm=20203122491ad057dec484e9c8219c54a5fb838f6d89699d63ecd9722ed00fed&",
+                "https://cdn.discordapp.com/attachments/1546882804254515200/1547408487716491274/image.png?ex=6aa34ff4&is=6aa1fe74&hm=4aeae76d642086ce04a775112d770a7f5987a50ae22111645f0f874f59e3b3fb4&",
                 "https://cdn.discordapp.com/attachments/1546882804254515200/1547408488039448586/image.png?ex=6aa34ff5&is=6aa1fe75&hm=7e489d165ff59801f2b2f3801767ba7dbc34463dfed3c1eacdc887caf3b76e01&"
             ]
+        }
+
+    },
+
+
+    /* =========================
+       QUEST #7 STORE
+    ========================= */
+
+    store7: {
+
+        1:{
+            status:"DETAILS PENDING",
+            fingerprint:"—",
+            incident:"Store Robbery",
+            items:"—",
+            team:"—",
+
+            report:`Quest #7 — Los Santos Store
+
+Case 01
+
+Case details are currently pending.
+
+Waiting for the fingerprint, seized items, team members, incident report and evidence.`,
+
+            images:[]
+        },
+
+        2:{
+            status:"DETAILS PENDING",
+            fingerprint:"—",
+            incident:"Store Robbery",
+            items:"—",
+            team:"—",
+
+            report:`Quest #7 — Los Santos Store
+
+Case 02
+
+Case details are currently pending.
+
+Waiting for the fingerprint, seized items, team members, incident report and evidence.`,
+
+            images:[]
+        },
+
+        3:{
+            status:"DETAILS PENDING",
+            fingerprint:"—",
+            incident:"Store Robbery",
+            items:"—",
+            team:"—",
+
+            report:`Quest #7 — Los Santos Store
+
+Case 03
+
+Case details are currently pending.
+
+Waiting for the fingerprint, seized items, team members, incident report and evidence.`,
+
+            images:[]
         }
 
     }
@@ -3039,12 +3385,14 @@ function showMemberProfile(member){
     document.getElementById("profileWings").textContent = data.wings;
     document.getElementById("profileRP").textContent = data.rp;
 
-    document.getElementById("memberProfile").classList.add("active");
+    document.getElementById("memberProfile")
+        .classList.add("active");
 
-    document.getElementById("memberProfile").scrollIntoView({
-        behavior:"smooth",
-        block:"center"
-    });
+    document.getElementById("memberProfile")
+        .scrollIntoView({
+            behavior:"smooth",
+            block:"center"
+        });
 }
 
 
@@ -3066,7 +3414,9 @@ function closeMemberProfile(){
 
 function showCategory(category){
 
-    if(category === "quest5"){
+    /* #5 AND #6 ARE CLOSED */
+
+    if(category === "quest5" || category === "quest6"){
 
         showClosedQuest();
 
@@ -3081,7 +3431,8 @@ function showCategory(category){
         page.classList.remove("active");
     });
 
-    const targetPage = document.getElementById(category);
+    const targetPage =
+        document.getElementById(category);
 
     if(!targetPage){
         return;
@@ -3113,14 +3464,25 @@ function backToQuest(){
 
 function backToQuest6(){
 
+    showClosedQuest();
+
+}
+
+
+/* =========================
+   BACK TO QUEST 7
+========================= */
+
+function backToQuest7(){
+
     document.querySelectorAll(".page").forEach(page=>{
         page.classList.remove("active");
     });
 
-    document.getElementById("quest6")
+    document.getElementById("quest7")
         .classList.add("active");
 
-    currentCategory = "quest6";
+    currentCategory = "quest7";
 
     window.scrollTo({
         top:0,
@@ -3137,7 +3499,13 @@ function showCase(category,caseNumber){
 
     currentCategory = category;
 
-    const data = cases[category][caseNumber];
+    const categoryData = cases[category];
+
+    if(!categoryData){
+        return;
+    }
+
+    const data = categoryData[caseNumber];
 
     if(!data){
         return;
