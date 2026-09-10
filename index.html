@@ -56,6 +56,7 @@ body{
     font-size:15px;
 }
 
+
 /* =========================
    CATEGORIES
 ========================= */
@@ -97,6 +98,7 @@ body{
     color:#778296;
     font-size:13px;
 }
+
 
 /* =========================
    QUEST CARD
@@ -176,6 +178,122 @@ body{
     letter-spacing:1.5px;
 }
 
+
+/* =========================
+   QUEST CLOSED MODAL
+========================= */
+
+.closed-modal{
+    display:none;
+    position:fixed;
+    inset:0;
+    z-index:10000;
+
+    align-items:center;
+    justify-content:center;
+
+    padding:20px;
+
+    background:rgba(0,0,0,.82);
+
+    backdrop-filter:blur(7px);
+    -webkit-backdrop-filter:blur(7px);
+}
+
+.closed-modal.active{
+    display:flex;
+}
+
+.closed-box{
+    width:100%;
+    max-width:430px;
+
+    padding:32px 28px;
+
+    text-align:center;
+
+    background:
+        linear-gradient(
+            145deg,
+            #151b25,
+            #080b11
+        );
+
+    border:1px solid #4b5566;
+    border-radius:18px;
+
+    box-shadow:
+        0 0 35px rgba(0,0,0,.65),
+        0 0 25px rgba(100,110,125,.10);
+
+    animation:closedPopup .22s ease-out;
+}
+
+@keyframes closedPopup{
+
+    from{
+        opacity:0;
+        transform:scale(.92) translateY(10px);
+    }
+
+    to{
+        opacity:1;
+        transform:scale(1) translateY(0);
+    }
+
+}
+
+.closed-icon{
+    font-size:48px;
+    margin-bottom:15px;
+
+    filter:
+        grayscale(.15)
+        drop-shadow(0 0 10px rgba(255,255,255,.12));
+}
+
+.closed-box h2{
+    font-size:23px;
+    letter-spacing:2px;
+    margin-bottom:10px;
+}
+
+.closed-box p{
+    color:#8994a6;
+    font-size:13px;
+    line-height:1.7;
+    margin-bottom:23px;
+}
+
+.closed-btn{
+    width:100%;
+
+    padding:12px 18px;
+
+    border:1px solid #3b4657;
+    border-radius:10px;
+
+    background:#1b2431;
+
+    color:#e2e7ef;
+
+    font-size:13px;
+    font-weight:bold;
+
+    cursor:pointer;
+
+    transition:.2s;
+}
+
+.closed-btn:hover{
+    background:#253042;
+    border-color:#64738a;
+
+    box-shadow:
+        0 0 15px rgba(100,110,125,.12);
+}
+
+
 /* =========================
    QUEST PAGE
 ========================= */
@@ -209,6 +327,7 @@ body{
     font-weight:bold;
     letter-spacing:1.5px;
 }
+
 
 /* =========================
    QUEST CATEGORIES
@@ -251,6 +370,7 @@ body{
     color:#778296;
     font-size:13px;
 }
+
 
 /* =========================
    SQUAD
@@ -435,6 +555,7 @@ body{
     transform:translateY(-2px);
 }
 
+
 /* =========================
    CASES
 ========================= */
@@ -525,6 +646,7 @@ body{
 .case-info strong{
     color:#dce2eb;
 }
+
 
 /* =========================
    DETAIL
@@ -663,6 +785,11 @@ body{
     display:block;
 }
 
+
+/* =========================
+   RESPONSIVE
+========================= */
+
 @media(max-width:900px){
 
     .squad-grid{
@@ -724,6 +851,7 @@ body{
         align-items:flex-start;
         gap:15px;
     }
+
 }
 
 @media(max-width:500px){
@@ -746,6 +874,12 @@ body{
         flex-direction:column;
         align-items:flex-start;
     }
+
+    .closed-box{
+        max-width:350px;
+        padding:28px 22px;
+    }
+
 }
 </style>
 </head>
@@ -779,8 +913,10 @@ body{
 
     <div class="categories">
 
+        <!-- #5 QUEST CLOSED -->
+
         <div class="category quest-card"
-             onclick="showCategory('quest5')">
+             onclick="showClosedQuest()">
 
             <div class="category-icon">
                 #5
@@ -800,6 +936,8 @@ body{
 
         </div>
 
+
+        <!-- #6 QUEST -->
 
         <div class="category quest-card"
              onclick="showCategory('quest6')">
@@ -1098,11 +1236,13 @@ body{
 <div id="quest5" class="page">
 
     <div class="section-title">
+
         <h2>#5 QUEST</h2>
 
         <button class="back-btn" onclick="closeAll()">
             ← Back
         </button>
+
     </div>
 
     <div class="quest-header">
@@ -1376,15 +1516,21 @@ body{
 
     <div class="cases">
 
+        <!-- CASE 01 -->
+
         <div class="case-card"
              onclick="showCase('sandy6',1)">
 
             <div class="case-top">
-                <div class="case-number">CASE 01</div>
+
+                <div class="case-number">
+                    CASE 01
+                </div>
 
                 <div class="status success">
                     SUCCESS — 100%
                 </div>
+
             </div>
 
             <div class="case-info">
@@ -1405,58 +1551,70 @@ body{
         </div>
 
 
+        <!-- CASE 02 -->
+
         <div class="case-card"
              onclick="showCase('sandy6',2)">
 
             <div class="case-top">
-                <div class="case-number">CASE 02</div>
 
-                <div class="status pending">
-                    PENDING
+                <div class="case-number">
+                    CASE 02
                 </div>
+
+                <div class="status success">
+                    SUCCESS — 100%
+                </div>
+
             </div>
 
             <div class="case-info">
 
-                <strong>Fingerprint:</strong>
-                —
+                <strong>Fingerprints:</strong>
+                V4V9842MFLI6QL8
                 <br>
 
                 <strong>Incident:</strong>
-                Sandy Shores
+                House Robbery
                 <br>
 
-                <strong>Status:</strong>
-                Case Pending
+                <strong>Team Members:</strong>
+                Lucas Hod — 391 + Bravo Squad
 
             </div>
 
         </div>
 
 
+        <!-- CASE 03 -->
+
         <div class="case-card"
              onclick="showCase('sandy6',3)">
 
             <div class="case-top">
-                <div class="case-number">CASE 03</div>
 
-                <div class="status pending">
-                    PENDING
+                <div class="case-number">
+                    CASE 03
                 </div>
+
+                <div class="status success">
+                    SUCCESS — 100%
+                </div>
+
             </div>
 
             <div class="case-info">
 
-                <strong>Fingerprint:</strong>
-                —
+                <strong>Fingerprints:</strong>
+                34745D75TKL5M7Y
                 <br>
 
                 <strong>Incident:</strong>
-                Sandy Shores
+                House Robbery
                 <br>
 
-                <strong>Status:</strong>
-                Case Pending
+                <strong>Team Members:</strong>
+                Bravo Squad
 
             </div>
 
@@ -1956,6 +2114,38 @@ body{
 
 
 <!-- =========================
+     QUEST CLOSED MODAL
+========================= -->
+
+<div class="closed-modal"
+     id="closedModal">
+
+    <div class="closed-box">
+
+        <div class="closed-icon">
+            🔒
+        </div>
+
+        <h2>
+            QUEST CLOSED
+        </h2>
+
+        <p>
+            This quest is closed.<br>
+            You cannot access this quest anymore.
+        </p>
+
+        <button class="closed-btn"
+                onclick="closeClosedQuest()">
+            CLOSE
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- =========================
      LIGHTBOX
 ========================= -->
 
@@ -2191,11 +2381,6 @@ const squadProfiles = {
 
 const cases = {
 
-    /* =========================
-       QUEST 5 — PARKING
-       LOCAL IMAGES
-    ========================== */
-
     parking: {
 
         1:{
@@ -2231,7 +2416,6 @@ Cash
             ]
         },
 
-
         2:{
             status:"SUCCESS — 100%",
             fingerprint:"ARM12HHCE9KZ19R",
@@ -2258,7 +2442,6 @@ Cash
                 "images/quest5/2 (2).png"
             ]
         },
-
 
         3:{
             status:"SUCCESS — 100%",
@@ -2289,7 +2472,6 @@ Hook Pick ×4
             ]
         },
 
-
         4:{
             status:"SUCCESS — 100%",
             fingerprint:"8KGKRKLM24UO82J",
@@ -2319,7 +2501,6 @@ Hook Pick
                 "images/quest5/4 (3).png"
             ]
         },
-
 
         5:{
             status:"SUCCESS — 100%",
@@ -2361,10 +2542,6 @@ Lockpick ×3
 
     },
 
-
-    /* =========================
-       QUEST 5 — STORE
-    ========================== */
 
     store: {
 
@@ -2480,10 +2657,6 @@ Cash
     },
 
 
-    /* =========================
-       QUEST 5 — HOUSE
-    ========================== */
-
     house: {
 
         1:{
@@ -2525,10 +2698,6 @@ UK Russian Magazin
 
     },
 
-
-    /* =========================
-       QUEST 6 — PARKING
-    ========================== */
 
     parking6: {
 
@@ -2679,10 +2848,12 @@ Cash
 
 
     /* =========================
-       QUEST 6 — SANDY
-    ========================== */
+       SANDY SHORES
+    ========================= */
 
     sandy6: {
+
+        /* CASE 01 */
 
         1:{
             status:"SUCCESS — 100%",
@@ -2720,28 +2891,97 @@ Cash
             ]
         },
 
-        2:{
-            status:"PENDING",
-            fingerprint:"—",
-            incident:"Sandy Shores",
-            items:"—",
-            team:"—",
-            report:`Case Pending
 
-This case is currently pending.`,
-            images:[]
+        /* CASE 02 */
+
+        2:{
+            status:"SUCCESS — 100%",
+            fingerprint:"V4V9842MFLI6QL8 / G675L9M6DOME38 / QU37U9TFI3T4491",
+            incident:"House Robbery",
+            items:"Lock Pick – Hook Pick ×3 – Hack Device – Magazine",
+            team:"Amine Morgan 405 | Lucas Hod 391 | Mohammed Talal 379 | Jummah Alzahrani 324 | Ahmed Al-Qahtani 343 | Robert Navarro 401",
+
+            report:`تقرير تدخل أمني
+
+البصمات:
+
+V4V9842MFLI6QL8
+G675L9M6DOME38
+QU37U9TFI3T4491
+
+نوع التدخل: House Robbery
+
+المحجوزات:
+
+Lock Pick
+Hook Pick ×3
+Hack Device
+Magazine
+
+وقائع التدخل
+
+كنتُ أُباشر دوريتي الاعتيادية في منطقة Sandy رفقة زملائي ضمن موجة 9، إلى أن وردنا بلاغ من قسم Dispatch يفيد بوجود حالة سرقة منزل.
+
+على الفور، توجهنا إلى الموقع المحدد للتحقق من البلاغ واتخاذ الإجراءات اللازمة. وعند وصولنا إلى المكان، تبيّن لنا وجود ثلاثة مشتبه بهم داخل الموقع، حيث قمنا بالسيطرة عليهم وتأمينهم وفق الإجراءات والبروتوكولات المعتمدة.
+
+بعد ذلك، توليتُ أنا وزميلي Lucas Hod التعامل مع المشتبه بهم، حيث تم تعريفهم بحقوقهم وإبلاغهم بالتهم المنسوبة إليهم، كما تم اتخاذ الإجراءات القانونية اللازمة بحقهم وتطبيق القانون والبروتوكولات المعمول بها.
+
+وبعد استكمال الإجراءات، تم التعامل مع الحالة وفق الأصول القانونية المعتمدة، مع توثيق المضبوطات والبصمات الخاصة بالموقوفين.`,
+
+            images:[
+                "https://cdn.discordapp.com/attachments/1546882804254515200/1547394151010672721/image.png?ex=6aa3429a&is=6aa1f11a&hm=1ac3c48c94a1891a5437f3616e909b45f7fe42556af4b5265bcac311fb47a8e3&",
+                "https://cdn.discordapp.com/attachments/1546882804254515200/1547394151572836452/image.png?ex=6aa3429a&is=6aa1f11a&hm=afb5b245b15d27429b80f1250cf45675b1085824d89797b14e84db1fb964c091&",
+                "https://cdn.discordapp.com/attachments/1546882804254515200/1547394175560065134/image.png?ex=6aa342a0&is=6aa1f120&hm=b1c7d3b918caf8646b3770870194be7bc597fd398eedd7cb479b949fb2e5029a&",
+                "https://cdn.discordapp.com/attachments/1546882804254515200/1547395849590546513/image.png?ex=6aa3442f&is=6aa1f2af&hm=4aeae76d642086ce04a775112d770a7f5987a50ae22111645f0f874f59e3b3fb4&",
+                "https://cdn.discordapp.com/attachments/1546882804254515200/1547395850395983902/image.png?ex=6aa3442f&is=6aa1f2af&hm=c70e06bf892c341d08e553ee644768a9e32828e3db10f16e4499155bc959f916&"
+            ]
         },
 
-        3:{
-            status:"PENDING",
-            fingerprint:"—",
-            incident:"Sandy Shores",
-            items:"—",
-            team:"—",
-            report:`Case Pending
 
-This case is currently pending.`,
-            images:[]
+        /* CASE 03 */
+
+        3:{
+            status:"SUCCESS — 100%",
+            fingerprint:"34745D75TKL5M7Y / 8O9U12503M6D580",
+            incident:"House Robbery",
+            items:"Hook Pick ×3 – Bat – Lollipop Sign – Bullet",
+            team:"Amine Morgan 405 | Lucas Hod 391 | Mohammed Talal 379 | Jummah Alzahrani 324 | Ahmed Al-Qahtani 343 | Robert Navarro 401",
+
+            report:`تقرير تدخل أمني
+
+البصمات:
+
+34745D75TKL5M7Y
+8O9U12503M6D580
+
+نوع التدخل: House Robbery
+
+المحجوزات:
+
+Hook Pick ×3
+Bat
+Lollipop Sign
+Bullet
+
+وقائع التدخل
+
+كنتُ أُباشر دوريتي الاعتيادية في منطقة Sandy ضمن موجة 9 رفقة عناصر Bravo Squad، إلى أن وردنا بلاغ من قسم Dispatch يفيد بوجود حالة House Robbery.
+
+على الفور، توجهنا إلى الموقع المحدد للتعامل مع الحالة. وعند وصولنا، تبيّن لنا وجود عدد من المشتبه بهم يرتدون اللون الأزرق. حاولنا السيطرة على الوضع وتأمين الموقع، إلا أن المشتبه بهم قاموا بإشهار أسلحة بيضاء والاعتداء على عناصر من القوة، مما أدى إلى سقوط اثنين من زملائنا.
+
+رغم ذلك، تمكنا من السيطرة على الوضع وتأمين المشتبه بهم والتعامل مع الحالة وفق الإجراءات والبروتوكولات المعتمدة.
+
+توليتُ أنا مهمة التعامل مع المشتبه بهم، حيث قمتُ بتأمينهم وإبلاغهم بحقوقهم والتهم الموجهة إليهم، ثم تم اتخاذ الإجراءات القانونية اللازمة وتطبيق القانون والبروتوكولات المعمول بها.
+
+تم توثيق البصمات والمضبوطات الخاصة بالحالة ضمن التقرير.`,
+
+            images:[
+                "https://cdn.discordapp.com/attachments/1546882804254515200/1547407862144307260/image.png?ex=6aa34f5f&is=6aa1fddf&hm=40c1f3c8c65abff7ef10f276519911b845965045d8cb6a05a367c0e79e9e91d4&",
+                "https://cdn.discordapp.com/attachments/1546882804254515200/1547407862605807687/image.png?ex=6aa34f5f&is=6aa1fddf&hm=d282032343f99d88b27eb09c6d944a7b8eefa297f08beb662eb407cf17f57f63&",
+                "https://cdn.discordapp.com/attachments/1546882804254515200/1547407863004135485/image.png?ex=6aa34f5f&is=6aa1fddf&hm=51a45a48689a2f941d8ceb5d11d2227584824a042677c721c9ffe1a51e6c8046&",
+                "https://cdn.discordapp.com/attachments/1546882804254515200/1547408487716491274/image.png?ex=6aa34ff4&is=6aa1fe74&hm=20203122491ad057dec484e9c8219c54a5fb838f6d89699d63ecd9722ed00fed&",
+                "https://cdn.discordapp.com/attachments/1546882804254515200/1547408488039448586/image.png?ex=6aa34ff5&is=6aa1fe75&hm=7e489d165ff59801f2b2f3801767ba7dbc34463dfed3c1eacdc887caf3b76e01&"
+            ]
         }
 
     }
@@ -2754,6 +2994,30 @@ This case is currently pending.`,
 ========================= */
 
 let currentCategory = "home";
+
+
+/* =========================
+   SHOW CLOSED QUEST
+========================= */
+
+function showClosedQuest(){
+
+    document.getElementById("closedModal")
+        .classList.add("active");
+
+}
+
+
+/* =========================
+   CLOSE CLOSED QUEST
+========================= */
+
+function closeClosedQuest(){
+
+    document.getElementById("closedModal")
+        .classList.remove("active");
+
+}
 
 
 /* =========================
@@ -2802,6 +3066,13 @@ function closeMemberProfile(){
 
 function showCategory(category){
 
+    if(category === "quest5"){
+
+        showClosedQuest();
+
+        return;
+    }
+
     currentCategory = category;
 
     closeMemberProfile();
@@ -2810,8 +3081,13 @@ function showCategory(category){
         page.classList.remove("active");
     });
 
-    document.getElementById(category)
-        .classList.add("active");
+    const targetPage = document.getElementById(category);
+
+    if(!targetPage){
+        return;
+    }
+
+    targetPage.classList.add("active");
 
     window.scrollTo({
         top:0,
@@ -2826,19 +3102,8 @@ function showCategory(category){
 
 function backToQuest(){
 
-    document.querySelectorAll(".page").forEach(page=>{
-        page.classList.remove("active");
-    });
+    closeAll();
 
-    document.getElementById("quest5")
-        .classList.add("active");
-
-    currentCategory = "quest5";
-
-    window.scrollTo({
-        top:0,
-        behavior:"smooth"
-    });
 }
 
 
@@ -2873,6 +3138,10 @@ function showCase(category,caseNumber){
     currentCategory = category;
 
     const data = cases[category][caseNumber];
+
+    if(!data){
+        return;
+    }
 
     document.querySelectorAll(".page").forEach(page=>{
         page.classList.remove("active");
@@ -2928,8 +3197,12 @@ function showCase(category,caseNumber){
             img.loading = "lazy";
 
             img.onerror = function(){
+
                 this.style.opacity = "0.35";
-                this.title = "Image could not be loaded";
+
+                this.title =
+                    "Image could not be loaded";
+
             };
 
             img.onclick = function(event){
@@ -2969,9 +3242,21 @@ function backToCases(){
         page.classList.remove("active");
     });
 
-    document.getElementById(
-        currentCategory
-    ).classList.add("active");
+    const target =
+        document.getElementById(currentCategory);
+
+    if(target){
+
+        target.classList.add("active");
+
+    }else{
+
+        document.getElementById("home")
+            .classList.add("active");
+
+        currentCategory = "home";
+
+    }
 
     window.scrollTo({
         top:0,
@@ -2996,6 +3281,8 @@ function closeAll(){
     currentCategory = "home";
 
     closeMemberProfile();
+
+    closeClosedQuest();
 
     window.scrollTo({
         top:0,
@@ -3033,6 +3320,22 @@ function closeLightbox(){
 
 
 /* =========================
+   CLOSED MODAL CLICK OUTSIDE
+========================= */
+
+document.getElementById("closedModal")
+    .addEventListener("click", function(event){
+
+        if(event.target === this){
+
+            closeClosedQuest();
+
+        }
+
+    });
+
+
+/* =========================
    ESCAPE
 ========================= */
 
@@ -3045,6 +3348,8 @@ document.addEventListener(
             closeLightbox();
 
             closeMemberProfile();
+
+            closeClosedQuest();
 
         }
 
