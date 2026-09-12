@@ -65,13 +65,11 @@ body{
     font-weight:bold;
 }
 
-/* =========================
-   QUESTS
-========================= */
+/* QUESTS */
 
 .quest-grid{
     display:grid;
-    grid-template-columns:repeat(3,1fr);
+    grid-template-columns:repeat(2,1fr);
     gap:18px;
 }
 
@@ -139,10 +137,7 @@ body{
     color:#5bd98b;
 }
 
-
-/* =========================
-   LEADERS
-========================= */
+/* LEADERS */
 
 .leaders-grid{
     width:100%;
@@ -186,10 +181,7 @@ body{
     margin-top:7px;
 }
 
-
-/* =========================
-   OTHER MEMBERS
-========================= */
+/* MEMBERS */
 
 .members-grid{
     display:grid;
@@ -228,22 +220,13 @@ body{
     margin-top:8px;
 }
 
-.member-management{
-    color:#9ca6b7;
-    font-size:10px;
-    margin-top:5px;
-}
-
 .member-wings{
     color:#69758a;
     font-size:10px;
     margin-top:4px;
 }
 
-
-/* =========================
-   PAGES
-========================= */
+/* PAGES */
 
 .quest-page{
     display:none;
@@ -286,7 +269,7 @@ body{
     color:#7f899d;
 }
 
-.quest-categories{
+.quest7-grid{
     display:grid;
     grid-template-columns:repeat(2,1fr);
     gap:18px;
@@ -316,12 +299,6 @@ body{
     font-size:12px;
 }
 
-.quest7-grid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:18px;
-}
-
 .category-title{
     font-size:14px;
     color:#aab5c7;
@@ -329,6 +306,8 @@ body{
     font-weight:bold;
     margin:28px 0 14px;
 }
+
+/* CASES */
 
 .case-grid{
     display:grid;
@@ -369,6 +348,16 @@ body{
     margin-bottom:13px;
 }
 
+.case-preview{
+    width:100%;
+    height:150px;
+    object-fit:cover;
+    display:block;
+    border-radius:9px;
+    border:1px solid #263247;
+    margin:12px 0;
+}
+
 .ready,
 .pending{
     display:inline-block;
@@ -389,10 +378,7 @@ body{
     background:rgba(234,179,8,.1);
 }
 
-
-/* =========================
-   DETAILS
-========================= */
+/* DETAILS */
 
 .detail-page{
     display:none;
@@ -508,10 +494,7 @@ body{
     border-color:#5572a5;
 }
 
-
-/* =========================
-   MODALS
-========================= */
+/* MODALS */
 
 .closed-modal,
 .profile-modal,
@@ -605,35 +588,6 @@ body{
     width:110px;
 }
 
-.dispatch-box{
-    background:rgba(11,16,25,.92);
-    border:1px solid #273247;
-    border-radius:16px;
-    padding:23px;
-}
-
-.dispatch-grid{
-    display:grid;
-    grid-template-columns:repeat(2,1fr);
-    gap:13px;
-}
-
-.dispatch-item{
-    background:#070b12;
-    border:1px solid #202a3a;
-    border-radius:11px;
-    padding:17px;
-}
-
-.dispatch-item span{
-    display:block;
-    color:#737f92;
-    font-size:10px;
-    letter-spacing:1px;
-    margin-bottom:7px;
-    text-transform:uppercase;
-}
-
 .lightbox img{
     max-width:95%;
     max-height:90vh;
@@ -648,10 +602,7 @@ body{
     top:18px;
 }
 
-
-/* =========================
-   RESPONSIVE
-========================= */
+/* RESPONSIVE */
 
 @media(max-width:900px){
 
@@ -681,12 +632,10 @@ body{
     }
 
     .quest-grid,
-    .quest-categories,
     .quest7-grid,
     .case-grid,
     .members-grid,
-    .info-grid,
-    .dispatch-grid{
+    .info-grid{
         grid-template-columns:1fr;
     }
 
@@ -724,9 +673,7 @@ body{
 </div>
 
 
-<!-- =========================
-     HOME
-========================= -->
+<!-- HOME -->
 
 <div id="homePage">
 
@@ -734,23 +681,16 @@ body{
 
     <div class="quest-grid">
 
-        <div class="quest-card" onclick="showClosedQuest()">
-            <div class="quest-number">#5 QUEST</div>
-            <h2>QUEST #5</h2>
-            <p>FROM AMINE MORGAN</p>
-            <div class="quest-status complete">MISSION COMPLETE — 100%</div>
+        <div class="quest-card" onclick="showClosedQuestsPage()">
+            <div class="quest-number">COMPLETED CHALLENGES</div>
+            <h2>CLOSED QUEST</h2>
+            <p>QUEST #5 • QUEST #6 • QUEST #7</p>
+            <div class="quest-status complete">3 QUESTS CLOSED</div>
         </div>
 
-        <div class="quest-card" onclick="showClosedQuest()">
-            <div class="quest-number">#6 QUEST</div>
-            <h2>QUEST #6</h2>
-            <p>FROM AMINE MORGAN</p>
-            <div class="quest-status complete">MISSION COMPLETE — 100%</div>
-        </div>
-
-        <div class="quest-card" onclick="showCategory('quest7')">
-            <div class="quest-number">#7 QUEST</div>
-            <h2>QUEST #7</h2>
+        <div class="quest-card" onclick="showQuest8()">
+            <div class="quest-number">#8 QUEST</div>
+            <h2>QUEST #8</h2>
             <p>FROM AMINE MORGAN</p>
             <div class="quest-status">NEW CHALLENGE</div>
         </div>
@@ -761,50 +701,32 @@ body{
     <div class="section-title">BRAVO SQUAD MEMBERS</div>
 
 
-    <!-- =========================
-         TOP 3 - CENTERED
-    ========================= -->
+    <!-- TOP 3 -->
 
     <div class="leaders-grid">
 
         <div class="top-member" onclick="showMemberProfile('dark')">
             <div class="member-name">Dark — Abdulilah Nawaf</div>
-            <div class="member-rank">
-                Sergeant • Police Wings Management
-            </div>
-            <div class="member-wings">
-                Airship • Motorcycle • Negotiator
-            </div>
+            <div class="member-rank">Sergeant • Police Wings Management</div>
+            <div class="member-wings">Airship • Motorcycle • Negotiator</div>
         </div>
-
 
         <div class="top-member" onclick="showMemberProfile('feras')">
             <div class="member-name">Feras — Feras BinOmar</div>
-            <div class="member-rank">
-                Senior Lead Officer • Police Academy Section Leader
-            </div>
-            <div class="member-wings">
-                Airship • Motorcycle • Negotiator
-            </div>
+            <div class="member-rank">Senior Lead Officer • Police Academy Section Leader</div>
+            <div class="member-wings">Airship • Motorcycle • Negotiator</div>
         </div>
-
 
         <div class="top-member" onclick="showMemberProfile('qassim')">
             <div class="member-name">Qassim — Shaheen Hamad</div>
-            <div class="member-rank">
-                Senior Officer • Internal Affairs Management
-            </div>
-            <div class="member-wings">
-                Airship • Motorcycle • Negotiator
-            </div>
+            <div class="member-rank">Senior Officer • Internal Affairs Management</div>
+            <div class="member-wings">Airship • Motorcycle • Negotiator</div>
         </div>
 
     </div>
 
 
-    <!-- =========================
-         OTHER MEMBERS
-    ========================= -->
+    <!-- OTHER MEMBERS -->
 
     <div class="members-grid">
 
@@ -918,47 +840,47 @@ body{
             <div class="member-rp">Lucas Hod</div>
         </div>
 
-        <div class="member">
+        <div class="member" onclick="showMemberProfile('abuSaleh')">
             <div class="member-name">Abu Saleh</div>
             <div class="member-rp">David Rick</div>
         </div>
 
-        <div class="member">
+        <div class="member" onclick="showMemberProfile('d7i')">
             <div class="member-name">D7i</div>
             <div class="member-rp">Abdulrahman Al-Hakami</div>
         </div>
 
-        <div class="member">
+        <div class="member" onclick="showMemberProfile('thaar')">
             <div class="member-name">Tea</div>
             <div class="member-rp">Thaar Alotaibi</div>
         </div>
 
-        <div class="member">
+        <div class="member" onclick="showMemberProfile('abdullah966')">
             <div class="member-name">966abdullah</div>
             <div class="member-rp">GHYATH ALDOSSARY</div>
         </div>
 
-        <div class="member">
+        <div class="member" onclick="showMemberProfile('saad')">
             <div class="member-name">sAAD</div>
             <div class="member-rp">Saad Alsubaie</div>
         </div>
 
-        <div class="member">
+        <div class="member" onclick="showMemberProfile('tariq')">
             <div class="member-name">Tariq</div>
             <div class="member-rp">Tariq Waleed</div>
         </div>
 
-        <div class="member">
+        <div class="member" onclick="showMemberProfile('yazeedMeshal')">
             <div class="member-name">NA_Y52</div>
             <div class="member-rp">Yazeed Meshal</div>
         </div>
 
-        <div class="member">
+        <div class="member" onclick="showMemberProfile('botangy')">
             <div class="member-name">Botangy</div>
             <div class="member-rp">Lattam Bobsheet</div>
         </div>
 
-        <div class="member">
+        <div class="member" onclick="showMemberProfile('brightSide')">
             <div class="member-name">Br1ghtSide</div>
             <div class="member-rp">Kai Proctor</div>
         </div>
@@ -968,42 +890,42 @@ body{
             <div class="member-rp">Omar AlMutairi</div>
         </div>
 
-        <div class="member">
+        <div class="member" onclick="showMemberProfile('alhajri')">
             <div class="member-name">Alhajri</div>
             <div class="member-rp">MOHAMMED ALHAJRI</div>
         </div>
 
-        <div class="member">
+        <div class="member" onclick="showMemberProfile('alhajri')">
             <div class="member-name">AJ</div>
             <div class="member-rp">MOHAMMED ALHAJRI</div>
         </div>
 
-        <div class="member">
+        <div class="member" onclick="showMemberProfile('rio')">
             <div class="member-name">! Rï0</div>
             <div class="member-rp">Rayan Al-Harbi</div>
         </div>
 
-        <div class="member">
+        <div class="member" onclick="showMemberProfile('shgardii')">
             <div class="member-name">Shgardii</div>
-            <div class="member-rp">Mohammed Almeri</div>
+            <div class="member-rp">Mohammed Almerri</div>
         </div>
 
-        <div class="member">
+        <div class="member" onclick="showMemberProfile('hasan')">
             <div class="member-name">Hasan</div>
             <div class="member-rp">Hasan Alsharif</div>
         </div>
 
-        <div class="member">
+        <div class="member" onclick="showMemberProfile('fly')">
             <div class="member-name">! Fly</div>
             <div class="member-rp">Robert Navarro</div>
         </div>
 
-        <div class="member">
+        <div class="member" onclick="showMemberProfile('musaad')">
             <div class="member-name">Musaad</div>
             <div class="member-rp">Musaad BinAbdullah</div>
         </div>
 
-        <div class="member">
+        <div class="member" onclick="showMemberProfile('zeyad')">
             <div class="member-name">!os.qr2</div>
             <div class="member-rp">Zeyad Omar</div>
         </div>
@@ -1013,30 +935,68 @@ body{
 </div>
 
 
-<!-- =========================
-     QUEST 7
-========================= -->
+<!-- CLOSED QUESTS -->
 
-<div id="quest7" class="quest-page">
+<div id="closedQuestsPage" class="quest-page">
 
     <button class="back-btn" onclick="closeAll()">← BACK</button>
 
     <div class="page-header">
-        <div class="badge">QUEST #7</div>
-        <h2>Challenge #7</h2>
+        <div class="badge">COMPLETED</div>
+        <h2>Closed Quest</h2>
+        <p>Completed Bravo Squad Challenges</p>
+    </div>
+
+    <div class="case-grid">
+
+        <div class="case-card" onclick="showClosedQuest()">
+            <div class="case-number">QUEST 05</div>
+            <h3>QUEST #5</h3>
+            <div class="location">Mission Complete</div>
+            <span class="ready">CLOSED — 100%</span>
+        </div>
+
+        <div class="case-card" onclick="showClosedQuest()">
+            <div class="case-number">QUEST 06</div>
+            <h3>QUEST #6</h3>
+            <div class="location">Mission Complete</div>
+            <span class="ready">CLOSED — 100%</span>
+        </div>
+
+        <div class="case-card" onclick="showClosedQuest()">
+            <div class="case-number">QUEST 07</div>
+            <h3>QUEST #7</h3>
+            <div class="location">Mission Complete</div>
+            <span class="ready">CLOSED — 100%</span>
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- QUEST 8 -->
+
+<div id="quest8Page" class="quest-page">
+
+    <button class="back-btn" onclick="closeAll()">← BACK</button>
+
+    <div class="page-header">
+        <div class="badge">QUEST #8</div>
+        <h2>Challenge #8</h2>
         <p>NEW CHALLENGE</p>
     </div>
 
     <div class="quest7-grid">
 
-        <div class="quest-category" onclick="showStore7Cases()">
-            <h3>Los Santos Store</h3>
-            <p>3 Store Robbery Cases</p>
+        <div class="quest-category" onclick="showTraffic8()">
+            <h3>Traffic Stop</h3>
+            <p>5 Traffic Stop Cases</p>
         </div>
 
-        <div class="quest-category" onclick="showDispatch7()">
-            <h3>Dispatch Mission</h3>
-            <p>1 Dispatch Mission</p>
+        <div class="quest-category" onclick="showStore8()">
+            <h3>Store Robbery</h3>
+            <p>2 Store Robbery Cases</p>
         </div>
 
     </div>
@@ -1044,40 +1004,57 @@ body{
 </div>
 
 
-<!-- =========================
-     STORE 7
-========================= -->
+<!-- TRAFFIC STOP -->
 
-<div id="store7Page" class="quest-page">
+<div id="traffic8Page" class="quest-page">
 
-    <button class="back-btn" onclick="backToQuest7()">← BACK</button>
+    <button class="back-btn" onclick="backToQuest8()">← BACK</button>
 
     <div class="page-header">
-        <div class="badge">QUEST #7</div>
-        <h2>Los Santos Store</h2>
-        <p>STORE ROBBERY CASES</p>
+        <div class="badge">QUEST #8</div>
+        <h2>Traffic Stop</h2>
+        <p>5 TRAFFIC STOP CASES</p>
     </div>
 
     <div class="case-grid">
 
-        <div class="case-card" onclick="showCase('store7',1)">
+        <div class="case-card" onclick="showCase('traffic8',1)">
             <div class="case-number">CASE 01</div>
-            <h3>Store Robbery</h3>
-            <div class="location">Los Santos Store</div>
+            <h3>Traffic Stop</h3>
+            <div class="location">Quest #8</div>
+            <img class="case-preview" src="https://cdn.discordapp.com/attachments/1546882804254515200/1548163294492102656/image.png?ex=6aa60eec&is=6aa4bd6c&hm=b7d9b4647125b50628720a960e32095bddf3452c51e0ff770a967b7fb34ce727&">
             <span class="ready">VIEW CASE</span>
         </div>
 
-        <div class="case-card" onclick="showCase('store7',2)">
+        <div class="case-card" onclick="showCase('traffic8',2)">
             <div class="case-number">CASE 02</div>
-            <h3>Store Robbery</h3>
-            <div class="location">Los Santos Store</div>
+            <h3>Traffic Stop</h3>
+            <div class="location">Quest #8</div>
+            <img class="case-preview" src="https://cdn.discordapp.com/attachments/1546882804254515200/1548163295037489192/image.png?ex=6aa60eed&is=6aa4bd6d&hm=ab445f6fe508ec540cf07009f85bfa31bf96502f24626c5dad3a9f7ad875a923&">
             <span class="ready">VIEW CASE</span>
         </div>
 
-        <div class="case-card" onclick="showCase('store7',3)">
+        <div class="case-card" onclick="showCase('traffic8',3)">
             <div class="case-number">CASE 03</div>
-            <h3>Store Robbery</h3>
-            <div class="location">Los Santos Store</div>
+            <h3>Traffic Stop</h3>
+            <div class="location">Quest #8</div>
+            <img class="case-preview" src="https://cdn.discordapp.com/attachments/1546882804254515200/1548163295419310080/image.png?ex=6aa60eed&is=6aa4bd6d&hm=d84d876ce50140e8b621270a26b971fe0e5273eaf164a49c96afc96cb067fe29&">
+            <span class="ready">VIEW CASE</span>
+        </div>
+
+        <div class="case-card" onclick="showCase('traffic8',4)">
+            <div class="case-number">CASE 04</div>
+            <h3>Traffic Stop</h3>
+            <div class="location">Quest #8</div>
+            <img class="case-preview" src="https://cdn.discordapp.com/attachments/1546882804254515200/1548163295859441714/Screenshot_2026-09-12_013002.png?ex=6aa60eed&is=6aa4bd6d&hm=7ed666b262c8a3e528c3a6cbe3efa484ccd5aca5959e7b620305dee41823213f&">
+            <span class="ready">VIEW CASE</span>
+        </div>
+
+        <div class="case-card" onclick="showCase('traffic8',5)">
+            <div class="case-number">CASE 05</div>
+            <h3>Traffic Stop</h3>
+            <div class="location">Quest #8</div>
+            <img class="case-preview" src="https://cdn.discordapp.com/attachments/1546882804254515200/1548163296392257546/image.png?ex=6aa60eed&is=6aa4bd6d&hm=b62aa8033c55e921cd5e212ceee1bb9099b89ff93379c22d9f7ae6c20c2029fc&">
             <span class="ready">VIEW CASE</span>
         </div>
 
@@ -1086,54 +1063,39 @@ body{
 </div>
 
 
-<!-- =========================
-     DISPATCH 7
-========================= -->
+<!-- STORE ROBBERY -->
 
-<div id="dispatch7Page" class="quest-page">
+<div id="store8Page" class="quest-page">
 
-    <button class="back-btn" onclick="backToQuest7()">← BACK</button>
+    <button class="back-btn" onclick="backToQuest8()">← BACK</button>
 
     <div class="page-header">
-        <div class="badge">QUEST #7</div>
-        <h2>Dispatch Mission</h2>
-        <p>MISSION DETAILS</p>
+        <div class="badge">QUEST #8</div>
+        <h2>Store Robbery</h2>
+        <p>2 STORE ROBBERY CASES</p>
     </div>
 
-    <div class="dispatch-box">
+    <div class="case-grid">
 
-        <div class="dispatch-grid">
+        <div class="case-card" onclick="showCase('store8',1)">
+            <div class="case-number">CASE 01</div>
+            <h3>Store Robbery</h3>
+            <div class="location">Sandy Shores</div>
+            <span class="ready">VIEW CASE</span>
+        </div>
 
-            <div class="dispatch-item">
-                <span>Commander / Shift Supervisor</span>
-                <strong>207 Muqrin Fahad</strong>
-            </div>
+        <div class="case-card" onclick="showCase('store8',2)">
+            <div class="case-number">CASE 02</div>
+            <h3>Store Robbery</h3>
+            <div class="location">Sandy Shores</div>
 
-            <div class="dispatch-item">
-                <span>Assistant Dispatch</span>
-                <strong>383 Ammar Asiri</strong>
-            </div>
+            <img
+                class="case-preview"
+                src="https://cdn.discordapp.com/attachments/1546882783711072276/1548165415673401445/Screenshot_2026-09-12_030950.png?ex=6aa610e6&is=6aa4bf66&hm=2637bb29abb932f3ccbbff05c5484bc9a5ba761de1e2c5c92764f24e928bed92&"
+                alt="Store Robbery Case 2"
+            >
 
-            <div class="dispatch-item">
-                <span>Dispatch Duration</span>
-                <strong>1 Hour</strong>
-            </div>
-
-            <div class="dispatch-item">
-                <span>Mission Status</span>
-                <strong class="success">SUCCESS — 100%</strong>
-            </div>
-
-            <div class="dispatch-item">
-                <span>Proof</span>
-                <strong>🔒 PRIVATE PROOF</strong>
-            </div>
-
-            <div class="dispatch-item">
-                <span>Proof Link</span>
-                <strong>Private</strong>
-            </div>
-
+            <span class="ready">VIEW CASE</span>
         </div>
 
     </div>
@@ -1141,9 +1103,7 @@ body{
 </div>
 
 
-<!-- =========================
-     DETAIL PAGE
-========================= -->
+<!-- DETAIL PAGE -->
 
 <div id="detailPage" class="detail-page">
 
@@ -1192,11 +1152,8 @@ body{
         </div>
 
         <div id="evidenceSection">
-
             <div class="evidence-title">EVIDENCE</div>
-
             <div id="detailGallery" class="gallery"></div>
-
         </div>
 
     </div>
@@ -1206,9 +1163,7 @@ body{
 </div>
 
 
-<!-- =========================
-     CLOSED MODAL
-========================= -->
+<!-- CLOSED MODAL -->
 
 <div id="closedModal" class="closed-modal">
 
@@ -1221,9 +1176,7 @@ body{
         <p>
             This challenge has already been completed.
             <br><br>
-            <strong class="success">
-                MISSION COMPLETE — 100%
-            </strong>
+            <strong class="success">MISSION COMPLETE — 100%</strong>
         </p>
 
     </div>
@@ -1231,9 +1184,7 @@ body{
 </div>
 
 
-<!-- =========================
-     PROFILE MODAL
-========================= -->
+<!-- PROFILE MODAL -->
 
 <div id="profileModal" class="profile-modal">
 
@@ -1242,6 +1193,7 @@ body{
         <div class="close" onclick="closeProfile()">×</div>
 
         <h2 id="profileDiscord"></h2>
+
         <div class="rp" id="profileRP"></div>
 
         <div class="profile-info">
@@ -1273,9 +1225,7 @@ body{
 </div>
 
 
-<!-- =========================
-     LIGHTBOX
-========================= -->
+<!-- LIGHTBOX -->
 
 <div id="lightbox" class="lightbox">
 
@@ -1288,9 +1238,9 @@ body{
 
 <script>
 
-/* =========================
+/* ==================================================
    SQUAD PROFILES
-========================= */
+================================================== */
 
 const squadProfiles={
 
@@ -1328,7 +1278,7 @@ hossam:{
 
 baa:{
     discord:"BAA — Bader Abdullah",
-    rank:"Officer 3",
+    rank:"Officer III",
     management:"Internal Affairs Section Leader",
     wings:"Airship • Motorcycle • Negotiator",
     rp:"Bader Abdullah"
@@ -1336,7 +1286,7 @@ baa:{
 
 jin:{
     discord:"OrewaSaad — Jin Freecs",
-    rank:"Officer 3",
+    rank:"Officer III",
     management:"Police Academy",
     wings:"Airship • Motorcycle • Negotiator",
     rp:"Jin Freecs"
@@ -1344,7 +1294,7 @@ jin:{
 
 jummah:{
     discord:"FAISAL — JUMMAH ALZAHRANI",
-    rank:"Officer 3",
+    rank:"Officer III",
     management:"Police Academy Section Leader",
     wings:"Airship • Motorcycle • Negotiator",
     rp:"JUMMAH ALZAHRANI"
@@ -1352,15 +1302,15 @@ jummah:{
 
 thiago:{
     discord:"MT | RealWeep — Thiago Morgan",
-    rank:"Officer 3",
-    management:"W.M",
+    rank:"Officer III",
+    management:"Wings",
     wings:"Airship • Motorcycle • Negotiator",
     rp:"Thiago Morgan"
 },
 
 attaf:{
     discord:"! Attaf — Abdullah Attaf",
-    rank:"Officer 3",
+    rank:"Officer III",
     management:"Police Academy",
     wings:"Airship • Motorcycle • Negotiator",
     rp:"Abdullah Attaf"
@@ -1368,7 +1318,7 @@ attaf:{
 
 void:{
     discord:"M T 3 B — VOID Barrett",
-    rank:"Officer 3",
+    rank:"Officer III",
     management:"—",
     wings:"Airship • Motorcycle • Negotiator",
     rp:"VOID Barrett"
@@ -1376,7 +1326,7 @@ void:{
 
 raedd:{
     discord:"RAedd — Raedd Ibrahim",
-    rank:"Officer 2",
+    rank:"Officer II",
     management:"Police Academy",
     wings:"Airship • Motorcycle • Negotiator",
     rp:"Raedd Ibrahim"
@@ -1384,15 +1334,15 @@ raedd:{
 
 mario:{
     discord:"Mario — Mario Smith",
-    rank:"Officer 2",
-    management:"Police Wings",
+    rank:"Officer II",
+    management:"Wings",
     wings:"Airship • Motorcycle • Negotiator",
     rp:"Mario Smith"
 },
 
 ahmed:{
     discord:"Dktrr — Ahmed Al-Qahtani",
-    rank:"Officer 2",
+    rank:"Officer II",
     management:"D.B",
     wings:"Airship • Motorcycle • Negotiator",
     rp:"Ahmed Al-Qahtani"
@@ -1400,7 +1350,7 @@ ahmed:{
 
 layla:{
     discord:"Layla — Layla Almutairi",
-    rank:"Officer 2",
+    rank:"Officer II",
     management:"D.B",
     wings:"Airship • Motorcycle • Negotiator",
     rp:"Layla Almutairi"
@@ -1408,7 +1358,7 @@ layla:{
 
 rayan:{
     discord:"RAYAN — SHILAYWAYH ALHARBI",
-    rank:"Officer 1",
+    rank:"Officer I",
     management:"—",
     wings:"Airship • Negotiator",
     rp:"SHILAYWAYH ALHARBI"
@@ -1416,7 +1366,7 @@ rayan:{
 
 faisalFailachwe:{
     discord:"FAISAL — Faisal Failachwe",
-    rank:"Officer 1",
+    rank:"Officer I",
     management:"Police Wings Section Leader",
     wings:"Airship • Motorcycle • Negotiator",
     rp:"Faisal Failachwe"
@@ -1424,7 +1374,7 @@ faisalFailachwe:{
 
 nf3a:{
     discord:"NF3A — Nawaf Abdullah",
-    rank:"Officer 1",
+    rank:"Officer I",
     management:"Police Academy",
     wings:"Airship • Negotiator",
     rp:"Nawaf Abdullah"
@@ -1432,10 +1382,18 @@ nf3a:{
 
 baraa:{
     discord:"! Bara'a — Baraa Chandler",
-    rank:"Officer 1",
+    rank:"Officer I",
     management:"—",
     wings:"No Wings",
     rp:"Baraa Chandler"
+},
+
+tom:{
+    discord:"MT | Tom — Tom Chandler",
+    rank:"Officer I",
+    management:"Internal Affairs Member",
+    wings:"Airship",
+    rp:"Tom Chandler"
 },
 
 rashed:{
@@ -1466,16 +1424,16 @@ faisalAlshehri:{
     discord:"Faisal — Faisal Alshehri",
     rank:"Solo Cadet",
     management:"—",
-    wings:"Negotiator",
+    wings:"No Wings",
     rp:"Faisal Alshehri"
 },
 
-tom:{
-    discord:"MT | Tom — Tom Chandler",
-    rank:"Officer 1",
-    management:"Internal Affairs Member",
-    wings:"Airship",
-    rp:"Tom Chandler"
+vnx:{
+    discord:"V N X — Lucas Hod",
+    rank:"Solo Cadet",
+    management:"—",
+    wings:"No Wings",
+    rp:"Lucas Hod"
 },
 
 amine:{
@@ -1486,46 +1444,248 @@ amine:{
     rp:"Amine Morgan"
 },
 
-vnx:{
-    discord:"V N X — Lucas Hod",
+abuSaleh:{
+    discord:"Abu Saleh — David Rick",
     rank:"Solo Cadet",
     management:"—",
     wings:"No Wings",
-    rp:"Lucas Hod"
+    rp:"David Rick"
+},
+
+d7i:{
+    discord:"D7i — Abdulrahman Al-Hakami",
+    rank:"Solo Cadet",
+    management:"—",
+    wings:"No Wings",
+    rp:"Abdulrahman Al-Hakami"
+},
+
+thaar:{
+    discord:"Tea — Thaar Alotaibi",
+    rank:"Solo Cadet",
+    management:"—",
+    wings:"No Wings",
+    rp:"Thaar Alotaibi"
+},
+
+abdullah966:{
+    discord:"966abdullah — GHYATH ALDOSSARY",
+    rank:"Solo Cadet",
+    management:"—",
+    wings:"No Wings",
+    rp:"GHYATH ALDOSSARY"
+},
+
+saad:{
+    discord:"sAAD — Saad Alsubaie",
+    rank:"Solo Cadet",
+    management:"—",
+    wings:"No Wings",
+    rp:"Saad Alsubaie"
+},
+
+tariq:{
+    discord:"Tariq — Tariq Waleed",
+    rank:"Solo Cadet",
+    management:"—",
+    wings:"No Wings",
+    rp:"Tariq Waleed"
+},
+
+yazeedMeshal:{
+    discord:"NA_Y52 — Yazeed Meshal",
+    rank:"Solo Cadet",
+    management:"—",
+    wings:"No Wings",
+    rp:"Yazeed Meshal"
+},
+
+botangy:{
+    discord:"Botangy — Lattam Bobsheet",
+    rank:"Solo Cadet",
+    management:"—",
+    wings:"No Wings",
+    rp:"Lattam Bobsheet"
+},
+
+brightSide:{
+    discord:"Br1ghtSide — Kai Proctor",
+    rank:"Solo Cadet",
+    management:"—",
+    wings:"No Wings",
+    rp:"Kai Proctor"
+},
+
+alhajri:{
+    discord:"MOHAMMED ALHAJRI",
+    rank:"Solo Cadet",
+    management:"—",
+    wings:"No Wings",
+    rp:"MOHAMMED ALHAJRI"
+},
+
+rio:{
+    discord:"! Rï0 — Rayan Al-Harbi",
+    rank:"Solo Cadet",
+    management:"—",
+    wings:"No Wings",
+    rp:"Rayan Al-Harbi"
+},
+
+shgardii:{
+    discord:"Shgardii — Mohammed Almerri",
+    rank:"Solo Cadet",
+    management:"—",
+    wings:"No Wings",
+    rp:"Mohammed Almerri"
+},
+
+hasan:{
+    discord:"Hasan — Hasan Alsharif",
+    rank:"Solo Cadet",
+    management:"—",
+    wings:"No Wings",
+    rp:"Hasan Alsharif"
+},
+
+fly:{
+    discord:"! Fly — Robert Navarro",
+    rank:"Solo Cadet",
+    management:"—",
+    wings:"No Wings",
+    rp:"Robert Navarro"
+},
+
+musaad:{
+    discord:"Musaad — Musaad BinAbdullah",
+    rank:"Solo Cadet",
+    management:"—",
+    wings:"No Wings",
+    rp:"Musaad BinAbdullah"
+},
+
+zeyad:{
+    discord:"!os.qr2 — Zeyad Omar",
+    rank:"Solo Cadet",
+    management:"—",
+    wings:"No Wings",
+    rp:"Zeyad Omar"
 }
 
 };
 
 
-/* =========================
-   CASE DATA
-========================= */
+/* ==================================================
+   QUEST #8 CASES
+================================================== */
 
 const cases={
 
-store7:{
+traffic8:{
 
 1:{
-    location:"Los Santos Store",
+    location:"Quest #8 • Traffic Stop",
+    fingerprint:"—",
+    incident:"Traffic Stop",
+    items:[],
+    team:"—",
+    report:`Traffic Stop — Case 01
 
-    fingerprint:`96XPOWOB0VL9N82
-9POY1BO69NIVZ84`,
+تم توثيق الحالة ضمن Quest #8.
+
+سيتم إضافة تفاصيل التدخل الكاملة عند توفر التقرير.`,
+    images:[
+        "https://cdn.discordapp.com/attachments/1546882804254515200/1548163294492102656/image.png?ex=6aa60eec&is=6aa4bd6c&hm=b7d9b4647125b50628720a960e32095bddf3452c51e0ff770a967b7fb34ce727&"
+    ]
+},
+
+2:{
+    location:"Quest #8 • Traffic Stop",
+    fingerprint:"—",
+    incident:"Traffic Stop",
+    items:[],
+    team:"—",
+    report:`Traffic Stop — Case 02
+
+تم توثيق الحالة ضمن Quest #8.
+
+سيتم إضافة تفاصيل التدخل الكاملة عند توفر التقرير.`,
+    images:[
+        "https://cdn.discordapp.com/attachments/1546882804254515200/1548163295037489192/image.png?ex=6aa60eed&is=6aa4bd6d&hm=ab445f6fe508ec540cf07009f85bfa31bf96502f24626c5dad3a9f7ad875a923&"
+    ]
+},
+
+3:{
+    location:"Quest #8 • Traffic Stop",
+    fingerprint:"—",
+    incident:"Traffic Stop",
+    items:[],
+    team:"—",
+    report:`Traffic Stop — Case 03
+
+تم توثيق الحالة ضمن Quest #8.
+
+سيتم إضافة تفاصيل التدخل الكاملة عند توفر التقرير.`,
+    images:[
+        "https://cdn.discordapp.com/attachments/1546882804254515200/1548163295419310080/image.png?ex=6aa60eed&is=6aa4bd6d&hm=d84d876ce50140e8b621270a26b971fe0e5273eaf164a49c96afc96cb067fe29&"
+    ]
+},
+
+4:{
+    location:"Quest #8 • Traffic Stop",
+    fingerprint:"—",
+    incident:"Traffic Stop",
+    items:[],
+    team:"—",
+    report:`Traffic Stop — Case 04
+
+تم توثيق الحالة ضمن Quest #8.
+
+سيتم إضافة تفاصيل التدخل الكاملة عند توفر التقرير.`,
+    images:[
+        "https://cdn.discordapp.com/attachments/1546882804254515200/1548163295859441714/Screenshot_2026-09-12_013002.png?ex=6aa60eed&is=6aa4bd6d&hm=7ed666b262c8a3e528c3a6cbe3efa484ccd5aca5959e7b620305dee41823213f&"
+    ]
+},
+
+5:{
+    location:"Quest #8 • Traffic Stop",
+    fingerprint:"—",
+    incident:"Traffic Stop",
+    items:[],
+    team:"—",
+    report:`Traffic Stop — Case 05
+
+تم توثيق الحالة ضمن Quest #8.
+
+سيتم إضافة تفاصيل التدخل الكاملة عند توفر التقرير.`,
+    images:[
+        "https://cdn.discordapp.com/attachments/1546882804254515200/1548163296392257546/image.png?ex=6aa60eed&is=6aa4bd6d&hm=b62aa8033c55e921cd5e212ceee1bb9099b89ff93379c22d9f7ae6c20c2029fc&"
+    ]
+}
+
+},
+
+store8:{
+
+1:{
+    location:"Sandy Shores",
+    fingerprint:`J295F5ZYS07WL36
+7OASVAK55E4A074`,
 
     incident:"Store Robbery",
 
     items:[
         "Cash",
         "Lock Pick",
-        "Sticky Note",
-        "Lollipop Sign"
+        "Sticky Note"
     ],
 
-    team:"Ahmed Al-Qahtani — 343 | Lucas Hod — 391",
+    team:"Lucas Hod — 391",
 
     report:`البصمات:
 
-96XPOWOB0VL9N82
-9POY1BO69NIVZ84
+J295F5ZYS07WL36
+7OASVAK55E4A074
 
 نوع التدخل:
 Store Robbery
@@ -1535,129 +1695,47 @@ Store Robbery
 Cash
 Lock Pick
 Sticky Note
-Lollipop Sign
 
 وقائع التدخل:
 
-كنتُ أُباشر دوريتي الاعتيادية رفقة زميلي Ahmed Al-Qahtani، إلى أن وردنا إشعار من قسم Dispatch يفيد بوجود حالة Store Robbery.
+كنتُ أُباشر دوريتي الاعتيادية في منطقة Sandy Shores رفقة زميلي Lucas Hod — 391، إلى أن وردنا إشعار يفيد بوجود حالة Store Robbery.
 
-على الفور، توجهتُ أنا وزميلي إلى الموقع، وقمنا بإبلاغ قسم Dispatch بتوجهنا إلى الحالة. عند وصولنا إلى المكان، تبيّن لنا وجود مشتبه بهما اثنين، حيث قاما بتسليم نفسيهما دون مقاومة.
+على الفور، توجهنا إلى الموقع المحدد للتعامل مع الحالة، وعند وصولنا تبيّن لنا وجود مشتبه بهما اثنين داخل الموقع، حيث قاما بتسليم نفسيهما دون مقاومة.
 
-توليتُ مهمة التعامل مع المشتبه بهما، حيث قمتُ بتأمينهما وإبلاغهما بحقوقهما والتهم المنسوبة إليهما، ثم تم اتخاذ الإجراءات القانونية اللازمة بحقهما وتطبيق القانون والبروتوكولات المعتمدة.
+بعد ذلك، قمتُ بتصوير المشتبه بهما وتوثيق الحالة، ثم عملتُ على تأمينهما والسيطرة على الوضع، وتوليتُ شخصياً مهمة التعامل معهما.
 
-تم توثيق البصمات والمضبوطات الخاصة بالحالة ضمن التقرير.`,
+قمتُ بإبلاغ المشتبه بهما بحقوقهما والتهم المنسوبة إليهما، ثم تم اتخاذ الإجراءات القانونية اللازمة بحقهما وتطبيق القانون والبروتوكولات المعمول بها.
+
+كما تم حجز Cash وLock Pick وSticky Note وتوثيقها ضمن مضبوطات القضية.
+
+تم تأمين المشتبه بهما وإنهاء الحالة وفق الإجراءات القانونية المعتمدة.`,
 
     images:[
-"https://cdn.discordapp.com/attachments/1546882804254515200/1547619474033614888/image.png?ex=6aa41473&is=6aa2c2f3&hm=bef260dcc9e82a31df1ac647a6579c73eebe4f5a46410984909620d91b7d28c8&",
-"https://cdn.discordapp.com/attachments/1546882804254515200/1547619474474139719/image.png?ex=6aa41474&is=6aa2c2f4&hm=525e96982c36ebc1f7bf5aece0191e0da30b7f006dafbcc133a359ec96834d4c&",
-"https://cdn.discordapp.com/attachments/1546882804254515200/1547619474876666006/image.png?ex=6aa41474&is=6aa2c2f4&hm=f7611e85ad3658cce14b131635928c2b1aed81eab41e198bec793e38861d0995&",
-"https://cdn.discordapp.com/attachments/1546882804254515200/1547619475216400505/image.png?ex=6aa41474&is=6aa2c2f4&hm=8acd5f5d01f277091debf64a7766d08f4e1d57beafbefc00bd3acf29f8f8f2e0&",
-"https://cdn.discordapp.com/attachments/1546882804254515200/1547620358700404937/image.png?ex=6aa41546&is=6aa2c3c6&hm=7ca0d1780158fb0f59ad3766121107c357311728658d6470f75fcab69697382e&",
-"https://cdn.discordapp.com/attachments/1546882804254515200/1547620359149330563/image.png?ex=6aa41547&is=6aa2c3c7&hm=a0a07cbde32739f25f88eb5b169901a340846e86faa1904e12d38906b04a7f1e&"
+        "https://cdn.discordapp.com/attachments/1546882783711072276/1548146823561216030/image.png?ex=6aa5ff95&is=6aa4ae15&hm=2635982ade4253e16ae9192f08b1c9c692f274c896cc3fb45cae20f021e9228e&",
+        "https://cdn.discordapp.com/attachments/1546882783711072276/1548146824227848202/image.png?ex=6aa5ff96&is=6aa4ae16&hm=4a601b06794a31a9e00b8d368b1035ad647d109f452b66dd35f24d5cbb6db009&",
+        "https://cdn.discordapp.com/attachments/1546882783711072276/1548146825092145243/image.png?ex=6aa5ff96&is=6aa4ae16&hm=98b11ae7a5e69e086ced2169cb1c0932798fc9afc387195519bae36fd21961d5&",
+        "https://cdn.discordapp.com/attachments/1546882783711072276/1548147051949457428/image.png?ex=6aa5ffcc&is=6aa4ae4c&hm=ade5a03ac4bd6664eaa873f633ba7f28b5cf91791338d76589ede598e2f93369&"
     ]
 },
-
 
 2:{
-    location:"Los Santos Store",
-
-    fingerprint:`7YO0Z2K84KFU1I1
-7YO0Z2K84KFU1I1`,
-
+    location:"Sandy Shores",
+    fingerprint:"—",
     incident:"Store Robbery",
-
-    items:[
-        "Hook Pick ×3",
-        "Sticky Note ×2",
-        "Hack Device ×2"
-    ],
-
-    team:"Lucas Hod — 391 | Ahmed Al-Qahtani — 343",
-
-    report:`البصمات:
-
-7YO0Z2K84KFU1I1
-7YO0Z2K84KFU1I1
-
-نوع التدخل:
-Store Robbery
-
-المحجوزات:
-
-Hook Pick ×3
-Sticky Note ×2
-Hack Device ×2
-
-وقائع التدخل:
-
-كنتُ أُباشر دوريتي الاعتيادية رفقة زميلي Ahmed Al-Qahtani، إلى أن وردنا بلاغ من قسم Dispatch يفيد بوجود حالة Store Robbery.
-
-على الفور، توجهنا إلى موجة 3 من أجل استكمال التعامل مع الحالة. وعند وصولنا إلى الموقع، تبيّن لنا وجود سيارة حمراء على متنها مشتبه بهما اثنان.
-
-قمنا بمتابعتهما إلى حين فقدان السيارة القدرة على الاستمرار، حيث تمكنا من السيطرة عليهما وتوقيفهما.
-
-بعد ذلك، توليتُ أنا وزميلي Ahmed Al-Qahtani مهمة التعامل مع المشتبه بهما، حيث قمنا بتأمينهما وإبلاغهما بحقوقهما والتهم الموجهة إليهما، ثم تم اتخاذ الإجراءات القانونية اللازمة بحقهما وتطبيق القانون والبروتوكولات المعتمدة.
-
-تم توثيق البصمات والمضبوطات الخاصة بالحالة ضمن التقرير.`,
-
-    images:[
-"https://cdn.discordapp.com/attachments/1546882783711072276/1547641417696944128/image.png?ex=6aa428e3&is=6aa2d763&hm=04029826816327953ed7af6476686d820e5da43e8d15a332cb069bd892f1d0ee&",
-"https://cdn.discordapp.com/attachments/1546882783711072276/1547641418057515048/image.png?ex=6aa428e3&is=6aa2d763&hm=5113e6aa06c393fed78cee6369cf466207e84eb6c7d0a8937d04b014c14b933e&",
-"https://cdn.discordapp.com/attachments/1546882783711072276/1547643517407469678/image.png?ex=6aa42ad8&is=6aa2d958&hm=2ac61c0008d1db4779531245db3a29a075f951fe3e0a2ed6e1f424bc9b8da9d2&",
-"https://cdn.discordapp.com/attachments/1546882783711072276/1547643517747331152/image.png?ex=6aa42ad8&is=6aa2d958&hm=0a26c1d7ae80fc5c3371312b4600beed64025dc9db964994aca2c7935fd656f0&",
-"https://cdn.discordapp.com/attachments/1546882783711072276/1547643518103715951/image.png?ex=6aa42ad8&is=6aa2d958&hm=c6a67fbcf9ff9187d30e001dca72520f68cbb20ed77fa1d816f2f36791d8087f&",
-"https://cdn.discordapp.com/attachments/1546882783711072276/1547643518703374356/image.png?ex=6aa42ad8&is=6aa2d958&hm=9192a801d880690ce72cc0aa37452482e47e388c6d79415e3275cec983543209&"
-    ]
-},
-
-
-3:{
-    location:"Los Santos Store",
-
-    fingerprint:"MU68592S9Z5079R",
-
-    incident:"Store Robbery",
-
-    items:[
-        "Hack Device",
-        "Cash",
-        "Butcher Knife",
-        "Hook Pick"
-    ],
-
+    items:[],
     team:"Lucas Hod — 391",
 
-    report:`البصمة:
-MU68592S9Z5079R
+    report:`Store Robbery — Case 02
 
-نوع التدخل:
-Store Robbery
+تم توثيق الحالة ضمن Quest #8.
 
-المحجوزات:
+Team Member:
+Lucas Hod — 391
 
-Hack Device
-Cash
-Butcher Knife
-Hook Pick
-
-وقائع التدخل:
-
-كنتُ أُباشر دوريتي الاعتيادية، إلى أن قام قسم Dispatch بتوجيهي رفقة زميلي Lucas Hod — 391 إلى حالة Store Robbery.
-
-على الفور، توجهنا إلى الموقع المحدد، وعند وصولنا تبيّن لنا وجود مشتبه به يرتدي ملابس زرقاء داخل المتجر ويقوم بعملية السرقة.
-
-أثناء محاولتنا السيطرة على الحالة، قام المشتبه به بإشهار Butcher Knife وحاول الاعتداء علينا وإسقاطنا، إلا أننا تمكنا من السيطرة عليه وتوقيفه وتأمينه دون فقدان السيطرة على الحالة.
-
-بعد ذلك، توليتُ شخصياً مهمة التعامل مع المشتبه به، حيث قمتُ بإبلاغه بحقوقه والتهم المنسوبة إليه، ثم تم اتخاذ الإجراءات القانونية اللازمة بحقه وتطبيق القانون والبروتوكولات المعمول بها.
-
-وبعد تفتيشه، تم العثور بحوزته على Hack Device وCash وButcher Knife وHook Pick، حيث تم حجز جميع المضبوطات وتوثيقها ضمن القضية.
-
-تم إنهاء الحالة وتأمين المشتبه به وفق الإجراءات القانونية المعتمدة.`,
+سيتم إضافة تفاصيل التدخل والبصمة والمضبوطات عند توفر التقرير الكامل.`,
 
     images:[
-"https://cdn.discordapp.com/attachments/1444666123370102885/1547660752842788894/image.png?ex=6aa43ae5&is=6aa2e965&hm=61a98e32b604e1247f5689143e29f9cc1921a2be03ac34ac13a81e384ebc00ba&",
-"https://cdn.discordapp.com/attachments/1444666123370102885/1547660753480319097/image.png?ex=6aa43ae5&is=6aa2e965&hm=8ec64bbffbe6fecfd16e0670d42dbca9932035fdcc1fbcdcc995f0186f569925&",
-"https://cdn.discordapp.com/attachments/1444666123370102885/1547660754025582743/image.png?ex=6aa43ae5&is=6aa2e965&hm=91f0af6c86b5449a3ebea168df386b77d09901831396f3287f55b4a33e0b123a&"
+        "https://cdn.discordapp.com/attachments/1546882783711072276/1548165415673401445/Screenshot_2026-09-12_030950.png?ex=6aa610e6&is=6aa4bf66&hm=2637bb29abb932f3ccbbff05c5484bc9a5ba761de1e2c5c92764f24e928bed92&"
     ]
 }
 
@@ -1666,9 +1744,9 @@ Hook Pick
 };
 
 
-/* =========================
+/* ==================================================
    NAVIGATION
-========================= */
+================================================== */
 
 let currentCategory="home";
 
@@ -1682,6 +1760,28 @@ function hidePages(){
     });
 
     document.getElementById("detailPage").classList.remove("active");
+
+}
+
+
+function closeAll(){
+
+    hidePages();
+
+    document.getElementById("homePage").style.display="block";
+
+    currentCategory="home";
+
+}
+
+
+function showClosedQuestsPage(){
+
+    hidePages();
+
+    document.getElementById("closedQuestsPage").classList.add("active");
+
+    currentCategory="closedQuests";
 
 }
 
@@ -1700,51 +1800,46 @@ function closeClosedQuest(){
 }
 
 
-function showCategory(category){
-
-    if(category==="quest5" || category==="quest6"){
-        showClosedQuest();
-        return;
-    }
+function showQuest8(){
 
     hidePages();
 
-    document.getElementById(category).classList.add("active");
+    document.getElementById("quest8Page").classList.add("active");
 
-    currentCategory=category;
+    currentCategory="quest8";
 
 }
 
 
-function showStore7Cases(){
+function backToQuest8(){
 
     hidePages();
 
-    document.getElementById("store7Page").classList.add("active");
+    document.getElementById("quest8Page").classList.add("active");
 
-    currentCategory="store7";
+    currentCategory="quest8";
 
 }
 
 
-function showDispatch7(){
+function showTraffic8(){
 
     hidePages();
 
-    document.getElementById("dispatch7Page").classList.add("active");
+    document.getElementById("traffic8Page").classList.add("active");
 
-    currentCategory="dispatch7";
+    currentCategory="traffic8";
 
 }
 
 
-function backToQuest7(){
+function showStore8(){
 
     hidePages();
 
-    document.getElementById("quest7").classList.add("active");
+    document.getElementById("store8Page").classList.add("active");
 
-    currentCategory="quest7";
+    currentCategory="store8";
 
 }
 
@@ -1753,7 +1848,9 @@ function showCase(category,caseNumber){
 
     const data=cases[category]?.[caseNumber];
 
-    if(!data) return;
+    if(!data){
+        return;
+    }
 
     hidePages();
 
@@ -1782,15 +1879,27 @@ function showCase(category,caseNumber){
 
     items.innerHTML="";
 
-    data.items.forEach(item=>{
+    if(data.items && data.items.length){
+
+        data.items.forEach(item=>{
+
+            const li=document.createElement("li");
+
+            li.textContent=item;
+
+            items.appendChild(li);
+
+        });
+
+    }else{
 
         const li=document.createElement("li");
 
-        li.textContent=item;
+        li.textContent="—";
 
         items.appendChild(li);
 
-    });
+    }
 
 
     const gallery=document.getElementById("detailGallery");
@@ -1809,6 +1918,8 @@ function showCase(category,caseNumber){
             img.src=src;
 
             img.loading="lazy";
+
+            img.alt="Evidence";
 
             img.onclick=()=>openLightbox(src);
 
@@ -1832,53 +1943,50 @@ function backToCases(){
 
     hidePages();
 
-    if(currentCategory==="store7"){
+    if(currentCategory==="traffic8"){
 
-        document.getElementById("store7Page").classList.add("active");
+        document.getElementById("traffic8Page").classList.add("active");
 
-    }else{
+    }
 
-        document.getElementById("homePage").style.display="block";
+    else if(currentCategory==="store8"){
+
+        document.getElementById("store8Page").classList.add("active");
+
+    }
+
+    else{
+
+        document.getElementById("quest8Page").classList.add("active");
 
     }
 
 }
 
 
-function closeAll(){
-
-    hidePages();
-
-    document.getElementById("homePage").style.display="block";
-
-    currentCategory="home";
-
-}
-
+/* ==================================================
+   PROFILE
+================================================== */
 
 function showMemberProfile(member){
 
     const data=squadProfiles[member];
 
-    if(!data) return;
+    if(!data){
+        return;
+    }
 
-    document.getElementById("profileDiscord").textContent=
-        data.discord;
+    document.getElementById("profileDiscord").textContent=data.discord;
 
-    document.getElementById("profileRP").textContent=
-        data.rp;
+    document.getElementById("profileRP").textContent=data.rp;
 
-    document.getElementById("profileRank").textContent=
-        data.rank;
+    document.getElementById("profileRank").textContent=data.rank;
 
-    document.getElementById("profileManagement").textContent=
-        data.management;
+    document.getElementById("profileManagement").textContent=data.management;
 
-    document.getElementById("profileWings").textContent=
-        data.wings;
+    document.getElementById("profileWings").textContent=data.wings;
 
-    document.getElementById("profileRpName").textContent=
-        data.rp;
+    document.getElementById("profileRpName").textContent=data.rp;
 
     document.getElementById("profileModal").classList.add("active");
 
@@ -1891,6 +1999,10 @@ function closeProfile(){
 
 }
 
+
+/* ==================================================
+   LIGHTBOX
+================================================== */
 
 function openLightbox(src){
 
@@ -1909,6 +2021,10 @@ function closeLightbox(){
 
 }
 
+
+/* ==================================================
+   OUTSIDE CLICK
+================================================== */
 
 document.getElementById("closedModal").addEventListener("click",function(e){
 
