@@ -299,14 +299,6 @@ body{
     font-size:12px;
 }
 
-.category-title{
-    font-size:14px;
-    color:#aab5c7;
-    letter-spacing:1.5px;
-    font-weight:bold;
-    margin:28px 0 14px;
-}
-
 /* CASES */
 
 .case-grid{
@@ -684,13 +676,13 @@ body{
         <div class="quest-card" onclick="showClosedQuestsPage()">
             <div class="quest-number">COMPLETED CHALLENGES</div>
             <h2>CLOSED QUEST</h2>
-            <p>QUEST #5 • QUEST #6 • QUEST #7</p>
-            <div class="quest-status complete">3 QUESTS CLOSED</div>
+            <p>QUEST #5 • QUEST #6 • QUEST #7 • QUEST #8</p>
+            <div class="quest-status complete">4 QUESTS CLOSED</div>
         </div>
 
-        <div class="quest-card" onclick="showQuest8()">
-            <div class="quest-number">#8 QUEST</div>
-            <h2>QUEST #8</h2>
+        <div class="quest-card" onclick="showQuest9()">
+            <div class="quest-number">#9 QUEST</div>
+            <h2>QUEST #9</h2>
             <p>FROM AMINE MORGAN</p>
             <div class="quest-status">NEW CHALLENGE</div>
         </div>
@@ -699,9 +691,6 @@ body{
 
 
     <div class="section-title">BRAVO SQUAD MEMBERS</div>
-
-
-    <!-- TOP 3 -->
 
     <div class="leaders-grid">
 
@@ -725,8 +714,6 @@ body{
 
     </div>
 
-
-    <!-- OTHER MEMBERS -->
 
     <div class="members-grid">
 
@@ -970,92 +957,40 @@ body{
             <span class="ready">CLOSED — 100%</span>
         </div>
 
+        <div class="case-card" onclick="showClosedQuest()">
+            <div class="case-number">QUEST 08</div>
+            <h3>QUEST #8</h3>
+            <div class="location">Mission Complete</div>
+            <span class="ready">CLOSED — 100%</span>
+        </div>
+
     </div>
 
 </div>
 
 
-<!-- QUEST 8 -->
+<!-- QUEST 9 -->
 
-<div id="quest8Page" class="quest-page">
+<div id="quest9Page" class="quest-page">
 
     <button class="back-btn" onclick="closeAll()">← BACK</button>
 
     <div class="page-header">
-        <div class="badge">QUEST #8</div>
-        <h2>Challenge #8</h2>
+        <div class="badge">QUEST #9</div>
+        <h2>Challenge #9</h2>
         <p>NEW CHALLENGE</p>
     </div>
 
     <div class="quest7-grid">
 
-        <div class="quest-category" onclick="showTraffic8()">
-            <h3>Traffic Stop</h3>
-            <p>5 Traffic Stop Cases</p>
-        </div>
-
-        <div class="quest-category" onclick="showStore8()">
+        <div class="quest-category" onclick="showStore9()">
             <h3>Store Robbery</h3>
             <p>2 Store Robbery Cases</p>
         </div>
 
-    </div>
-
-</div>
-
-
-<!-- TRAFFIC STOP -->
-
-<div id="traffic8Page" class="quest-page">
-
-    <button class="back-btn" onclick="backToQuest8()">← BACK</button>
-
-    <div class="page-header">
-        <div class="badge">QUEST #8</div>
-        <h2>Traffic Stop</h2>
-        <p>5 TRAFFIC STOP CASES</p>
-    </div>
-
-    <div class="case-grid">
-
-        <div class="case-card" onclick="showCase('traffic8',1)">
-            <div class="case-number">CASE 01</div>
-            <h3>Traffic Stop</h3>
-            <div class="location">Quest #8</div>
-            <img class="case-preview" src="https://cdn.discordapp.com/attachments/1546882804254515200/1548163294492102656/image.png?ex=6aa60eec&is=6aa4bd6c&hm=b7d9b4647125b50628720a960e32095bddf3452c51e0ff770a967b7fb34ce727&">
-            <span class="ready">VIEW CASE</span>
-        </div>
-
-        <div class="case-card" onclick="showCase('traffic8',2)">
-            <div class="case-number">CASE 02</div>
-            <h3>Traffic Stop</h3>
-            <div class="location">Quest #8</div>
-            <img class="case-preview" src="https://cdn.discordapp.com/attachments/1546882804254515200/1548163295037489192/image.png?ex=6aa60eed&is=6aa4bd6d&hm=ab445f6fe508ec540cf07009f85bfa31bf96502f24626c5dad3a9f7ad875a923&">
-            <span class="ready">VIEW CASE</span>
-        </div>
-
-        <div class="case-card" onclick="showCase('traffic8',3)">
-            <div class="case-number">CASE 03</div>
-            <h3>Traffic Stop</h3>
-            <div class="location">Quest #8</div>
-            <img class="case-preview" src="https://cdn.discordapp.com/attachments/1546882804254515200/1548163295419310080/image.png?ex=6aa60eed&is=6aa4bd6d&hm=d84d876ce50140e8b621270a26b971fe0e5273eaf164a49c96afc96cb067fe29&">
-            <span class="ready">VIEW CASE</span>
-        </div>
-
-        <div class="case-card" onclick="showCase('traffic8',4)">
-            <div class="case-number">CASE 04</div>
-            <h3>Traffic Stop</h3>
-            <div class="location">Quest #8</div>
-            <img class="case-preview" src="https://cdn.discordapp.com/attachments/1546882804254515200/1548163295859441714/Screenshot_2026-09-12_013002.png?ex=6aa60eed&is=6aa4bd6d&hm=7ed666b262c8a3e528c3a6cbe3efa484ccd5aca5959e7b620305dee41823213f&">
-            <span class="ready">VIEW CASE</span>
-        </div>
-
-        <div class="case-card" onclick="showCase('traffic8',5)">
-            <div class="case-number">CASE 05</div>
-            <h3>Traffic Stop</h3>
-            <div class="location">Quest #8</div>
-            <img class="case-preview" src="https://cdn.discordapp.com/attachments/1546882804254515200/1548163296392257546/image.png?ex=6aa60eed&is=6aa4bd6d&hm=b62aa8033c55e921cd5e212ceee1bb9099b89ff93379c22d9f7ae6c20c2029fc&">
-            <span class="ready">VIEW CASE</span>
+        <div class="quest-category" onclick="showHouse9()">
+            <h3>House Robbery</h3>
+            <p>3 House Robbery Cases</p>
         </div>
 
     </div>
@@ -1063,39 +998,86 @@ body{
 </div>
 
 
-<!-- STORE ROBBERY -->
+<!-- QUEST 9 STORE ROBBERY -->
 
-<div id="store8Page" class="quest-page">
+<div id="store9Page" class="quest-page">
 
-    <button class="back-btn" onclick="backToQuest8()">← BACK</button>
+    <button class="back-btn" onclick="backToQuest9()">← BACK</button>
 
     <div class="page-header">
-        <div class="badge">QUEST #8</div>
+        <div class="badge">QUEST #9</div>
         <h2>Store Robbery</h2>
         <p>2 STORE ROBBERY CASES</p>
     </div>
 
     <div class="case-grid">
 
-        <div class="case-card" onclick="showCase('store8',1)">
+        <div class="case-card" onclick="showCase('store9',1)">
             <div class="case-number">CASE 01</div>
             <h3>Store Robbery</h3>
-            <div class="location">Sandy Shores</div>
-            <span class="ready">VIEW CASE</span>
-        </div>
-
-        <div class="case-card" onclick="showCase('store8',2)">
-            <div class="case-number">CASE 02</div>
-            <h3>Store Robbery</h3>
-            <div class="location">Sandy Shores</div>
+            <div class="location">Quest #9</div>
 
             <img
                 class="case-preview"
-                src="https://cdn.discordapp.com/attachments/1546882783711072276/1548165415673401445/Screenshot_2026-09-12_030950.png?ex=6aa610e6&is=6aa4bf66&hm=2637bb29abb932f3ccbbff05c5484bc9a5ba761de1e2c5c92764f24e928bed92&"
+                src="https://cdn.discordapp.com/attachments/1541819520874709142/1548346974150074408/image.png?ex=6aa6b9fd&is=6aa5687d&hm=cd1e3774cb2c7caed040c9e56b9c41777e0b8a8db7d52a1a672e44165235fba6&"
+                alt="Store Robbery Case 1"
+            >
+
+            <span class="ready">VIEW CASE</span>
+        </div>
+
+        <div class="case-card" onclick="showCase('store9',2)">
+            <div class="case-number">CASE 02</div>
+            <h3>Store Robbery</h3>
+            <div class="location">Quest #9</div>
+
+            <img
+                class="case-preview"
+                src="https://cdn.discordapp.com/attachments/1541819520874709142/1548361885001322627/image.png?ex=6aa6c7e0&is=6aa57660&hm=c2ef0c66591b8280f6e79f224be76925a416e2ecfc6cbc197dd9a29bd5ad037a&"
                 alt="Store Robbery Case 2"
             >
 
             <span class="ready">VIEW CASE</span>
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- QUEST 9 HOUSE ROBBERY -->
+
+<div id="house9Page" class="quest-page">
+
+    <button class="back-btn" onclick="backToQuest9()">← BACK</button>
+
+    <div class="page-header">
+        <div class="badge">QUEST #9</div>
+        <h2>House Robbery</h2>
+        <p>3 HOUSE ROBBERY CASES</p>
+    </div>
+
+    <div class="case-grid">
+
+        <div class="case-card">
+            <div class="case-number">CASE 01</div>
+            <h3>House Robbery</h3>
+            <div class="location">Quest #9</div>
+            <span class="pending">DETAILS PENDING</span>
+        </div>
+
+        <div class="case-card">
+            <div class="case-number">CASE 02</div>
+            <h3>House Robbery</h3>
+            <div class="location">Quest #9</div>
+            <span class="pending">DETAILS PENDING</span>
+        </div>
+
+        <div class="case-card">
+            <div class="case-number">CASE 03</div>
+            <h3>House Robbery</h3>
+            <div class="location">Quest #9</div>
+            <span class="pending">DETAILS PENDING</span>
         </div>
 
     </div>
@@ -1238,9 +1220,9 @@ body{
 
 <script>
 
-/* ==================================================
+/* =========================
    SQUAD PROFILES
-================================================== */
+========================= */
 
 const squadProfiles={
 
@@ -1575,167 +1557,55 @@ zeyad:{
 };
 
 
-/* ==================================================
-   QUEST #8 CASES
-================================================== */
+/* =========================
+   QUEST 9 CASES
+========================= */
 
 const cases={
 
-traffic8:{
+store9:{
 
 1:{
-    location:"Quest #8 • Traffic Stop",
+    location:"Quest #9",
     fingerprint:"—",
-    incident:"Traffic Stop",
+    incident:"Store Robbery",
     items:[],
-    team:"—",
-    report:`Traffic Stop — Case 01
+    team:"Lucas Hod — 387",
 
-تم توثيق الحالة ضمن Quest #8.
+    report:`Store Robbery — Case 01
 
-سيتم إضافة تفاصيل التدخل الكاملة عند توفر التقرير.`,
+Team Member:
+Lucas Hod — 387
+
+تم توثيق الحالة والصورة ضمن Quest #9.
+
+سيتم إضافة البصمة والمحجوزات وتفاصيل التدخل الكاملة عند توفر التقرير.`,
+
     images:[
-        "https://cdn.discordapp.com/attachments/1546882804254515200/1548163294492102656/image.png?ex=6aa60eec&is=6aa4bd6c&hm=b7d9b4647125b50628720a960e32095bddf3452c51e0ff770a967b7fb34ce727&"
+        "https://cdn.discordapp.com/attachments/1541819520874709142/1548346974150074408/image.png?ex=6aa6b9fd&is=6aa5687d&hm=cd1e3774cb2c7caed040c9e56b9c41777e0b8a8db7d52a1a672e44165235fba6&"
     ]
 },
 
 2:{
-    location:"Quest #8 • Traffic Stop",
-    fingerprint:"—",
-    incident:"Traffic Stop",
-    items:[],
-    team:"—",
-    report:`Traffic Stop — Case 02
-
-تم توثيق الحالة ضمن Quest #8.
-
-سيتم إضافة تفاصيل التدخل الكاملة عند توفر التقرير.`,
-    images:[
-        "https://cdn.discordapp.com/attachments/1546882804254515200/1548163295037489192/image.png?ex=6aa60eed&is=6aa4bd6d&hm=ab445f6fe508ec540cf07009f85bfa31bf96502f24626c5dad3a9f7ad875a923&"
-    ]
-},
-
-3:{
-    location:"Quest #8 • Traffic Stop",
-    fingerprint:"—",
-    incident:"Traffic Stop",
-    items:[],
-    team:"—",
-    report:`Traffic Stop — Case 03
-
-تم توثيق الحالة ضمن Quest #8.
-
-سيتم إضافة تفاصيل التدخل الكاملة عند توفر التقرير.`,
-    images:[
-        "https://cdn.discordapp.com/attachments/1546882804254515200/1548163295419310080/image.png?ex=6aa60eed&is=6aa4bd6d&hm=d84d876ce50140e8b621270a26b971fe0e5273eaf164a49c96afc96cb067fe29&"
-    ]
-},
-
-4:{
-    location:"Quest #8 • Traffic Stop",
-    fingerprint:"—",
-    incident:"Traffic Stop",
-    items:[],
-    team:"—",
-    report:`Traffic Stop — Case 04
-
-تم توثيق الحالة ضمن Quest #8.
-
-سيتم إضافة تفاصيل التدخل الكاملة عند توفر التقرير.`,
-    images:[
-        "https://cdn.discordapp.com/attachments/1546882804254515200/1548163295859441714/Screenshot_2026-09-12_013002.png?ex=6aa60eed&is=6aa4bd6d&hm=7ed666b262c8a3e528c3a6cbe3efa484ccd5aca5959e7b620305dee41823213f&"
-    ]
-},
-
-5:{
-    location:"Quest #8 • Traffic Stop",
-    fingerprint:"—",
-    incident:"Traffic Stop",
-    items:[],
-    team:"—",
-    report:`Traffic Stop — Case 05
-
-تم توثيق الحالة ضمن Quest #8.
-
-سيتم إضافة تفاصيل التدخل الكاملة عند توفر التقرير.`,
-    images:[
-        "https://cdn.discordapp.com/attachments/1546882804254515200/1548163296392257546/image.png?ex=6aa60eed&is=6aa4bd6d&hm=b62aa8033c55e921cd5e212ceee1bb9099b89ff93379c22d9f7ae6c20c2029fc&"
-    ]
-}
-
-},
-
-store8:{
-
-1:{
-    location:"Sandy Shores",
-    fingerprint:`J295F5ZYS07WL36
-7OASVAK55E4A074`,
-
-    incident:"Store Robbery",
-
-    items:[
-        "Cash",
-        "Lock Pick",
-        "Sticky Note"
-    ],
-
-    team:"Lucas Hod — 391",
-
-    report:`البصمات:
-
-J295F5ZYS07WL36
-7OASVAK55E4A074
-
-نوع التدخل:
-Store Robbery
-
-المحجوزات:
-
-Cash
-Lock Pick
-Sticky Note
-
-وقائع التدخل:
-
-كنتُ أُباشر دوريتي الاعتيادية في منطقة Sandy Shores رفقة زميلي Lucas Hod — 391، إلى أن وردنا إشعار يفيد بوجود حالة Store Robbery.
-
-على الفور، توجهنا إلى الموقع المحدد للتعامل مع الحالة، وعند وصولنا تبيّن لنا وجود مشتبه بهما اثنين داخل الموقع، حيث قاما بتسليم نفسيهما دون مقاومة.
-
-بعد ذلك، قمتُ بتصوير المشتبه بهما وتوثيق الحالة، ثم عملتُ على تأمينهما والسيطرة على الوضع، وتوليتُ شخصياً مهمة التعامل معهما.
-
-قمتُ بإبلاغ المشتبه بهما بحقوقهما والتهم المنسوبة إليهما، ثم تم اتخاذ الإجراءات القانونية اللازمة بحقهما وتطبيق القانون والبروتوكولات المعمول بها.
-
-كما تم حجز Cash وLock Pick وSticky Note وتوثيقها ضمن مضبوطات القضية.
-
-تم تأمين المشتبه بهما وإنهاء الحالة وفق الإجراءات القانونية المعتمدة.`,
-
-    images:[
-        "https://cdn.discordapp.com/attachments/1546882783711072276/1548146823561216030/image.png?ex=6aa5ff95&is=6aa4ae15&hm=2635982ade4253e16ae9192f08b1c9c692f274c896cc3fb45cae20f021e9228e&",
-        "https://cdn.discordapp.com/attachments/1546882783711072276/1548146824227848202/image.png?ex=6aa5ff96&is=6aa4ae16&hm=4a601b06794a31a9e00b8d368b1035ad647d109f452b66dd35f24d5cbb6db009&",
-        "https://cdn.discordapp.com/attachments/1546882783711072276/1548146825092145243/image.png?ex=6aa5ff96&is=6aa4ae16&hm=98b11ae7a5e69e086ced2169cb1c0932798fc9afc387195519bae36fd21961d5&",
-        "https://cdn.discordapp.com/attachments/1546882783711072276/1548147051949457428/image.png?ex=6aa5ffcc&is=6aa4ae4c&hm=ade5a03ac4bd6664eaa873f633ba7f28b5cf91791338d76589ede598e2f93369&"
-    ]
-},
-
-2:{
-    location:"Sandy Shores",
+    location:"Quest #9",
     fingerprint:"—",
     incident:"Store Robbery",
     items:[],
-    team:"Lucas Hod — 391",
+    team:"Lucas Hod — 387 | Faisal Failachwe — 363",
 
     report:`Store Robbery — Case 02
 
-تم توثيق الحالة ضمن Quest #8.
+Team Members:
 
-Team Member:
-Lucas Hod — 391
+Lucas Hod — 387
+Faisal Failachwe — 363
 
-سيتم إضافة تفاصيل التدخل والبصمة والمضبوطات عند توفر التقرير الكامل.`,
+تم توثيق الحالة والصورة ضمن Quest #9.
+
+سيتم إضافة البصمة والمحجوزات وتفاصيل التدخل الكاملة عند توفر التقرير.`,
 
     images:[
-        "https://cdn.discordapp.com/attachments/1546882783711072276/1548165415673401445/Screenshot_2026-09-12_030950.png?ex=6aa610e6&is=6aa4bf66&hm=2637bb29abb932f3ccbbff05c5484bc9a5ba761de1e2c5c92764f24e928bed92&"
+        "https://cdn.discordapp.com/attachments/1541819520874709142/1548361885001322627/image.png?ex=6aa6c7e0&is=6aa57660&hm=c2ef0c66591b8280f6e79f224be76925a416e2ecfc6cbc197dd9a29bd5ad037a&"
     ]
 }
 
@@ -1744,9 +1614,9 @@ Lucas Hod — 391
 };
 
 
-/* ==================================================
+/* =========================
    NAVIGATION
-================================================== */
+========================= */
 
 let currentCategory="home";
 
@@ -1800,49 +1670,53 @@ function closeClosedQuest(){
 }
 
 
-function showQuest8(){
+/* QUEST 9 */
+
+function showQuest9(){
 
     hidePages();
 
-    document.getElementById("quest8Page").classList.add("active");
+    document.getElementById("quest9Page").classList.add("active");
 
-    currentCategory="quest8";
+    currentCategory="quest9";
 
 }
 
 
-function backToQuest8(){
+function backToQuest9(){
 
     hidePages();
 
-    document.getElementById("quest8Page").classList.add("active");
+    document.getElementById("quest9Page").classList.add("active");
 
-    currentCategory="quest8";
+    currentCategory="quest9";
 
 }
 
 
-function showTraffic8(){
+function showStore9(){
 
     hidePages();
 
-    document.getElementById("traffic8Page").classList.add("active");
+    document.getElementById("store9Page").classList.add("active");
 
-    currentCategory="traffic8";
+    currentCategory="store9";
 
 }
 
 
-function showStore8(){
+function showHouse9(){
 
     hidePages();
 
-    document.getElementById("store8Page").classList.add("active");
+    document.getElementById("house9Page").classList.add("active");
 
-    currentCategory="store8";
+    currentCategory="house9";
 
 }
 
+
+/* CASE DETAILS */
 
 function showCase(category,caseNumber){
 
@@ -1943,30 +1817,28 @@ function backToCases(){
 
     hidePages();
 
-    if(currentCategory==="traffic8"){
+    if(currentCategory==="store9"){
 
-        document.getElementById("traffic8Page").classList.add("active");
+        document.getElementById("store9Page").classList.add("active");
 
     }
 
-    else if(currentCategory==="store8"){
+    else if(currentCategory==="house9"){
 
-        document.getElementById("store8Page").classList.add("active");
+        document.getElementById("house9Page").classList.add("active");
 
     }
 
     else{
 
-        document.getElementById("quest8Page").classList.add("active");
+        document.getElementById("quest9Page").classList.add("active");
 
     }
 
 }
 
 
-/* ==================================================
-   PROFILE
-================================================== */
+/* PROFILE */
 
 function showMemberProfile(member){
 
@@ -1977,15 +1849,10 @@ function showMemberProfile(member){
     }
 
     document.getElementById("profileDiscord").textContent=data.discord;
-
     document.getElementById("profileRP").textContent=data.rp;
-
     document.getElementById("profileRank").textContent=data.rank;
-
     document.getElementById("profileManagement").textContent=data.management;
-
     document.getElementById("profileWings").textContent=data.wings;
-
     document.getElementById("profileRpName").textContent=data.rp;
 
     document.getElementById("profileModal").classList.add("active");
@@ -2000,9 +1867,7 @@ function closeProfile(){
 }
 
 
-/* ==================================================
-   LIGHTBOX
-================================================== */
+/* LIGHTBOX */
 
 function openLightbox(src){
 
@@ -2022,9 +1887,7 @@ function closeLightbox(){
 }
 
 
-/* ==================================================
-   OUTSIDE CLICK
-================================================== */
+/* OUTSIDE CLICK */
 
 document.getElementById("closedModal").addEventListener("click",function(e){
 
