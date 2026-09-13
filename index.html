@@ -13,11 +13,15 @@
 }
 
 body{
-    font-family:Arial, Helvetica, sans-serif;
+    font-family:Arial,Helvetica,sans-serif;
     background:
         radial-gradient(circle at top left,#172033 0%,#080b12 45%,#030407 100%);
     color:#fff;
     min-height:100vh;
+}
+
+button,input,textarea,select{
+    font:inherit;
 }
 
 .container{
@@ -65,9 +69,9 @@ body{
     font-weight:bold;
 }
 
-/* =========================
-   QUEST HISTORY - TOP LEFT
-========================= */
+/* ==================================================
+   QUEST HISTORY
+================================================== */
 
 .quest-history{
     position:fixed;
@@ -78,10 +82,10 @@ body{
     background:rgba(7,11,18,.96);
     border:1px solid #2b374b;
     border-radius:15px;
-    z-index:8000;
+    z-index:200;
+    overflow:hidden;
     box-shadow:0 20px 60px rgba(0,0,0,.35);
     backdrop-filter:blur(10px);
-    overflow:hidden;
 }
 
 .quest-history.collapsed{
@@ -96,22 +100,16 @@ body{
     display:flex;
     align-items:center;
     justify-content:space-between;
-    gap:10px;
     padding:15px 16px;
     border-bottom:1px solid #202a3a;
-    cursor:pointer;
     background:rgba(17,24,37,.9);
-}
-
-.quest-history.collapsed .quest-history-header{
-    border-bottom:none;
+    cursor:pointer;
 }
 
 .quest-history-title{
     font-size:12px;
     font-weight:900;
     letter-spacing:1.5px;
-    color:#dce6f7;
 }
 
 .quest-history-toggle{
@@ -122,29 +120,12 @@ body{
     color:#8ea3c5;
     border-radius:7px;
     cursor:pointer;
-    font-size:17px;
-    display:flex;
-    align-items:center;
-    justify-content:center;
 }
 
 .quest-history-content{
     max-height:calc(82vh - 60px);
     overflow-y:auto;
     padding:12px;
-}
-
-.quest-history-content::-webkit-scrollbar{
-    width:7px;
-}
-
-.quest-history-content::-webkit-scrollbar-track{
-    background:#080d15;
-}
-
-.quest-history-content::-webkit-scrollbar-thumb{
-    background:#2d3c54;
-    border-radius:10px;
 }
 
 .history-item{
@@ -155,8 +136,8 @@ body{
     margin-bottom:10px;
 }
 
-.history-item:last-child{
-    margin-bottom:0;
+.history-item.current{
+    border-color:#42618f;
 }
 
 .history-number{
@@ -175,19 +156,9 @@ body{
     line-height:1.75;
 }
 
-.history-item.active-history{
-    border-color:#42618f;
-    background:
-        linear-gradient(145deg,rgba(26,38,59,.95),rgba(10,15,23,.95));
-}
-
-.history-item.active-history .history-number{
-    color:#75aeff;
-}
-
-/* =========================
-   QUESTS
-========================= */
+/* ==================================================
+   QUEST CARDS
+================================================== */
 
 .quest-grid{
     display:grid;
@@ -259,15 +230,14 @@ body{
     color:#5bd98b;
 }
 
-/* =========================
+/* ==================================================
    SEARCH
-========================= */
+================================================== */
 
 .member-search-wrap{
     width:100%;
     max-width:650px;
     margin:0 auto 22px;
-    position:relative;
 }
 
 .member-search{
@@ -275,29 +245,13 @@ body{
     background:rgba(8,12,19,.92);
     border:1px solid #2c3a50;
     color:#fff;
-    padding:15px 50px 15px 17px;
+    padding:15px 17px;
     border-radius:13px;
     outline:none;
-    font-size:14px;
-    transition:.2s;
 }
 
 .member-search:focus{
     border-color:#5572a5;
-    box-shadow:0 0 0 3px rgba(59,130,246,.08);
-}
-
-.member-search::placeholder{
-    color:#647187;
-}
-
-.search-icon{
-    position:absolute;
-    right:17px;
-    top:18px;
-    color:#6f7f98;
-    font-size:18px;
-    pointer-events:none;
 }
 
 .search-info{
@@ -309,20 +263,14 @@ body{
 
 .no-results{
     display:none;
-    width:100%;
-    padding:24px;
-    margin:15px 0;
+    padding:20px;
     text-align:center;
-    border:1px solid #273247;
-    border-radius:13px;
-    background:rgba(13,18,28,.86);
     color:#7f8ba0;
-    font-size:13px;
 }
 
-/* =========================
-   LEADERS
-========================= */
+/* ==================================================
+   MEMBERS
+================================================== */
 
 .leaders-grid{
     width:100%;
@@ -333,49 +281,13 @@ body{
     gap:15px;
 }
 
-.top-member{
-    border:1px solid #374761;
-    background:rgba(13,18,28,.86);
-    border-radius:13px;
-    padding:18px;
-    transition:.2s;
-    cursor:pointer;
-    text-align:center;
-}
-
-.top-member:hover{
-    transform:translateY(-3px);
-    border-color:#5572a5;
-}
-
-.top-member .member-name{
-    font-size:14px;
-    font-weight:bold;
-}
-
-.top-member .member-rank{
-    color:#9aa6b9;
-    font-size:11px;
-    margin-top:9px;
-    line-height:1.5;
-}
-
-.top-member .member-wings{
-    color:#69758a;
-    font-size:10px;
-    margin-top:7px;
-}
-
-/* =========================
-   MEMBERS
-========================= */
-
 .members-grid{
     display:grid;
     grid-template-columns:repeat(4,1fr);
     gap:12px;
 }
 
+.top-member,
 .member{
     border:1px solid #263044;
     background:rgba(13,18,28,.86);
@@ -385,9 +297,16 @@ body{
     cursor:pointer;
 }
 
+.top-member{
+    text-align:center;
+    border-color:#374761;
+    padding:18px;
+}
+
+.top-member:hover,
 .member:hover{
     transform:translateY(-3px);
-    border-color:#41608f;
+    border-color:#5572a5;
 }
 
 .member-name{
@@ -402,15 +321,15 @@ body{
 }
 
 .member-rank{
-    color:#828da0;
+    color:#9aa6b9;
     font-size:11px;
-    margin-top:8px;
+    margin-top:9px;
 }
 
 .member-wings{
     color:#69758a;
     font-size:10px;
-    margin-top:4px;
+    margin-top:6px;
 }
 
 .member-callsign{
@@ -423,18 +342,17 @@ body{
     border:1px solid rgba(59,130,246,.18);
     font-size:10px;
     font-weight:bold;
-    letter-spacing:.5px;
 }
 
-/* =========================
+/* ==================================================
    PAGES
-========================= */
+================================================== */
 
-.quest-page{
+.page{
     display:none;
 }
 
-.quest-page.active{
+.page.active{
     display:block;
 }
 
@@ -450,16 +368,8 @@ body{
     font-weight:bold;
 }
 
-.back-btn:hover{
-    border-color:#4d6490;
-}
-
 .page-header{
     margin-bottom:30px;
-}
-
-.page-header .badge{
-    margin-bottom:13px;
 }
 
 .page-header h2{
@@ -471,7 +381,7 @@ body{
     color:#7f899d;
 }
 
-.quest7-grid{
+.quest-category-grid{
     display:grid;
     grid-template-columns:repeat(2,1fr);
     gap:18px;
@@ -501,9 +411,9 @@ body{
     font-size:12px;
 }
 
-/* =========================
+/* ==================================================
    CASES
-========================= */
+================================================== */
 
 .case-grid{
     display:grid;
@@ -548,7 +458,6 @@ body{
     width:100%;
     height:150px;
     object-fit:cover;
-    display:block;
     border-radius:9px;
     border:1px solid #263247;
     margin:12px 0;
@@ -557,11 +466,10 @@ body{
 .ready,
 .pending{
     display:inline-block;
-    border-radius:7px;
     padding:6px 9px;
+    border-radius:7px;
     font-size:9px;
     font-weight:bold;
-    letter-spacing:1px;
 }
 
 .ready{
@@ -574,17 +482,9 @@ body{
     background:rgba(234,179,8,.1);
 }
 
-/* =========================
-   DETAILS
-========================= */
-
-.detail-page{
-    display:none;
-}
-
-.detail-page.active{
-    display:block;
-}
+/* ==================================================
+   DETAIL
+================================================== */
 
 .detail-box{
     background:rgba(11,16,25,.92);
@@ -596,13 +496,8 @@ body{
 .detail-head{
     display:flex;
     justify-content:space-between;
-    align-items:flex-start;
-    margin-bottom:24px;
     gap:20px;
-}
-
-.detail-head h2{
-    font-size:28px;
+    margin-bottom:24px;
 }
 
 .detail-location{
@@ -612,14 +507,12 @@ body{
 }
 
 .detail-status{
-    border:1px solid rgba(59,130,246,.24);
+    padding:7px 10px;
+    border-radius:8px;
     background:rgba(59,130,246,.09);
     color:#72abff;
     font-size:10px;
     font-weight:bold;
-    letter-spacing:1px;
-    border-radius:8px;
-    padding:7px 10px;
 }
 
 .info-grid{
@@ -644,7 +537,6 @@ body{
     font-size:10px;
     letter-spacing:1.4px;
     margin-bottom:11px;
-    text-transform:uppercase;
 }
 
 .info-card p,
@@ -654,27 +546,17 @@ body{
     line-height:1.75;
 }
 
-.info-card ul{
-    padding-left:18px;
-}
-
 .report{
     white-space:pre-line;
     direction:rtl;
     text-align:right;
 }
 
-.evidence-title{
-    margin:25px 0 13px;
-    font-size:15px;
-    font-weight:bold;
-    letter-spacing:1px;
-}
-
 .gallery{
     display:grid;
     grid-template-columns:repeat(3,1fr);
     gap:10px;
+    margin-top:15px;
 }
 
 .gallery img{
@@ -684,66 +566,36 @@ body{
     border-radius:10px;
     border:1px solid #273247;
     cursor:pointer;
-    transition:.2s;
 }
 
-.gallery img:hover{
-    transform:scale(1.015);
-    border-color:#5572a5;
-}
+/* ==================================================
+   MODAL
+================================================== */
 
-/* =========================
-   MODALS
-========================= */
-
-.closed-modal,
-.profile-modal,
-.lightbox{
+.modal{
     position:fixed;
     inset:0;
     display:none;
     align-items:center;
     justify-content:center;
     z-index:9999;
-    background:rgba(0,0,0,.8);
+    background:rgba(0,0,0,.82);
     backdrop-filter:blur(7px);
     padding:20px;
 }
 
-.closed-modal.active,
-.profile-modal.active,
-.lightbox.active{
+.modal.active{
     display:flex;
 }
 
-.closed-box,
-.profile-box{
+.modal-box{
     width:100%;
-    max-width:500px;
+    max-width:520px;
     background:#0b1018;
     border:1px solid #334057;
     border-radius:17px;
     padding:28px;
     position:relative;
-}
-
-.closed-box{
-    text-align:center;
-}
-
-.closed-box h2{
-    font-size:27px;
-    margin-bottom:10px;
-}
-
-.closed-box p{
-    color:#929daf;
-    line-height:1.7;
-    font-size:13px;
-}
-
-.success{
-    color:#55d683;
 }
 
 .close{
@@ -755,14 +607,9 @@ body{
     cursor:pointer;
 }
 
-.profile-box h2{
-    font-size:26px;
-    margin-bottom:5px;
-}
-
-.profile-box .rp{
+.profile-rp{
     color:#669eff;
-    margin-bottom:21px;
+    margin:6px 0 20px;
 }
 
 .profile-info{
@@ -788,46 +635,256 @@ body{
     width:110px;
 }
 
-.lightbox img{
-    max-width:95%;
+#lightboxImage{
+    max-width:95vw;
     max-height:90vh;
-    object-fit:contain;
-    border-radius:10px;
 }
 
-.lightbox .close{
-    font-size:36px;
+/* ==================================================
+   ADMIN LOGIN
+================================================== */
+
+.admin-input,
+.admin-textarea,
+.admin-select{
+    width:100%;
+    border:1px solid #2a374c;
+    background:#080d15;
     color:#fff;
-    right:25px;
-    top:18px;
+    border-radius:9px;
+    padding:11px 12px;
+    outline:none;
 }
 
-/* =========================
-   RESPONSIVE
-========================= */
-
-@media(max-width:1450px){
-
-    .quest-history{
-        width:285px;
-    }
-
+.admin-textarea{
+    resize:vertical;
+    min-height:95px;
 }
 
-@media(max-width:1100px){
-
-    .quest-history{
-        top:10px;
-        left:10px;
-        width:250px;
-        max-height:65vh;
-    }
-
-    .quest-history-content{
-        max-height:calc(65vh - 60px);
-    }
-
+.admin-input:focus,
+.admin-textarea:focus,
+.admin-select:focus{
+    border-color:#4b6b9f;
 }
+
+.admin-button{
+    border:1px solid #365783;
+    background:#132744;
+    color:#85b5ff;
+    padding:10px 14px;
+    border-radius:8px;
+    cursor:pointer;
+    font-weight:bold;
+}
+
+.admin-button.danger{
+    border-color:#6f3030;
+    background:#341515;
+    color:#ff8e8e;
+}
+
+.admin-button.success{
+    border-color:#27633c;
+    background:#12301e;
+    color:#74d793;
+}
+
+.admin-error{
+    color:#ff7777;
+    font-size:12px;
+    margin-top:12px;
+    min-height:15px;
+}
+
+/* ==================================================
+   ADMIN PANEL
+================================================== */
+
+.admin-panel{
+    position:fixed;
+    inset:0;
+    z-index:9000;
+    background:#05080d;
+    display:none;
+    overflow:auto;
+}
+
+.admin-panel.active{
+    display:block;
+}
+
+.admin-shell{
+    width:100%;
+    max-width:1450px;
+    margin:auto;
+    padding:25px;
+}
+
+.admin-topbar{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:15px;
+    margin-bottom:25px;
+}
+
+.admin-topbar h1{
+    font-size:28px;
+}
+
+.admin-topbar p{
+    color:#78859a;
+    font-size:12px;
+    margin-top:5px;
+}
+
+.admin-actions{
+    display:flex;
+    gap:8px;
+    flex-wrap:wrap;
+}
+
+.admin-layout{
+    display:grid;
+    grid-template-columns:220px 1fr;
+    gap:18px;
+}
+
+.admin-sidebar{
+    background:#0a0f17;
+    border:1px solid #202b3c;
+    border-radius:14px;
+    padding:10px;
+    height:max-content;
+    position:sticky;
+    top:20px;
+}
+
+.admin-nav{
+    width:100%;
+    border:0;
+    background:transparent;
+    color:#8b98ab;
+    padding:12px;
+    border-radius:8px;
+    cursor:pointer;
+    text-align:left;
+    font-weight:bold;
+    margin-bottom:3px;
+}
+
+.admin-nav.active,
+.admin-nav:hover{
+    background:#152137;
+    color:#8ab6ff;
+}
+
+.admin-section{
+    display:none;
+}
+
+.admin-section.active{
+    display:block;
+}
+
+.admin-card{
+    background:#0a0f17;
+    border:1px solid #202b3c;
+    border-radius:14px;
+    padding:20px;
+    margin-bottom:16px;
+}
+
+.admin-card h3{
+    margin-bottom:16px;
+}
+
+.admin-form-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:12px;
+}
+
+.admin-field label{
+    display:block;
+    color:#78869a;
+    font-size:10px;
+    font-weight:bold;
+    letter-spacing:1px;
+    margin-bottom:6px;
+}
+
+.admin-field.full{
+    grid-column:1/-1;
+}
+
+.admin-list{
+    display:grid;
+    gap:8px;
+}
+
+.admin-list-item{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+    background:#080c13;
+    border:1px solid #1d2736;
+    border-radius:9px;
+    padding:12px;
+}
+
+.admin-list-item strong{
+    font-size:13px;
+}
+
+.admin-list-item small{
+    display:block;
+    color:#738096;
+    margin-top:3px;
+}
+
+.admin-list-actions{
+    display:flex;
+    gap:6px;
+}
+
+.admin-note{
+    color:#78859a;
+    font-size:11px;
+    line-height:1.6;
+    margin-bottom:15px;
+}
+
+.admin-stats{
+    display:grid;
+    grid-template-columns:repeat(4,1fr);
+    gap:12px;
+}
+
+.admin-stat{
+    background:#080d15;
+    border:1px solid #1d2838;
+    padding:20px;
+    border-radius:12px;
+}
+
+.admin-stat strong{
+    display:block;
+    font-size:28px;
+    color:#76aaff;
+}
+
+.admin-stat span{
+    display:block;
+    color:#748196;
+    font-size:11px;
+    margin-top:6px;
+}
+
+/* ==================================================
+   MOBILE
+================================================== */
 
 @media(max-width:900px){
 
@@ -835,32 +892,37 @@ body{
         position:relative;
         top:auto;
         left:auto;
-        width:100%;
+        width:calc(100% - 30px);
         max-height:none;
-        margin:15px auto 25px;
-        z-index:1;
-    }
-
-    .quest-history.collapsed{
-        width:100%;
-    }
-
-    .quest-history-content{
-        max-height:400px;
+        margin:15px;
     }
 
     .leaders-grid{
         grid-template-columns:1fr;
-        max-width:600px;
     }
 
     .members-grid{
-        grid-template-columns:repeat(3,1fr);
+        grid-template-columns:repeat(2,1fr);
     }
 
     .quest-grid,
     .case-grid{
         grid-template-columns:repeat(2,1fr);
+    }
+
+    .admin-layout{
+        grid-template-columns:1fr;
+    }
+
+    .admin-sidebar{
+        position:static;
+        display:flex;
+        overflow:auto;
+    }
+
+    .admin-nav{
+        width:auto;
+        white-space:nowrap;
     }
 }
 
@@ -875,31 +937,21 @@ body{
     }
 
     .quest-grid,
-    .quest7-grid,
+    .quest-category-grid,
     .case-grid,
     .members-grid,
-    .info-grid{
+    .info-grid,
+    .admin-form-grid,
+    .admin-stats{
         grid-template-columns:1fr;
     }
 
-    .leaders-grid{
-        grid-template-columns:1fr;
-    }
-
-    .info-card.full{
+    .admin-field.full{
         grid-column:auto;
     }
 
     .gallery{
         grid-template-columns:1fr;
-    }
-
-    .gallery img{
-        height:220px;
-    }
-
-    .detail-head{
-        flex-direction:column;
     }
 }
 </style>
@@ -908,192 +960,21 @@ body{
 <body>
 
 
-<!-- ==================================================
-     QUEST HISTORY TOP LEFT
-================================================== -->
+<!-- QUEST HISTORY -->
 
-<div id="questHistory" class="quest-history">
+<div class="quest-history" id="questHistory">
 
     <div class="quest-history-header" onclick="toggleQuestHistory()">
-
-        <div class="quest-history-title">
-            QUEST HISTORY • #1 → #9
-        </div>
-
-        <button
-            class="quest-history-toggle"
-            id="questHistoryToggle"
-            type="button"
-            onclick="event.stopPropagation(); toggleQuestHistory();"
-        >
-            −
-        </button>
-
+        <div class="quest-history-title">QUEST HISTORY</div>
+        <button class="quest-history-toggle" id="questHistoryToggle">−</button>
     </div>
 
-
-    <div class="quest-history-content">
-
-
-        <!-- QUEST 1 -->
-
-        <div class="history-item">
-
-            <div class="history-number">
-                QUEST #1
-            </div>
-
-            <div class="history-text">
-                مهمة الحين إلى إعصار 8 مباشرة حالات ساندي وبوليتو، مروري أو جنائي.
-            </div>
-
-        </div>
-
-
-        <!-- QUEST 2 -->
-
-        <div class="history-item">
-
-            <div class="history-number">
-                QUEST #2
-            </div>
-
-            <div class="history-text">
-                مباشرة حالات مرورية وجنائية في ساندي وإرفاق صورة بعد الانتهاء من الحالة مع الوحدات المشاركة من السكواد.
-            </div>
-
-        </div>
-
-
-        <!-- QUEST 3 -->
-
-        <div class="history-item">
-
-            <div class="history-number">
-                QUEST #3
-            </div>
-
-            <div class="history-text">
-                إعطاء غرامات مالية وما تقل عن 15 غرامة مع الإثبات.
-            </div>
-
-        </div>
-
-
-        <!-- QUEST 4 -->
-
-        <div class="history-item">
-
-            <div class="history-number">
-                QUEST #4
-            </div>
-
-            <div class="history-text">
-                كتابة 10 تقارير مميزة لحالات جنائية بشكل احترافي مع شمول جميع جوانب التقرير:
-                السرد، الملاحظات، العساكر المشاركين، الأدلة، وغيرها.
-            </div>
-
-        </div>
-
-
-        <!-- QUEST 5 -->
-
-        <div class="history-item">
-
-            <div class="history-number">
-                QUEST #5
-            </div>
-
-            <div class="history-text">
-                تحدي اليوم: مباشرة 5 حالات Parking Meter + 3 حالات بقالة + حالة منزل واحدة.
-                <br><br>
-                ملاحظة: الحالة تكون ناجحة مع الاحترافية بالحالة.
-                <br><br>
-                إرفاق أسماء المشاركين بالحالة من نفس الفرقة، والتحدي يرسل من قبل شخص واحد فقط.
-            </div>
-
-        </div>
-
-
-        <!-- QUEST 6 -->
-
-        <div class="history-item">
-
-            <div class="history-number">
-                QUEST #6
-            </div>
-
-            <div class="history-text">
-                التحدي الثاني: مباشرة 3 حالات بساندي + 4 حالات Parking Meter وأعلى Plus.
-                <br><br>
-                ملاحظة: الحالة تكون ناجحة مع الاحترافية بالحالة.
-                <br><br>
-                إرفاق أسماء المشاركين بالحالة من نفس الفرقة، والتحدي يرسل من قبل شخص واحد فقط.
-            </div>
-
-        </div>
-
-
-        <!-- QUEST 7 -->
-
-        <div class="history-item">
-
-            <div class="history-number">
-                QUEST #7
-            </div>
-
-            <div class="history-text">
-                التحدي الثالث: استلام الـDispatch لمدة ساعة + 3 حالات بقالة Plus.
-                <br><br>
-                ملاحظة: الحالة تكون ناجحة مع الاحترافية بالحالة.
-                <br><br>
-                إرفاق أسماء المشاركين بالحالة من نفس الفرقة، والتحدي يرسل من قبل شخص واحد فقط.
-            </div>
-
-        </div>
-
-
-        <!-- QUEST 8 -->
-
-        <div class="history-item">
-
-            <div class="history-number">
-                QUEST #8
-            </div>
-
-            <div class="history-text">
-                التحدي الرابع: مباشرة 5 حالات استيقاف مروري + 2 حالة بقالة.
-                <br><br>
-                ملاحظة: الحالة تكون ناجحة مع الاحترافية بالحالة.
-                <br><br>
-                إرفاق أسماء المشاركين بالحالة من نفس الفرقة، والتحدي يرسل من قبل شخص واحد فقط.
-            </div>
-
-        </div>
-
-
-        <!-- QUEST 9 -->
-
-        <div class="history-item active-history">
-
-            <div class="history-number">
-                QUEST #9 • CURRENT
-            </div>
-
-            <div class="history-text">
-                التحدي: 3 حالات بيوت + 2 حالة بقالة.
-                <br><br>
-                ملاحظة: الحالة تكون ناجحة مع الاحترافية بالحالة.
-                <br><br>
-                إرفاق أسماء المشاركين بالحالة من نفس الفرقة، والتحدي يرسل من قبل شخص واحد فقط.
-            </div>
-
-        </div>
-
-    </div>
+    <div class="quest-history-content" id="questHistoryContent"></div>
 
 </div>
 
+
+<!-- MAIN -->
 
 <div class="container">
 
@@ -1104,50 +985,26 @@ body{
 </div>
 
 
-<!-- ==================================================
-     HOME
-================================================== -->
+<!-- HOME -->
 
-<div id="homePage">
+<div id="homePage" class="page active">
 
     <div class="section-title">CHALLENGES</div>
 
-    <div class="quest-grid">
-
-        <div class="quest-card" onclick="showClosedQuestsPage()">
-            <div class="quest-number">COMPLETED CHALLENGES</div>
-            <h2>CLOSED QUEST</h2>
-            <p>QUEST #5 • QUEST #6 • QUEST #7 • QUEST #8</p>
-            <div class="quest-status complete">4 QUESTS CLOSED</div>
-        </div>
-
-        <div class="quest-card" onclick="showQuest9()">
-            <div class="quest-number">#9 QUEST</div>
-            <h2>QUEST #9</h2>
-            <p>FROM AMINE MORGAN</p>
-            <div class="quest-status">NEW CHALLENGE</div>
-        </div>
-
-    </div>
+    <div id="questGrid" class="quest-grid"></div>
 
 
     <div class="section-title">BRAVO SQUAD MEMBERS</div>
 
 
-    <!-- SEARCH -->
-
     <div class="member-search-wrap">
 
         <input
-            type="text"
             id="memberSearch"
             class="member-search"
-            placeholder="Search by name, RP name or callsign..."
-            autocomplete="off"
-            oninput="searchMembers()"
+            placeholder="Search by Discord name, RP name or callsign..."
+            oninput="renderMembers()"
         >
-
-        <div class="search-icon">⌕</div>
 
         <div class="search-info">
             Example: Amine • Lucas • 392 • 387
@@ -1156,388 +1013,23 @@ body{
     </div>
 
 
-    <div id="noMemberResults" class="no-results">
+    <div id="noResults" class="no-results">
         No Bravo Squad member found.
     </div>
 
 
-    <!-- TOP 3 -->
+    <div id="leadersGrid" class="leaders-grid"></div>
 
-    <div class="leaders-grid" id="leadersGrid">
-
-        <div class="top-member searchable-member"
-             data-search="dark abdulilah nawaf 209"
-             onclick="showMemberProfile('dark')">
-
-            <div class="member-name">Dark — Abdulilah Nawaf</div>
-            <div class="member-rank">Sergeant • Police Wings Management</div>
-            <div class="member-wings">Airship • Motorcycle • Negotiator</div>
-            <div class="member-callsign">Callsign: 209</div>
-
-        </div>
-
-
-        <div class="top-member searchable-member"
-             data-search="feras feras binomar 302"
-             onclick="showMemberProfile('feras')">
-
-            <div class="member-name">Feras — Feras BinOmar</div>
-            <div class="member-rank">Senior Lead Officer • Police Academy Section Leader</div>
-            <div class="member-wings">Airship • Motorcycle • Negotiator</div>
-            <div class="member-callsign">Callsign: 302</div>
-
-        </div>
-
-
-        <div class="top-member searchable-member"
-             data-search="qassim shaheen hamad 310"
-             onclick="showMemberProfile('qassim')">
-
-            <div class="member-name">Qassim — Shaheen Hamad</div>
-            <div class="member-rank">Senior Officer • Internal Affairs Management</div>
-            <div class="member-wings">Airship • Motorcycle • Negotiator</div>
-            <div class="member-callsign">Callsign: 310</div>
-
-        </div>
-
-    </div>
-
-
-    <!-- MEMBERS -->
-
-    <div class="members-grid" id="membersGrid">
-
-        <div class="member searchable-member"
-             data-search="7sosah hossam almutairi 312"
-             onclick="showMemberProfile('hossam')">
-            <div class="member-name">7sosah</div>
-            <div class="member-rp">HOSSAM ALMUTAIRI</div>
-            <div class="member-callsign">Callsign: 312</div>
-        </div>
-
-        <div class="member searchable-member"
-             data-search="baa bader abdullah 316"
-             onclick="showMemberProfile('baa')">
-            <div class="member-name">BAA</div>
-            <div class="member-rp">Bader Abdullah</div>
-            <div class="member-callsign">Callsign: 316</div>
-        </div>
-
-        <div class="member searchable-member"
-             data-search="orewasaad jin freecs 323"
-             onclick="showMemberProfile('jin')">
-            <div class="member-name">OrewaSaad</div>
-            <div class="member-rp">Jin Freecs</div>
-            <div class="member-callsign">Callsign: 323</div>
-        </div>
-
-        <div class="member searchable-member"
-             data-search="faisal jummah alzahrani 325"
-             onclick="showMemberProfile('jummah')">
-            <div class="member-name">FAISAL</div>
-            <div class="member-rp">JUMMAH ALZAHRANI</div>
-            <div class="member-callsign">Callsign: 325</div>
-        </div>
-
-        <div class="member searchable-member"
-             data-search="mt realweep thiago morgan 326"
-             onclick="showMemberProfile('thiago')">
-            <div class="member-name">MT | RealWeep</div>
-            <div class="member-rp">Thiago Morgan</div>
-            <div class="member-callsign">Callsign: 326</div>
-        </div>
-
-        <div class="member searchable-member"
-             data-search="attaf abdullah attaf 327"
-             onclick="showMemberProfile('attaf')">
-            <div class="member-name">! Attaf</div>
-            <div class="member-rp">Abdullah Attaf</div>
-            <div class="member-callsign">Callsign: 327</div>
-        </div>
-
-        <div class="member searchable-member"
-             data-search="mt3b void barrett 335"
-             onclick="showMemberProfile('void')">
-            <div class="member-name">M T 3 B</div>
-            <div class="member-rp">VOID Barrett</div>
-            <div class="member-callsign">Callsign: 335</div>
-        </div>
-
-        <div class="member searchable-member"
-             data-search="raedd raed ibrahim 371"
-             onclick="showMemberProfile('raedd')">
-            <div class="member-name">RAedd</div>
-            <div class="member-rp">Raedd Ibrahim</div>
-            <div class="member-callsign">Callsign: 371</div>
-        </div>
-
-        <div class="member searchable-member"
-             data-search="mario mario smith 355"
-             onclick="showMemberProfile('mario')">
-            <div class="member-name">Mario</div>
-            <div class="member-rp">Mario Smith</div>
-            <div class="member-callsign">Callsign: 355</div>
-        </div>
-
-        <div class="member searchable-member"
-             data-search="dktrr ahmed al qahtani 352"
-             onclick="showMemberProfile('ahmed')">
-            <div class="member-name">Dktrr</div>
-            <div class="member-rp">Ahmed Al-Qahtani</div>
-            <div class="member-callsign">Callsign: 352</div>
-        </div>
-
-        <div class="member searchable-member"
-             data-search="layla layla almutairi 351"
-             onclick="showMemberProfile('layla')">
-            <div class="member-name">Layla</div>
-            <div class="member-rp">Layla Almutairi</div>
-            <div class="member-callsign">Callsign: 351</div>
-        </div>
-
-        <div class="member searchable-member"
-             data-search="rayan shilaywayh alharbi 366"
-             onclick="showMemberProfile('rayan')">
-            <div class="member-name">RAYAN</div>
-            <div class="member-rp">SHILAYWAYH ALHARBI</div>
-            <div class="member-callsign">Callsign: 366</div>
-        </div>
-
-        <div class="member searchable-member"
-             data-search="faisal failachwe 363"
-             onclick="showMemberProfile('faisalFailachwe')">
-            <div class="member-name">FAISAL</div>
-            <div class="member-rp">Faisal Failachwe</div>
-            <div class="member-callsign">Callsign: 363</div>
-        </div>
-
-        <div class="member searchable-member"
-             data-search="nf3a nawaf abdullah 367"
-             onclick="showMemberProfile('nf3a')">
-            <div class="member-name">NF3A</div>
-            <div class="member-rp">Nawaf Abdullah</div>
-            <div class="member-callsign">Callsign: 367</div>
-        </div>
-
-        <div class="member searchable-member"
-             data-search="baraa baraa chandler 377"
-             onclick="showMemberProfile('baraa')">
-            <div class="member-name">! Bara'a</div>
-            <div class="member-rp">Baraa Chandler</div>
-            <div class="member-callsign">Callsign: 377</div>
-        </div>
-
-        <div class="member searchable-member"
-             data-search="rashed rashed alharbi 379"
-             onclick="showMemberProfile('rashed')">
-            <div class="member-name">Rashed</div>
-            <div class="member-rp">Rashed AlHarbi</div>
-            <div class="member-callsign">Callsign: 379</div>
-        </div>
-
-        <div class="member searchable-member"
-             data-search="abdullah abdullah al zahrani 380"
-             onclick="showMemberProfile('abdullahZ')">
-            <div class="member-name">Abdullah</div>
-            <div class="member-rp">Abdullah Al-Zahrani</div>
-            <div class="member-callsign">Callsign: 380</div>
-        </div>
-
-        <div class="member searchable-member"
-             data-search="bin talal mohammed talal 382"
-             onclick="showMemberProfile('binTalal')">
-            <div class="member-name">Bin Talal</div>
-            <div class="member-rp">Mohammed Talal</div>
-            <div class="member-callsign">Callsign: 382</div>
-        </div>
-
-        <div class="member searchable-member"
-             data-search="faisal alshehri 399"
-             onclick="showMemberProfile('faisalAlshehri')">
-            <div class="member-name">Faisal</div>
-            <div class="member-rp">Faisal Alshehri</div>
-            <div class="member-callsign">Callsign: 399</div>
-        </div>
-
-        <div class="member searchable-member"
-             data-search="mt tom tom chandler 362"
-             onclick="showMemberProfile('tom')">
-            <div class="member-name">MT | Tom</div>
-            <div class="member-rp">Tom Chandler</div>
-            <div class="member-callsign">Callsign: 362</div>
-        </div>
-
-        <div class="member searchable-member"
-             data-search="amine mxh amine morgan 392"
-             onclick="showMemberProfile('amine')">
-            <div class="member-name">Amine_MxH</div>
-            <div class="member-rp">Amine Morgan</div>
-            <div class="member-callsign">Callsign: 392</div>
-        </div>
-
-        <div class="member searchable-member"
-             data-search="vnx lucas hod 387"
-             onclick="showMemberProfile('vnx')">
-            <div class="member-name">V N X</div>
-            <div class="member-rp">Lucas Hod</div>
-            <div class="member-callsign">Callsign: 387</div>
-        </div>
-
-        <div class="member searchable-member"
-             data-search="abu saleh david rick 418"
-             onclick="showMemberProfile('abuSaleh')">
-            <div class="member-name">Abu Saleh</div>
-            <div class="member-rp">David Rick</div>
-            <div class="member-callsign">Callsign: 418</div>
-        </div>
-
-        <div class="member searchable-member"
-             data-search="d7i abdulrahman al hakami 427"
-             onclick="showMemberProfile('d7i')">
-            <div class="member-name">D7i</div>
-            <div class="member-rp">Abdulrahman Al-Hakami</div>
-            <div class="member-callsign">Callsign: 427</div>
-        </div>
-
-        <div class="member searchable-member"
-             data-search="tea thaar alotaibi 442"
-             onclick="showMemberProfile('thaar')">
-            <div class="member-name">Tea</div>
-            <div class="member-rp">Thaar Alotaibi</div>
-            <div class="member-callsign">Callsign: 442</div>
-        </div>
-
-        <div class="member searchable-member"
-             data-search="966abdullah ghyath aldossary 452"
-             onclick="showMemberProfile('abdullah966')">
-            <div class="member-name">966abdullah</div>
-            <div class="member-rp">GHYATH ALDOSSARY</div>
-            <div class="member-callsign">Callsign: 452</div>
-        </div>
-
-        <div class="member searchable-member"
-             data-search="saad saad alsubaie 460"
-             onclick="showMemberProfile('saad')">
-            <div class="member-name">sAAD</div>
-            <div class="member-rp">Saad Alsubaie</div>
-            <div class="member-callsign">Callsign: 460</div>
-        </div>
-
-        <div class="member searchable-member"
-             data-search="tariq tariq waleed 453"
-             onclick="showMemberProfile('tariq')">
-            <div class="member-name">Tariq</div>
-            <div class="member-rp">Tariq Waleed</div>
-            <div class="member-callsign">Callsign: 453</div>
-        </div>
-
-        <div class="member searchable-member"
-             data-search="na y52 yazeed meshal 456"
-             onclick="showMemberProfile('yazeedMeshal')">
-            <div class="member-name">NA_Y52</div>
-            <div class="member-rp">Yazeed Meshal</div>
-            <div class="member-callsign">Callsign: 456</div>
-        </div>
-
-        <div class="member searchable-member"
-             data-search="botangy lattam bobsheet 390"
-             onclick="showMemberProfile('botangy')">
-            <div class="member-name">Botangy</div>
-            <div class="member-rp">Lattam Bobsheet</div>
-            <div class="member-callsign">Callsign: 390</div>
-        </div>
-
-        <div class="member searchable-member"
-             data-search="br1ghtside kai proctor 391"
-             onclick="showMemberProfile('brightSide')">
-            <div class="member-name">Br1ghtSide</div>
-            <div class="member-rp">Kai Proctor</div>
-            <div class="member-callsign">Callsign: 391</div>
-        </div>
-
-        <div class="member searchable-member"
-             data-search="wolf omar almutairi">
-            <div class="member-name">WOLF</div>
-            <div class="member-rp">Omar AlMutairi</div>
-            <div class="member-callsign">Callsign: —</div>
-        </div>
-
-        <div class="member searchable-member"
-             data-search="alhajri mohammed alhajri 436"
-             onclick="showMemberProfile('alhajri')">
-            <div class="member-name">Alhajri</div>
-            <div class="member-rp">MOHAMMED ALHAJRI</div>
-            <div class="member-callsign">Callsign: 436</div>
-        </div>
-
-        <div class="member searchable-member"
-             data-search="aj mohammed alhajri 436"
-             onclick="showMemberProfile('alhajri')">
-            <div class="member-name">AJ</div>
-            <div class="member-rp">MOHAMMED ALHAJRI</div>
-            <div class="member-callsign">Callsign: 436</div>
-        </div>
-
-        <div class="member searchable-member"
-             data-search="rio rayan al harbi 443"
-             onclick="showMemberProfile('rio')">
-            <div class="member-name">! Rï0</div>
-            <div class="member-rp">Rayan Al-Harbi</div>
-            <div class="member-callsign">Callsign: 443</div>
-        </div>
-
-        <div class="member searchable-member"
-             data-search="shgardii mohammed almerri 439"
-             onclick="showMemberProfile('shgardii')">
-            <div class="member-name">Shgardii</div>
-            <div class="member-rp">Mohammed Almerri</div>
-            <div class="member-callsign">Callsign: 439</div>
-        </div>
-
-        <div class="member searchable-member"
-             data-search="hasan hasan alsharif 406"
-             onclick="showMemberProfile('hasan')">
-            <div class="member-name">Hasan</div>
-            <div class="member-rp">Hasan Alsharif</div>
-            <div class="member-callsign">Callsign: 406</div>
-        </div>
-
-        <div class="member searchable-member"
-             data-search="fly robert navarro 398"
-             onclick="showMemberProfile('fly')">
-            <div class="member-name">! Fly</div>
-            <div class="member-rp">Robert Navarro</div>
-            <div class="member-callsign">Callsign: 398</div>
-        </div>
-
-        <div class="member searchable-member"
-             data-search="musaad musaad binabdullah 421"
-             onclick="showMemberProfile('musaad')">
-            <div class="member-name">Musaad</div>
-            <div class="member-rp">Musaad BinAbdullah</div>
-            <div class="member-callsign">Callsign: 421</div>
-        </div>
-
-        <div class="member searchable-member"
-             data-search="os qr2 zeyad omar 417"
-             onclick="showMemberProfile('zeyad')">
-            <div class="member-name">!os.qr2</div>
-            <div class="member-rp">Zeyad Omar</div>
-            <div class="member-callsign">Callsign: 417</div>
-        </div>
-
-    </div>
+    <div id="membersGrid" class="members-grid"></div>
 
 </div>
 
 
-<!-- ==================================================
-     CLOSED QUESTS
-================================================== -->
+<!-- CLOSED QUESTS -->
 
-<div id="closedQuestsPage" class="quest-page">
+<div id="closedPage" class="page">
 
-    <button class="back-btn" onclick="closeAll()">← BACK</button>
+    <button class="back-btn" onclick="showHome()">← BACK</button>
 
     <div class="page-header">
         <div class="badge">COMPLETED</div>
@@ -1545,48 +1037,16 @@ body{
         <p>Completed Bravo Squad Challenges</p>
     </div>
 
-    <div class="case-grid">
-
-        <div class="case-card" onclick="showClosedQuest()">
-            <div class="case-number">QUEST 05</div>
-            <h3>QUEST #5</h3>
-            <div class="location">Mission Complete</div>
-            <span class="ready">CLOSED — 100%</span>
-        </div>
-
-        <div class="case-card" onclick="showClosedQuest()">
-            <div class="case-number">QUEST 06</div>
-            <h3>QUEST #6</h3>
-            <div class="location">Mission Complete</div>
-            <span class="ready">CLOSED — 100%</span>
-        </div>
-
-        <div class="case-card" onclick="showClosedQuest()">
-            <div class="case-number">QUEST 07</div>
-            <h3>QUEST #7</h3>
-            <div class="location">Mission Complete</div>
-            <span class="ready">CLOSED — 100%</span>
-        </div>
-
-        <div class="case-card" onclick="showClosedQuest()">
-            <div class="case-number">QUEST 08</div>
-            <h3>QUEST #8</h3>
-            <div class="location">Mission Complete</div>
-            <span class="ready">CLOSED — 100%</span>
-        </div>
-
-    </div>
+    <div id="closedQuestGrid" class="case-grid"></div>
 
 </div>
 
 
-<!-- ==================================================
-     QUEST 9
-================================================== -->
+<!-- QUEST 9 -->
 
-<div id="quest9Page" class="quest-page">
+<div id="quest9Page" class="page">
 
-    <button class="back-btn" onclick="closeAll()">← BACK</button>
+    <button class="back-btn" onclick="showHome()">← BACK</button>
 
     <div class="page-header">
         <div class="badge">QUEST #9</div>
@@ -1594,14 +1054,14 @@ body{
         <p>NEW CHALLENGE</p>
     </div>
 
-    <div class="quest7-grid">
+    <div class="quest-category-grid">
 
-        <div class="quest-category" onclick="showStore9()">
+        <div class="quest-category" onclick="showCategory('store')">
             <h3>Store Robbery</h3>
             <p>2 Store Robbery Cases</p>
         </div>
 
-        <div class="quest-category" onclick="showHouse9()">
+        <div class="quest-category" onclick="showCategory('house')">
             <h3>House Robbery</h3>
             <p>3 House Robbery Cases</p>
         </div>
@@ -1611,13 +1071,45 @@ body{
 </div>
 
 
-<!-- ==================================================
-     STORE ROBBERY
-================================================== -->
+<!-- GENERIC QUEST -->
 
-<div id="store9Page" class="quest-page">
+<div id="genericQuestPage" class="page">
 
-    <button class="back-btn" onclick="backToQuest9()">← BACK</button>
+    <button class="back-btn" onclick="showHome()">← BACK</button>
+
+    <div class="page-header">
+
+        <div class="badge" id="genericQuestBadge"></div>
+
+        <h2 id="genericQuestTitle"></h2>
+
+        <p id="genericQuestSubtitle"></p>
+
+    </div>
+
+    <div class="detail-box">
+
+        <div class="info-card full">
+
+            <h4>QUEST DESCRIPTION</h4>
+
+            <p
+                id="genericQuestDescription"
+                class="report"
+            ></p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- STORE -->
+
+<div id="storePage" class="page">
+
+    <button class="back-btn" onclick="showQuest9()">← BACK</button>
 
     <div class="page-header">
         <div class="badge">QUEST #9</div>
@@ -1625,53 +1117,16 @@ body{
         <p>2 STORE ROBBERY CASES</p>
     </div>
 
-    <div class="case-grid">
-
-        <div class="case-card" onclick="showCase('store9',1)">
-
-            <div class="case-number">CASE 01</div>
-            <h3>Store Robbery</h3>
-            <div class="location">Quest #9</div>
-
-            <img
-                class="case-preview"
-                src="https://cdn.discordapp.com/attachments/1541819520874709142/1548346974150074408/image.png?ex=6aa6b9fd&is=6aa5687d&hm=cd1e3774cb2c7caed040c9e56b9c41777e0b8a8db7d52a1a672e44165235fba6&"
-                alt="Store Robbery Case 1"
-            >
-
-            <span class="ready">VIEW CASE</span>
-
-        </div>
-
-
-        <div class="case-card" onclick="showCase('store9',2)">
-
-            <div class="case-number">CASE 02</div>
-            <h3>Store Robbery</h3>
-            <div class="location">Quest #9</div>
-
-            <img
-                class="case-preview"
-                src="https://cdn.discordapp.com/attachments/1541819520874709142/1548361885001322627/image.png?ex=6aa6c7e0&is=6aa57660&hm=c2ef0c66591b8280f6e79f224be76925a416e2ecfc6cbc197dd9a29bd5ad037a&"
-                alt="Store Robbery Case 2"
-            >
-
-            <span class="ready">VIEW CASE</span>
-
-        </div>
-
-    </div>
+    <div id="storeCases" class="case-grid"></div>
 
 </div>
 
 
-<!-- ==================================================
-     HOUSE ROBBERY
-================================================== -->
+<!-- HOUSE -->
 
-<div id="house9Page" class="quest-page">
+<div id="housePage" class="page">
 
-    <button class="back-btn" onclick="backToQuest9()">← BACK</button>
+    <button class="back-btn" onclick="showQuest9()">← BACK</button>
 
     <div class="page-header">
         <div class="badge">QUEST #9</div>
@@ -1679,87 +1134,80 @@ body{
         <p>3 HOUSE ROBBERY CASES</p>
     </div>
 
-    <div class="case-grid">
-
-        <div class="case-card">
-            <div class="case-number">CASE 01</div>
-            <h3>House Robbery</h3>
-            <div class="location">Quest #9</div>
-            <span class="pending">DETAILS PENDING</span>
-        </div>
-
-        <div class="case-card">
-            <div class="case-number">CASE 02</div>
-            <h3>House Robbery</h3>
-            <div class="location">Quest #9</div>
-            <span class="pending">DETAILS PENDING</span>
-        </div>
-
-        <div class="case-card">
-            <div class="case-number">CASE 03</div>
-            <h3>House Robbery</h3>
-            <div class="location">Quest #9</div>
-            <span class="pending">DETAILS PENDING</span>
-        </div>
-
-    </div>
+    <div id="houseCases" class="case-grid"></div>
 
 </div>
 
 
-<!-- ==================================================
-     DETAIL PAGE
-================================================== -->
+<!-- CASE DETAILS -->
 
-<div id="detailPage" class="detail-page">
+<div id="detailPage" class="page">
 
-    <button class="back-btn" onclick="backToCases()">← BACK</button>
+    <button class="back-btn" onclick="backFromCase()">← BACK</button>
 
     <div class="detail-box">
 
         <div class="detail-head">
 
             <div>
+
                 <h2 id="detailTitle"></h2>
-                <div class="detail-location" id="detailLocation"></div>
+
+                <div
+                    id="detailLocation"
+                    class="detail-location"
+                ></div>
+
             </div>
 
-            <div class="detail-status">VERIFIED</div>
+            <div class="detail-status">
+                VERIFIED
+            </div>
 
         </div>
+
 
         <div class="info-grid">
 
             <div class="info-card">
-                <h4>Fingerprint</h4>
+                <h4>FINGERPRINT</h4>
                 <p id="detailFingerprint"></p>
             </div>
 
             <div class="info-card">
-                <h4>Incident</h4>
+                <h4>INCIDENT</h4>
                 <p id="detailIncident"></p>
             </div>
 
             <div class="info-card">
-                <h4>Confiscated Items</h4>
+                <h4>CONFISCATED ITEMS</h4>
                 <ul id="detailItems"></ul>
             </div>
 
             <div class="info-card">
-                <h4>Team Members</h4>
+                <h4>TEAM MEMBERS</h4>
                 <p id="detailTeam"></p>
             </div>
 
             <div class="info-card full">
-                <h4>Intervention Report</h4>
+                <h4>INTERVENTION REPORT</h4>
                 <p id="detailReport" class="report"></p>
             </div>
 
         </div>
 
-        <div id="evidenceSection">
-            <div class="evidence-title">EVIDENCE</div>
-            <div id="detailGallery" class="gallery"></div>
+
+        <div id="evidenceBlock">
+
+            <div class="section-title">
+                EVIDENCE
+            </div>
+
+            <div
+                id="detailGallery"
+                class="gallery"
+            ></div>
+
         </div>
 
     </div>
@@ -1769,42 +1217,25 @@ body{
 </div>
 
 
-<!-- ==================================================
-     CLOSED MODAL
-================================================== -->
+<!-- PROFILE -->
 
-<div id="closedModal" class="closed-modal">
+<div id="profileModal" class="modal">
 
-    <div class="closed-box">
+    <div class="modal-box">
 
-        <div class="close" onclick="closeClosedQuest()">×</div>
-
-        <h2>QUEST CLOSED</h2>
-
-        <p>
-            This challenge has already been completed.
-            <br><br>
-            <strong class="success">MISSION COMPLETE — 100%</strong>
-        </p>
-
-    </div>
-
-</div>
-
-
-<!-- ==================================================
-     PROFILE MODAL
-================================================== -->
-
-<div id="profileModal" class="profile-modal">
-
-    <div class="profile-box">
-
-        <div class="close" onclick="closeProfile()">×</div>
+        <div
+            class="close"
+            onclick="closeProfile()"
+        >
+            ×
+        </div>
 
         <h2 id="profileDiscord"></h2>
 
-        <div class="rp" id="profileRP"></div>
+        <div
+            id="profileRP"
+            class="profile-rp"
+        ></div>
 
         <div class="profile-info">
 
@@ -1840,555 +1271,1961 @@ body{
 </div>
 
 
+<!-- LIGHTBOX -->
+
+<div
+    id="lightbox"
+    class="modal"
+    onclick="closeLightbox()"
+>
+
+    <img id="lightboxImage">
+
+</div>
+
+
+<!-- ADMIN LOGIN -->
+
+<div id="adminLoginModal" class="modal">
+
+    <div class="modal-box">
+
+        <div
+            class="close"
+            onclick="closeAdminLogin()"
+        >
+            ×
+        </div>
+
+        <div class="badge">
+            PRIVATE AREA
+        </div>
+
+        <h2>Admin Login</h2>
+
+        <p style="
+            color:#7f8b9e;
+            font-size:12px;
+            margin:10px 0 20px;
+        ">
+            BRAVO CHALLENGE Administration
+        </p>
+
+        <input
+            id="adminPassword"
+            class="admin-input"
+            type="password"
+            placeholder="Admin password"
+            onkeydown="
+                if(event.key==='Enter'){
+                    adminLogin()
+                }
+            "
+        >
+
+        <button
+            class="admin-button success"
+            style="
+                width:100%;
+                margin-top:12px;
+            "
+            onclick="adminLogin()"
+        >
+            LOGIN
+        </button>
+
+        <div
+            id="adminLoginError"
+            class="admin-error"
+        ></div>
+
+    </div>
+
+</div>
+
+
 <!-- ==================================================
-     LIGHTBOX
+     ADMIN PANEL
 ================================================== -->
 
-<div id="lightbox" class="lightbox">
+<div
+    id="adminPanel"
+    class="admin-panel"
+>
 
-    <div class="close" onclick="closeLightbox()">×</div>
+<div class="admin-shell">
 
-    <img id="lightboxImage" src="" alt="Evidence">
 
+<div class="admin-topbar">
+
+    <div>
+
+        <div class="badge">
+            BRAVO ADMIN
+        </div>
+
+        <h1>Admin Panel</h1>
+
+        <p>
+            Control Bravo Challenge website.
+        </p>
+
+    </div>
+
+
+    <div class="admin-actions">
+
+        <button
+            class="admin-button success"
+            onclick="saveDatabase()"
+        >
+            SAVE
+        </button>
+
+        <button
+            class="admin-button"
+            onclick="closeAdminPanel()"
+        >
+            VIEW SITE
+        </button>
+
+        <button
+            class="admin-button danger"
+            onclick="adminLogout()"
+        >
+            LOGOUT
+        </button>
+
+    </div>
+
+</div>
+
+
+<div class="admin-layout">
+
+
+<!-- SIDEBAR -->
+
+<div class="admin-sidebar">
+
+    <button
+        class="admin-nav active"
+        onclick="showAdminPage('dashboard',this)"
+    >
+        Dashboard
+    </button>
+
+    <button
+        class="admin-nav"
+        onclick="showAdminPage('questmanager',this)"
+    >
+        Quest Manager
+    </button>
+
+    <button
+        class="admin-nav"
+        onclick="showAdminPage('members',this)"
+    >
+        Members
+    </button>
+
+    <button
+        class="admin-nav"
+        onclick="showAdminPage('cases',this)"
+    >
+        Cases
+    </button>
+
+    <button
+        class="admin-nav"
+        onclick="showAdminPage('history',this)"
+    >
+        Quest History
+    </button>
+
+</div>
+
+
+<div class="admin-content">
+
+
+<!-- DASHBOARD -->
+
+<div
+    id="admin-dashboard"
+    class="admin-section active"
+>
+
+    <div class="admin-stats">
+
+        <div class="admin-stat">
+            <strong id="statMembers">0</strong>
+            <span>Squad Members</span>
+        </div>
+
+        <div class="admin-stat">
+            <strong id="statCases">0</strong>
+            <span>Cases</span>
+        </div>
+
+        <div class="admin-stat">
+            <strong id="statHistory">0</strong>
+            <span>History Quests</span>
+        </div>
+
+        <div class="admin-stat">
+            <strong id="statQuestCards">0</strong>
+            <span>Quest Cards</span>
+        </div>
+
+    </div>
+
+
+    <div class="admin-card" style="margin-top:16px;">
+
+        <h3>Test Admin Panel</h3>
+
+        <p class="admin-note">
+            التغييرات كيتخزنو فـlocalStorage ديال هاد المتصفح.
+        </p>
+
+        <button
+            class="admin-button danger"
+            onclick="resetDatabase()"
+        >
+            RESET TEST DATA
+        </button>
+
+    </div>
+
+</div>
+
+
+<!-- ==================================================
+     QUEST MANAGER
+================================================== -->
+
+<div
+    id="admin-questmanager"
+    class="admin-section"
+>
+
+    <div class="admin-card">
+
+        <h3>Add / Edit Quest Card</h3>
+
+        <p class="admin-note">
+            من هنا تقدر تزيد Quest #10, #11...
+            وغادي تبان أوتوماتيكياً فالرئيسية.
+        </p>
+
+        <input
+            id="questCardEditId"
+            type="hidden"
+        >
+
+
+        <div class="admin-form-grid">
+
+
+            <div class="admin-field">
+
+                <label>QUEST NUMBER</label>
+
+                <input
+                    id="admQuestCardNumber"
+                    class="admin-input"
+                    type="number"
+                    placeholder="10"
+                >
+
+            </div>
+
+
+            <div class="admin-field">
+
+                <label>STATUS</label>
+
+                <select
+                    id="admQuestCardStatus"
+                    class="admin-select"
+                >
+
+                    <option value="active">
+                        ACTIVE
+                    </option>
+
+                    <option value="closed">
+                        CLOSED
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="admin-field">
+
+                <label>TITLE</label>
+
+                <input
+                    id="admQuestCardTitle"
+                    class="admin-input"
+                    placeholder="QUEST #10"
+                >
+
+            </div>
+
+
+            <div class="admin-field">
+
+                <label>SUBTITLE</label>
+
+                <input
+                    id="admQuestCardSubtitle"
+                    class="admin-input"
+                    placeholder="FROM AMINE MORGAN"
+                >
+
+            </div>
+
+
+            <div class="admin-field full">
+
+                <label>DESCRIPTION</label>
+
+                <textarea
+                    id="admQuestCardDescription"
+                    class="admin-textarea"
+                    placeholder="كتب التحدي هنا..."
+                ></textarea>
+
+            </div>
+
+
+        </div>
+
+
+        <div
+            style="
+                display:flex;
+                gap:8px;
+                margin-top:15px;
+            "
+        >
+
+            <button
+                class="admin-button success"
+                onclick="saveQuestCardFromAdmin()"
+            >
+                SAVE QUEST
+            </button>
+
+            <button
+                class="admin-button"
+                onclick="clearQuestCardForm()"
+            >
+                CLEAR
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="admin-card">
+
+        <h3>Quest Cards</h3>
+
+        <div
+            id="adminQuestCardList"
+            class="admin-list"
+        ></div>
+
+    </div>
+
+</div>
+
+
+<!-- MEMBERS -->
+
+<div
+    id="admin-members"
+    class="admin-section"
+>
+
+    <div class="admin-card">
+
+        <h3>Add / Edit Member</h3>
+
+        <input
+            id="memberEditKey"
+            type="hidden"
+        >
+
+        <div class="admin-form-grid">
+
+            <div class="admin-field">
+
+                <label>DISCORD NAME</label>
+
+                <input
+                    id="admDiscord"
+                    class="admin-input"
+                >
+
+            </div>
+
+            <div class="admin-field">
+
+                <label>RP NAME</label>
+
+                <input
+                    id="admRP"
+                    class="admin-input"
+                >
+
+            </div>
+
+            <div class="admin-field">
+
+                <label>CALLSIGN</label>
+
+                <input
+                    id="admCallsign"
+                    class="admin-input"
+                >
+
+            </div>
+
+            <div class="admin-field">
+
+                <label>RANK</label>
+
+                <input
+                    id="admRank"
+                    class="admin-input"
+                >
+
+            </div>
+
+            <div class="admin-field">
+
+                <label>MANAGEMENT</label>
+
+                <input
+                    id="admManagement"
+                    class="admin-input"
+                >
+
+            </div>
+
+            <div class="admin-field">
+
+                <label>WINGS</label>
+
+                <input
+                    id="admWings"
+                    class="admin-input"
+                >
+
+            </div>
+
+            <div class="admin-field">
+
+                <label>TOP MEMBER</label>
+
+                <select
+                    id="admTop"
+                    class="admin-select"
+                >
+
+                    <option value="false">
+                        No
+                    </option>
+
+                    <option value="true">
+                        Yes
+                    </option>
+
+                </select>
+
+            </div>
+
+        </div>
+
+
+        <div
+            style="
+                display:flex;
+                gap:8px;
+                margin-top:15px;
+            "
+        >
+
+            <button
+                class="admin-button success"
+                onclick="saveMemberFromAdmin()"
+            >
+                SAVE MEMBER
+            </button>
+
+            <button
+                class="admin-button"
+                onclick="clearMemberForm()"
+            >
+                CLEAR
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="admin-card">
+
+        <h3>Bravo Squad Members</h3>
+
+        <div
+            id="adminMemberList"
+            class="admin-list"
+        ></div>
+
+    </div>
+
+</div>
+
+
+<!-- CASES -->
+
+<div
+    id="admin-cases"
+    class="admin-section"
+>
+
+    <div class="admin-card">
+
+        <h3>Add / Edit Quest #9 Case</h3>
+
+        <input
+            id="caseEditId"
+            type="hidden"
+        >
+
+        <div class="admin-form-grid">
+
+            <div class="admin-field">
+
+                <label>CATEGORY</label>
+
+                <select
+                    id="admCaseCategory"
+                    class="admin-select"
+                >
+
+                    <option value="store">
+                        Store Robbery
+                    </option>
+
+                    <option value="house">
+                        House Robbery
+                    </option>
+
+                </select>
+
+            </div>
+
+            <div class="admin-field">
+
+                <label>CASE NUMBER</label>
+
+                <input
+                    id="admCaseNumber"
+                    class="admin-input"
+                    type="number"
+                >
+
+            </div>
+
+            <div class="admin-field">
+
+                <label>INCIDENT</label>
+
+                <input
+                    id="admCaseIncident"
+                    class="admin-input"
+                >
+
+            </div>
+
+            <div class="admin-field">
+
+                <label>LOCATION</label>
+
+                <input
+                    id="admCaseLocation"
+                    class="admin-input"
+                >
+
+            </div>
+
+            <div class="admin-field">
+
+                <label>FINGERPRINT</label>
+
+                <input
+                    id="admCaseFingerprint"
+                    class="admin-input"
+                >
+
+            </div>
+
+            <div class="admin-field">
+
+                <label>TEAM MEMBERS</label>
+
+                <input
+                    id="admCaseTeam"
+                    class="admin-input"
+                >
+
+            </div>
+
+            <div class="admin-field full">
+
+                <label>ITEMS</label>
+
+                <input
+                    id="admCaseItems"
+                    class="admin-input"
+                    placeholder="Cash, Lock Pick..."
+                >
+
+            </div>
+
+            <div class="admin-field full">
+
+                <label>REPORT</label>
+
+                <textarea
+                    id="admCaseReport"
+                    class="admin-textarea"
+                ></textarea>
+
+            </div>
+
+            <div class="admin-field full">
+
+                <label>IMAGE URLS — ONE PER LINE</label>
+
+                <textarea
+                    id="admCaseImages"
+                    class="admin-textarea"
+                ></textarea>
+
+            </div>
+
+        </div>
+
+
+        <div
+            style="
+                display:flex;
+                gap:8px;
+                margin-top:15px;
+            "
+        >
+
+            <button
+                class="admin-button success"
+                onclick="saveCaseFromAdmin()"
+            >
+                SAVE CASE
+            </button>
+
+            <button
+                class="admin-button"
+                onclick="clearCaseForm()"
+            >
+                CLEAR
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="admin-card">
+
+        <h3>Quest #9 Cases</h3>
+
+        <div
+            id="adminCaseList"
+            class="admin-list"
+        ></div>
+
+    </div>
+
+</div>
+
+
+<!-- HISTORY -->
+
+<div
+    id="admin-history"
+    class="admin-section"
+>
+
+    <div class="admin-card">
+
+        <h3>Edit Quest History</h3>
+
+        <input
+            id="historyEditIndex"
+            type="hidden"
+        >
+
+        <div class="admin-form-grid">
+
+            <div class="admin-field">
+
+                <label>QUEST NUMBER</label>
+
+                <input
+                    id="admHistoryNumber"
+                    class="admin-input"
+                    type="number"
+                >
+
+            </div>
+
+            <div class="admin-field">
+
+                <label>CURRENT</label>
+
+                <select
+                    id="admHistoryCurrent"
+                    class="admin-select"
+                >
+
+                    <option value="false">
+                        No
+                    </option>
+
+                    <option value="true">
+                        Yes
+                    </option>
+
+                </select>
+
+            </div>
+
+            <div class="admin-field full">
+
+                <label>DESCRIPTION</label>
+
+                <textarea
+                    id="admHistoryText"
+                    class="admin-textarea"
+                ></textarea>
+
+            </div>
+
+        </div>
+
+
+        <div
+            style="
+                display:flex;
+                gap:8px;
+                margin-top:15px;
+            "
+        >
+
+            <button
+                class="admin-button success"
+                onclick="saveHistoryFromAdmin()"
+            >
+                SAVE HISTORY
+            </button>
+
+            <button
+                class="admin-button"
+                onclick="clearHistoryForm()"
+            >
+                CLEAR
+            </button>
+
+        </div>
+
+    </div>
+
+
+    <div class="admin-card">
+
+        <h3>Quest History</h3>
+
+        <div
+            id="adminHistoryList"
+            class="admin-list"
+        ></div>
+
+    </div>
+
+</div>
+
+
+</div>
+</div>
+</div>
 </div>
 
 
 <script>
 
 /* ==================================================
-   QUEST HISTORY
+   SETTINGS
 ================================================== */
 
-function toggleQuestHistory(){
+const ADMIN_PASSWORD = "aminebravo2007!!";
 
-    const history=
-        document.getElementById("questHistory");
+const STORAGE_KEY =
+    "bravoChallengeDatabaseV2";
 
-    const button=
-        document.getElementById("questHistoryToggle");
 
-    history.classList.toggle("collapsed");
+/* ==================================================
+   DEFAULT DATABASE
+================================================== */
 
-    if(history.classList.contains("collapsed")){
-        button.textContent="+";
-    }else{
-        button.textContent="−";
+const DEFAULT_DB = {
+
+    questCards:[
+
+        {
+            id:"closed",
+            number:0,
+            title:"CLOSED QUEST",
+            subtitle:"QUEST #5 • QUEST #6 • QUEST #7 • QUEST #8",
+            description:"",
+            status:"system"
+        },
+
+        {
+            id:"quest9",
+            number:9,
+            title:"QUEST #9",
+            subtitle:"FROM AMINE MORGAN",
+            description:"3 حالات بيوت و 2 حالة بقالة",
+            status:"active"
+        }
+
+    ],
+
+
+    closedQuests:[
+        5,
+        6,
+        7,
+        8
+    ],
+
+
+    questHistory:[
+
+        {
+            number:1,
+            current:false,
+            text:"مهمه الحين الى اعصار 8 مباشره حالات ساندي و بوليتو مروري او جنائي"
+        },
+
+        {
+            number:2,
+            current:false,
+            text:"مباشرة حالات مرورية وجنائية في ساندي وارفاق صورة بعد الانتهاء من الحالة مع الوحدات المشاركة من السكواد"
+        },
+
+        {
+            number:3,
+            current:false,
+            text:"اعطاء غرامات مالية وما تقل عن 15 غرامة مع الاثبات"
+        },
+
+        {
+            number:4,
+            current:false,
+            text:"كتابة 10 تقارير مميزه لحالات جنائية بشكل احترافي مع شمول جميع جوانب التقرير"
+        },
+
+        {
+            number:5,
+            current:false,
+            text:"مباشرة 5 حالات باركنق ميتر + 3 حالات بقالة + حالة منزل"
+        },
+
+        {
+            number:6,
+            current:false,
+            text:"مباشرة 3 حالات بساندي + 4 حالات باركنق ميتر"
+        },
+
+        {
+            number:7,
+            current:false,
+            text:"استلام الديسباتش لمدة ساعة + 3 حالات بقالة بلوس"
+        },
+
+        {
+            number:8,
+            current:false,
+            text:"5 حالات استيقاف مروري + 2 حالة بقالة"
+        },
+
+        {
+            number:9,
+            current:true,
+            text:"3 حالات بيوت و 2 حالة بقالة"
+        }
+
+    ],
+
+
+    members:[
+
+        {
+            id:"dark",
+            discord:"Dark — Abdulilah Nawaf",
+            rp:"Abdulilah Nawaf",
+            callsign:"209",
+            rank:"Sergeant",
+            management:"Police Wings Management",
+            wings:"Airship • Motorcycle • Negotiator",
+            top:true
+        },
+
+        {
+            id:"feras",
+            discord:"Feras — Feras BinOmar",
+            rp:"Feras BinOmar",
+            callsign:"302",
+            rank:"Senior Lead Officer",
+            management:"Police Academy Section Leader",
+            wings:"Airship • Motorcycle • Negotiator",
+            top:true
+        },
+
+        {
+            id:"qassim",
+            discord:"Qassim — Shaheen Hamad",
+            rp:"Shaheen Hamad",
+            callsign:"310",
+            rank:"Senior Officer",
+            management:"Internal Affairs Management",
+            wings:"Airship • Motorcycle • Negotiator",
+            top:true
+        },
+
+        {
+            id:"hossam",
+            discord:"7sosah",
+            rp:"HOSSAM ALMUTAIRI",
+            callsign:"312",
+            rank:"Senior Officer",
+            management:"Police Academy Management",
+            wings:"Airship • Motorcycle • Negotiator",
+            top:false
+        },
+
+        {
+            id:"baa",
+            discord:"BAA",
+            rp:"Bader Abdullah",
+            callsign:"316",
+            rank:"Officer III",
+            management:"Internal Affairs Section Leader",
+            wings:"Airship • Motorcycle • Negotiator",
+            top:false
+        },
+
+        {
+            id:"jin",
+            discord:"OrewaSaad",
+            rp:"Jin Freecs",
+            callsign:"323",
+            rank:"Officer III",
+            management:"Police Academy",
+            wings:"Airship • Motorcycle • Negotiator",
+            top:false
+        },
+
+        {
+            id:"jummah",
+            discord:"FAISAL",
+            rp:"JUMMAH ALZAHRANI",
+            callsign:"325",
+            rank:"Officer III",
+            management:"Police Academy Section Leader",
+            wings:"Airship • Motorcycle • Negotiator",
+            top:false
+        },
+
+        {
+            id:"thiago",
+            discord:"MT | RealWeep",
+            rp:"Thiago Morgan",
+            callsign:"326",
+            rank:"Officer III",
+            management:"Wings",
+            wings:"Airship • Motorcycle • Negotiator",
+            top:false
+        },
+
+        {
+            id:"attaf",
+            discord:"! Attaf",
+            rp:"Abdullah Attaf",
+            callsign:"327",
+            rank:"Officer III",
+            management:"Police Academy",
+            wings:"Airship • Motorcycle • Negotiator",
+            top:false
+        },
+
+        {
+            id:"void",
+            discord:"M T 3 B",
+            rp:"VOID Barrett",
+            callsign:"335",
+            rank:"Officer III",
+            management:"—",
+            wings:"Airship • Motorcycle • Negotiator",
+            top:false
+        },
+
+        {
+            id:"layla",
+            discord:"Layla",
+            rp:"Layla Almutairi",
+            callsign:"351",
+            rank:"Officer II",
+            management:"D.B",
+            wings:"Airship • Motorcycle • Negotiator",
+            top:false
+        },
+
+        {
+            id:"ahmed",
+            discord:"Dktrr",
+            rp:"Ahmed Al-Qahtani",
+            callsign:"352",
+            rank:"Officer II",
+            management:"D.B",
+            wings:"Airship • Motorcycle • Negotiator",
+            top:false
+        },
+
+        {
+            id:"mario",
+            discord:"Mario",
+            rp:"Mario Smith",
+            callsign:"355",
+            rank:"Officer II",
+            management:"Wings",
+            wings:"Airship • Motorcycle • Negotiator",
+            top:false
+        },
+
+        {
+            id:"tom",
+            discord:"MT | Tom",
+            rp:"Tom Chandler",
+            callsign:"362",
+            rank:"Officer I",
+            management:"Internal Affairs Member",
+            wings:"Airship",
+            top:false
+        },
+
+        {
+            id:"faisalFailachwe",
+            discord:"FAISAL",
+            rp:"Faisal Failachwe",
+            callsign:"363",
+            rank:"Officer I",
+            management:"Police Wings Section Leader",
+            wings:"Airship • Motorcycle • Negotiator",
+            top:false
+        },
+
+        {
+            id:"rayan",
+            discord:"RAYAN",
+            rp:"SHILAYWAYH ALHARBI",
+            callsign:"366",
+            rank:"Officer I",
+            management:"—",
+            wings:"Airship • Negotiator",
+            top:false
+        },
+
+        {
+            id:"nf3a",
+            discord:"NF3A",
+            rp:"Nawaf Abdullah",
+            callsign:"367",
+            rank:"Officer I",
+            management:"Police Academy",
+            wings:"Airship • Negotiator",
+            top:false
+        },
+
+        {
+            id:"raedd",
+            discord:"RAedd",
+            rp:"Raedd Ibrahim",
+            callsign:"371",
+            rank:"Officer I",
+            management:"—",
+            wings:"Airship • Motorcycle • Negotiator",
+            top:false
+        },
+
+        {
+            id:"baraa",
+            discord:"! Bara'a",
+            rp:"Baraa Chandler",
+            callsign:"377",
+            rank:"Officer I",
+            management:"—",
+            wings:"No Wings",
+            top:false
+        },
+
+        {
+            id:"rashed",
+            discord:"Rashed",
+            rp:"Rashed AlHarbi",
+            callsign:"379",
+            rank:"Solo Cadet",
+            management:"Internal Affairs",
+            wings:"No Wings",
+            top:false
+        },
+
+        {
+            id:"abdullahZ",
+            discord:"Abdullah",
+            rp:"Abdullah Al-Zahrani",
+            callsign:"380",
+            rank:"Solo Cadet",
+            management:"—",
+            wings:"No Wings",
+            top:false
+        },
+
+        {
+            id:"binTalal",
+            discord:"Bin Talal",
+            rp:"Mohammed Talal",
+            callsign:"382",
+            rank:"Solo Cadet",
+            management:"—",
+            wings:"No Wings",
+            top:false
+        },
+
+        {
+            id:"vnx",
+            discord:"V N X",
+            rp:"Lucas Hod",
+            callsign:"387",
+            rank:"Solo Cadet",
+            management:"—",
+            wings:"No Wings",
+            top:false
+        },
+
+        {
+            id:"botangy",
+            discord:"Botangy",
+            rp:"Lattam Bobsheet",
+            callsign:"390",
+            rank:"Solo Cadet",
+            management:"—",
+            wings:"No Wings",
+            top:false
+        },
+
+        {
+            id:"brightSide",
+            discord:"Br1ghtSide",
+            rp:"Kai Proctor",
+            callsign:"391",
+            rank:"Solo Cadet",
+            management:"—",
+            wings:"No Wings",
+            top:false
+        },
+
+        {
+            id:"amine",
+            discord:"Amine_MxH",
+            rp:"Amine Morgan",
+            callsign:"392",
+            rank:"Solo Cadet",
+            management:"—",
+            wings:"Airship",
+            top:false
+        },
+
+        {
+            id:"fly",
+            discord:"! Fly",
+            rp:"Robert Navarro",
+            callsign:"398",
+            rank:"Solo Cadet",
+            management:"—",
+            wings:"No Wings",
+            top:false
+        },
+
+        {
+            id:"faisalAlshehri",
+            discord:"Faisal",
+            rp:"Faisal Alshehri",
+            callsign:"399",
+            rank:"Solo Cadet",
+            management:"—",
+            wings:"No Wings",
+            top:false
+        }
+
+    ],
+
+
+    cases:[
+
+        {
+            id:"store-1",
+            category:"store",
+            number:1,
+            incident:"Store Robbery",
+            location:"Quest #9",
+            fingerprint:"—",
+            team:"Lucas Hod — 387",
+            items:[],
+            report:"Store Robbery — Case 01",
+            images:[
+                "https://cdn.discordapp.com/attachments/1541819520874709142/1548346974150074408/image.png?ex=6aa6b9fd&is=6aa5687d&hm=cd1e3774cb2c7caed040c9e56b9c41777e0b8a8db7d52a1a672e44165235fba6&"
+            ]
+        },
+
+        {
+            id:"store-2",
+            category:"store",
+            number:2,
+            incident:"Store Robbery",
+            location:"Quest #9",
+            fingerprint:"—",
+            team:"Lucas Hod — 387 | Faisal Failachwe — 363",
+            items:[],
+            report:"Store Robbery — Case 02",
+            images:[
+                "https://cdn.discordapp.com/attachments/1541819520874709142/1548361885001322627/image.png?ex=6aa6c7e0&is=6aa57660&hm=c2ef0c66591b8280f6e79f224be76925a416e2ecfc6cbc197dd9a29bd5ad037a&"
+            ]
+        },
+
+        {
+            id:"house-1",
+            category:"house",
+            number:1,
+            incident:"House Robbery",
+            location:"Quest #9",
+            fingerprint:"—",
+            team:"—",
+            items:[],
+            report:"",
+            images:[]
+        },
+
+        {
+            id:"house-2",
+            category:"house",
+            number:2,
+            incident:"House Robbery",
+            location:"Quest #9",
+            fingerprint:"—",
+            team:"—",
+            items:[],
+            report:"",
+            images:[]
+        },
+
+        {
+            id:"house-3",
+            category:"house",
+            number:3,
+            incident:"House Robbery",
+            location:"Quest #9",
+            fingerprint:"—",
+            team:"—",
+            items:[],
+            report:"",
+            images:[]
+        }
+
+    ]
+
+};
+
+
+/* ==================================================
+   DATABASE
+================================================== */
+
+function cloneDefaultDatabase(){
+
+    return JSON.parse(
+        JSON.stringify(DEFAULT_DB)
+    );
+
+}
+
+
+function loadDatabase(){
+
+    const saved =
+        localStorage.getItem(STORAGE_KEY);
+
+    if(!saved){
+        return cloneDefaultDatabase();
+    }
+
+    try{
+
+        const parsed =
+            JSON.parse(saved);
+
+        if(!parsed.questCards){
+            parsed.questCards =
+                cloneDefaultDatabase().questCards;
+        }
+
+        return parsed;
+
+    }catch{
+
+        return cloneDefaultDatabase();
+
     }
 
 }
 
 
-/* ==================================================
-   SQUAD PROFILES
-================================================== */
-
-const squadProfiles={
-
-dark:{
-    discord:"Dark — Abdulilah Nawaf",
-    callsign:"209",
-    rank:"Sergeant",
-    management:"Police Wings Management",
-    wings:"Airship • Motorcycle • Negotiator",
-    rp:"Abdulilah Nawaf"
-},
-
-feras:{
-    discord:"Feras — Feras BinOmar",
-    callsign:"302",
-    rank:"Senior Lead Officer",
-    management:"Police Academy Section Leader",
-    wings:"Airship • Motorcycle • Negotiator",
-    rp:"Feras BinOmar"
-},
-
-qassim:{
-    discord:"Qassim — Shaheen Hamad",
-    callsign:"310",
-    rank:"Senior Officer",
-    management:"Internal Affairs Management",
-    wings:"Airship • Motorcycle • Negotiator",
-    rp:"Shaheen Hamad"
-},
-
-hossam:{
-    discord:"7sosah — HOSSAM ALMUTAIRI",
-    callsign:"312",
-    rank:"Senior Officer",
-    management:"Police Academy Management",
-    wings:"Airship • Motorcycle • Negotiator",
-    rp:"HOSSAM ALMUTAIRI"
-},
-
-baa:{
-    discord:"BAA — Bader Abdullah",
-    callsign:"316",
-    rank:"Officer III",
-    management:"Internal Affairs Section Leader",
-    wings:"Airship • Motorcycle • Negotiator",
-    rp:"Bader Abdullah"
-},
-
-jin:{
-    discord:"OrewaSaad — Jin Freecs",
-    callsign:"323",
-    rank:"Officer III",
-    management:"Police Academy",
-    wings:"Airship • Motorcycle • Negotiator",
-    rp:"Jin Freecs"
-},
-
-jummah:{
-    discord:"FAISAL — JUMMAH ALZAHRANI",
-    callsign:"325",
-    rank:"Officer III",
-    management:"Police Academy Section Leader",
-    wings:"Airship • Motorcycle • Negotiator",
-    rp:"JUMMAH ALZAHRANI"
-},
-
-thiago:{
-    discord:"MT | RealWeep — Thiago Morgan",
-    callsign:"326",
-    rank:"Officer III",
-    management:"Wings",
-    wings:"Airship • Motorcycle • Negotiator",
-    rp:"Thiago Morgan"
-},
-
-attaf:{
-    discord:"! Attaf — Abdullah Attaf",
-    callsign:"327",
-    rank:"Officer III",
-    management:"Police Academy",
-    wings:"Airship • Motorcycle • Negotiator",
-    rp:"Abdullah Attaf"
-},
-
-void:{
-    discord:"M T 3 B — VOID Barrett",
-    callsign:"335",
-    rank:"Officer III",
-    management:"—",
-    wings:"Airship • Motorcycle • Negotiator",
-    rp:"VOID Barrett"
-},
-
-raedd:{
-    discord:"RAedd — Raedd Ibrahim",
-    callsign:"371",
-    rank:"Officer I",
-    management:"—",
-    wings:"Airship • Motorcycle • Negotiator",
-    rp:"Raedd Ibrahim"
-},
-
-mario:{
-    discord:"Mario — Mario Smith",
-    callsign:"355",
-    rank:"Officer II",
-    management:"Wings",
-    wings:"Airship • Motorcycle • Negotiator",
-    rp:"Mario Smith"
-},
-
-ahmed:{
-    discord:"Dktrr — Ahmed Al-Qahtani",
-    callsign:"352",
-    rank:"Officer II",
-    management:"D.B",
-    wings:"Airship • Motorcycle • Negotiator",
-    rp:"Ahmed Al-Qahtani"
-},
-
-layla:{
-    discord:"Layla — Layla Almutairi",
-    callsign:"351",
-    rank:"Officer II",
-    management:"D.B",
-    wings:"Airship • Motorcycle • Negotiator",
-    rp:"Layla Almutairi"
-},
-
-rayan:{
-    discord:"RAYAN — SHILAYWAYH ALHARBI",
-    callsign:"366",
-    rank:"Officer I",
-    management:"—",
-    wings:"Airship • Negotiator",
-    rp:"SHILAYWAYH ALHARBI"
-},
-
-faisalFailachwe:{
-    discord:"FAISAL — Faisal Failachwe",
-    callsign:"363",
-    rank:"Officer I",
-    management:"Police Wings Section Leader",
-    wings:"Airship • Motorcycle • Negotiator",
-    rp:"Faisal Failachwe"
-},
-
-nf3a:{
-    discord:"NF3A — Nawaf Abdullah",
-    callsign:"367",
-    rank:"Officer I",
-    management:"Police Academy",
-    wings:"Airship • Negotiator",
-    rp:"Nawaf Abdullah"
-},
-
-baraa:{
-    discord:"! Bara'a — Baraa Chandler",
-    callsign:"377",
-    rank:"Officer I",
-    management:"—",
-    wings:"No Wings",
-    rp:"Baraa Chandler"
-},
-
-tom:{
-    discord:"MT | Tom — Tom Chandler",
-    callsign:"362",
-    rank:"Officer I",
-    management:"Internal Affairs Member",
-    wings:"Airship",
-    rp:"Tom Chandler"
-},
-
-rashed:{
-    discord:"Rashed — Rashed AlHarbi",
-    callsign:"379",
-    rank:"Solo Cadet",
-    management:"Internal Affairs",
-    wings:"No Wings",
-    rp:"Rashed AlHarbi"
-},
-
-abdullahZ:{
-    discord:"Abdullah — Abdullah Al-Zahrani",
-    callsign:"380",
-    rank:"Solo Cadet",
-    management:"—",
-    wings:"No Wings",
-    rp:"Abdullah Al-Zahrani"
-},
-
-binTalal:{
-    discord:"Bin Talal — Mohammed Talal",
-    callsign:"382",
-    rank:"Solo Cadet",
-    management:"—",
-    wings:"No Wings",
-    rp:"Mohammed Talal"
-},
-
-faisalAlshehri:{
-    discord:"Faisal — Faisal Alshehri",
-    callsign:"399",
-    rank:"Solo Cadet",
-    management:"—",
-    wings:"No Wings",
-    rp:"Faisal Alshehri"
-},
-
-vnx:{
-    discord:"V N X — Lucas Hod",
-    callsign:"387",
-    rank:"Solo Cadet",
-    management:"—",
-    wings:"No Wings",
-    rp:"Lucas Hod"
-},
-
-amine:{
-    discord:"Amine_MxH — Amine Morgan",
-    callsign:"392",
-    rank:"Solo Cadet",
-    management:"—",
-    wings:"Airship",
-    rp:"Amine Morgan"
-},
-
-abuSaleh:{
-    discord:"Abu Saleh — David Rick",
-    callsign:"418",
-    rank:"Solo Cadet",
-    management:"—",
-    wings:"No Wings",
-    rp:"David Rick"
-},
-
-d7i:{
-    discord:"D7i — Abdulrahman Al-Hakami",
-    callsign:"427",
-    rank:"Solo Cadet",
-    management:"—",
-    wings:"No Wings",
-    rp:"Abdulrahman Al-Hakami"
-},
-
-thaar:{
-    discord:"Tea — Thaar Alotaibi",
-    callsign:"442",
-    rank:"Solo Cadet",
-    management:"—",
-    wings:"No Wings",
-    rp:"Thaar Alotaibi"
-},
-
-abdullah966:{
-    discord:"966abdullah — GHYATH ALDOSSARY",
-    callsign:"452",
-    rank:"Solo Cadet",
-    management:"—",
-    wings:"No Wings",
-    rp:"GHYATH ALDOSSARY"
-},
-
-saad:{
-    discord:"sAAD — Saad Alsubaie",
-    callsign:"460",
-    rank:"Solo Cadet",
-    management:"—",
-    wings:"No Wings",
-    rp:"Saad Alsubaie"
-},
-
-tariq:{
-    discord:"Tariq — Tariq Waleed",
-    callsign:"453",
-    rank:"Solo Cadet",
-    management:"—",
-    wings:"No Wings",
-    rp:"Tariq Waleed"
-},
-
-yazeedMeshal:{
-    discord:"NA_Y52 — Yazeed Meshal",
-    callsign:"456",
-    rank:"Solo Cadet",
-    management:"—",
-    wings:"No Wings",
-    rp:"Yazeed Meshal"
-},
-
-botangy:{
-    discord:"Botangy — Lattam Bobsheet",
-    callsign:"390",
-    rank:"Solo Cadet",
-    management:"—",
-    wings:"No Wings",
-    rp:"Lattam Bobsheet"
-},
-
-brightSide:{
-    discord:"Br1ghtSide — Kai Proctor",
-    callsign:"391",
-    rank:"Solo Cadet",
-    management:"—",
-    wings:"No Wings",
-    rp:"Kai Proctor"
-},
-
-alhajri:{
-    discord:"MOHAMMED ALHAJRI",
-    callsign:"436",
-    rank:"Solo Cadet",
-    management:"—",
-    wings:"No Wings",
-    rp:"MOHAMMED ALHAJRI"
-},
-
-rio:{
-    discord:"! Rï0 — Rayan Al-Harbi",
-    callsign:"443",
-    rank:"Solo Cadet",
-    management:"—",
-    wings:"No Wings",
-    rp:"Rayan Al-Harbi"
-},
-
-shgardii:{
-    discord:"Shgardii — Mohammed Almerri",
-    callsign:"439",
-    rank:"Solo Cadet",
-    management:"—",
-    wings:"No Wings",
-    rp:"Mohammed Almerri"
-},
-
-hasan:{
-    discord:"Hasan — Hasan Alsharif",
-    callsign:"406",
-    rank:"Solo Cadet",
-    management:"—",
-    wings:"No Wings",
-    rp:"Hasan Alsharif"
-},
-
-fly:{
-    discord:"! Fly — Robert Navarro",
-    callsign:"398",
-    rank:"Solo Cadet",
-    management:"—",
-    wings:"No Wings",
-    rp:"Robert Navarro"
-},
-
-musaad:{
-    discord:"Musaad — Musaad BinAbdullah",
-    callsign:"421",
-    rank:"Solo Cadet",
-    management:"—",
-    wings:"No Wings",
-    rp:"Musaad BinAbdullah"
-},
-
-zeyad:{
-    discord:"!os.qr2 — Zeyad Omar",
-    callsign:"417",
-    rank:"Solo Cadet",
-    management:"—",
-    wings:"No Wings",
-    rp:"Zeyad Omar"
-}
-
-};
+let db =
+    loadDatabase();
 
 
-/* ==================================================
-   QUEST 9 CASES
-================================================== */
+function persist(){
 
-const cases={
+    localStorage.setItem(
+        STORAGE_KEY,
+        JSON.stringify(db)
+    );
 
-store9:{
-
-1:{
-    location:"Quest #9",
-    fingerprint:"—",
-    incident:"Store Robbery",
-    items:[],
-    team:"Lucas Hod — 387",
-
-    report:`Store Robbery — Case 01
-
-Team Member:
-Lucas Hod — 387
-
-تم توثيق الحالة والصورة ضمن Quest #9.
-
-سيتم إضافة البصمة والمحجوزات وتفاصيل التدخل الكاملة عند توفر التقرير.`,
-
-    images:[
-        "https://cdn.discordapp.com/attachments/1541819520874709142/1548346974150074408/image.png?ex=6aa6b9fd&is=6aa5687d&hm=cd1e3774cb2c7caed040c9e56b9c41777e0b8a8db7d52a1a672e44165235fba6&"
-    ]
-},
-
-2:{
-    location:"Quest #9",
-    fingerprint:"—",
-    incident:"Store Robbery",
-    items:[],
-    team:"Lucas Hod — 387 | Faisal Failachwe — 363",
-
-    report:`Store Robbery — Case 02
-
-Team Members:
-
-Lucas Hod — 387
-Faisal Failachwe — 363
-
-تم توثيق الحالة والصورة ضمن Quest #9.
-
-سيتم إضافة البصمة والمحجوزات وتفاصيل التدخل الكاملة عند توفر التقرير.`,
-
-    images:[
-        "https://cdn.discordapp.com/attachments/1541819520874709142/1548361885001322627/image.png?ex=6aa6c7e0&is=6aa57660&hm=c2ef0c66591b8280f6e79f224be76925a416e2ecfc6cbc197dd9a29bd5ad037a&"
-    ]
-}
+    refreshEverything();
 
 }
 
-};
+
+function saveDatabase(){
+
+    persist();
+
+    alert("Saved successfully.");
+
+}
+
+
+function resetDatabase(){
+
+    if(!confirm("Reset all test changes?")){
+        return;
+    }
+
+    db =
+        cloneDefaultDatabase();
+
+    localStorage.removeItem(
+        STORAGE_KEY
+    );
+
+    refreshEverything();
+
+}
 
 
 /* ==================================================
-   SEARCH
+   RENDER EVERYTHING
 ================================================== */
 
-function normalizeSearchText(text){
+function refreshEverything(){
 
-    return String(text)
+    renderQuestCards();
+    renderQuestHistory();
+    renderClosedQuests();
+    renderMembers();
+    renderCases();
+    renderAdmin();
+
+}
+
+
+/* ==================================================
+   QUEST CARDS
+================================================== */
+
+function renderQuestCards(){
+
+    const grid =
+        document.getElementById("questGrid");
+
+    grid.innerHTML="";
+
+
+    /* CLOSED CARD */
+
+    const closedCard =
+        document.createElement("div");
+
+    closedCard.className=
+        "quest-card";
+
+    closedCard.onclick=
+        showClosedQuests;
+
+    closedCard.innerHTML=`
+
+        <div class="quest-number">
+            COMPLETED CHALLENGES
+        </div>
+
+        <h2>
+            CLOSED QUEST
+        </h2>
+
+        <p>
+            ${
+                db.closedQuests
+                .map(number=>"QUEST #"+number)
+                .join(" • ")
+            }
+        </p>
+
+        <div class="quest-status complete">
+            ${db.closedQuests.length} QUESTS CLOSED
+        </div>
+
+    `;
+
+    grid.appendChild(
+        closedCard
+    );
+
+
+    /* ACTIVE QUESTS */
+
+    db.questCards
+    .filter(
+        quest=>
+            quest.status==="active" &&
+            quest.id!=="closed"
+    )
+    .sort(
+        (a,b)=>a.number-b.number
+    )
+    .forEach(quest=>{
+
+        const card =
+            document.createElement("div");
+
+        card.className=
+            "quest-card";
+
+        card.onclick=
+            ()=>openQuestCard(quest.id);
+
+        card.innerHTML=`
+
+            <div class="quest-number">
+                #${escapeHTML(quest.number)} QUEST
+            </div>
+
+            <h2>
+                ${escapeHTML(quest.title)}
+            </h2>
+
+            <p>
+                ${escapeHTML(quest.subtitle)}
+            </p>
+
+            <div class="quest-status">
+                NEW CHALLENGE
+            </div>
+
+        `;
+
+        grid.appendChild(card);
+
+    });
+
+}
+
+
+function openQuestCard(id){
+
+    if(id==="quest9"){
+
+        showQuest9();
+
+        return;
+
+    }
+
+
+    const quest =
+        db.questCards.find(
+            q=>q.id===id
+        );
+
+
+    if(!quest){
+        return;
+    }
+
+
+    hidePages();
+
+
+    document
+        .getElementById("genericQuestPage")
+        .classList.add("active");
+
+
+    document
+        .getElementById("genericQuestBadge")
+        .textContent=
+        "QUEST #"+quest.number;
+
+
+    document
+        .getElementById("genericQuestTitle")
+        .textContent=
+        quest.title;
+
+
+    document
+        .getElementById("genericQuestSubtitle")
+        .textContent=
+        quest.subtitle;
+
+
+    document
+        .getElementById("genericQuestDescription")
+        .textContent=
+        quest.description || "No description yet.";
+
+}
+
+
+/* ==================================================
+   QUEST HISTORY
+================================================== */
+
+function renderQuestHistory(){
+
+    const box =
+        document.getElementById(
+            "questHistoryContent"
+        );
+
+    box.innerHTML="";
+
+
+    [...db.questHistory]
+    .sort(
+        (a,b)=>a.number-b.number
+    )
+    .forEach(quest=>{
+
+        const item =
+            document.createElement("div");
+
+        item.className=
+            "history-item"+
+            (
+                quest.current
+                ? " current"
+                : ""
+            );
+
+
+        item.innerHTML=`
+
+            <div class="history-number">
+
+                QUEST #${quest.number}
+
+                ${
+                    quest.current
+                    ? " • CURRENT"
+                    : ""
+                }
+
+            </div>
+
+            <div class="history-text">
+                ${escapeHTML(quest.text)}
+            </div>
+
+        `;
+
+
+        box.appendChild(item);
+
+    });
+
+}
+
+
+/* ==================================================
+   CLOSED QUESTS
+================================================== */
+
+function renderClosedQuests(){
+
+    const grid =
+        document.getElementById(
+            "closedQuestGrid"
+        );
+
+    grid.innerHTML="";
+
+
+    db.closedQuests
+    .sort((a,b)=>a-b)
+    .forEach(number=>{
+
+        const card =
+            document.createElement("div");
+
+        card.className=
+            "case-card";
+
+
+        card.innerHTML=`
+
+            <div class="case-number">
+                QUEST ${String(number).padStart(2,"0")}
+            </div>
+
+            <h3>
+                QUEST #${number}
+            </h3>
+
+            <div class="location">
+                Mission Complete
+            </div>
+
+            <span class="ready">
+                CLOSED — 100%
+            </span>
+
+        `;
+
+
+        grid.appendChild(card);
+
+    });
+
+}
+
+
+/* ==================================================
+   MEMBERS
+================================================== */
+
+function normalize(text){
+
+    return String(text || "")
         .toLowerCase()
         .normalize("NFD")
         .replace(/[\u0300-\u036f]/g,"")
-        .replace(/[^a-z0-9\u0600-\u06ff]+/g," ")
+        .replace(
+            /[^a-z0-9\u0600-\u06ff]+/g,
+            " "
+        )
         .trim();
 
 }
 
 
-function searchMembers(){
+function renderMembers(){
 
-    const query=
-        normalizeSearchText(
-            document.getElementById("memberSearch").value
+    const search =
+        normalize(
+            document
+            .getElementById("memberSearch")
+            .value
         );
 
-    const members=
-        document.querySelectorAll(".searchable-member");
 
-    let visibleCount=0;
+    const leaders =
+        document
+        .getElementById("leadersGrid");
 
 
-    members.forEach(member=>{
+    const members =
+        document
+        .getElementById("membersGrid");
 
-        const searchableText=
-            normalizeSearchText(
-                member.dataset.search+" "+member.textContent
+
+    leaders.innerHTML="";
+    members.innerHTML="";
+
+
+    const filtered =
+        db.members.filter(member=>{
+
+            const data =
+                normalize(
+                    member.discord+" "+
+                    member.rp+" "+
+                    member.callsign+" "+
+                    member.rank+" "+
+                    member.management+" "+
+                    member.wings
+                );
+
+            return (
+                !search ||
+                data.includes(search)
             );
 
-        const match=
-            query==="" ||
-            searchableText.includes(query);
+        });
 
-        member.style.display=
-            match ? "" : "none";
 
-        if(match){
-            visibleCount++;
+    document
+        .getElementById("noResults")
+        .style.display=
+        filtered.length
+        ? "none"
+        : "block";
+
+
+    filtered.forEach(member=>{
+
+        const card =
+            document.createElement("div");
+
+
+        card.onclick=
+            ()=>showMemberProfile(member.id);
+
+
+        if(member.top){
+
+            card.className=
+                "top-member";
+
+
+            card.innerHTML=`
+
+                <div class="member-name">
+                    ${escapeHTML(member.discord)}
+                    — 
+                    ${escapeHTML(member.rp)}
+                </div>
+
+                <div class="member-rank">
+
+                    ${escapeHTML(member.rank)}
+
+                    ${
+                        member.management &&
+                        member.management!=="—"
+                        ?
+                        " • "+
+                        escapeHTML(member.management)
+                        :
+                        ""
+                    }
+
+                </div>
+
+                <div class="member-wings">
+                    ${escapeHTML(member.wings)}
+                </div>
+
+                <div class="member-callsign">
+                    Callsign:
+                    ${escapeHTML(member.callsign)}
+                </div>
+
+            `;
+
+
+            leaders.appendChild(card);
+
+        }else{
+
+            card.className=
+                "member";
+
+
+            card.innerHTML=`
+
+                <div class="member-name">
+                    ${escapeHTML(member.discord)}
+                </div>
+
+                <div class="member-rp">
+                    ${escapeHTML(member.rp)}
+                </div>
+
+                <div class="member-callsign">
+                    Callsign:
+                    ${escapeHTML(member.callsign)}
+                </div>
+
+            `;
+
+
+            members.appendChild(card);
+
         }
 
     });
 
-
-    document.getElementById("noMemberResults").style.display=
-        visibleCount===0 ? "block" : "none";
+}
 
 
-    const leadersGrid=
-        document.getElementById("leadersGrid");
+/* ==================================================
+   CASES
+================================================== */
 
-    const leadersVisible=
-        [...leadersGrid.children].some(
-            member=>member.style.display!=="none"
+function renderCases(){
+
+    renderCaseCategory(
+        "store",
+        document.getElementById(
+            "storeCases"
+        )
+    );
+
+
+    renderCaseCategory(
+        "house",
+        document.getElementById(
+            "houseCases"
+        )
+    );
+
+}
+
+
+function renderCaseCategory(
+    category,
+    container
+){
+
+    container.innerHTML="";
+
+
+    const list =
+        db.cases
+        .filter(
+            item=>
+                item.category===category
+        )
+        .sort(
+            (a,b)=>a.number-b.number
         );
 
-    leadersGrid.style.display=
-        leadersVisible ? "grid" : "none";
+
+    list.forEach(data=>{
+
+        const card =
+            document.createElement("div");
 
 
-    const membersGrid=
-        document.getElementById("membersGrid");
+        card.className=
+            "case-card";
 
-    const normalVisible=
-        [...membersGrid.children].some(
-            member=>member.style.display!=="none"
-        );
 
-    membersGrid.style.display=
-        normalVisible ? "grid" : "none";
+        card.onclick=
+            ()=>showCase(data.id);
+
+
+        const ready =
+            data.report ||
+            data.images.length ||
+            data.team!=="—";
+
+
+        card.innerHTML=`
+
+            <div class="case-number">
+
+                CASE
+                ${String(data.number).padStart(2,"0")}
+
+            </div>
+
+
+            <h3>
+                ${escapeHTML(data.incident)}
+            </h3>
+
+
+            <div class="location">
+                ${escapeHTML(data.location)}
+            </div>
+
+
+            ${
+                data.images.length
+                ?
+                `
+                <img
+                    class="case-preview"
+                    src="${escapeHTML(data.images[0])}"
+                >
+                `
+                :
+                ""
+            }
+
+
+            <span class="${
+                ready
+                ? "ready"
+                : "pending"
+            }">
+
+                ${
+                    ready
+                    ? "VIEW CASE"
+                    : "DETAILS PENDING"
+                }
+
+            </span>
+
+        `;
+
+
+        container.appendChild(card);
+
+    });
 
 }
 
@@ -2397,116 +3234,83 @@ function searchMembers(){
    NAVIGATION
 ================================================== */
 
-let currentCategory="home";
+let currentCaseCategory=
+    "store";
 
 
 function hidePages(){
 
-    document.getElementById("homePage").style.display="none";
+    document
+    .querySelectorAll(".page")
+    .forEach(page=>{
 
-    document.querySelectorAll(".quest-page").forEach(page=>{
-        page.classList.remove("active");
+        page.classList.remove(
+            "active"
+        );
+
     });
 
-    document.getElementById("detailPage").classList.remove("active");
-
 }
 
 
-function closeAll(){
-
-    hidePages();
-
-    document.getElementById("homePage").style.display="block";
-
-    currentCategory="home";
-
-}
-
-
-function showClosedQuestsPage(){
+function showHome(){
 
     hidePages();
 
     document
-        .getElementById("closedQuestsPage")
-        .classList.add("active");
-
-    currentCategory="closedQuests";
+    .getElementById("homePage")
+    .classList.add("active");
 
 }
 
 
-function showClosedQuest(){
+function showClosedQuests(){
+
+    hidePages();
 
     document
-        .getElementById("closedModal")
-        .classList.add("active");
+    .getElementById("closedPage")
+    .classList.add("active");
 
 }
 
-
-function closeClosedQuest(){
-
-    document
-        .getElementById("closedModal")
-        .classList.remove("active");
-
-}
-
-
-/* ==================================================
-   QUEST 9
-================================================== */
 
 function showQuest9(){
 
     hidePages();
 
     document
-        .getElementById("quest9Page")
-        .classList.add("active");
-
-    currentCategory="quest9";
+    .getElementById("quest9Page")
+    .classList.add("active");
 
 }
 
 
-function backToQuest9(){
+function showCategory(category){
+
+    currentCaseCategory=
+        category;
+
 
     hidePages();
 
-    document
-        .getElementById("quest9Page")
-        .classList.add("active");
 
-    currentCategory="quest9";
+    document
+    .getElementById(
+        category==="store"
+        ? "storePage"
+        : "housePage"
+    )
+    .classList.add("active");
 
 }
 
 
-function showStore9(){
+function backFromCase(){
 
-    hidePages();
-
-    document
-        .getElementById("store9Page")
-        .classList.add("active");
-
-    currentCategory="store9";
-
-}
-
-
-function showHouse9(){
-
-    hidePages();
-
-    document
-        .getElementById("house9Page")
-        .classList.add("active");
-
-    currentCategory="house9";
+    showCategory(
+        currentCaseCategory
+    );
 
 }
 
@@ -2515,54 +3319,86 @@ function showHouse9(){
    CASE DETAILS
 ================================================== */
 
-function showCase(category,caseNumber){
+function showCase(id){
 
-    const data=
-        cases[category]?.[caseNumber];
+    const data =
+        db.cases.find(
+            item=>item.id===id
+        );
+
 
     if(!data){
         return;
     }
 
+
+    currentCaseCategory=
+        data.category;
+
+
     hidePages();
 
+
     document
-        .getElementById("detailPage")
-        .classList.add("active");
+    .getElementById("detailPage")
+    .classList.add("active");
 
-    document.getElementById("detailTitle").textContent=
-        "CASE "+String(caseNumber).padStart(2,"0");
 
-    document.getElementById("detailLocation").textContent=
-        data.location || "";
+    document
+    .getElementById("detailTitle")
+    .textContent=
+        "CASE "+
+        String(data.number).padStart(2,"0");
 
-    document.getElementById("detailFingerprint").textContent=
+
+    document
+    .getElementById("detailLocation")
+    .textContent=
+        data.location || "—";
+
+
+    document
+    .getElementById("detailFingerprint")
+    .textContent=
         data.fingerprint || "—";
 
-    document.getElementById("detailIncident").textContent=
+
+    document
+    .getElementById("detailIncident")
+    .textContent=
         data.incident || "—";
 
-    document.getElementById("detailTeam").textContent=
+
+    document
+    .getElementById("detailTeam")
+    .textContent=
         data.team || "—";
 
-    document.getElementById("detailReport").textContent=
-        data.report || "—";
+
+    document
+    .getElementById("detailReport")
+    .textContent=
+        data.report ||
+        "Details pending.";
 
 
-    const items=
-        document.getElementById("detailItems");
+    const items =
+        document
+        .getElementById("detailItems");
+
 
     items.innerHTML="";
 
 
-    if(data.items && data.items.length){
+    if(data.items.length){
 
         data.items.forEach(item=>{
 
-            const li=
+            const li =
                 document.createElement("li");
 
-            li.textContent=item;
+            li.textContent=
+                item;
 
             items.appendChild(li);
 
@@ -2570,37 +3406,37 @@ function showCase(category,caseNumber){
 
     }else{
 
-        const li=
-            document.createElement("li");
-
-        li.textContent="—";
-
-        items.appendChild(li);
+        items.innerHTML=
+            "<li>—</li>";
 
     }
 
 
-    const gallery=
-        document.getElementById("detailGallery");
+    const gallery =
+        document
+        .getElementById("detailGallery");
+
 
     gallery.innerHTML="";
 
 
-    if(data.images && data.images.length){
+    if(data.images.length){
 
         document
-            .getElementById("evidenceSection")
-            .style.display="block";
+        .getElementById("evidenceBlock")
+        .style.display="block";
+
 
         data.images.forEach(src=>{
 
-            const img=
+            const img =
                 document.createElement("img");
 
-            img.src=src;
-            img.loading="lazy";
-            img.alt="Evidence";
-            img.onclick=()=>openLightbox(src);
+            img.src=
+                src;
+
+            img.onclick=
+                ()=>openLightbox(src);
 
             gallery.appendChild(img);
 
@@ -2609,41 +3445,8 @@ function showCase(category,caseNumber){
     }else{
 
         document
-            .getElementById("evidenceSection")
-            .style.display="none";
-
-    }
-
-    currentCategory=category;
-
-}
-
-
-function backToCases(){
-
-    hidePages();
-
-    if(currentCategory==="store9"){
-
-        document
-            .getElementById("store9Page")
-            .classList.add("active");
-
-    }
-
-    else if(currentCategory==="house9"){
-
-        document
-            .getElementById("house9Page")
-            .classList.add("active");
-
-    }
-
-    else{
-
-        document
-            .getElementById("quest9Page")
-            .classList.add("active");
+        .getElementById("evidenceBlock")
+        .style.display="none";
 
     }
 
@@ -2654,39 +3457,64 @@ function backToCases(){
    PROFILE
 ================================================== */
 
-function showMemberProfile(member){
+function showMemberProfile(id){
 
-    const data=
-        squadProfiles[member];
+    const member =
+        db.members.find(
+            item=>item.id===id
+        );
 
-    if(!data){
+
+    if(!member){
         return;
     }
 
-    document.getElementById("profileDiscord").textContent=
-        data.discord;
-
-    document.getElementById("profileRP").textContent=
-        data.rp;
-
-    document.getElementById("profileCallsign").textContent=
-        data.callsign || "—";
-
-    document.getElementById("profileRank").textContent=
-        data.rank;
-
-    document.getElementById("profileManagement").textContent=
-        data.management;
-
-    document.getElementById("profileWings").textContent=
-        data.wings;
-
-    document.getElementById("profileRpName").textContent=
-        data.rp;
 
     document
-        .getElementById("profileModal")
-        .classList.add("active");
+    .getElementById("profileDiscord")
+    .textContent=
+        member.discord;
+
+
+    document
+    .getElementById("profileRP")
+    .textContent=
+        member.rp;
+
+
+    document
+    .getElementById("profileCallsign")
+    .textContent=
+        member.callsign || "—";
+
+
+    document
+    .getElementById("profileRank")
+    .textContent=
+        member.rank || "—";
+
+
+    document
+    .getElementById("profileManagement")
+    .textContent=
+        member.management || "—";
+
+
+    document
+    .getElementById("profileWings")
+    .textContent=
+        member.wings || "—";
+
+
+    document
+    .getElementById("profileRpName")
+    .textContent=
+        member.rp;
+
+
+    document
+    .getElementById("profileModal")
+    .classList.add("active");
 
 }
 
@@ -2694,8 +3522,8 @@ function showMemberProfile(member){
 function closeProfile(){
 
     document
-        .getElementById("profileModal")
-        .classList.remove("active");
+    .getElementById("profileModal")
+    .classList.remove("active");
 
 }
 
@@ -2706,12 +3534,15 @@ function closeProfile(){
 
 function openLightbox(src){
 
-    document.getElementById("lightboxImage").src=
+    document
+    .getElementById("lightboxImage")
+    .src=
         src;
 
+
     document
-        .getElementById("lightbox")
-        .classList.add("active");
+    .getElementById("lightbox")
+    .classList.add("active");
 
 }
 
@@ -2719,66 +3550,1572 @@ function openLightbox(src){
 function closeLightbox(){
 
     document
-        .getElementById("lightbox")
-        .classList.remove("active");
-
-    document.getElementById("lightboxImage").src="";
+    .getElementById("lightbox")
+    .classList.remove("active");
 
 }
 
 
 /* ==================================================
-   OUTSIDE CLICK
+   HISTORY TOGGLE
 ================================================== */
 
-document
-.getElementById("closedModal")
-.addEventListener("click",function(e){
+function toggleQuestHistory(){
 
-    if(e.target===this){
-        closeClosedQuest();
-    }
-
-});
+    const history =
+        document.getElementById(
+            "questHistory"
+        );
 
 
-document
-.getElementById("profileModal")
-.addEventListener("click",function(e){
-
-    if(e.target===this){
-        closeProfile();
-    }
-
-});
+    history.classList.toggle(
+        "collapsed"
+    );
 
 
-document
-.getElementById("lightbox")
-.addEventListener("click",function(e){
+    document
+    .getElementById("questHistoryToggle")
+    .textContent=
+        history.classList.contains(
+            "collapsed"
+        )
+        ? "+"
+        : "−";
 
-    if(e.target===this){
-        closeLightbox();
-    }
-
-});
+}
 
 
 /* ==================================================
-   ESC
+   ADMIN ROUTE
 ================================================== */
 
-document.addEventListener("keydown",function(e){
+function checkAdminRoute(){
 
-    if(e.key==="Escape"){
+    if(
+        location.hash.toLowerCase()
+        ===
+        "#admin"
+    ){
 
-        closeClosedQuest();
-        closeProfile();
-        closeLightbox();
+        if(
+            sessionStorage
+            .getItem("bravoAdminLogged")
+            ===
+            "1"
+        ){
+
+            openAdminPanel();
+
+        }else{
+
+            openAdminLogin();
+
+        }
 
     }
 
-});
+}
+
+
+window.addEventListener(
+    "hashchange",
+    checkAdminRoute
+);
+
+
+/* ==================================================
+   ADMIN LOGIN
+================================================== */
+
+function openAdminLogin(){
+
+    document
+    .getElementById("adminLoginModal")
+    .classList.add("active");
+
+}
+
+
+function closeAdminLogin(){
+
+    document
+    .getElementById("adminLoginModal")
+    .classList.remove("active");
+
+}
+
+
+function adminLogin(){
+
+    const password =
+        document
+        .getElementById("adminPassword")
+        .value;
+
+
+    const error =
+        document
+        .getElementById("adminLoginError");
+
+
+    if(
+        password
+        !==
+        ADMIN_PASSWORD
+    ){
+
+        error.textContent=
+            "Wrong password.";
+
+        return;
+
+    }
+
+
+    sessionStorage
+    .setItem(
+        "bravoAdminLogged",
+        "1"
+    );
+
+
+    error.textContent="";
+
+
+    document
+    .getElementById("adminLoginModal")
+    .classList.remove("active");
+
+
+    document
+    .getElementById("adminPassword")
+    .value="";
+
+
+    openAdminPanel();
+
+}
+
+
+function adminLogout(){
+
+    sessionStorage
+    .removeItem(
+        "bravoAdminLogged"
+    );
+
+
+    document
+    .getElementById("adminPanel")
+    .classList.remove("active");
+
+
+    history.replaceState(
+        null,
+        "",
+        location.pathname
+    );
+
+}
+
+
+function openAdminPanel(){
+
+    document
+    .getElementById("adminPanel")
+    .classList.add("active");
+
+
+    renderAdmin();
+
+}
+
+
+function closeAdminPanel(){
+
+    document
+    .getElementById("adminPanel")
+    .classList.remove("active");
+
+
+    history.replaceState(
+        null,
+        "",
+        location.pathname
+    );
+
+
+    refreshEverything();
+
+}
+
+
+/* ==================================================
+   ADMIN NAV
+================================================== */
+
+function showAdminPage(
+    name,
+    button
+){
+
+    document
+    .querySelectorAll(".admin-section")
+    .forEach(section=>{
+
+        section.classList.remove(
+            "active"
+        );
+
+    });
+
+
+    document
+    .querySelectorAll(".admin-nav")
+    .forEach(nav=>{
+
+        nav.classList.remove(
+            "active"
+        );
+
+    });
+
+
+    document
+    .getElementById(
+        "admin-"+name
+    )
+    .classList.add("active");
+
+
+    button.classList.add(
+        "active"
+    );
+
+}
+
+
+/* ==================================================
+   ADMIN RENDER
+================================================== */
+
+function renderAdmin(){
+
+    document
+    .getElementById("statMembers")
+    .textContent=
+        db.members.length;
+
+
+    document
+    .getElementById("statCases")
+    .textContent=
+        db.cases.length;
+
+
+    document
+    .getElementById("statHistory")
+    .textContent=
+        db.questHistory.length;
+
+
+    document
+    .getElementById("statQuestCards")
+    .textContent=
+        db.questCards.filter(
+            q=>q.id!=="closed"
+        ).length;
+
+
+    renderAdminQuestCards();
+
+    renderAdminMembers();
+
+    renderAdminCases();
+
+    renderAdminHistory();
+
+}
+
+
+/* ==================================================
+   ADMIN QUEST CARDS
+================================================== */
+
+function renderAdminQuestCards(){
+
+    const list =
+        document
+        .getElementById(
+            "adminQuestCardList"
+        );
+
+
+    list.innerHTML="";
+
+
+    db.questCards
+    .filter(
+        quest=>quest.id!=="closed"
+    )
+    .sort(
+        (a,b)=>a.number-b.number
+    )
+    .forEach(quest=>{
+
+        const row =
+            document.createElement("div");
+
+
+        row.className=
+            "admin-list-item";
+
+
+        row.innerHTML=`
+
+            <div>
+
+                <strong>
+                    QUEST #${quest.number}
+                    — ${escapeHTML(quest.title)}
+                </strong>
+
+                <small>
+                    ${escapeHTML(quest.status.toUpperCase())}
+                    •
+                    ${escapeHTML(quest.subtitle)}
+                </small>
+
+            </div>
+
+
+            <div class="admin-list-actions">
+
+                <button
+                    class="admin-button"
+                    onclick="editQuestCard('${quest.id}')"
+                >
+                    EDIT
+                </button>
+
+                <button
+                    class="admin-button danger"
+                    onclick="deleteQuestCard('${quest.id}')"
+                >
+                    DELETE
+                </button>
+
+            </div>
+
+        `;
+
+
+        list.appendChild(row);
+
+    });
+
+}
+
+
+function clearQuestCardForm(){
+
+    document
+    .getElementById("questCardEditId")
+    .value="";
+
+
+    document
+    .getElementById("admQuestCardNumber")
+    .value="";
+
+
+    document
+    .getElementById("admQuestCardStatus")
+    .value="active";
+
+
+    document
+    .getElementById("admQuestCardTitle")
+    .value="";
+
+
+    document
+    .getElementById("admQuestCardSubtitle")
+    .value="FROM AMINE MORGAN";
+
+
+    document
+    .getElementById("admQuestCardDescription")
+    .value="";
+
+}
+
+
+function editQuestCard(id){
+
+    const quest =
+        db.questCards.find(
+            q=>q.id===id
+        );
+
+
+    if(!quest){
+        return;
+    }
+
+
+    document
+    .getElementById("questCardEditId")
+    .value=
+        quest.id;
+
+
+    document
+    .getElementById("admQuestCardNumber")
+    .value=
+        quest.number;
+
+
+    document
+    .getElementById("admQuestCardStatus")
+    .value=
+        quest.status;
+
+
+    document
+    .getElementById("admQuestCardTitle")
+    .value=
+        quest.title;
+
+
+    document
+    .getElementById("admQuestCardSubtitle")
+    .value=
+        quest.subtitle;
+
+
+    document
+    .getElementById("admQuestCardDescription")
+    .value=
+        quest.description;
+
+}
+
+
+function saveQuestCardFromAdmin(){
+
+    const editingId =
+        document
+        .getElementById("questCardEditId")
+        .value;
+
+
+    const number =
+        Number(
+            document
+            .getElementById("admQuestCardNumber")
+            .value
+        );
+
+
+    if(!number){
+
+        alert(
+            "Quest Number is required."
+        );
+
+        return;
+
+    }
+
+
+    const status =
+        document
+        .getElementById("admQuestCardStatus")
+        .value;
+
+
+    const quest = {
+
+        id:
+            editingId ||
+            "quest_"+number+"_"+Date.now(),
+
+        number:number,
+
+        status:status,
+
+        title:
+            document
+            .getElementById("admQuestCardTitle")
+            .value
+            .trim()
+            ||
+            "QUEST #"+number,
+
+        subtitle:
+            document
+            .getElementById("admQuestCardSubtitle")
+            .value
+            .trim()
+            ||
+            "FROM AMINE MORGAN",
+
+        description:
+            document
+            .getElementById("admQuestCardDescription")
+            .value
+            .trim()
+
+    };
+
+
+    if(editingId){
+
+        const index =
+            db.questCards.findIndex(
+                q=>q.id===editingId
+            );
+
+
+        if(index!==-1){
+
+            const old =
+                db.questCards[index];
+
+
+            if(
+                old.status==="closed"
+            ){
+
+                db.closedQuests =
+                    db.closedQuests.filter(
+                        q=>q!==old.number
+                    );
+
+            }
+
+
+            db.questCards[index]=
+                quest;
+
+        }
+
+    }else{
+
+        db.questCards.push(
+            quest
+        );
+
+    }
+
+
+    if(status==="closed"){
+
+        if(
+            !db.closedQuests
+            .includes(number)
+        ){
+
+            db.closedQuests
+            .push(number);
+
+        }
+
+    }else{
+
+        db.closedQuests =
+            db.closedQuests.filter(
+                q=>q!==number
+            );
+
+    }
+
+
+    persist();
+
+    clearQuestCardForm();
+
+}
+
+
+function deleteQuestCard(id){
+
+    const quest =
+        db.questCards.find(
+            q=>q.id===id
+        );
+
+
+    if(!quest){
+        return;
+    }
+
+
+    if(
+        !confirm(
+            "Delete QUEST #"+
+            quest.number+
+            "?"
+        )
+    ){
+        return;
+    }
+
+
+    db.questCards =
+        db.questCards.filter(
+            q=>q.id!==id
+        );
+
+
+    db.closedQuests =
+        db.closedQuests.filter(
+            number=>
+                number!==quest.number
+        );
+
+
+    persist();
+
+}
+
+
+/* ==================================================
+   ADMIN MEMBERS
+================================================== */
+
+function renderAdminMembers(){
+
+    const list =
+        document
+        .getElementById(
+            "adminMemberList"
+        );
+
+
+    list.innerHTML="";
+
+
+    db.members.forEach(member=>{
+
+        const row =
+            document.createElement("div");
+
+
+        row.className=
+            "admin-list-item";
+
+
+        row.innerHTML=`
+
+            <div>
+
+                <strong>
+                    ${escapeHTML(member.discord)}
+                    —
+                    ${escapeHTML(member.rp)}
+                </strong>
+
+                <small>
+                    Callsign:
+                    ${escapeHTML(member.callsign)}
+                    •
+                    ${escapeHTML(member.rank)}
+                </small>
+
+            </div>
+
+
+            <div class="admin-list-actions">
+
+                <button
+                    class="admin-button"
+                    onclick="editMember('${member.id}')"
+                >
+                    EDIT
+                </button>
+
+                <button
+                    class="admin-button danger"
+                    onclick="deleteMember('${member.id}')"
+                >
+                    DELETE
+                </button>
+
+            </div>
+
+        `;
+
+
+        list.appendChild(row);
+
+    });
+
+}
+
+
+function clearMemberForm(){
+
+    document
+    .getElementById("memberEditKey")
+    .value="";
+
+
+    [
+        "admDiscord",
+        "admRP",
+        "admCallsign",
+        "admRank",
+        "admManagement",
+        "admWings"
+    ]
+    .forEach(id=>{
+
+        document
+        .getElementById(id)
+        .value="";
+
+    });
+
+
+    document
+    .getElementById("admTop")
+    .value="false";
+
+}
+
+
+function editMember(id){
+
+    const member =
+        db.members.find(
+            item=>item.id===id
+        );
+
+
+    if(!member){
+        return;
+    }
+
+
+    document
+    .getElementById("memberEditKey")
+    .value=
+        member.id;
+
+
+    document
+    .getElementById("admDiscord")
+    .value=
+        member.discord;
+
+
+    document
+    .getElementById("admRP")
+    .value=
+        member.rp;
+
+
+    document
+    .getElementById("admCallsign")
+    .value=
+        member.callsign;
+
+
+    document
+    .getElementById("admRank")
+    .value=
+        member.rank;
+
+
+    document
+    .getElementById("admManagement")
+    .value=
+        member.management;
+
+
+    document
+    .getElementById("admWings")
+    .value=
+        member.wings;
+
+
+    document
+    .getElementById("admTop")
+    .value=
+        String(member.top);
+
+}
+
+
+function saveMemberFromAdmin(){
+
+    const id =
+        document
+        .getElementById("memberEditKey")
+        .value;
+
+
+    const member = {
+
+        id:
+            id ||
+            "member_"+Date.now(),
+
+        discord:
+            document
+            .getElementById("admDiscord")
+            .value
+            .trim(),
+
+        rp:
+            document
+            .getElementById("admRP")
+            .value
+            .trim(),
+
+        callsign:
+            document
+            .getElementById("admCallsign")
+            .value
+            .trim(),
+
+        rank:
+            document
+            .getElementById("admRank")
+            .value
+            .trim(),
+
+        management:
+            document
+            .getElementById("admManagement")
+            .value
+            .trim()
+            ||
+            "—",
+
+        wings:
+            document
+            .getElementById("admWings")
+            .value
+            .trim()
+            ||
+            "No Wings",
+
+        top:
+            document
+            .getElementById("admTop")
+            .value
+            ===
+            "true"
+
+    };
+
+
+    if(
+        !member.discord ||
+        !member.rp
+    ){
+
+        alert(
+            "Name is required."
+        );
+
+        return;
+
+    }
+
+
+    if(id){
+
+        const index =
+            db.members.findIndex(
+                item=>item.id===id
+            );
+
+
+        if(index!==-1){
+
+            db.members[index]=
+                member;
+
+        }
+
+    }else{
+
+        db.members.push(
+            member
+        );
+
+    }
+
+
+    persist();
+
+    clearMemberForm();
+
+}
+
+
+function deleteMember(id){
+
+    if(
+        !confirm(
+            "Delete this member?"
+        )
+    ){
+        return;
+    }
+
+
+    db.members =
+        db.members.filter(
+            member=>
+                member.id!==id
+        );
+
+
+    persist();
+
+}
+
+
+/* ==================================================
+   ADMIN CASES
+================================================== */
+
+function renderAdminCases(){
+
+    const list =
+        document
+        .getElementById(
+            "adminCaseList"
+        );
+
+
+    list.innerHTML="";
+
+
+    db.cases
+    .sort((a,b)=>a.number-b.number)
+    .forEach(data=>{
+
+        const row =
+            document.createElement("div");
+
+
+        row.className=
+            "admin-list-item";
+
+
+        row.innerHTML=`
+
+            <div>
+
+                <strong>
+                    ${escapeHTML(data.incident)}
+                    —
+                    CASE ${data.number}
+                </strong>
+
+                <small>
+                    ${escapeHTML(data.category)}
+                    •
+                    ${escapeHTML(data.team)}
+                </small>
+
+            </div>
+
+
+            <div class="admin-list-actions">
+
+                <button
+                    class="admin-button"
+                    onclick="editCase('${data.id}')"
+                >
+                    EDIT
+                </button>
+
+                <button
+                    class="admin-button danger"
+                    onclick="deleteCase('${data.id}')"
+                >
+                    DELETE
+                </button>
+
+            </div>
+
+        `;
+
+
+        list.appendChild(row);
+
+    });
+
+}
+
+
+function clearCaseForm(){
+
+    document
+    .getElementById("caseEditId")
+    .value="";
+
+
+    document
+    .getElementById("admCaseCategory")
+    .value="store";
+
+
+    document
+    .getElementById("admCaseNumber")
+    .value="";
+
+
+    document
+    .getElementById("admCaseIncident")
+    .value="";
+
+
+    document
+    .getElementById("admCaseLocation")
+    .value="Quest #9";
+
+
+    document
+    .getElementById("admCaseFingerprint")
+    .value="";
+
+
+    document
+    .getElementById("admCaseTeam")
+    .value="";
+
+
+    document
+    .getElementById("admCaseItems")
+    .value="";
+
+
+    document
+    .getElementById("admCaseReport")
+    .value="";
+
+
+    document
+    .getElementById("admCaseImages")
+    .value="";
+
+}
+
+
+function editCase(id){
+
+    const data =
+        db.cases.find(
+            item=>item.id===id
+        );
+
+
+    if(!data){
+        return;
+    }
+
+
+    document
+    .getElementById("caseEditId")
+    .value=
+        data.id;
+
+
+    document
+    .getElementById("admCaseCategory")
+    .value=
+        data.category;
+
+
+    document
+    .getElementById("admCaseNumber")
+    .value=
+        data.number;
+
+
+    document
+    .getElementById("admCaseIncident")
+    .value=
+        data.incident;
+
+
+    document
+    .getElementById("admCaseLocation")
+    .value=
+        data.location;
+
+
+    document
+    .getElementById("admCaseFingerprint")
+    .value=
+        data.fingerprint;
+
+
+    document
+    .getElementById("admCaseTeam")
+    .value=
+        data.team;
+
+
+    document
+    .getElementById("admCaseItems")
+    .value=
+        data.items.join(", ");
+
+
+    document
+    .getElementById("admCaseReport")
+    .value=
+        data.report;
+
+
+    document
+    .getElementById("admCaseImages")
+    .value=
+        data.images.join("\n");
+
+}
+
+
+function saveCaseFromAdmin(){
+
+    const editingId =
+        document
+        .getElementById("caseEditId")
+        .value;
+
+
+    const category =
+        document
+        .getElementById("admCaseCategory")
+        .value;
+
+
+    const number =
+        Number(
+            document
+            .getElementById("admCaseNumber")
+            .value
+        );
+
+
+    if(!number){
+
+        alert(
+            "Case Number required."
+        );
+
+        return;
+
+    }
+
+
+    const data = {
+
+        id:
+            editingId ||
+            category+
+            "-"+
+            number+
+            "-"+
+            Date.now(),
+
+        category,
+
+        number,
+
+        incident:
+            document
+            .getElementById("admCaseIncident")
+            .value
+            .trim()
+            ||
+            (
+                category==="store"
+                ?
+                "Store Robbery"
+                :
+                "House Robbery"
+            ),
+
+        location:
+            document
+            .getElementById("admCaseLocation")
+            .value
+            .trim()
+            ||
+            "Quest #9",
+
+        fingerprint:
+            document
+            .getElementById("admCaseFingerprint")
+            .value
+            .trim()
+            ||
+            "—",
+
+        team:
+            document
+            .getElementById("admCaseTeam")
+            .value
+            .trim()
+            ||
+            "—",
+
+        items:
+            document
+            .getElementById("admCaseItems")
+            .value
+            .split(",")
+            .map(item=>item.trim())
+            .filter(Boolean),
+
+        report:
+            document
+            .getElementById("admCaseReport")
+            .value
+            .trim(),
+
+        images:
+            document
+            .getElementById("admCaseImages")
+            .value
+            .split("\n")
+            .map(url=>url.trim())
+            .filter(Boolean)
+
+    };
+
+
+    if(editingId){
+
+        const index =
+            db.cases.findIndex(
+                item=>item.id===editingId
+            );
+
+
+        if(index!==-1){
+
+            db.cases[index]=
+                data;
+
+        }
+
+    }else{
+
+        db.cases.push(
+            data
+        );
+
+    }
+
+
+    persist();
+
+    clearCaseForm();
+
+}
+
+
+function deleteCase(id){
+
+    if(
+        !confirm(
+            "Delete this case?"
+        )
+    ){
+        return;
+    }
+
+
+    db.cases =
+        db.cases.filter(
+            item=>item.id!==id
+        );
+
+
+    persist();
+
+}
+
+
+/* ==================================================
+   ADMIN HISTORY
+================================================== */
+
+function renderAdminHistory(){
+
+    const list =
+        document
+        .getElementById(
+            "adminHistoryList"
+        );
+
+
+    list.innerHTML="";
+
+
+    db.questHistory
+    .forEach((quest,index)=>{
+
+        const row =
+            document.createElement("div");
+
+
+        row.className=
+            "admin-list-item";
+
+
+        row.innerHTML=`
+
+            <div>
+
+                <strong>
+                    QUEST #${quest.number}
+                </strong>
+
+                <small>
+                    ${escapeHTML(
+                        quest.text.substring(
+                            0,
+                            100
+                        )
+                    )}
+                </small>
+
+            </div>
+
+
+            <div class="admin-list-actions">
+
+                <button
+                    class="admin-button"
+                    onclick="editHistory(${index})"
+                >
+                    EDIT
+                </button>
+
+                <button
+                    class="admin-button danger"
+                    onclick="deleteHistory(${index})"
+                >
+                    DELETE
+                </button>
+
+            </div>
+
+        `;
+
+
+        list.appendChild(row);
+
+    });
+
+}
+
+
+function clearHistoryForm(){
+
+    document
+    .getElementById("historyEditIndex")
+    .value="";
+
+
+    document
+    .getElementById("admHistoryNumber")
+    .value="";
+
+
+    document
+    .getElementById("admHistoryCurrent")
+    .value="false";
+
+
+    document
+    .getElementById("admHistoryText")
+    .value="";
+
+}
+
+
+function editHistory(index){
+
+    const quest =
+        db.questHistory[index];
+
+
+    if(!quest){
+        return;
+    }
+
+
+    document
+    .getElementById("historyEditIndex")
+    .value=
+        index;
+
+
+    document
+    .getElementById("admHistoryNumber")
+    .value=
+        quest.number;
+
+
+    document
+    .getElementById("admHistoryCurrent")
+    .value=
+        String(quest.current);
+
+
+    document
+    .getElementById("admHistoryText")
+    .value=
+        quest.text;
+
+}
+
+
+function saveHistoryFromAdmin(){
+
+    const index =
+        document
+        .getElementById("historyEditIndex")
+        .value;
+
+
+    const number =
+        Number(
+            document
+            .getElementById("admHistoryNumber")
+            .value
+        );
+
+
+    const text =
+        document
+        .getElementById("admHistoryText")
+        .value
+        .trim();
+
+
+    const current =
+        document
+        .getElementById("admHistoryCurrent")
+        .value
+        ===
+        "true";
+
+
+    if(
+        !number ||
+        !text
+    ){
+
+        alert(
+            "Quest number and text required."
+        );
+
+        return;
+
+    }
+
+
+    if(current){
+
+        db.questHistory.forEach(
+            item=>
+                item.current=false
+        );
+
+    }
+
+
+    const quest = {
+
+        number,
+        text,
+        current
+
+    };
+
+
+    if(index!==""){
+
+        db.questHistory[
+            Number(index)
+        ]=
+            quest;
+
+    }else{
+
+        db.questHistory.push(
+            quest
+        );
+
+    }
+
+
+    persist();
+
+    clearHistoryForm();
+
+}
+
+
+function deleteHistory(index){
+
+    if(
+        !confirm(
+            "Delete this history quest?"
+        )
+    ){
+        return;
+    }
+
+
+    db.questHistory.splice(
+        index,
+        1
+    );
+
+
+    persist();
+
+}
+
+
+/* ==================================================
+   HELPERS
+================================================== */
+
+function escapeHTML(value){
+
+    return String(value ?? "")
+        .replaceAll("&","&amp;")
+        .replaceAll("<","&lt;")
+        .replaceAll(">","&gt;")
+        .replaceAll('"',"&quot;")
+        .replaceAll("'","&#039;");
+
+}
+
+
+/* ==================================================
+   START
+================================================== */
+
+refreshEverything();
+
+checkAdminRoute();
 
 </script>
 
