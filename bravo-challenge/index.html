@@ -1332,6 +1332,93 @@ select{
 
 </div>
 
+<!-- QUEST 10 -->
+
+<div
+    id="quest10Page"
+    class="page"
+>
+
+    <button
+        class="back-btn"
+        onclick="showHome()"
+    >
+        ← BACK
+    </button>
+
+    <div class="page-header">
+
+        <div class="badge">
+            QUEST #10
+        </div>
+
+        <h2>
+            QUEST #10
+        </h2>
+
+        <p>
+            CURRENT CHALLENGE • 15 REPORTS
+        </p>
+
+    </div>
+
+    <div class="detail-box" style="margin-bottom:18px;">
+        <div class="info-card full">
+            <h4>QUEST DESCRIPTION</h4>
+            <p class="report">التحدي الخامس : كتابة 15 تقرير ويكون التحدي لمدة يومين
+
+ملاحظة : ارسال الرقم التسلسلي للتقرير + في حال الانتهاء ترفع صورة واحده تشمل جميع التقارير</p>
+        </div>
+    </div>
+
+    <div class="quest-category-grid">
+
+        <div
+            class="quest-category"
+            onclick="showQuest10Reports()"
+        >
+            <h3>Reports تقارير</h3>
+            <p>15 Cases</p>
+        </div>
+
+    </div>
+
+</div>
+
+<!-- QUEST 10 REPORTS -->
+
+<div
+    id="quest10ReportsPage"
+    class="page"
+>
+
+    <button
+        class="back-btn"
+        onclick="showQuest10()"
+    >
+        ← BACK
+    </button>
+
+    <div class="page-header">
+
+        <div class="badge">
+            QUEST #10
+        </div>
+
+        <h2>
+            Reports تقارير
+        </h2>
+
+        <p>
+            15 CASES
+        </p>
+
+    </div>
+
+    <div class="case-grid" id="quest10Cases"></div>
+
+</div>
+
 <!-- GENERIC QUEST -->
 
 <div
@@ -2506,7 +2593,7 @@ try{
 ================================================== */
 
 const STORAGE_KEY =
-    "bravoChallengeDatabaseSecureV2";
+    "bravoChallengeDatabaseSecureV3";
 
 const AMINE_IMAGE =
     "./images/amine-morgan.png";
@@ -2521,12 +2608,12 @@ const DEFAULT_DB = {
 questCards:[
 
     {
-        id:"quest9",
-        number:9,
-        title:"QUEST #9",
+        id:"quest10",
+        number:10,
+        title:"QUEST #10",
         subtitle:"FROM AMINE MORGAN",
         description:
-            "3 حالات بيوت و 2 حالة بقالة",
+            "التحدي الخامس : كتابة 15 تقرير ويكون التحدي لمدة يومين — ملاحظة : ارسال الرقم التسلسلي للتقرير + في حال الانتهاء ترفع صورة واحده تشمل جميع التقارير",
         status:"active"
     }
 
@@ -2536,7 +2623,8 @@ closedQuests:[
     5,
     6,
     7,
-    8
+    8,
+    9
 ],
 
 questHistory:[
@@ -2599,9 +2687,16 @@ questHistory:[
 
     {
         number:9,
-        current:true,
+        current:false,
         text:
             "3 حالات بيوت و 2 حالة بقالة"
+    },
+
+    {
+        number:10,
+        current:true,
+        text:
+            "التحدي الخامس : كتابة 15 تقرير ويكون التحدي لمدة يومين — ملاحظة : ارسال الرقم التسلسلي للتقرير + في حال الانتهاء ترفع صورة واحده تشمل جميع التقارير"
     }
 
 ],
@@ -3356,6 +3451,8 @@ function refreshEverything(){
 
     renderMembers();
 
+    renderQuest10Cases();
+
     renderCases();
 
     renderAdmin();
@@ -3490,9 +3587,9 @@ function renderQuestCards(){
 
 function openQuestCard(id){
 
-    if(id==="quest9"){
+    if(id==="quest10"){
 
-        showQuest9();
+        showQuest10();
 
         return;
 
@@ -4045,6 +4142,79 @@ function closeProfile(){
 
 
 /* ==================================================
+   QUEST 10 REPORT CASES
+================================================== */
+
+function showQuest10Reports(){
+
+    hidePages();
+
+    document
+    .getElementById(
+        "quest10ReportsPage"
+    )
+    .classList.add(
+        "active"
+    );
+
+    renderQuest10Cases();
+
+}
+
+
+function renderQuest10Cases(){
+
+    const container =
+        document.getElementById(
+            "quest10Cases"
+        );
+
+    if(!container){
+        return;
+    }
+
+    container.innerHTML="";
+
+    for(let i=1;i<=15;i++){
+
+        const card =
+            document.createElement(
+                "div"
+            );
+
+        card.className=
+            "case-card";
+
+        card.innerHTML=`
+
+            <div class="case-number">
+                CASE ${String(i).padStart(2,"0")}
+            </div>
+
+            <h3>
+                CASE ${String(i).padStart(2,"0")}
+            </h3>
+
+            <div class="location">
+                Quest #10 • Reports تقارير
+            </div>
+
+            <span class="pending">
+                DETAILS PENDING
+            </span>
+
+        `;
+
+        container.appendChild(
+            card
+        );
+
+    }
+
+}
+
+
+/* ==================================================
    CASES
 ================================================== */
 
@@ -4235,6 +4405,21 @@ function showQuest9(){
     document
     .getElementById(
         "quest9Page"
+    )
+    .classList.add(
+        "active"
+    );
+
+}
+
+
+function showQuest10(){
+
+    hidePages();
+
+    document
+    .getElementById(
+        "quest10Page"
     )
     .classList.add(
         "active"
