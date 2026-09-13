@@ -7,7 +7,6 @@
 <title>BRAVO CHALLENGE</title>
 
 <style>
-
 *{
     margin:0;
     padding:0;
@@ -74,9 +73,8 @@ select{
     font-weight:bold;
 }
 
-
 /* ==================================================
-   AMINE PFP TOP LEFT
+   AMINE PFP
 ================================================== */
 
 .owner-pfp{
@@ -91,28 +89,21 @@ select{
     padding:3px;
     background:#080d15;
     cursor:pointer;
-
     box-shadow:
         0 0 0 4px rgba(71,112,170,.08),
         0 10px 35px rgba(0,0,0,.45);
-
     transition:.25s;
 }
 
 .owner-pfp:hover{
     transform:scale(1.06);
     border-color:#76aaff;
-
-    box-shadow:
-        0 0 0 5px rgba(86,139,216,.12),
-        0 12px 40px rgba(0,0,0,.55);
 }
 
 .owner-pfp img{
     width:100%;
     height:100%;
     object-fit:cover;
-    object-position:center;
     border-radius:50%;
     display:block;
 }
@@ -132,21 +123,14 @@ select{
     position:absolute;
     left:88px;
     top:13px;
-
     width:max-content;
-    max-width:230px;
-
     padding:9px 12px;
     border-radius:9px;
-
     background:rgba(7,11,18,.96);
     border:1px solid #293750;
-
     opacity:0;
     visibility:hidden;
-
     pointer-events:none;
-
     transition:.2s;
 }
 
@@ -167,7 +151,6 @@ select{
     font-size:10px;
 }
 
-
 /* ==================================================
    QUEST HISTORY
 ================================================== */
@@ -176,21 +159,14 @@ select{
     position:fixed;
     top:110px;
     left:18px;
-
     width:330px;
     max-height:76vh;
-
     background:rgba(7,11,18,.96);
-
     border:1px solid #2b374b;
     border-radius:15px;
-
     z-index:200;
-
     overflow:hidden;
-
     box-shadow:0 20px 60px rgba(0,0,0,.35);
-
     backdrop-filter:blur(10px);
 }
 
@@ -206,13 +182,9 @@ select{
     display:flex;
     align-items:center;
     justify-content:space-between;
-
     padding:15px 16px;
-
     border-bottom:1px solid #202a3a;
-
     background:rgba(17,24,37,.9);
-
     cursor:pointer;
 }
 
@@ -225,69 +197,46 @@ select{
 .quest-history-toggle{
     width:28px;
     height:28px;
-
     border:1px solid #33415a;
-
     background:#0b111c;
     color:#8ea3c5;
-
     border-radius:7px;
-
     cursor:pointer;
 }
 
 .quest-history-content{
     max-height:calc(76vh - 60px);
-
     overflow-y:auto;
-
     padding:12px;
 }
 
 .history-item{
     background:rgba(14,20,31,.92);
-
     border:1px solid #222e40;
     border-radius:11px;
-
     padding:13px;
-
     margin-bottom:10px;
 }
 
 .history-item.current{
     border-color:#42618f;
-
-    background:
-        linear-gradient(
-            145deg,
-            rgba(26,38,59,.95),
-            rgba(10,15,23,.95)
-        );
 }
 
 .history-number{
     color:#6ea5ff;
-
     font-size:10px;
     font-weight:900;
-
     letter-spacing:1.4px;
-
     margin-bottom:7px;
 }
 
 .history-text{
     direction:rtl;
     text-align:right;
-
     color:#c5cedc;
-
     font-size:11px;
-
     line-height:1.75;
 }
-
 
 /* ==================================================
    QUESTS
@@ -295,110 +244,73 @@ select{
 
 .quest-grid{
     display:grid;
-
-    grid-template-columns:
-        repeat(2,1fr);
-
+    grid-template-columns:repeat(2,1fr);
     gap:18px;
 }
 
 .quest-card{
     position:relative;
-
     padding:25px;
-
     border:1px solid #273246;
     border-radius:16px;
-
     background:
-        linear-gradient(
-            145deg,
-            rgba(26,35,52,.92),
-            rgba(8,12,19,.95)
-        );
-
+        linear-gradient(145deg,rgba(26,35,52,.92),rgba(8,12,19,.95));
     cursor:pointer;
-
     transition:.25s;
-
     min-height:180px;
-
     overflow:hidden;
 }
 
 .quest-card:before{
     content:"";
-
     position:absolute;
-
     width:130px;
     height:130px;
-
     border-radius:50%;
-
-    background:
-        rgba(55,112,255,.08);
-
+    background:rgba(55,112,255,.08);
     top:-50px;
     right:-50px;
 }
 
 .quest-card:hover{
     transform:translateY(-4px);
-
     border-color:#4a6592;
 }
 
 .quest-number{
     color:#75839a;
-
     font-size:11px;
     font-weight:bold;
-
     letter-spacing:2px;
-
     margin-bottom:18px;
 }
 
 .quest-card h2{
     font-size:26px;
-
     margin-bottom:10px;
 }
 
 .quest-card p{
     color:#9ca6b7;
-
     font-size:13px;
 }
 
 .quest-status{
     display:inline-block;
-
     margin-top:22px;
-
     padding:7px 12px;
-
     border-radius:7px;
-
-    background:
-        rgba(58,130,246,.12);
-
+    background:rgba(58,130,246,.12);
     color:#69a7ff;
-
     font-size:10px;
     letter-spacing:1px;
-
     font-weight:bold;
 }
 
 .quest-status.complete{
-    background:
-        rgba(34,197,94,.1);
-
+    background:rgba(34,197,94,.1);
     color:#5bd98b;
 }
-
 
 /* ==================================================
    SEARCH
@@ -407,64 +319,36 @@ select{
 .member-search-wrap{
     width:100%;
     max-width:650px;
-
     margin:0 auto 22px;
 }
 
 .member-search{
     width:100%;
-
-    background:
-        rgba(8,12,19,.92);
-
+    background:rgba(8,12,19,.92);
     border:1px solid #2c3a50;
-
     color:#fff;
-
     padding:15px 17px;
-
     border-radius:13px;
-
     outline:none;
-
-    transition:.2s;
 }
 
 .member-search:focus{
     border-color:#5572a5;
-
-    box-shadow:
-        0 0 0 3px
-        rgba(59,130,246,.08);
 }
 
 .search-info{
     color:#718099;
-
     font-size:11px;
-
     text-align:center;
-
     margin-top:9px;
 }
 
 .no-results{
     display:none;
-
     padding:20px;
-
     text-align:center;
-
     color:#7f8ba0;
-
-    border:
-        1px solid #263247;
-
-    border-radius:11px;
-
-    margin-bottom:18px;
 }
-
 
 /* ==================================================
    MEMBERS
@@ -472,58 +356,38 @@ select{
 
 .leaders-grid{
     width:100%;
-
     max-width:1000px;
-
     margin:0 auto 22px;
-
     display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
+    grid-template-columns:repeat(3,1fr);
     gap:15px;
 }
 
 .members-grid{
     display:grid;
-
-    grid-template-columns:
-        repeat(4,1fr);
-
+    grid-template-columns:repeat(4,1fr);
     gap:12px;
 }
 
 .top-member,
 .member{
-    border:
-        1px solid #263044;
-
-    background:
-        rgba(13,18,28,.86);
-
+    border:1px solid #263044;
+    background:rgba(13,18,28,.86);
     border-radius:13px;
-
     padding:16px;
-
     transition:.2s;
-
     cursor:pointer;
 }
 
 .top-member{
     text-align:center;
-
     border-color:#374761;
-
     padding:18px;
 }
 
 .top-member:hover,
 .member:hover{
-    transform:
-        translateY(-3px);
-
+    transform:translateY(-3px);
     border-color:#5572a5;
 }
 
@@ -534,51 +398,33 @@ select{
 
 .member-rp{
     color:#6c9fff;
-
     margin-top:5px;
-
     font-size:12px;
 }
 
 .member-rank{
     color:#9aa6b9;
-
     font-size:11px;
-
     margin-top:9px;
 }
 
 .member-wings{
     color:#69758a;
-
     font-size:10px;
-
     margin-top:6px;
 }
 
 .member-callsign{
     display:inline-block;
-
     margin-top:8px;
-
     padding:4px 8px;
-
     border-radius:6px;
-
-    background:
-        rgba(59,130,246,.10);
-
+    background:rgba(59,130,246,.10);
     color:#72adff;
-
-    border:
-        1px solid
-        rgba(59,130,246,.18);
-
+    border:1px solid rgba(59,130,246,.18);
     font-size:10px;
-
     font-weight:bold;
 }
-
 
 /* ==================================================
    PAGES
@@ -593,28 +439,15 @@ select{
 }
 
 .back-btn{
-    border:
-        1px solid #2d394f;
-
+    border:1px solid #2d394f;
     background:#0d131e;
-
     color:#dfe6f1;
-
     padding:10px 16px;
-
     border-radius:9px;
-
     cursor:pointer;
-
     margin-bottom:25px;
-
     font-size:12px;
-
     font-weight:bold;
-}
-
-.back-btn:hover{
-    border-color:#50678f;
 }
 
 .page-header{
@@ -623,7 +456,6 @@ select{
 
 .page-header h2{
     font-size:36px;
-
     margin-bottom:8px;
 }
 
@@ -633,48 +465,33 @@ select{
 
 .quest-category-grid{
     display:grid;
-
-    grid-template-columns:
-        repeat(2,1fr);
-
+    grid-template-columns:repeat(2,1fr);
     gap:18px;
 }
 
 .quest-category{
-    background:
-        rgba(14,20,31,.9);
-
-    border:
-        1px solid #273247;
-
+    background:rgba(14,20,31,.9);
+    border:1px solid #273247;
     border-radius:16px;
-
     padding:24px;
-
     cursor:pointer;
-
     transition:.25s;
 }
 
 .quest-category:hover{
-    transform:
-        translateY(-4px);
-
+    transform:translateY(-4px);
     border-color:#455f8d;
 }
 
 .quest-category h3{
     font-size:20px;
-
     margin-bottom:9px;
 }
 
 .quest-category p{
     color:#818da1;
-
     font-size:12px;
 }
-
 
 /* ==================================================
    CASES
@@ -682,175 +499,114 @@ select{
 
 .case-grid{
     display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
+    grid-template-columns:repeat(3,1fr);
     gap:14px;
 }
 
 .case-card{
-    background:
-        rgba(13,18,28,.9);
-
-    border:
-        1px solid #273247;
-
+    background:rgba(13,18,28,.9);
+    border:1px solid #273247;
     border-radius:14px;
-
     padding:19px;
-
     cursor:pointer;
-
     transition:.22s;
 }
 
 .case-card:hover{
-    transform:
-        translateY(-3px);
-
+    transform:translateY(-3px);
     border-color:#446397;
 }
 
 .case-number{
     color:#63718a;
-
     font-size:10px;
-
     letter-spacing:2px;
-
     font-weight:bold;
-
     margin-bottom:11px;
 }
 
 .case-card h3{
     font-size:17px;
-
     margin-bottom:7px;
 }
 
 .case-card .location{
     color:#7d899d;
-
     font-size:11px;
-
     margin-bottom:13px;
 }
 
 .case-preview{
     width:100%;
-
     height:150px;
-
     object-fit:cover;
-
-    display:block;
-
     border-radius:9px;
-
-    border:
-        1px solid #263247;
-
+    border:1px solid #263247;
     margin:12px 0;
 }
 
 .ready,
 .pending{
     display:inline-block;
-
     padding:6px 9px;
-
     border-radius:7px;
-
     font-size:9px;
-
     font-weight:bold;
 }
 
 .ready{
     color:#72adff;
-
-    background:
-        rgba(59,130,246,.1);
+    background:rgba(59,130,246,.1);
 }
 
 .pending{
     color:#e4bb58;
-
-    background:
-        rgba(234,179,8,.1);
+    background:rgba(234,179,8,.1);
 }
-
 
 /* ==================================================
    DETAILS
 ================================================== */
 
 .detail-box{
-    background:
-        rgba(11,16,25,.92);
-
-    border:
-        1px solid #273247;
-
+    background:rgba(11,16,25,.92);
+    border:1px solid #273247;
     border-radius:17px;
-
     padding:26px;
 }
 
 .detail-head{
     display:flex;
-
-    justify-content:
-        space-between;
-
+    justify-content:space-between;
     gap:20px;
-
     margin-bottom:24px;
 }
 
 .detail-location{
     color:#7f8b9f;
-
     font-size:12px;
-
     margin-top:7px;
 }
 
 .detail-status{
     padding:7px 10px;
-
     border-radius:8px;
-
-    background:
-        rgba(59,130,246,.09);
-
+    background:rgba(59,130,246,.09);
     color:#72abff;
-
     font-size:10px;
-
     font-weight:bold;
 }
 
 .info-grid{
     display:grid;
-
-    grid-template-columns:
-        repeat(2,1fr);
-
+    grid-template-columns:repeat(2,1fr);
     gap:14px;
 }
 
 .info-card{
-    background:
-        rgba(6,10,16,.75);
-
-    border:
-        1px solid #202a3a;
-
+    background:rgba(6,10,16,.75);
+    border:1px solid #202a3a;
     border-radius:12px;
-
     padding:18px;
 }
 
@@ -860,63 +616,39 @@ select{
 
 .info-card h4{
     color:#697b96;
-
     font-size:10px;
-
     letter-spacing:1.4px;
-
     margin-bottom:11px;
 }
 
 .info-card p,
 .info-card li{
     color:#d4dbe6;
-
     font-size:13px;
-
     line-height:1.75;
 }
 
 .report{
     white-space:pre-line;
-
     direction:rtl;
-
     text-align:right;
 }
 
 .gallery{
     display:grid;
-
-    grid-template-columns:
-        repeat(3,1fr);
-
+    grid-template-columns:repeat(3,1fr);
     gap:10px;
-
     margin-top:15px;
 }
 
 .gallery img{
     width:100%;
-
     height:190px;
-
     object-fit:cover;
-
     border-radius:10px;
-
-    border:
-        1px solid #273247;
-
+    border:1px solid #273247;
     cursor:pointer;
-
-    transition:.2s;
 }
-
-.gallery img:hover{
-    transform:scale(1.02);
-}
-
 
 /* ==================================================
    MODALS
@@ -924,23 +656,13 @@ select{
 
 .modal{
     position:fixed;
-
     inset:0;
-
     display:none;
-
     align-items:center;
-
     justify-content:center;
-
     z-index:9999;
-
-    background:
-        rgba(0,0,0,.82);
-
-    backdrop-filter:
-        blur(7px);
-
+    background:rgba(0,0,0,.82);
+    backdrop-filter:blur(7px);
     padding:20px;
 }
 
@@ -950,63 +672,39 @@ select{
 
 .modal-box{
     width:100%;
-
     max-width:550px;
-
     background:#0b1018;
-
-    border:
-        1px solid #334057;
-
+    border:1px solid #334057;
     border-radius:17px;
-
     padding:28px;
-
     position:relative;
-
     max-height:92vh;
-
     overflow-y:auto;
 }
 
 .close{
     position:absolute;
-
     right:16px;
     top:13px;
-
     font-size:25px;
-
     color:#7d899c;
-
     cursor:pointer;
-
     z-index:4;
 }
 
-
 /* ==================================================
-   PROFILE IMAGE
+   PROFILE
 ================================================== */
 
 .profile-photo-wrap{
     display:none;
-
     width:100%;
-
     height:315px;
-
     margin-bottom:20px;
-
     overflow:hidden;
-
     border-radius:14px;
-
-    border:
-        1px solid #2d3c52;
-
+    border:1px solid #2d3c52;
     background:#05080d;
-
     position:relative;
 }
 
@@ -1016,77 +714,50 @@ select{
 
 .profile-photo{
     width:100%;
-
     height:100%;
-
     object-fit:cover;
-
     object-position:center 30%;
-
     display:block;
 }
 
 .profile-photo-overlay{
     position:absolute;
-
     left:0;
     right:0;
     bottom:0;
-
-    padding:
-        70px 18px 17px;
-
-    background:
-        linear-gradient(
-            transparent,
-            rgba(4,7,11,.97)
-        );
+    padding:70px 18px 17px;
+    background:linear-gradient(transparent,rgba(4,7,11,.97));
 }
 
 .profile-photo-overlay strong{
     display:block;
-
     font-size:21px;
 }
 
 .profile-photo-overlay span{
     display:block;
-
     color:#76a9ff;
-
     font-size:11px;
-
     margin-top:5px;
-
     font-weight:bold;
-
     letter-spacing:1.2px;
 }
 
 .profile-rp{
     color:#669eff;
-
-    margin:
-        6px 0 20px;
+    margin:6px 0 20px;
 }
 
 .profile-info{
     background:#070b11;
-
-    border:
-        1px solid #1e2735;
-
+    border:1px solid #1e2735;
     border-radius:11px;
-
     padding:14px 17px;
 }
 
 .profile-info div{
     padding:9px 0;
-
-    border-bottom:
-        1px solid #1c2431;
-
+    border-bottom:1px solid #1c2431;
     font-size:12px;
 }
 
@@ -1096,20 +767,9 @@ select{
 
 .profile-info span{
     display:inline-block;
-
     color:#727f93;
-
     width:115px;
 }
-
-#lightboxImage{
-    max-width:95vw;
-
-    max-height:90vh;
-
-    object-fit:contain;
-}
-
 
 /* ==================================================
    ADMIN
@@ -1119,24 +779,16 @@ select{
 .admin-textarea,
 .admin-select{
     width:100%;
-
-    border:
-        1px solid #2a374c;
-
+    border:1px solid #2a374c;
     background:#080d15;
-
     color:#fff;
-
     border-radius:9px;
-
     padding:11px 12px;
-
     outline:none;
 }
 
 .admin-textarea{
     resize:vertical;
-
     min-height:95px;
 }
 
@@ -1147,59 +799,40 @@ select{
 }
 
 .admin-button{
-    border:
-        1px solid #365783;
-
+    border:1px solid #365783;
     background:#132744;
-
     color:#85b5ff;
-
     padding:10px 14px;
-
     border-radius:8px;
-
     cursor:pointer;
-
     font-weight:bold;
 }
 
 .admin-button.danger{
     border-color:#6f3030;
-
     background:#341515;
-
     color:#ff8e8e;
 }
 
 .admin-button.success{
     border-color:#27633c;
-
     background:#12301e;
-
     color:#74d793;
 }
 
 .admin-error{
     color:#ff7777;
-
     font-size:12px;
-
     margin-top:12px;
-
     min-height:15px;
 }
 
 .admin-panel{
     position:fixed;
-
     inset:0;
-
     z-index:9000;
-
     background:#05080d;
-
     display:none;
-
     overflow:auto;
 }
 
@@ -1209,24 +842,16 @@ select{
 
 .admin-shell{
     width:100%;
-
     max-width:1450px;
-
     margin:auto;
-
     padding:25px;
 }
 
 .admin-topbar{
     display:flex;
-
     align-items:center;
-
-    justify-content:
-        space-between;
-
+    justify-content:space-between;
     gap:15px;
-
     margin-bottom:25px;
 }
 
@@ -1236,73 +861,48 @@ select{
 
 .admin-topbar p{
     color:#78859a;
-
     font-size:12px;
-
     margin-top:5px;
 }
 
 .admin-actions{
     display:flex;
-
     gap:8px;
-
     flex-wrap:wrap;
 }
 
 .admin-layout{
     display:grid;
-
-    grid-template-columns:
-        220px 1fr;
-
+    grid-template-columns:220px 1fr;
     gap:18px;
 }
 
 .admin-sidebar{
     background:#0a0f17;
-
-    border:
-        1px solid #202b3c;
-
+    border:1px solid #202b3c;
     border-radius:14px;
-
     padding:10px;
-
     height:max-content;
-
     position:sticky;
-
     top:20px;
 }
 
 .admin-nav{
     width:100%;
-
     border:0;
-
-    background:
-        transparent;
-
+    background:transparent;
     color:#8b98ab;
-
     padding:12px;
-
     border-radius:8px;
-
     cursor:pointer;
-
     text-align:left;
-
     font-weight:bold;
-
     margin-bottom:3px;
 }
 
 .admin-nav.active,
 .admin-nav:hover{
     background:#152137;
-
     color:#8ab6ff;
 }
 
@@ -1316,14 +916,9 @@ select{
 
 .admin-card{
     background:#0a0f17;
-
-    border:
-        1px solid #202b3c;
-
+    border:1px solid #202b3c;
     border-radius:14px;
-
     padding:20px;
-
     margin-bottom:16px;
 }
 
@@ -1333,24 +928,16 @@ select{
 
 .admin-form-grid{
     display:grid;
-
-    grid-template-columns:
-        repeat(2,1fr);
-
+    grid-template-columns:repeat(2,1fr);
     gap:12px;
 }
 
 .admin-field label{
     display:block;
-
     color:#78869a;
-
     font-size:10px;
-
     font-weight:bold;
-
     letter-spacing:1px;
-
     margin-bottom:6px;
 }
 
@@ -1360,27 +947,17 @@ select{
 
 .admin-list{
     display:grid;
-
     gap:8px;
 }
 
 .admin-list-item{
     display:flex;
-
-    justify-content:
-        space-between;
-
+    justify-content:space-between;
     align-items:center;
-
     gap:15px;
-
     background:#080c13;
-
-    border:
-        1px solid #1d2736;
-
+    border:1px solid #1d2736;
     border-radius:9px;
-
     padding:12px;
 }
 
@@ -1390,81 +967,83 @@ select{
 
 .admin-list-item small{
     display:block;
-
     color:#738096;
-
     margin-top:3px;
 }
 
 .admin-list-actions{
     display:flex;
-
     gap:6px;
 }
 
 .admin-note{
     color:#78859a;
-
     font-size:11px;
-
     line-height:1.6;
-
     margin-bottom:15px;
 }
 
 .admin-stats{
     display:grid;
-
-    grid-template-columns:
-        repeat(4,1fr);
-
+    grid-template-columns:repeat(4,1fr);
     gap:12px;
 }
 
 .admin-stat{
     background:#080d15;
-
-    border:
-        1px solid #1d2838;
-
+    border:1px solid #1d2838;
     padding:20px;
-
     border-radius:12px;
 }
 
 .admin-stat strong{
     display:block;
-
     font-size:28px;
-
     color:#76aaff;
 }
 
 .admin-stat span{
     display:block;
-
     color:#748196;
-
     font-size:11px;
-
     margin-top:6px;
 }
 
+.admin-user{
+    background:#080d15;
+    border:1px solid #243149;
+    padding:14px;
+    border-radius:10px;
+    margin-bottom:15px;
+}
+
+.admin-user small{
+    display:block;
+    color:#738096;
+    margin-bottom:5px;
+}
+
+.admin-user strong{
+    color:#77aaff;
+}
+
+#lightboxImage{
+    max-width:95vw;
+    max-height:90vh;
+    object-fit:contain;
+}
 
 /* ==================================================
-   RESPONSIVE
+   MOBILE
 ================================================== */
 
 @media(max-width:900px){
 
     .owner-pfp{
         position:relative;
-
         top:auto;
         left:auto;
-
-        margin:
-            15px auto 5px;
+        margin:15px auto 5px;
     }
 
     .owner-tooltip{
@@ -1473,26 +1052,11 @@ select{
 
     .quest-history{
         position:relative;
-
         top:auto;
         left:auto;
-
-        width:
-            calc(100% - 30px);
-
+        width:calc(100% - 30px);
         max-height:none;
-
-        margin:
-            15px;
-    }
-
-    .quest-history.collapsed{
-        width:
-            calc(100% - 30px);
-    }
-
-    .quest-history-content{
-        max-height:400px;
+        margin:15px;
     }
 
     .leaders-grid{
@@ -1500,14 +1064,12 @@ select{
     }
 
     .members-grid{
-        grid-template-columns:
-            repeat(2,1fr);
+        grid-template-columns:repeat(2,1fr);
     }
 
     .quest-grid,
     .case-grid{
-        grid-template-columns:
-            repeat(2,1fr);
+        grid-template-columns:repeat(2,1fr);
     }
 
     .admin-layout{
@@ -1516,25 +1078,20 @@ select{
 
     .admin-sidebar{
         position:static;
-
         display:flex;
-
         overflow:auto;
     }
 
     .admin-nav{
         width:auto;
-
         white-space:nowrap;
     }
-
 }
 
 @media(max-width:650px){
 
     .container{
-        padding:
-            20px 15px 40px;
+        padding:20px 15px 40px;
     }
 
     .header h1{
@@ -1551,10 +1108,6 @@ select{
         grid-template-columns:1fr;
     }
 
-    .admin-field.full{
-        grid-column:auto;
-    }
-
     .gallery{
         grid-template-columns:1fr;
     }
@@ -1562,60 +1115,41 @@ select{
     .profile-photo-wrap{
         height:260px;
     }
-
 }
-
 </style>
 </head>
 
 <body>
 
-
-<!-- ==================================================
-     AMINE PFP TOP LEFT
-================================================== -->
+<!-- AMINE PROFILE -->
 
 <div
     class="owner-pfp"
     onclick="showMemberProfile('amine')"
 >
-
     <img
-        src="images/amine-morgan.png"
+        src="./images/amine-morgan.png"
         alt="Amine Morgan"
     >
 
     <div class="owner-online"></div>
 
     <div class="owner-tooltip">
-
-        <strong>
-            Amine Morgan
-        </strong>
-
-        <span>
-            CALLSIGN 392 • BRAVO SQUAD
-        </span>
-
+        <strong>Amine Morgan</strong>
+        <span>CALLSIGN 392 • BRAVO SQUAD</span>
     </div>
-
 </div>
 
-
-<!-- ==================================================
-     QUEST HISTORY
-================================================== -->
+<!-- QUEST HISTORY -->
 
 <div
     class="quest-history"
     id="questHistory"
 >
-
     <div
         class="quest-history-header"
         onclick="toggleQuestHistory()"
     >
-
         <div class="quest-history-title">
             QUEST HISTORY
         </div>
@@ -1626,23 +1160,17 @@ select{
         >
             −
         </button>
-
     </div>
 
     <div
         class="quest-history-content"
         id="questHistoryContent"
     ></div>
-
 </div>
 
-
-<!-- ==================================================
-     MAIN WEBSITE
-================================================== -->
+<!-- MAIN -->
 
 <div class="container">
-
 
 <div class="header">
 
@@ -1660,10 +1188,7 @@ select{
 
 </div>
 
-
-<!-- ==================================================
-     HOME
-================================================== -->
+<!-- HOME -->
 
 <div
     id="homePage"
@@ -1684,7 +1209,6 @@ select{
         BRAVO SQUAD MEMBERS
     </div>
 
-
     <div class="member-search-wrap">
 
         <input
@@ -1695,13 +1219,10 @@ select{
         >
 
         <div class="search-info">
-
-            Search by Discord • RP Name • Callsign
-
+            Discord Name • RP Name • Callsign
         </div>
 
     </div>
-
 
     <div
         id="noResults"
@@ -1710,12 +1231,10 @@ select{
         No Bravo Squad member found.
     </div>
 
-
     <div
         id="leadersGrid"
         class="leaders-grid"
     ></div>
-
 
     <div
         id="membersGrid"
@@ -1724,10 +1243,7 @@ select{
 
 </div>
 
-
-<!-- ==================================================
-     CLOSED QUEST
-================================================== -->
+<!-- CLOSED -->
 
 <div
     id="closedPage"
@@ -1740,7 +1256,6 @@ select{
     >
         ← BACK
     </button>
-
 
     <div class="page-header">
 
@@ -1758,7 +1273,6 @@ select{
 
     </div>
 
-
     <div
         id="closedQuestGrid"
         class="case-grid"
@@ -1766,10 +1280,7 @@ select{
 
 </div>
 
-
-<!-- ==================================================
-     QUEST 9
-================================================== -->
+<!-- QUEST 9 -->
 
 <div
     id="quest9Page"
@@ -1782,7 +1293,6 @@ select{
     >
         ← BACK
     </button>
-
 
     <div class="page-header">
 
@@ -1800,50 +1310,29 @@ select{
 
     </div>
 
-
     <div class="quest-category-grid">
-
 
         <div
             class="quest-category"
             onclick="showCategory('store')"
         >
-
-            <h3>
-                Store Robbery
-            </h3>
-
-            <p>
-                2 Store Robbery Cases
-            </p>
-
+            <h3>Store Robbery</h3>
+            <p>2 Store Robbery Cases</p>
         </div>
-
 
         <div
             class="quest-category"
             onclick="showCategory('house')"
         >
-
-            <h3>
-                House Robbery
-            </h3>
-
-            <p>
-                3 House Robbery Cases
-            </p>
-
+            <h3>House Robbery</h3>
+            <p>3 House Robbery Cases</p>
         </div>
-
 
     </div>
 
 </div>
 
-
-<!-- ==================================================
-     GENERIC QUEST
-================================================== -->
+<!-- GENERIC QUEST -->
 
 <div
     id="genericQuestPage"
@@ -1857,7 +1346,6 @@ select{
         ← BACK
     </button>
 
-
     <div class="page-header">
 
         <div
@@ -1865,16 +1353,11 @@ select{
             id="genericQuestBadge"
         ></div>
 
-        <h2
-            id="genericQuestTitle"
-        ></h2>
+        <h2 id="genericQuestTitle"></h2>
 
-        <p
-            id="genericQuestSubtitle"
-        ></p>
+        <p id="genericQuestSubtitle"></p>
 
     </div>
-
 
     <div class="detail-box">
 
@@ -1895,10 +1378,7 @@ select{
 
 </div>
 
-
-<!-- ==================================================
-     STORE
-================================================== -->
+<!-- STORE -->
 
 <div
     id="storePage"
@@ -1911,7 +1391,6 @@ select{
     >
         ← BACK
     </button>
-
 
     <div class="page-header">
 
@@ -1929,7 +1408,6 @@ select{
 
     </div>
 
-
     <div
         id="storeCases"
         class="case-grid"
@@ -1937,10 +1415,7 @@ select{
 
 </div>
 
-
-<!-- ==================================================
-     HOUSE
-================================================== -->
+<!-- HOUSE -->
 
 <div
     id="housePage"
@@ -1953,7 +1428,6 @@ select{
     >
         ← BACK
     </button>
-
 
     <div class="page-header">
 
@@ -1971,7 +1445,6 @@ select{
 
     </div>
 
-
     <div
         id="houseCases"
         class="case-grid"
@@ -1979,10 +1452,7 @@ select{
 
 </div>
 
-
-<!-- ==================================================
-     DETAIL
-================================================== -->
+<!-- DETAIL -->
 
 <div
     id="detailPage"
@@ -1996,37 +1466,26 @@ select{
         ← BACK
     </button>
 
-
     <div class="detail-box">
-
 
         <div class="detail-head">
 
-
             <div>
-
-                <h2
-                    id="detailTitle"
-                ></h2>
+                <h2 id="detailTitle"></h2>
 
                 <div
                     id="detailLocation"
                     class="detail-location"
                 ></div>
-
             </div>
-
 
             <div class="detail-status">
                 VERIFIED
             </div>
 
-
         </div>
 
-
         <div class="info-grid">
-
 
             <div class="info-card">
 
@@ -2034,12 +1493,9 @@ select{
                     FINGERPRINT
                 </h4>
 
-                <p
-                    id="detailFingerprint"
-                ></p>
+                <p id="detailFingerprint"></p>
 
             </div>
-
 
             <div class="info-card">
 
@@ -2047,12 +1503,9 @@ select{
                     INCIDENT
                 </h4>
 
-                <p
-                    id="detailIncident"
-                ></p>
+                <p id="detailIncident"></p>
 
             </div>
-
 
             <div class="info-card">
 
@@ -2060,12 +1513,9 @@ select{
                     CONFISCATED ITEMS
                 </h4>
 
-                <ul
-                    id="detailItems"
-                ></ul>
+                <ul id="detailItems"></ul>
 
             </div>
-
 
             <div class="info-card">
 
@@ -2073,12 +1523,9 @@ select{
                     TEAM MEMBERS
                 </h4>
 
-                <p
-                    id="detailTeam"
-                ></p>
+                <p id="detailTeam"></p>
 
             </div>
-
 
             <div class="info-card full">
 
@@ -2093,13 +1540,9 @@ select{
 
             </div>
 
-
         </div>
 
-
-        <div
-            id="evidenceBlock"
-        >
+        <div id="evidenceBlock">
 
             <div class="section-title">
                 EVIDENCE
@@ -2112,18 +1555,13 @@ select{
 
         </div>
 
-
     </div>
 
 </div>
 
-
 </div>
 
-
-<!-- ==================================================
-     MEMBER PROFILE
-================================================== -->
+<!-- PROFILE MODAL -->
 
 <div
     id="profileModal"
@@ -2132,14 +1570,12 @@ select{
 
     <div class="modal-box">
 
-
         <div
             class="close"
             onclick="closeProfile()"
         >
             ×
         </div>
-
 
         <div
             id="profilePhotoWrap"
@@ -2149,9 +1585,8 @@ select{
             <img
                 id="profilePhoto"
                 class="profile-photo"
-                alt="Member Profile"
+                alt="Member profile"
             >
-
 
             <div class="profile-photo-overlay">
 
@@ -2167,98 +1602,44 @@ select{
 
         </div>
 
-
-        <h2
-            id="profileDiscord"
-        ></h2>
-
+        <h2 id="profileDiscord"></h2>
 
         <div
             id="profileRP"
             class="profile-rp"
         ></div>
 
-
         <div class="profile-info">
 
-
             <div>
-
-                <span>
-                    Callsign
-                </span>
-
-                <strong
-                    id="profileCallsign"
-                ></strong>
-
+                <span>Callsign</span>
+                <strong id="profileCallsign"></strong>
             </div>
 
-
             <div>
-
-                <span>
-                    Rank
-                </span>
-
-                <strong
-                    id="profileRank"
-                ></strong>
-
+                <span>Rank</span>
+                <strong id="profileRank"></strong>
             </div>
 
-
             <div>
-
-                <span>
-                    Management
-                </span>
-
-                <strong
-                    id="profileManagement"
-                ></strong>
-
+                <span>Management</span>
+                <strong id="profileManagement"></strong>
             </div>
 
-
             <div>
-
-                <span>
-                    Wings
-                </span>
-
-                <strong
-                    id="profileWings"
-                ></strong>
-
+                <span>Wings</span>
+                <strong id="profileWings"></strong>
             </div>
 
-
             <div>
-
-                <span>
-                    RP Name
-                </span>
-
-                <strong
-                    id="profileRpName"
-                ></strong>
-
+                <span>RP Name</span>
+                <strong id="profileRpName"></strong>
             </div>
 
-
             <div>
-
-                <span>
-                    Squad
-                </span>
-
-                <strong>
-                    BRAVO SQUAD
-                </strong>
-
+                <span>Squad</span>
+                <strong>BRAVO SQUAD</strong>
             </div>
-
 
         </div>
 
@@ -2266,27 +1647,17 @@ select{
 
 </div>
 
-
-<!-- ==================================================
-     LIGHTBOX
-================================================== -->
+<!-- LIGHTBOX -->
 
 <div
     id="lightbox"
     class="modal"
     onclick="closeLightbox()"
 >
-
-    <img
-        id="lightboxImage"
-    >
-
+    <img id="lightboxImage">
 </div>
 
-
-<!-- ==================================================
-     ADMIN LOGIN
-================================================== -->
+<!-- ADMIN LOGIN -->
 
 <div
     id="adminLoginModal"
@@ -2295,7 +1666,6 @@ select{
 
     <div class="modal-box">
 
-
         <div
             class="close"
             onclick="closeAdminLogin()"
@@ -2303,16 +1673,13 @@ select{
             ×
         </div>
 
-
         <div class="badge">
-            PRIVATE AREA
+            SECURE ADMIN
         </div>
 
-
         <h2>
-            Admin Login
+            BRAVO Admin Login
         </h2>
-
 
         <p
             style="
@@ -2321,15 +1688,24 @@ select{
                 margin:10px 0 20px;
             "
         >
-            BRAVO CHALLENGE Administration
+            Authorized administrator only
         </p>
 
+        <input
+            id="adminEmail"
+            class="admin-input"
+            type="email"
+            placeholder="Admin email"
+            autocomplete="username"
+        >
 
         <input
             id="adminPassword"
             class="admin-input"
             type="password"
-            placeholder="Admin password"
+            placeholder="Password"
+            autocomplete="current-password"
+            style="margin-top:10px;"
             onkeydown="
                 if(event.key==='Enter'){
                     adminLogin()
@@ -2337,8 +1713,8 @@ select{
             "
         >
 
-
         <button
+            id="adminLoginButton"
             class="admin-button success"
             style="
                 width:100%;
@@ -2349,33 +1725,25 @@ select{
             LOGIN
         </button>
 
-
         <div
             id="adminLoginError"
             class="admin-error"
         ></div>
 
-
     </div>
 
 </div>
 
-
-<!-- ==================================================
-     ADMIN PANEL
-================================================== -->
+<!-- ADMIN PANEL -->
 
 <div
     id="adminPanel"
     class="admin-panel"
 >
 
-
 <div class="admin-shell">
 
-
 <div class="admin-topbar">
-
 
     <div>
 
@@ -2388,14 +1756,12 @@ select{
         </h1>
 
         <p>
-            Control Bravo Challenge Website
+            Secure Supabase Authentication
         </p>
 
     </div>
 
-
     <div class="admin-actions">
-
 
         <button
             class="admin-button success"
@@ -2404,14 +1770,12 @@ select{
             SAVE
         </button>
 
-
         <button
             class="admin-button"
             onclick="closeAdminPanel()"
         >
             VIEW SITE
         </button>
-
 
         <button
             class="admin-button danger"
@@ -2420,89 +1784,54 @@ select{
             LOGOUT
         </button>
 
-
     </div>
-
 
 </div>
 
 
 <div class="admin-layout">
 
-
 <div class="admin-sidebar">
-
 
     <button
         class="admin-nav active"
-        onclick="
-            showAdminPage(
-                'dashboard',
-                this
-            )
-        "
+        onclick="showAdminPage('dashboard',this)"
     >
         Dashboard
     </button>
 
-
     <button
         class="admin-nav"
-        onclick="
-            showAdminPage(
-                'questmanager',
-                this
-            )
-        "
+        onclick="showAdminPage('questmanager',this)"
     >
         Quest Manager
     </button>
 
-
     <button
         class="admin-nav"
-        onclick="
-            showAdminPage(
-                'members',
-                this
-            )
-        "
+        onclick="showAdminPage('members',this)"
     >
         Members
     </button>
 
-
     <button
         class="admin-nav"
-        onclick="
-            showAdminPage(
-                'cases',
-                this
-            )
-        "
+        onclick="showAdminPage('cases',this)"
     >
         Cases
     </button>
 
-
     <button
         class="admin-nav"
-        onclick="
-            showAdminPage(
-                'history',
-                this
-            )
-        "
+        onclick="showAdminPage('history',this)"
     >
         Quest History
     </button>
-
 
 </div>
 
 
 <div class="admin-content">
-
 
 <!-- DASHBOARD -->
 
@@ -2511,72 +1840,43 @@ select{
     class="admin-section active"
 >
 
+    <div class="admin-user">
 
-    <div class="admin-stats">
+        <small>
+            LOGGED IN AS
+        </small>
 
-
-        <div class="admin-stat">
-
-            <strong
-                id="statMembers"
-            >
-                0
-            </strong>
-
-            <span>
-                Squad Members
-            </span>
-
-        </div>
-
-
-        <div class="admin-stat">
-
-            <strong
-                id="statCases"
-            >
-                0
-            </strong>
-
-            <span>
-                Cases
-            </span>
-
-        </div>
-
-
-        <div class="admin-stat">
-
-            <strong
-                id="statHistory"
-            >
-                0
-            </strong>
-
-            <span>
-                Quest History
-            </span>
-
-        </div>
-
-
-        <div class="admin-stat">
-
-            <strong
-                id="statQuestCards"
-            >
-                0
-            </strong>
-
-            <span>
-                Quest Cards
-            </span>
-
-        </div>
-
+        <strong
+            id="adminLoggedEmail"
+        >
+            —
+        </strong>
 
     </div>
 
+    <div class="admin-stats">
+
+        <div class="admin-stat">
+            <strong id="statMembers">0</strong>
+            <span>Squad Members</span>
+        </div>
+
+        <div class="admin-stat">
+            <strong id="statCases">0</strong>
+            <span>Cases</span>
+        </div>
+
+        <div class="admin-stat">
+            <strong id="statHistory">0</strong>
+            <span>Quest History</span>
+        </div>
+
+        <div class="admin-stat">
+            <strong id="statQuestCards">0</strong>
+            <span>Quest Cards</span>
+        </div>
+
+    </div>
 
     <div
         class="admin-card"
@@ -2584,57 +1884,37 @@ select{
     >
 
         <h3>
-            Bravo Admin
+            Admin Security
         </h3>
 
         <p class="admin-note">
-
-            التغييرات كيتخزنو فـ localStorage
-            ديال هاد المتصفح.
-
+            Login kaytverifya mn Supabase.
+            Password ma kaynch f source code.
         </p>
-
-
-        <button
-            class="admin-button danger"
-            onclick="resetDatabase()"
-        >
-            RESET TEST DATA
-        </button>
-
 
     </div>
 
-
 </div>
 
-
-<!-- ==================================================
-     QUEST MANAGER
-================================================== -->
+<!-- QUEST MANAGER -->
 
 <div
     id="admin-questmanager"
     class="admin-section"
 >
 
-
     <div class="admin-card">
-
 
         <h3>
             Add / Edit Quest
         </h3>
-
 
         <input
             id="questCardEditId"
             type="hidden"
         >
 
-
         <div class="admin-form-grid">
-
 
             <div class="admin-field">
 
@@ -2651,7 +1931,6 @@ select{
 
             </div>
 
-
             <div class="admin-field">
 
                 <label>
@@ -2662,7 +1941,6 @@ select{
                     id="admQuestCardStatus"
                     class="admin-select"
                 >
-
                     <option value="active">
                         ACTIVE
                     </option>
@@ -2670,11 +1948,9 @@ select{
                     <option value="closed">
                         CLOSED
                     </option>
-
                 </select>
 
             </div>
-
 
             <div class="admin-field">
 
@@ -2690,7 +1966,6 @@ select{
 
             </div>
 
-
             <div class="admin-field">
 
                 <label>
@@ -2705,7 +1980,6 @@ select{
 
             </div>
 
-
             <div class="admin-field full">
 
                 <label>
@@ -2719,9 +1993,7 @@ select{
 
             </div>
 
-
         </div>
-
 
         <div
             style="
@@ -2731,14 +2003,12 @@ select{
             "
         >
 
-
             <button
                 class="admin-button success"
                 onclick="saveQuestCardFromAdmin()"
             >
                 SAVE QUEST
             </button>
-
 
             <button
                 class="admin-button"
@@ -2747,158 +2017,101 @@ select{
                 CLEAR
             </button>
 
-
         </div>
-
 
     </div>
 
-
     <div class="admin-card">
-
 
         <h3>
             Quest Cards
         </h3>
-
 
         <div
             id="adminQuestCardList"
             class="admin-list"
         ></div>
 
-
     </div>
-
 
 </div>
 
-
-<!-- ==================================================
-     MEMBERS ADMIN
-================================================== -->
+<!-- MEMBERS -->
 
 <div
     id="admin-members"
     class="admin-section"
 >
 
-
     <div class="admin-card">
-
 
         <h3>
             Add / Edit Member
         </h3>
-
 
         <input
             id="memberEditKey"
             type="hidden"
         >
 
-
         <div class="admin-form-grid">
 
-
             <div class="admin-field">
-
-                <label>
-                    DISCORD NAME
-                </label>
-
+                <label>DISCORD NAME</label>
                 <input
                     id="admDiscord"
                     class="admin-input"
                 >
-
             </div>
 
-
             <div class="admin-field">
-
-                <label>
-                    RP NAME
-                </label>
-
+                <label>RP NAME</label>
                 <input
                     id="admRP"
                     class="admin-input"
                 >
-
             </div>
 
-
             <div class="admin-field">
-
-                <label>
-                    CALLSIGN
-                </label>
-
+                <label>CALLSIGN</label>
                 <input
                     id="admCallsign"
                     class="admin-input"
                 >
-
             </div>
 
-
             <div class="admin-field">
-
-                <label>
-                    RANK
-                </label>
-
+                <label>RANK</label>
                 <input
                     id="admRank"
                     class="admin-input"
                 >
-
             </div>
 
-
             <div class="admin-field">
-
-                <label>
-                    MANAGEMENT
-                </label>
-
+                <label>MANAGEMENT</label>
                 <input
                     id="admManagement"
                     class="admin-input"
                 >
-
             </div>
 
-
             <div class="admin-field">
-
-                <label>
-                    WINGS
-                </label>
-
+                <label>WINGS</label>
                 <input
                     id="admWings"
                     class="admin-input"
                 >
-
             </div>
 
-
             <div class="admin-field">
-
-                <label>
-                    IMAGE PATH
-                </label>
-
+                <label>IMAGE PATH</label>
                 <input
                     id="admImage"
                     class="admin-input"
                     placeholder="images/member.png"
                 >
-
             </div>
-
 
             <div class="admin-field">
 
@@ -2910,7 +2123,6 @@ select{
                     id="admTop"
                     class="admin-select"
                 >
-
                     <option value="false">
                         No
                     </option>
@@ -2918,14 +2130,11 @@ select{
                     <option value="true">
                         Yes
                     </option>
-
                 </select>
 
             </div>
 
-
         </div>
-
 
         <div
             style="
@@ -2935,14 +2144,12 @@ select{
             "
         >
 
-
             <button
                 class="admin-button success"
                 onclick="saveMemberFromAdmin()"
             >
                 SAVE MEMBER
             </button>
-
 
             <button
                 class="admin-button"
@@ -2951,59 +2158,44 @@ select{
                 CLEAR
             </button>
 
-
         </div>
-
 
     </div>
 
-
     <div class="admin-card">
-
 
         <h3>
             Bravo Squad Members
         </h3>
-
 
         <div
             id="adminMemberList"
             class="admin-list"
         ></div>
 
-
     </div>
-
 
 </div>
 
-
-<!-- ==================================================
-     CASES ADMIN
-================================================== -->
+<!-- CASES -->
 
 <div
     id="admin-cases"
     class="admin-section"
 >
 
-
     <div class="admin-card">
-
 
         <h3>
             Add / Edit Quest #9 Case
         </h3>
-
 
         <input
             id="caseEditId"
             type="hidden"
         >
 
-
         <div class="admin-form-grid">
-
 
             <div class="admin-field">
 
@@ -3015,7 +2207,6 @@ select{
                     id="admCaseCategory"
                     class="admin-select"
                 >
-
                     <option value="store">
                         Store Robbery
                     </option>
@@ -3023,82 +2214,50 @@ select{
                     <option value="house">
                         House Robbery
                     </option>
-
                 </select>
 
             </div>
 
-
             <div class="admin-field">
-
-                <label>
-                    CASE NUMBER
-                </label>
-
+                <label>CASE NUMBER</label>
                 <input
                     id="admCaseNumber"
                     class="admin-input"
                     type="number"
                 >
-
             </div>
 
-
             <div class="admin-field">
-
-                <label>
-                    INCIDENT
-                </label>
-
+                <label>INCIDENT</label>
                 <input
                     id="admCaseIncident"
                     class="admin-input"
                 >
-
             </div>
 
-
             <div class="admin-field">
-
-                <label>
-                    LOCATION
-                </label>
-
+                <label>LOCATION</label>
                 <input
                     id="admCaseLocation"
                     class="admin-input"
                 >
-
             </div>
 
-
             <div class="admin-field">
-
-                <label>
-                    FINGERPRINT
-                </label>
-
+                <label>FINGERPRINT</label>
                 <input
                     id="admCaseFingerprint"
                     class="admin-input"
                 >
-
             </div>
 
-
             <div class="admin-field">
-
-                <label>
-                    TEAM MEMBERS
-                </label>
-
+                <label>TEAM MEMBERS</label>
                 <input
                     id="admCaseTeam"
                     class="admin-input"
                 >
-
             </div>
-
 
             <div class="admin-field full">
 
@@ -3113,7 +2272,6 @@ select{
 
             </div>
 
-
             <div class="admin-field full">
 
                 <label>
@@ -3127,13 +2285,10 @@ select{
 
             </div>
 
-
             <div class="admin-field full">
 
                 <label>
-                    IMAGE URLS
-                    —
-                    ONE PER LINE
+                    IMAGE URLS — ONE PER LINE
                 </label>
 
                 <textarea
@@ -3143,9 +2298,7 @@ select{
 
             </div>
 
-
         </div>
-
 
         <div
             style="
@@ -3155,14 +2308,12 @@ select{
             "
         >
 
-
             <button
                 class="admin-button success"
                 onclick="saveCaseFromAdmin()"
             >
                 SAVE CASE
             </button>
-
 
             <button
                 class="admin-button"
@@ -3171,59 +2322,44 @@ select{
                 CLEAR
             </button>
 
-
         </div>
-
 
     </div>
 
-
     <div class="admin-card">
-
 
         <h3>
             Quest #9 Cases
         </h3>
-
 
         <div
             id="adminCaseList"
             class="admin-list"
         ></div>
 
-
     </div>
-
 
 </div>
 
-
-<!-- ==================================================
-     HISTORY ADMIN
-================================================== -->
+<!-- HISTORY -->
 
 <div
     id="admin-history"
     class="admin-section"
 >
 
-
     <div class="admin-card">
-
 
         <h3>
             Edit Quest History
         </h3>
-
 
         <input
             id="historyEditIndex"
             type="hidden"
         >
 
-
         <div class="admin-form-grid">
-
 
             <div class="admin-field">
 
@@ -3239,7 +2375,6 @@ select{
 
             </div>
 
-
             <div class="admin-field">
 
                 <label>
@@ -3250,7 +2385,6 @@ select{
                     id="admHistoryCurrent"
                     class="admin-select"
                 >
-
                     <option value="false">
                         No
                     </option>
@@ -3258,11 +2392,9 @@ select{
                     <option value="true">
                         Yes
                     </option>
-
                 </select>
 
             </div>
-
 
             <div class="admin-field full">
 
@@ -3277,9 +2409,7 @@ select{
 
             </div>
 
-
         </div>
-
 
         <div
             style="
@@ -3289,14 +2419,12 @@ select{
             "
         >
 
-
             <button
                 class="admin-button success"
                 onclick="saveHistoryFromAdmin()"
             >
                 SAVE HISTORY
             </button>
-
 
             <button
                 class="admin-button"
@@ -3305,50 +2433,83 @@ select{
                 CLEAR
             </button>
 
-
         </div>
-
 
     </div>
 
-
     <div class="admin-card">
-
 
         <h3>
             Quest History
         </h3>
-
 
         <div
             id="adminHistoryList"
             class="admin-list"
         ></div>
 
-
     </div>
 
-
 </div>
-
 
 </div>
 </div>
 </div>
 </div>
 
+
+<!-- SUPABASE JS -->
+
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
 
 <script>
 
 /* ==================================================
-   SETTINGS
+   SUPABASE
 ================================================== */
 
-const ADMIN_PASSWORD =
-    "aminebravo2007!!";
+const SUPABASE_URL =
+    "https://ghqklftqupdwdnlukkzw.supabase.co";
+
+const SUPABASE_PUBLISHABLE_KEY =
+    "sb_publishable_kdPhRS1hsjVT8994bhwa7Q_RBrKVHAi";
+
+let supabaseClient = null;
+
+try{
+
+    if(
+        window.supabase &&
+        typeof window.supabase.createClient === "function"
+    ){
+
+        supabaseClient =
+            window.supabase.createClient(
+                SUPABASE_URL,
+                SUPABASE_PUBLISHABLE_KEY
+            );
+
+    }
+
+}catch(error){
+
+    console.error(
+        "Supabase initialization error:",
+        error
+    );
+
+}
+
+
+/* ==================================================
+   WEBSITE SETTINGS
+================================================== */
 
 const STORAGE_KEY =
-    "bravoChallengeDatabaseV4";
+    "bravoChallengeDatabaseSecureV2";
+
+const AMINE_IMAGE =
+    "./images/amine-morgan.png";
 
 
 /* ==================================================
@@ -3356,7 +2517,6 @@ const STORAGE_KEY =
 ================================================== */
 
 const DEFAULT_DB = {
-
 
 questCards:[
 
@@ -3372,14 +2532,12 @@ questCards:[
 
 ],
 
-
 closedQuests:[
     5,
     6,
     7,
     8
 ],
-
 
 questHistory:[
 
@@ -3408,7 +2566,7 @@ questHistory:[
         number:4,
         current:false,
         text:
-            "كتابة 10 تقارير مميزه لحالات جنائية بشكل احترافي مع شمول جميع جوانب التقرير"
+            "كتابة 10 تقارير مميزه لحالات جنائية بشكل احترافي مع شمول جميع جوانب التقرير (السرد , الملاحظات , العساكر المشاركين , الأدلة الخ)"
     },
 
     {
@@ -3436,7 +2594,7 @@ questHistory:[
         number:8,
         current:false,
         text:
-            "5 حالات استيقاف مروري + 2 حالة بقالة"
+            "مباشرة 5 حالة استيقاف مروري + 2 حالة بقالة"
     },
 
     {
@@ -3448,13 +2606,7 @@ questHistory:[
 
 ],
 
-
-/* ==================================================
-   ALL 43 BRAVO SQUAD MEMBERS
-================================================== */
-
 members:[
-
 
 {
     id:"dark",
@@ -3462,62 +2614,47 @@ members:[
     rp:"Abdulilah Nawaf",
     callsign:"209",
     rank:"Sergeant",
-    management:
-        "Police Wings Management",
-    wings:
-        "Airship • Motorcycle • Negotiator",
+    management:"Police Wings Management",
+    wings:"Airship • Motorcycle • Negotiator",
     image:"",
     top:true
 },
-
 
 {
     id:"feras",
     discord:"Feras",
     rp:"Feras BinOmar",
     callsign:"302",
-    rank:
-        "Senior Lead Officer",
-    management:
-        "Police Academy Section Leader",
-    wings:
-        "Airship • Motorcycle • Negotiator",
+    rank:"Senior Lead Officer",
+    management:"Police Academy Section Leader",
+    wings:"Airship • Motorcycle • Negotiator",
     image:"",
     top:true
 },
-
 
 {
     id:"qassim",
     discord:"Qassim",
     rp:"Shaheen Hamad",
     callsign:"310",
-    rank:
-        "Senior Officer",
-    management:
-        "Internal Affairs Management",
-    wings:
-        "Airship • Motorcycle • Negotiator",
+    rank:"Senior Officer",
+    management:"Internal Affairs Management",
+    wings:"Airship • Motorcycle • Negotiator",
     image:"",
     top:true
 },
-
 
 {
     id:"hossam",
     discord:"7sosah",
     rp:"HOSSAM ALMUTAIRI",
     callsign:"312",
-    rank:
-        "Senior Officer",
-    management:
-        "Police Academy Management",
-    wings:
-        "Airship • Motorcycle • Negotiator",
+    rank:"Senior Officer",
+    management:"Police Academy Management",
+    wings:"Airship • Motorcycle • Negotiator",
     image:"",
     top:false
 },
-
 
 {
     id:"baa",
@@ -3525,14 +2662,11 @@ members:[
     rp:"Bader Abdullah",
     callsign:"316",
     rank:"Officer III",
-    management:
-        "Internal Affairs Section Leader",
-    wings:
-        "Airship • Motorcycle • Negotiator",
+    management:"Internal Affairs Section Leader",
+    wings:"Airship • Motorcycle • Negotiator",
     image:"",
     top:false
 },
-
 
 {
     id:"jin",
@@ -3540,14 +2674,11 @@ members:[
     rp:"Jin Freecs",
     callsign:"323",
     rank:"Officer III",
-    management:
-        "Police Academy",
-    wings:
-        "Airship • Motorcycle • Negotiator",
+    management:"Police Academy",
+    wings:"Airship • Motorcycle • Negotiator",
     image:"",
     top:false
 },
-
 
 {
     id:"jummah",
@@ -3555,14 +2686,11 @@ members:[
     rp:"JUMMAH ALZAHRANI",
     callsign:"325",
     rank:"Officer III",
-    management:
-        "Police Academy Section Leader",
-    wings:
-        "Airship • Motorcycle • Negotiator",
+    management:"Police Academy Section Leader",
+    wings:"Airship • Motorcycle • Negotiator",
     image:"",
     top:false
 },
-
 
 {
     id:"thiago",
@@ -3571,12 +2699,10 @@ members:[
     callsign:"326",
     rank:"Officer III",
     management:"Wings",
-    wings:
-        "Airship • Motorcycle • Negotiator",
+    wings:"Airship • Motorcycle • Negotiator",
     image:"",
     top:false
 },
-
 
 {
     id:"attaf",
@@ -3584,14 +2710,11 @@ members:[
     rp:"Abdullah Attaf",
     callsign:"327",
     rank:"Officer III",
-    management:
-        "Police Academy",
-    wings:
-        "Airship • Motorcycle • Negotiator",
+    management:"Police Academy",
+    wings:"Airship • Motorcycle • Negotiator",
     image:"",
     top:false
 },
-
 
 {
     id:"void",
@@ -3600,12 +2723,10 @@ members:[
     callsign:"335",
     rank:"Officer III",
     management:"—",
-    wings:
-        "Airship • Motorcycle • Negotiator",
+    wings:"Airship • Motorcycle • Negotiator",
     image:"",
     top:false
 },
-
 
 {
     id:"raedd",
@@ -3614,12 +2735,10 @@ members:[
     callsign:"371",
     rank:"Officer I",
     management:"—",
-    wings:
-        "Airship • Motorcycle • Negotiator",
+    wings:"Airship • Motorcycle • Negotiator",
     image:"",
     top:false
 },
-
 
 {
     id:"mario",
@@ -3628,12 +2747,10 @@ members:[
     callsign:"355",
     rank:"Officer II",
     management:"Wings",
-    wings:
-        "Airship • Motorcycle • Negotiator",
+    wings:"Airship • Motorcycle • Negotiator",
     image:"",
     top:false
 },
-
 
 {
     id:"ahmed",
@@ -3642,12 +2759,10 @@ members:[
     callsign:"352",
     rank:"Officer II",
     management:"D.B",
-    wings:
-        "Airship • Motorcycle • Negotiator",
+    wings:"Airship • Motorcycle • Negotiator",
     image:"",
     top:false
 },
-
 
 {
     id:"layla",
@@ -3656,12 +2771,10 @@ members:[
     callsign:"351",
     rank:"Officer II",
     management:"D.B",
-    wings:
-        "Airship • Motorcycle • Negotiator",
+    wings:"Airship • Motorcycle • Negotiator",
     image:"",
     top:false
 },
-
 
 {
     id:"rayan",
@@ -3670,12 +2783,10 @@ members:[
     callsign:"366",
     rank:"Officer I",
     management:"—",
-    wings:
-        "Airship • Negotiator",
+    wings:"Airship • Negotiator",
     image:"",
     top:false
 },
-
 
 {
     id:"tom",
@@ -3683,13 +2794,11 @@ members:[
     rp:"Tom Chandler",
     callsign:"362",
     rank:"Officer I",
-    management:
-        "Internal Affairs Member",
+    management:"Internal Affairs Member",
     wings:"Airship",
     image:"",
     top:false
 },
-
 
 {
     id:"faisalFailachwe",
@@ -3697,14 +2806,11 @@ members:[
     rp:"Faisal Failachwe",
     callsign:"363",
     rank:"Officer I",
-    management:
-        "Police Wings Section Leader",
-    wings:
-        "Airship • Motorcycle • Negotiator",
+    management:"Police Wings Section Leader",
+    wings:"Airship • Motorcycle • Negotiator",
     image:"",
     top:false
 },
-
 
 {
     id:"nf3a",
@@ -3712,14 +2818,11 @@ members:[
     rp:"Nawaf Abdullah",
     callsign:"367",
     rank:"Officer I",
-    management:
-        "Police Academy",
-    wings:
-        "Airship • Negotiator",
+    management:"Police Academy",
+    wings:"Airship • Negotiator",
     image:"",
     top:false
 },
-
 
 {
     id:"baraa",
@@ -3733,20 +2836,17 @@ members:[
     top:false
 },
 
-
 {
     id:"rashed",
     discord:"Rashed",
     rp:"Rashed AlHarbi",
     callsign:"379",
     rank:"Solo Cadet",
-    management:
-        "Internal Affairs",
+    management:"Internal Affairs",
     wings:"No Wings",
     image:"",
     top:false
 },
-
 
 {
     id:"abdullahZ",
@@ -3760,7 +2860,6 @@ members:[
     top:false
 },
 
-
 {
     id:"binTalal",
     discord:"Bin Talal",
@@ -3772,7 +2871,6 @@ members:[
     image:"",
     top:false
 },
-
 
 {
     id:"faisalAlshehri",
@@ -3786,7 +2884,6 @@ members:[
     top:false
 },
 
-
 {
     id:"amine",
     discord:"Amine_MxH",
@@ -3795,11 +2892,9 @@ members:[
     rank:"Solo Cadet",
     management:"—",
     wings:"Airship",
-    image:
-        "images/amine-morgan.png",
+    image:AMINE_IMAGE,
     top:false
 },
-
 
 {
     id:"abuSaleh",
@@ -3813,12 +2908,10 @@ members:[
     top:false
 },
 
-
 {
     id:"d7i",
     discord:"D7i",
-    rp:
-        "Abdulrahman Al-Hakami",
+    rp:"Abdulrahman Al-Hakami",
     callsign:"427",
     rank:"Solo Cadet",
     management:"—",
@@ -3826,7 +2919,6 @@ members:[
     image:"",
     top:false
 },
-
 
 {
     id:"tea",
@@ -3840,7 +2932,6 @@ members:[
     top:false
 },
 
-
 {
     id:"abdullah966",
     discord:"966abdullah",
@@ -3852,7 +2943,6 @@ members:[
     image:"",
     top:false
 },
-
 
 {
     id:"saad",
@@ -3866,7 +2956,6 @@ members:[
     top:false
 },
 
-
 {
     id:"tariq",
     discord:"Tariq",
@@ -3878,7 +2967,6 @@ members:[
     image:"",
     top:false
 },
-
 
 {
     id:"yazeed",
@@ -3892,7 +2980,6 @@ members:[
     top:false
 },
 
-
 {
     id:"botangy",
     discord:"Botangy",
@@ -3904,7 +2991,6 @@ members:[
     image:"",
     top:false
 },
-
 
 {
     id:"brightside",
@@ -3918,7 +3004,6 @@ members:[
     top:false
 },
 
-
 {
     id:"wolf",
     discord:"WOLF",
@@ -3930,7 +3015,6 @@ members:[
     image:"",
     top:false
 },
-
 
 {
     id:"vnx",
@@ -3944,7 +3028,6 @@ members:[
     top:false
 },
 
-
 {
     id:"alhajri",
     discord:"Alhajri",
@@ -3956,7 +3039,6 @@ members:[
     image:"",
     top:false
 },
-
 
 {
     id:"aj",
@@ -3970,7 +3052,6 @@ members:[
     top:false
 },
 
-
 {
     id:"rio",
     discord:"! Rï0",
@@ -3982,7 +3063,6 @@ members:[
     image:"",
     top:false
 },
-
 
 {
     id:"shgardii",
@@ -3996,7 +3076,6 @@ members:[
     top:false
 },
 
-
 {
     id:"hasan",
     discord:"Hasan",
@@ -4008,7 +3087,6 @@ members:[
     image:"",
     top:false
 },
-
 
 {
     id:"fly",
@@ -4022,7 +3100,6 @@ members:[
     top:false
 },
 
-
 {
     id:"musaad",
     discord:"Musaad",
@@ -4034,7 +3111,6 @@ members:[
     image:"",
     top:false
 },
-
 
 {
     id:"zeyad",
@@ -4048,76 +3124,39 @@ members:[
     top:false
 }
 
-
 ],
-
 
 cases:[
 
-
 {
     id:"store-1",
-
     category:"store",
-
     number:1,
-
-    incident:
-        "Store Robbery",
-
-    location:
-        "Quest #9",
-
+    incident:"Store Robbery",
+    location:"Quest #9",
     fingerprint:"—",
-
-    team:
-        "Lucas Hod — 387",
-
+    team:"Lucas Hod — 387",
     items:[],
-
-    report:
-        "Store Robbery — Case 01",
-
+    report:"Store Robbery — Case 01",
     images:[
-
         "https://cdn.discordapp.com/attachments/1541819520874709142/1548346974150074408/image.png?ex=6aa6b9fd&is=6aa5687d&hm=cd1e3774cb2c7caed040c9e56b9c41777e0b8a8db7d52a1a672e44165235fba6&"
-
     ]
-
 },
-
 
 {
     id:"store-2",
-
     category:"store",
-
     number:2,
-
-    incident:
-        "Store Robbery",
-
-    location:
-        "Quest #9",
-
+    incident:"Store Robbery",
+    location:"Quest #9",
     fingerprint:"—",
-
-    team:
-        "Lucas Hod — 387 | Faisal Failachwe — 363",
-
+    team:"Lucas Hod — 387 | Faisal Failachwe — 363",
     items:[],
-
-    report:
-        "Store Robbery — Case 02",
-
+    report:"Store Robbery — Case 02",
     images:[
-
         "https://cdn.discordapp.com/attachments/1541819520874709142/1548361885001322627/image.png?ex=6aa6c7e0&is=6aa57660&hm=c2ef0c66591b8280f6e79f224be76925a416e2ecfc6cbc197dd9a29bd5ad037a&"
-
     ]
-
 },
-
 
 {
     id:"house-1",
@@ -4132,7 +3171,6 @@ cases:[
     images:[]
 },
 
-
 {
     id:"house-2",
     category:"house",
@@ -4145,7 +3183,6 @@ cases:[
     report:"",
     images:[]
 },
-
 
 {
     id:"house-3",
@@ -4160,23 +3197,19 @@ cases:[
     images:[]
 }
 
-
 ]
-
 
 };
 
 
 /* ==================================================
-   DATABASE
+   LOCAL DATABASE
 ================================================== */
 
 function cloneDefaultDatabase(){
 
     return JSON.parse(
-        JSON.stringify(
-            DEFAULT_DB
-        )
+        JSON.stringify(DEFAULT_DB)
     );
 
 }
@@ -4189,50 +3222,40 @@ function loadDatabase(){
             STORAGE_KEY
         );
 
-
     if(!saved){
 
         return cloneDefaultDatabase();
 
     }
 
-
     try{
 
         const parsed =
             JSON.parse(saved);
 
-
-        /*
-        Always sync official member list
-        to avoid missing members after
-        using an old localStorage version.
-        */
-
-        const officialMembers =
-            cloneDefaultDatabase()
-            .members;
+        const defaults =
+            cloneDefaultDatabase();
 
 
-        officialMembers.forEach(
-            official=>{
+        if(!Array.isArray(parsed.members)){
+            parsed.members=[];
+        }
+
+
+        defaults.members.forEach(
+            defaultMember=>{
 
                 const existing =
-                    parsed.members?.find(
+                    parsed.members.find(
                         member=>
                             member.id===
-                            official.id
+                            defaultMember.id
                     );
-
 
                 if(!existing){
 
-                    if(!parsed.members){
-                        parsed.members=[];
-                    }
-
                     parsed.members.push(
-                        official
+                        defaultMember
                     );
 
                 }
@@ -4241,43 +3264,49 @@ function loadDatabase(){
         );
 
 
-        /*
-        Amine official image
-        */
-
         const amine =
             parsed.members.find(
                 member=>
-                    member.id===
-                    "amine"
+                    member.id==="amine"
             );
-
 
         if(amine){
 
-            if(!amine.image){
-
-                amine.image =
-                    "images/amine-morgan.png";
-
-            }
+            amine.image =
+                AMINE_IMAGE;
 
         }
 
 
-        if(!parsed.questCards){
-
+        if(!Array.isArray(parsed.questCards)){
             parsed.questCards =
-                cloneDefaultDatabase()
-                .questCards;
+                defaults.questCards;
+        }
 
+        if(!Array.isArray(parsed.closedQuests)){
+            parsed.closedQuests =
+                defaults.closedQuests;
+        }
+
+        if(!Array.isArray(parsed.questHistory)){
+            parsed.questHistory =
+                defaults.questHistory;
+        }
+
+        if(!Array.isArray(parsed.cases)){
+            parsed.cases =
+                defaults.cases;
         }
 
 
         return parsed;
 
-
     }catch(error){
+
+        console.error(
+            "Local database error:",
+            error
+        );
 
         return cloneDefaultDatabase();
 
@@ -4297,7 +3326,6 @@ function persist(){
         JSON.stringify(db)
     );
 
-
     refreshEverything();
 
 }
@@ -4310,33 +3338,6 @@ function saveDatabase(){
     alert(
         "Saved successfully."
     );
-
-}
-
-
-function resetDatabase(){
-
-    if(
-        !confirm(
-            "Reset all test changes?"
-        )
-    ){
-
-        return;
-
-    }
-
-
-    db =
-        cloneDefaultDatabase();
-
-
-    localStorage.removeItem(
-        STORAGE_KEY
-    );
-
-
-    refreshEverything();
 
 }
 
@@ -4373,7 +3374,6 @@ function renderQuestCards(){
             "questGrid"
         );
 
-
     grid.innerHTML="";
 
 
@@ -4382,33 +3382,23 @@ function renderQuestCards(){
             "div"
         );
 
-
-    closedCard.className =
+    closedCard.className=
         "quest-card";
 
-
-    closedCard.onclick =
+    closedCard.onclick=
         showClosedQuests;
 
-
-    closedCard.innerHTML = `
+    closedCard.innerHTML=`
 
         <div class="quest-number">
-
             COMPLETED CHALLENGES
-
         </div>
 
-
         <h2>
-
             CLOSED QUEST
-
         </h2>
 
-
         <p>
-
             ${
                 db.closedQuests
                 .map(
@@ -4418,20 +3408,12 @@ function renderQuestCards(){
                 )
                 .join(" • ")
             }
-
         </p>
 
-
-        <div
-            class="
-                quest-status
-                complete
-            "
-        >
+        <div class="quest-status complete">
 
             ${
-                db.closedQuests
-                .length
+                db.closedQuests.length
             }
 
             QUESTS CLOSED
@@ -4439,7 +3421,6 @@ function renderQuestCards(){
         </div>
 
     `;
-
 
     grid.appendChild(
         closedCard
@@ -4461,71 +3442,41 @@ function renderQuestCards(){
         quest=>{
 
             const card =
-                document
-                .createElement(
+                document.createElement(
                     "div"
                 );
 
-
-            card.className =
+            card.className=
                 "quest-card";
 
-
-            card.onclick =
+            card.onclick=
                 ()=>
                     openQuestCard(
                         quest.id
                     );
 
-
             card.innerHTML=`
 
-                <div
-                    class="
-                        quest-number
-                    "
-                >
+                <div class="quest-number">
 
                     #${quest.number}
                     QUEST
 
                 </div>
 
-
                 <h2>
-
-                    ${
-                        escapeHTML(
-                            quest.title
-                        )
-                    }
-
+                    ${escapeHTML(quest.title)}
                 </h2>
 
-
                 <p>
-
-                    ${
-                        escapeHTML(
-                            quest.subtitle
-                        )
-                    }
-
+                    ${escapeHTML(quest.subtitle)}
                 </p>
 
-
-                <div
-                    class="
-                        quest-status
-                    "
-                >
-
+                <div class="quest-status">
                     NEW CHALLENGE
-
                 </div>
 
             `;
-
 
             grid.appendChild(
                 card
@@ -4537,14 +3488,9 @@ function renderQuestCards(){
 }
 
 
-function openQuestCard(
-    id
-){
+function openQuestCard(id){
 
-    if(
-        id===
-        "quest9"
-    ){
+    if(id==="quest9"){
 
         showQuest9();
 
@@ -4552,64 +3498,52 @@ function openQuestCard(
 
     }
 
-
     const quest =
-        db.questCards
-        .find(
-            q=>
-                q.id===
-                id
+        db.questCards.find(
+            q=>q.id===id
         );
 
-
     if(!quest){
-
         return;
-
     }
 
-
     hidePages();
-
 
     document
     .getElementById(
         "genericQuestPage"
     )
-    .classList
-    .add("active");
-
+    .classList.add(
+        "active"
+    );
 
     document
     .getElementById(
         "genericQuestBadge"
     )
-    .textContent =
+    .textContent=
         "QUEST #"+
         quest.number;
-
 
     document
     .getElementById(
         "genericQuestTitle"
     )
-    .textContent =
+    .textContent=
         quest.title;
-
 
     document
     .getElementById(
         "genericQuestSubtitle"
     )
-    .textContent =
+    .textContent=
         quest.subtitle;
-
 
     document
     .getElementById(
         "genericQuestDescription"
     )
-    .textContent =
+    .textContent=
         quest.description
         ||
         "No description yet.";
@@ -4624,11 +3558,9 @@ function openQuestCard(
 function renderQuestHistory(){
 
     const box =
-        document
-        .getElementById(
+        document.getElementById(
             "questHistoryContent"
         );
-
 
     box.innerHTML="";
 
@@ -4643,60 +3575,37 @@ function renderQuestHistory(){
         quest=>{
 
             const item =
-                document
-                .createElement(
+                document.createElement(
                     "div"
                 );
 
-
-            item.className =
+            item.className=
                 "history-item"+
                 (
                     quest.current
-                    ?
-                    " current"
-                    :
-                    ""
+                    ? " current"
+                    : ""
                 );
-
 
             item.innerHTML=`
 
-                <div
-                    class="
-                        history-number
-                    "
-                >
+                <div class="history-number">
 
                     QUEST #${quest.number}
 
                     ${
                         quest.current
-                        ?
-                        " • CURRENT"
-                        :
-                        ""
+                        ? " • CURRENT"
+                        : ""
                     }
 
                 </div>
 
-
-                <div
-                    class="
-                        history-text
-                    "
-                >
-
-                    ${
-                        escapeHTML(
-                            quest.text
-                        )
-                    }
-
+                <div class="history-text">
+                    ${escapeHTML(quest.text)}
                 </div>
 
             `;
-
 
             box.appendChild(
                 item
@@ -4708,6 +3617,34 @@ function renderQuestHistory(){
 }
 
 
+function toggleQuestHistory(){
+
+    const history =
+        document.getElementById(
+            "questHistory"
+        );
+
+    history.classList.toggle(
+        "collapsed"
+    );
+
+    document
+    .getElementById(
+        "questHistoryToggle"
+    )
+    .textContent=
+
+        history.classList.contains(
+            "collapsed"
+        )
+
+        ? "+"
+
+        : "−";
+
+}
+
+
 /* ==================================================
    CLOSED QUESTS
 ================================================== */
@@ -4715,11 +3652,9 @@ function renderQuestHistory(){
 function renderClosedQuests(){
 
     const grid =
-        document
-        .getElementById(
+        document.getElementById(
             "closedQuestGrid"
         );
-
 
     grid.innerHTML="";
 
@@ -4732,62 +3667,35 @@ function renderClosedQuests(){
         number=>{
 
             const card =
-                document
-                .createElement(
+                document.createElement(
                     "div"
                 );
 
-
-            card.className =
+            card.className=
                 "case-card";
-
 
             card.innerHTML=`
 
-                <div
-                    class="
-                        case-number
-                    "
-                >
+                <div class="case-number">
 
                     QUEST
-                    ${
-                        String(number)
-                        .padStart(
-                            2,
-                            "0"
-                        )
-                    }
+                    ${String(number).padStart(2,"0")}
 
                 </div>
-
 
                 <h3>
-
                     QUEST #${number}
-
                 </h3>
 
-
-                <div
-                    class="location"
-                >
-
+                <div class="location">
                     Mission Complete
-
                 </div>
 
-
-                <span
-                    class="ready"
-                >
-
+                <span class="ready">
                     CLOSED — 100%
-
                 </span>
 
             `;
-
 
             grid.appendChild(
                 card
@@ -4803,9 +3711,7 @@ function renderClosedQuests(){
    SEARCH
 ================================================== */
 
-function normalize(
-    text
-){
+function normalize(text){
 
     return String(
         text || ""
@@ -4840,20 +3746,17 @@ function renderMembers(){
             .value
         );
 
-
     const leaders =
         document
         .getElementById(
             "leadersGrid"
         );
 
-
     const members =
         document
         .getElementById(
             "membersGrid"
         );
-
 
     leaders.innerHTML="";
     members.innerHTML="";
@@ -4863,37 +3766,22 @@ function renderMembers(){
         db.members.filter(
             member=>{
 
-                const data =
+                const content =
                     normalize(
-
-                        member.discord+
-                        " "+
-
-                        member.rp+
-                        " "+
-
-                        member.callsign+
-                        " "+
-
-                        member.rank+
-                        " "+
-
-                        member.management+
-                        " "+
-
+                        member.discord+" "+
+                        member.rp+" "+
+                        member.callsign+" "+
+                        member.rank+" "+
+                        member.management+" "+
                         member.wings
-
                     );
 
-
-                return (
-
+                return(
                     !search
                     ||
-                    data.includes(
+                    content.includes(
                         search
                     )
-
                 );
 
             }
@@ -4904,81 +3792,48 @@ function renderMembers(){
     .getElementById(
         "noResults"
     )
-    .style.display =
-
+    .style.display=
         filtered.length
-        ?
-        "none"
-        :
-        "block";
+        ? "none"
+        : "block";
 
 
     filtered.forEach(
         member=>{
 
             const card =
-                document
-                .createElement(
+                document.createElement(
                     "div"
                 );
 
-
-            card.onclick =
+            card.onclick=
                 ()=>
                     showMemberProfile(
                         member.id
                     );
 
 
-            if(
-                member.top
-            ){
+            if(member.top){
 
-                card.className =
+                card.className=
                     "top-member";
-
 
                 card.innerHTML=`
 
-                    <div
-                        class="
-                            member-name
-                        "
-                    >
+                    <div class="member-name">
 
-                        ${
-                            escapeHTML(
-                                member.discord
-                            )
-                        }
-
+                        ${escapeHTML(member.discord)}
                         —
-
-                        ${
-                            escapeHTML(
-                                member.rp
-                            )
-                        }
+                        ${escapeHTML(member.rp)}
 
                     </div>
 
+                    <div class="member-rank">
 
-                    <div
-                        class="
-                            member-rank
-                        "
-                    >
+                        ${escapeHTML(member.rank)}
 
                         ${
-                            escapeHTML(
-                                member.rank
-                            )
-                        }
-
-
-                        ${
-                            member.management
-                            &&
+                            member.management &&
                             member.management!=="—"
 
                             ?
@@ -4995,106 +3850,54 @@ function renderMembers(){
 
                     </div>
 
+                    <div class="member-wings">
 
-                    <div
-                        class="
-                            member-wings
-                        "
-                    >
-
-                        ${
-                            escapeHTML(
-                                member.wings
-                            )
-                        }
+                        ${escapeHTML(member.wings)}
 
                     </div>
 
-
-                    <div
-                        class="
-                            member-callsign
-                        "
-                    >
+                    <div class="member-callsign">
 
                         Callsign:
-
-                        ${
-                            escapeHTML(
-                                member.callsign
-                            )
-                        }
+                        ${escapeHTML(member.callsign)}
 
                     </div>
 
                 `;
 
-
-                leaders
-                .appendChild(
+                leaders.appendChild(
                     card
                 );
 
             }else{
 
-
-                card.className =
+                card.className=
                     "member";
-
 
                 card.innerHTML=`
 
-                    <div
-                        class="
-                            member-name
-                        "
-                    >
+                    <div class="member-name">
 
-                        ${
-                            escapeHTML(
-                                member.discord
-                            )
-                        }
+                        ${escapeHTML(member.discord)}
 
                     </div>
 
+                    <div class="member-rp">
 
-                    <div
-                        class="
-                            member-rp
-                        "
-                    >
-
-                        ${
-                            escapeHTML(
-                                member.rp
-                            )
-                        }
+                        ${escapeHTML(member.rp)}
 
                     </div>
 
-
-                    <div
-                        class="
-                            member-callsign
-                        "
-                    >
+                    <div class="member-callsign">
 
                         Callsign:
-
-                        ${
-                            escapeHTML(
-                                member.callsign
-                            )
-                        }
+                        ${escapeHTML(member.callsign)}
 
                     </div>
 
                 `;
 
-
-                members
-                .appendChild(
+                members.appendChild(
                     card
                 );
 
@@ -5103,31 +3906,140 @@ function renderMembers(){
         }
     );
 
-
-    leaders.style.display =
-
-        leaders.children.length
-
-        ?
-
-        "grid"
-
-        :
-
-        "none";
+}
 
 
-    members.style.display =
+/* ==================================================
+   MEMBER PROFILE
+================================================== */
 
-        members.children.length
+function showMemberProfile(id){
 
-        ?
+    const member =
+        db.members.find(
+            item=>item.id===id
+        );
 
-        "grid"
+    if(!member){
+        return;
+    }
 
-        :
 
-        "none";
+    const wrap =
+        document.getElementById(
+            "profilePhotoWrap"
+        );
+
+    const image =
+        document.getElementById(
+            "profilePhoto"
+        );
+
+
+    if(member.image){
+
+        image.src=
+            member.image;
+
+        wrap.classList.add(
+            "active"
+        );
+
+        document
+        .getElementById(
+            "profilePhotoName"
+        )
+        .textContent=
+            member.rp;
+
+        document
+        .getElementById(
+            "profilePhotoCallsign"
+        )
+        .textContent=
+            "BRAVO SQUAD • CALLSIGN "+
+            member.callsign;
+
+    }else{
+
+        image.src="";
+
+        wrap.classList.remove(
+            "active"
+        );
+
+    }
+
+
+    document
+    .getElementById(
+        "profileDiscord"
+    )
+    .textContent=
+        member.discord;
+
+    document
+    .getElementById(
+        "profileRP"
+    )
+    .textContent=
+        member.rp;
+
+    document
+    .getElementById(
+        "profileCallsign"
+    )
+    .textContent=
+        member.callsign || "—";
+
+    document
+    .getElementById(
+        "profileRank"
+    )
+    .textContent=
+        member.rank || "—";
+
+    document
+    .getElementById(
+        "profileManagement"
+    )
+    .textContent=
+        member.management || "—";
+
+    document
+    .getElementById(
+        "profileWings"
+    )
+    .textContent=
+        member.wings || "—";
+
+    document
+    .getElementById(
+        "profileRpName"
+    )
+    .textContent=
+        member.rp;
+
+    document
+    .getElementById(
+        "profileModal"
+    )
+    .classList.add(
+        "active"
+    );
+
+}
+
+
+function closeProfile(){
+
+    document
+    .getElementById(
+        "profileModal"
+    )
+    .classList.remove(
+        "active"
+    );
 
 }
 
@@ -5145,7 +4057,6 @@ function renderCases(){
             "storeCases"
         )
     );
-
 
     renderCaseCategory(
         "house",
@@ -5166,40 +4077,33 @@ function renderCaseCategory(
     container.innerHTML="";
 
 
-    const list =
-        db.cases
-        .filter(
-            item=>
-                item.category===
-                category
-        )
-        .sort(
-            (a,b)=>
-                a.number-
-                b.number
-        );
-
-
-    list.forEach(
+    db.cases
+    .filter(
+        item=>
+            item.category===
+            category
+    )
+    .sort(
+        (a,b)=>
+            a.number-
+            b.number
+    )
+    .forEach(
         data=>{
 
             const card =
-                document
-                .createElement(
+                document.createElement(
                     "div"
                 );
 
-
-            card.className =
+            card.className=
                 "case-card";
 
-
-            card.onclick =
+            card.onclick=
                 ()=>
                     showCase(
                         data.id
                     );
-
 
             const ready =
                 data.report
@@ -5211,50 +4115,20 @@ function renderCaseCategory(
 
             card.innerHTML=`
 
-                <div
-                    class="
-                        case-number
-                    "
-                >
+                <div class="case-number">
 
                     CASE
-
-                    ${
-                        String(
-                            data.number
-                        )
-                        .padStart(
-                            2,
-                            "0"
-                        )
-                    }
+                    ${String(data.number).padStart(2,"0")}
 
                 </div>
-
 
                 <h3>
-
-                    ${
-                        escapeHTML(
-                            data.incident
-                        )
-                    }
-
+                    ${escapeHTML(data.incident)}
                 </h3>
 
-
-                <div
-                    class="location"
-                >
-
-                    ${
-                        escapeHTML(
-                            data.location
-                        )
-                    }
-
+                <div class="location">
+                    ${escapeHTML(data.location)}
                 </div>
-
 
                 ${
                     data.images.length
@@ -5262,20 +4136,10 @@ function renderCaseCategory(
                     ?
 
                     `
-
                     <img
-                        class="
-                            case-preview
-                        "
-                        src="
-                            ${
-                                escapeHTML(
-                                    data.images[0]
-                                )
-                            }
-                        "
+                        class="case-preview"
+                        src="${escapeHTML(data.images[0])}"
                     >
-
                     `
 
                     :
@@ -5283,34 +4147,25 @@ function renderCaseCategory(
                     ""
                 }
 
-
                 <span
-                    class="
-                        ${
-                            ready
-                            ?
-                            "ready"
-                            :
-                            "pending"
-                        }
-                    "
+                    class="${
+                        ready
+                        ? "ready"
+                        : "pending"
+                    }"
                 >
 
                     ${
                         ready
-                        ?
-                        "VIEW CASE"
-                        :
-                        "DETAILS PENDING"
+                        ? "VIEW CASE"
+                        : "DETAILS PENDING"
                     }
 
                 </span>
 
             `;
 
-
-            container
-            .appendChild(
+            container.appendChild(
                 card
             );
 
@@ -5320,11 +4175,7 @@ function renderCaseCategory(
 }
 
 
-/* ==================================================
-   NAVIGATION
-================================================== */
-
-let currentCaseCategory =
+let currentCaseCategory=
     "store";
 
 
@@ -5337,9 +4188,7 @@ function hidePages(){
     .forEach(
         page=>{
 
-            page
-            .classList
-            .remove(
+            page.classList.remove(
                 "active"
             );
 
@@ -5353,13 +4202,13 @@ function showHome(){
 
     hidePages();
 
-
     document
     .getElementById(
         "homePage"
     )
-    .classList
-    .add("active");
+    .classList.add(
+        "active"
+    );
 
 }
 
@@ -5368,13 +4217,13 @@ function showClosedQuests(){
 
     hidePages();
 
-
     document
     .getElementById(
         "closedPage"
     )
-    .classList
-    .add("active");
+    .classList.add(
+        "active"
+    );
 
 }
 
@@ -5383,44 +4232,33 @@ function showQuest9(){
 
     hidePages();
 
-
     document
     .getElementById(
         "quest9Page"
     )
-    .classList
-    .add("active");
+    .classList.add(
+        "active"
+    );
 
 }
 
 
-function showCategory(
-    category
-){
+function showCategory(category){
 
-    currentCaseCategory =
+    currentCaseCategory=
         category;
-
 
     hidePages();
 
-
     document
     .getElementById(
-
         category==="store"
-
-        ?
-
-        "storePage"
-
-        :
-
-        "housePage"
-
+        ? "storePage"
+        : "housePage"
     )
-    .classList
-    .add("active");
+    .classList.add(
+        "active"
+    );
 
 }
 
@@ -5434,111 +4272,78 @@ function backFromCase(){
 }
 
 
-/* ==================================================
-   CASE DETAILS
-================================================== */
-
-function showCase(
-    id
-){
+function showCase(id){
 
     const data =
-        db.cases
-        .find(
-            item=>
-                item.id===
-                id
+        db.cases.find(
+            item=>item.id===id
         );
 
-
     if(!data){
-
         return;
-
     }
 
-
-    currentCaseCategory =
+    currentCaseCategory=
         data.category;
 
-
     hidePages();
-
 
     document
     .getElementById(
         "detailPage"
     )
-    .classList
-    .add("active");
+    .classList.add(
+        "active"
+    );
 
 
     document
     .getElementById(
         "detailTitle"
     )
-    .textContent =
-
+    .textContent=
         "CASE "+
-        String(
-            data.number
-        )
-        .padStart(
-            2,
-            "0"
-        );
+        String(data.number)
+        .padStart(2,"0");
 
 
     document
     .getElementById(
         "detailLocation"
     )
-    .textContent =
-
-        data.location
-        ||
-        "—";
+    .textContent=
+        data.location || "—";
 
 
     document
     .getElementById(
         "detailFingerprint"
     )
-    .textContent =
-
-        data.fingerprint
-        ||
-        "—";
+    .textContent=
+        data.fingerprint || "—";
 
 
     document
     .getElementById(
         "detailIncident"
     )
-    .textContent =
-
-        data.incident
-        ||
-        "—";
+    .textContent=
+        data.incident || "—";
 
 
     document
     .getElementById(
         "detailTeam"
     )
-    .textContent =
-
-        data.team
-        ||
-        "—";
+    .textContent=
+        data.team || "—";
 
 
     document
     .getElementById(
         "detailReport"
     )
-    .textContent =
-
+    .textContent=
         data.report
         ||
         "Details pending.";
@@ -5550,31 +4355,23 @@ function showCase(
             "detailItems"
         );
 
-
     items.innerHTML="";
 
 
-    if(
-        data.items.length
-    ){
+    if(data.items.length){
 
-        data.items
-        .forEach(
+        data.items.forEach(
             item=>{
 
                 const li =
-                    document
-                    .createElement(
+                    document.createElement(
                         "li"
                     );
 
-
-                li.textContent =
+                li.textContent=
                     item;
 
-
-                items
-                .appendChild(
+                items.appendChild(
                     li
                 );
 
@@ -5583,7 +4380,7 @@ function showCase(
 
     }else{
 
-        items.innerHTML =
+        items.innerHTML=
             "<li>—</li>";
 
     }
@@ -5595,47 +4392,37 @@ function showCase(
             "detailGallery"
         );
 
-
     gallery.innerHTML="";
 
 
-    if(
-        data.images.length
-    ){
+    if(data.images.length){
 
         document
         .getElementById(
             "evidenceBlock"
         )
-        .style.display =
+        .style.display=
             "block";
 
-
-        data.images
-        .forEach(
+        data.images.forEach(
             src=>{
 
-                const img =
-                    document
-                    .createElement(
+                const image =
+                    document.createElement(
                         "img"
                     );
 
-
-                img.src =
+                image.src=
                     src;
 
-
-                img.onclick =
+                image.onclick=
                     ()=>
                         openLightbox(
                             src
                         );
 
-
-                gallery
-                .appendChild(
-                    img
+                gallery.appendChild(
+                    image
                 );
 
             }
@@ -5647,7 +4434,7 @@ function showCase(
         .getElementById(
             "evidenceBlock"
         )
-        .style.display =
+        .style.display=
             "none";
 
     }
@@ -5656,200 +4443,25 @@ function showCase(
 
 
 /* ==================================================
-   MEMBER PROFILE
-================================================== */
-
-function showMemberProfile(
-    id
-){
-
-    const member =
-        db.members
-        .find(
-            item=>
-                item.id===
-                id
-        );
-
-
-    if(!member){
-
-        return;
-
-    }
-
-
-    const photoWrap =
-        document
-        .getElementById(
-            "profilePhotoWrap"
-        );
-
-
-    const photo =
-        document
-        .getElementById(
-            "profilePhoto"
-        );
-
-
-    if(
-        member.image
-    ){
-
-        photo.src =
-            member.image;
-
-
-        photoWrap
-        .classList
-        .add("active");
-
-
-        document
-        .getElementById(
-            "profilePhotoName"
-        )
-        .textContent =
-            member.rp;
-
-
-        document
-        .getElementById(
-            "profilePhotoCallsign"
-        )
-        .textContent =
-
-            "BRAVO SQUAD • CALLSIGN "+
-            member.callsign;
-
-    }else{
-
-        photo.src="";
-
-
-        photoWrap
-        .classList
-        .remove("active");
-
-    }
-
-
-    document
-    .getElementById(
-        "profileDiscord"
-    )
-    .textContent =
-
-        member.discord;
-
-
-    document
-    .getElementById(
-        "profileRP"
-    )
-    .textContent =
-
-        member.rp;
-
-
-    document
-    .getElementById(
-        "profileCallsign"
-    )
-    .textContent =
-
-        member.callsign
-        ||
-        "—";
-
-
-    document
-    .getElementById(
-        "profileRank"
-    )
-    .textContent =
-
-        member.rank
-        ||
-        "—";
-
-
-    document
-    .getElementById(
-        "profileManagement"
-    )
-    .textContent =
-
-        member.management
-        ||
-        "—";
-
-
-    document
-    .getElementById(
-        "profileWings"
-    )
-    .textContent =
-
-        member.wings
-        ||
-        "—";
-
-
-    document
-    .getElementById(
-        "profileRpName"
-    )
-    .textContent =
-
-        member.rp;
-
-
-    document
-    .getElementById(
-        "profileModal"
-    )
-    .classList
-    .add("active");
-
-}
-
-
-function closeProfile(){
-
-    document
-    .getElementById(
-        "profileModal"
-    )
-    .classList
-    .remove("active");
-
-}
-
-
-/* ==================================================
    LIGHTBOX
 ================================================== */
 
-function openLightbox(
-    src
-){
+function openLightbox(src){
 
     document
     .getElementById(
         "lightboxImage"
     )
-    .src =
+    .src=
         src;
-
 
     document
     .getElementById(
         "lightbox"
     )
-    .classList
-    .add("active");
+    .classList.add(
+        "active"
+    );
 
 }
 
@@ -5860,100 +4472,316 @@ function closeLightbox(){
     .getElementById(
         "lightbox"
     )
-    .classList
-    .remove("active");
-
-}
-
-
-/* ==================================================
-   QUEST HISTORY TOGGLE
-================================================== */
-
-function toggleQuestHistory(){
-
-    const history =
-        document
-        .getElementById(
-            "questHistory"
-        );
-
-
-    history
-    .classList
-    .toggle(
-        "collapsed"
+    .classList.remove(
+        "active"
     );
 
-
-    document
-    .getElementById(
-        "questHistoryToggle"
-    )
-    .textContent =
-
-        history
-        .classList
-        .contains(
-            "collapsed"
-        )
-
-        ?
-
-        "+"
-
-        :
-
-        "−";
-
 }
 
 
 /* ==================================================
-   ADMIN ROUTE
+   SUPABASE ADMIN SECURITY
 ================================================== */
 
-function checkAdminRoute(){
+async function userIsAdmin(userId){
 
     if(
-        location.hash
-        .toLowerCase()
-        ===
-        "#admin"
+        !supabaseClient ||
+        !userId
     ){
+        return false;
+    }
 
-        if(
-            sessionStorage
-            .getItem(
-                "bravoAdminLogged"
+
+    try{
+
+        const {
+            data,
+            error
+        } =
+            await supabaseClient
+            .from("admins")
+            .select("user_id")
+            .eq(
+                "user_id",
+                userId
             )
-            ===
-            "1"
-        ){
+            .maybeSingle();
 
-            openAdminPanel();
 
-        }else{
+        if(error){
 
-            openAdminLogin();
+            console.error(
+                "Admin lookup error:",
+                error
+            );
+
+            return false;
 
         }
+
+
+        return !!data;
+
+    }catch(error){
+
+        console.error(
+            "Admin check failed:",
+            error
+        );
+
+        return false;
 
     }
 
 }
 
 
-window
-.addEventListener(
-    "hashchange",
-    checkAdminRoute
-);
+async function adminLogin(){
+
+    const errorBox =
+        document
+        .getElementById(
+            "adminLoginError"
+        );
+
+    const button =
+        document
+        .getElementById(
+            "adminLoginButton"
+        );
 
 
-/* ==================================================
-   ADMIN LOGIN
-================================================== */
+    if(!supabaseClient){
+
+        errorBox.textContent=
+            "Supabase ma tconnectach. Check internet.";
+
+        return;
+
+    }
+
+
+    const email =
+        document
+        .getElementById(
+            "adminEmail"
+        )
+        .value
+        .trim();
+
+    const password =
+        document
+        .getElementById(
+            "adminPassword"
+        )
+        .value;
+
+
+    if(
+        !email ||
+        !password
+    ){
+
+        errorBox.textContent=
+            "Enter email and password.";
+
+        return;
+
+    }
+
+
+    button.disabled=true;
+
+    button.textContent=
+        "CHECKING...";
+
+    errorBox.textContent="";
+
+
+    try{
+
+        const {
+            data,
+            error
+        } =
+            await supabaseClient
+            .auth
+            .signInWithPassword({
+
+                email,
+
+                password
+
+            });
+
+
+        if(
+            error ||
+            !data.user
+        ){
+
+            errorBox.textContent=
+                "Email or password incorrect.";
+
+            return;
+
+        }
+
+
+        const allowed =
+            await userIsAdmin(
+                data.user.id
+            );
+
+
+        if(!allowed){
+
+            await supabaseClient
+            .auth
+            .signOut();
+
+            errorBox.textContent=
+                "Access denied. This account is not a BRAVO admin.";
+
+            return;
+
+        }
+
+
+        document
+        .getElementById(
+            "adminPassword"
+        )
+        .value="";
+
+
+        closeAdminLogin();
+
+        openAdminPanel(
+            data.user
+        );
+
+
+    }catch(error){
+
+        console.error(
+            error
+        );
+
+        errorBox.textContent=
+            "Login error. Try again.";
+
+    }finally{
+
+        button.disabled=false;
+
+        button.textContent=
+            "LOGIN";
+
+    }
+
+}
+
+
+async function checkAdminRoute(){
+
+    if(
+        location.hash
+        .toLowerCase()
+        !==
+        "#admin"
+    ){
+
+        return;
+
+    }
+
+
+    if(!supabaseClient){
+
+        openAdminLogin();
+
+        document
+        .getElementById(
+            "adminLoginError"
+        )
+        .textContent=
+            "Supabase could not load.";
+
+        return;
+
+    }
+
+
+    try{
+
+        const {
+            data:{
+                session
+            }
+        } =
+            await supabaseClient
+            .auth
+            .getSession();
+
+
+        if(
+            !session ||
+            !session.user
+        ){
+
+            openAdminLogin();
+
+            return;
+
+        }
+
+
+        const allowed =
+            await userIsAdmin(
+                session.user.id
+            );
+
+
+        if(!allowed){
+
+            await supabaseClient
+            .auth
+            .signOut();
+
+            openAdminLogin();
+
+            document
+            .getElementById(
+                "adminLoginError"
+            )
+            .textContent=
+                "This account is not authorized.";
+
+            return;
+
+        }
+
+
+        openAdminPanel(
+            session.user
+        );
+
+
+    }catch(error){
+
+        console.error(
+            "Route auth error:",
+            error
+        );
+
+        openAdminLogin();
+
+    }
+
+}
+
 
 function openAdminLogin(){
 
@@ -5961,8 +4789,9 @@ function openAdminLogin(){
     .getElementById(
         "adminLoginModal"
     )
-    .classList
-    .add("active");
+    .classList.add(
+        "active"
+    );
 
 }
 
@@ -5973,106 +4802,32 @@ function closeAdminLogin(){
     .getElementById(
         "adminLoginModal"
     )
-    .classList
-    .remove("active");
+    .classList.remove(
+        "active"
+    );
 
 }
 
 
-function adminLogin(){
-
-    const password =
-        document
-        .getElementById(
-            "adminPassword"
-        )
-        .value;
-
-
-    const error =
-        document
-        .getElementById(
-            "adminLoginError"
-        );
-
-
-    if(
-        password !==
-        ADMIN_PASSWORD
-    ){
-
-        error.textContent =
-            "Wrong password.";
-
-        return;
-
-    }
-
-
-    sessionStorage
-    .setItem(
-        "bravoAdminLogged",
-        "1"
-    );
-
-
-    error.textContent="";
-
-
-    document
-    .getElementById(
-        "adminLoginModal"
-    )
-    .classList
-    .remove("active");
-
-
-    document
-    .getElementById(
-        "adminPassword"
-    )
-    .value="";
-
-
-    openAdminPanel();
-
-}
-
-
-function adminLogout(){
-
-    sessionStorage
-    .removeItem(
-        "bravoAdminLogged"
-    );
-
+function openAdminPanel(user){
 
     document
     .getElementById(
         "adminPanel"
     )
-    .classList
-    .remove("active");
-
-
-    history.replaceState(
-        null,
-        "",
-        location.pathname+
-        location.search
+    .classList.add(
+        "active"
     );
 
-}
-
-
-function openAdminPanel(){
 
     document
     .getElementById(
-        "adminPanel"
+        "adminLoggedEmail"
     )
-    .classList
-    .add("active");
+    .textContent=
+        user?.email
+        ||
+        "Administrator";
 
 
     renderAdmin();
@@ -6086,8 +4841,70 @@ function closeAdminPanel(){
     .getElementById(
         "adminPanel"
     )
-    .classList
-    .remove("active");
+    .classList.remove(
+        "active"
+    );
+
+
+    if(
+        location.hash
+        .toLowerCase()
+        ===
+        "#admin"
+    ){
+
+        history.replaceState(
+            null,
+            "",
+            location.pathname+
+            location.search
+        );
+
+    }
+
+
+    refreshEverything();
+
+}
+
+
+async function adminLogout(){
+
+    if(supabaseClient){
+
+        try{
+
+            await supabaseClient
+            .auth
+            .signOut();
+
+        }catch(error){
+
+            console.error(
+                error
+            );
+
+        }
+
+    }
+
+
+    document
+    .getElementById(
+        "adminPanel"
+    )
+    .classList.remove(
+        "active"
+    );
+
+
+    document
+    .getElementById(
+        "adminLoginModal"
+    )
+    .classList.remove(
+        "active"
+    );
 
 
     history.replaceState(
@@ -6098,9 +4915,15 @@ function closeAdminPanel(){
     );
 
 
-    refreshEverything();
+    showHome();
 
 }
+
+
+window.addEventListener(
+    "hashchange",
+    checkAdminRoute
+);
 
 
 /* ==================================================
@@ -6119,9 +4942,7 @@ function showAdminPage(
     .forEach(
         section=>{
 
-            section
-            .classList
-            .remove(
+            section.classList.remove(
                 "active"
             );
 
@@ -6136,9 +4957,7 @@ function showAdminPage(
     .forEach(
         nav=>{
 
-            nav
-            .classList
-            .remove(
+            nav.classList.remove(
                 "active"
             );
 
@@ -6150,13 +4969,14 @@ function showAdminPage(
     .getElementById(
         "admin-"+name
     )
-    .classList
-    .add("active");
+    .classList.add(
+        "active"
+    );
 
 
-    button
-    .classList
-    .add("active");
+    button.classList.add(
+        "active"
+    );
 
 }
 
@@ -6167,11 +4987,21 @@ function showAdminPage(
 
 function renderAdmin(){
 
+    const statMembers =
+        document.getElementById(
+            "statMembers"
+        );
+
+    if(!statMembers){
+        return;
+    }
+
+
     document
     .getElementById(
         "statMembers"
     )
-    .textContent =
+    .textContent=
         db.members.length;
 
 
@@ -6179,7 +5009,7 @@ function renderAdmin(){
     .getElementById(
         "statCases"
     )
-    .textContent =
+    .textContent=
         db.cases.length;
 
 
@@ -6187,7 +5017,7 @@ function renderAdmin(){
     .getElementById(
         "statHistory"
     )
-    .textContent =
+    .textContent=
         db.questHistory.length;
 
 
@@ -6195,7 +5025,7 @@ function renderAdmin(){
     .getElementById(
         "statQuestCards"
     )
-    .textContent =
+    .textContent=
         db.questCards.length;
 
 
@@ -6217,34 +5047,23 @@ function renderAdmin(){
 function renderAdminQuestCards(){
 
     const list =
-        document
-        .getElementById(
+        document.getElementById(
             "adminQuestCardList"
         );
-
 
     list.innerHTML="";
 
 
-    db.questCards
-    .sort(
-        (a,b)=>
-            a.number-
-            b.number
-    )
-    .forEach(
+    db.questCards.forEach(
         quest=>{
 
             const row =
-                document
-                .createElement(
+                document.createElement(
                     "div"
                 );
 
-
-            row.className =
+            row.className=
                 "admin-list-item";
-
 
             row.innerHTML=`
 
@@ -6253,91 +5072,99 @@ function renderAdminQuestCards(){
                     <strong>
 
                         QUEST #${quest.number}
-
                         —
-
-                        ${
-                            escapeHTML(
-                                quest.title
-                            )
-                        }
+                        ${escapeHTML(quest.title)}
 
                     </strong>
 
-
                     <small>
-
-                        ${
-                            escapeHTML(
-                                quest.status
-                                .toUpperCase()
-                            )
-                        }
-
-                        •
-
-                        ${
-                            escapeHTML(
-                                quest.subtitle
-                            )
-                        }
-
+                        ${escapeHTML(quest.status)}
                     </small>
 
                 </div>
 
-
-                <div
-                    class="
-                        admin-list-actions
-                    "
-                >
+                <div class="admin-list-actions">
 
                     <button
-                        class="
-                            admin-button
-                        "
-                        onclick="
-                            editQuestCard(
-                                '${quest.id}'
-                            )
-                        "
+                        class="admin-button"
+                        onclick="editQuestCard('${quest.id}')"
                     >
-
                         EDIT
-
                     </button>
-
 
                     <button
-                        class="
-                            admin-button
-                            danger
-                        "
-                        onclick="
-                            deleteQuestCard(
-                                '${quest.id}'
-                            )
-                        "
+                        class="admin-button danger"
+                        onclick="deleteQuestCard('${quest.id}')"
                     >
-
                         DELETE
-
                     </button>
-
 
                 </div>
 
             `;
 
-
-            list
-            .appendChild(
+            list.appendChild(
                 row
             );
 
         }
     );
+
+}
+
+
+function editQuestCard(id){
+
+    const quest =
+        db.questCards.find(
+            q=>q.id===id
+        );
+
+    if(!quest){
+        return;
+    }
+
+    document
+    .getElementById(
+        "questCardEditId"
+    )
+    .value=
+        quest.id;
+
+    document
+    .getElementById(
+        "admQuestCardNumber"
+    )
+    .value=
+        quest.number;
+
+    document
+    .getElementById(
+        "admQuestCardStatus"
+    )
+    .value=
+        quest.status;
+
+    document
+    .getElementById(
+        "admQuestCardTitle"
+    )
+    .value=
+        quest.title;
+
+    document
+    .getElementById(
+        "admQuestCardSubtitle"
+    )
+    .value=
+        quest.subtitle;
+
+    document
+    .getElementById(
+        "admQuestCardDescription"
+    )
+    .value=
+        quest.description;
 
 }
 
@@ -6350,21 +5177,17 @@ function clearQuestCardForm(){
     )
     .value="";
 
-
     document
     .getElementById(
         "admQuestCardNumber"
     )
     .value="";
 
-
     document
     .getElementById(
         "admQuestCardStatus"
     )
-    .value=
-        "active";
-
+    .value="active";
 
     document
     .getElementById(
@@ -6372,103 +5195,29 @@ function clearQuestCardForm(){
     )
     .value="";
 
-
     document
     .getElementById(
         "admQuestCardSubtitle"
     )
-    .value=
-        "FROM AMINE MORGAN";
-
+    .value="FROM AMINE MORGAN";
 
     document
     .getElementById(
         "admQuestCardDescription"
     )
     .value="";
-
-}
-
-
-function editQuestCard(
-    id
-){
-
-    const quest =
-        db.questCards
-        .find(
-            q=>
-                q.id===
-                id
-        );
-
-
-    if(!quest){
-
-        return;
-
-    }
-
-
-    document
-    .getElementById(
-        "questCardEditId"
-    )
-    .value =
-        quest.id;
-
-
-    document
-    .getElementById(
-        "admQuestCardNumber"
-    )
-    .value =
-        quest.number;
-
-
-    document
-    .getElementById(
-        "admQuestCardStatus"
-    )
-    .value =
-        quest.status;
-
-
-    document
-    .getElementById(
-        "admQuestCardTitle"
-    )
-    .value =
-        quest.title;
-
-
-    document
-    .getElementById(
-        "admQuestCardSubtitle"
-    )
-    .value =
-        quest.subtitle;
-
-
-    document
-    .getElementById(
-        "admQuestCardDescription"
-    )
-    .value =
-        quest.description;
 
 }
 
 
 function saveQuestCardFromAdmin(){
 
-    const editingId =
+    const editing =
         document
         .getElementById(
             "questCardEditId"
         )
         .value;
-
 
     const number =
         Number(
@@ -6479,11 +5228,10 @@ function saveQuestCardFromAdmin(){
             .value
         );
 
-
     if(!number){
 
         alert(
-            "Quest Number is required."
+            "Quest number required."
         );
 
         return;
@@ -6491,31 +5239,24 @@ function saveQuestCardFromAdmin(){
     }
 
 
-    const status =
-        document
-        .getElementById(
-            "admQuestCardStatus"
-        )
-        .value;
-
-
     const quest={
 
-
         id:
-            editingId
+            editing
             ||
             "quest_"+
             number+
             "_"+
             Date.now(),
 
+        number,
 
-        number:number,
-
-
-        status:status,
-
+        status:
+            document
+            .getElementById(
+                "admQuestCardStatus"
+            )
+            .value,
 
         title:
             document
@@ -6528,7 +5269,6 @@ function saveQuestCardFromAdmin(){
             "QUEST #"+
             number,
 
-
         subtitle:
             document
             .getElementById(
@@ -6539,7 +5279,6 @@ function saveQuestCardFromAdmin(){
             ||
             "FROM AMINE MORGAN",
 
-
         description:
             document
             .getElementById(
@@ -6548,87 +5287,46 @@ function saveQuestCardFromAdmin(){
             .value
             .trim()
 
-
     };
 
 
-    if(
-        editingId
-    ){
+    if(editing){
 
         const index =
-            db.questCards
-            .findIndex(
-                q=>
-                    q.id===
-                    editingId
+            db.questCards.findIndex(
+                q=>q.id===editing
             );
 
+        if(index!==-1){
 
-        if(
-            index!==-1
-        ){
-
-            const old =
-                db.questCards[
-                    index
-                ];
-
-
-            db.closedQuests =
-                db.closedQuests
-                .filter(
-                    q=>
-                        q!==
-                        old.number
-                );
-
-
-            db.questCards[
-                index
-            ]=
+            db.questCards[index]=
                 quest;
 
         }
 
     }else{
 
-        db.questCards
-        .push(
+        db.questCards.push(
             quest
         );
 
     }
 
 
+    db.closedQuests =
+        db.closedQuests.filter(
+            q=>q!==number
+        );
+
+
     if(
-        status===
+        quest.status===
         "closed"
     ){
 
-        if(
-            !db.closedQuests
-            .includes(
-                number
-            )
-        ){
-
-            db.closedQuests
-            .push(
-                number
-            );
-
-        }
-
-    }else{
-
-        db.closedQuests =
-            db.closedQuests
-            .filter(
-                q=>
-                    q!==
-                    number
-            );
+        db.closedQuests.push(
+            number
+        );
 
     }
 
@@ -6640,54 +5338,37 @@ function saveQuestCardFromAdmin(){
 }
 
 
-function deleteQuestCard(
-    id
-){
+function deleteQuestCard(id){
 
     const quest =
-        db.questCards
-        .find(
-            q=>
-                q.id===
-                id
+        db.questCards.find(
+            q=>q.id===id
         );
 
-
     if(!quest){
-
         return;
-
     }
-
 
     if(
         !confirm(
-            "Delete QUEST #"+
+            "Delete Quest #"+
             quest.number+
             "?"
         )
     ){
-
         return;
-
     }
 
 
     db.questCards =
-        db.questCards
-        .filter(
-            q=>
-                q.id!==
-                id
+        db.questCards.filter(
+            q=>q.id!==id
         );
 
 
     db.closedQuests =
-        db.closedQuests
-        .filter(
-            number=>
-                number!==
-                quest.number
+        db.closedQuests.filter(
+            q=>q!==quest.number
         );
 
 
@@ -6697,35 +5378,29 @@ function deleteQuestCard(
 
 
 /* ==================================================
-   MEMBERS ADMIN
+   MEMBER ADMIN
 ================================================== */
 
 function renderAdminMembers(){
 
     const list =
-        document
-        .getElementById(
+        document.getElementById(
             "adminMemberList"
         );
-
 
     list.innerHTML="";
 
 
-    db.members
-    .forEach(
+    db.members.forEach(
         member=>{
 
             const row =
-                document
-                .createElement(
+                document.createElement(
                     "div"
                 );
 
-
-            row.className =
+            row.className=
                 "admin-list-item";
-
 
             row.innerHTML=`
 
@@ -6733,97 +5408,131 @@ function renderAdminMembers(){
 
                     <strong>
 
-                        ${
-                            escapeHTML(
-                                member.discord
-                            )
-                        }
-
+                        ${escapeHTML(member.discord)}
                         —
-
-                        ${
-                            escapeHTML(
-                                member.rp
-                            )
-                        }
+                        ${escapeHTML(member.rp)}
 
                     </strong>
-
 
                     <small>
 
                         Callsign:
-
-                        ${
-                            escapeHTML(
-                                member.callsign
-                            )
-                        }
+                        ${escapeHTML(member.callsign)}
 
                         •
 
-                        ${
-                            escapeHTML(
-                                member.rank
-                            )
-                        }
+                        ${escapeHTML(member.rank)}
 
                     </small>
 
                 </div>
 
-
-                <div
-                    class="
-                        admin-list-actions
-                    "
-                >
+                <div class="admin-list-actions">
 
                     <button
-                        class="
-                            admin-button
-                        "
-                        onclick="
-                            editMember(
-                                '${member.id}'
-                            )
-                        "
+                        class="admin-button"
+                        onclick="editMember('${member.id}')"
                     >
-
                         EDIT
-
                     </button>
-
 
                     <button
-                        class="
-                            admin-button
-                            danger
-                        "
-                        onclick="
-                            deleteMember(
-                                '${member.id}'
-                            )
-                        "
+                        class="admin-button danger"
+                        onclick="deleteMember('${member.id}')"
                     >
-
                         DELETE
-
                     </button>
-
 
                 </div>
 
             `;
 
-
-            list
-            .appendChild(
+            list.appendChild(
                 row
             );
 
         }
     );
+
+}
+
+
+function editMember(id){
+
+    const member =
+        db.members.find(
+            m=>m.id===id
+        );
+
+    if(!member){
+        return;
+    }
+
+
+    document
+    .getElementById(
+        "memberEditKey"
+    )
+    .value=
+        member.id;
+
+    document
+    .getElementById(
+        "admDiscord"
+    )
+    .value=
+        member.discord;
+
+    document
+    .getElementById(
+        "admRP"
+    )
+    .value=
+        member.rp;
+
+    document
+    .getElementById(
+        "admCallsign"
+    )
+    .value=
+        member.callsign;
+
+    document
+    .getElementById(
+        "admRank"
+    )
+    .value=
+        member.rank;
+
+    document
+    .getElementById(
+        "admManagement"
+    )
+    .value=
+        member.management;
+
+    document
+    .getElementById(
+        "admWings"
+    )
+    .value=
+        member.wings;
+
+    document
+    .getElementById(
+        "admImage"
+    )
+    .value=
+        member.image || "";
+
+    document
+    .getElementById(
+        "admTop"
+    )
+    .value=
+        String(
+            member.top
+        );
 
 }
 
@@ -6850,9 +5559,7 @@ function clearMemberForm(){
         id=>{
 
             document
-            .getElementById(
-                id
-            )
+            .getElementById(id)
             .value="";
 
         }
@@ -6863,113 +5570,14 @@ function clearMemberForm(){
     .getElementById(
         "admTop"
     )
-    .value=
-        "false";
-
-}
-
-
-function editMember(
-    id
-){
-
-    const member =
-        db.members
-        .find(
-            item=>
-                item.id===
-                id
-        );
-
-
-    if(!member){
-
-        return;
-
-    }
-
-
-    document
-    .getElementById(
-        "memberEditKey"
-    )
-    .value =
-        member.id;
-
-
-    document
-    .getElementById(
-        "admDiscord"
-    )
-    .value =
-        member.discord;
-
-
-    document
-    .getElementById(
-        "admRP"
-    )
-    .value =
-        member.rp;
-
-
-    document
-    .getElementById(
-        "admCallsign"
-    )
-    .value =
-        member.callsign;
-
-
-    document
-    .getElementById(
-        "admRank"
-    )
-    .value =
-        member.rank;
-
-
-    document
-    .getElementById(
-        "admManagement"
-    )
-    .value =
-        member.management;
-
-
-    document
-    .getElementById(
-        "admWings"
-    )
-    .value =
-        member.wings;
-
-
-    document
-    .getElementById(
-        "admImage"
-    )
-    .value =
-        member.image
-        ||
-        "";
-
-
-    document
-    .getElementById(
-        "admTop"
-    )
-    .value =
-        String(
-            member.top
-        );
+    .value="false";
 
 }
 
 
 function saveMemberFromAdmin(){
 
-    const id =
+    const editing =
         document
         .getElementById(
             "memberEditKey"
@@ -6979,13 +5587,11 @@ function saveMemberFromAdmin(){
 
     const member={
 
-
         id:
-            id
+            editing
             ||
             "member_"+
             Date.now(),
-
 
         discord:
             document
@@ -6995,7 +5601,6 @@ function saveMemberFromAdmin(){
             .value
             .trim(),
 
-
         rp:
             document
             .getElementById(
@@ -7003,7 +5608,6 @@ function saveMemberFromAdmin(){
             )
             .value
             .trim(),
-
 
         callsign:
             document
@@ -7013,7 +5617,6 @@ function saveMemberFromAdmin(){
             .value
             .trim(),
 
-
         rank:
             document
             .getElementById(
@@ -7021,7 +5624,6 @@ function saveMemberFromAdmin(){
             )
             .value
             .trim(),
-
 
         management:
             document
@@ -7033,7 +5635,6 @@ function saveMemberFromAdmin(){
             ||
             "—",
 
-
         wings:
             document
             .getElementById(
@@ -7044,7 +5645,6 @@ function saveMemberFromAdmin(){
             ||
             "No Wings",
 
-
         image:
             document
             .getElementById(
@@ -7053,28 +5653,24 @@ function saveMemberFromAdmin(){
             .value
             .trim(),
 
-
         top:
             document
             .getElementById(
                 "admTop"
             )
-            .value
-            ===
+            .value===
             "true"
-
 
     };
 
 
     if(
-        !member.discord
-        ||
+        !member.discord ||
         !member.rp
     ){
 
         alert(
-            "Discord Name and RP Name required."
+            "Member name required."
         );
 
         return;
@@ -7083,33 +5679,39 @@ function saveMemberFromAdmin(){
 
 
     if(
-        id
+        editing==="amine" ||
+        member.rp
+        .toLowerCase()
+        ===
+        "amine morgan"
     ){
 
+        member.id=
+            "amine";
+
+        member.image=
+            AMINE_IMAGE;
+
+    }
+
+
+    if(editing){
+
         const index =
-            db.members
-            .findIndex(
-                item=>
-                    item.id===
-                    id
+            db.members.findIndex(
+                m=>m.id===editing
             );
 
+        if(index!==-1){
 
-        if(
-            index!==-1
-        ){
-
-            db.members[
-                index
-            ]=
+            db.members[index]=
                 member;
 
         }
 
     }else{
 
-        db.members
-        .push(
+        db.members.push(
             member
         );
 
@@ -7123,27 +5725,21 @@ function saveMemberFromAdmin(){
 }
 
 
-function deleteMember(
-    id
-){
+function deleteMember(id){
 
     if(
         !confirm(
-            "Delete this member?"
+            "Delete member?"
         )
     ){
-
         return;
-
     }
 
 
     db.members =
-        db.members
-        .filter(
+        db.members.filter(
             member=>
-                member.id!==
-                id
+                member.id!==id
         );
 
 
@@ -7159,34 +5755,23 @@ function deleteMember(
 function renderAdminCases(){
 
     const list =
-        document
-        .getElementById(
+        document.getElementById(
             "adminCaseList"
         );
-
 
     list.innerHTML="";
 
 
-    [...db.cases]
-    .sort(
-        (a,b)=>
-            a.number-
-            b.number
-    )
-    .forEach(
+    db.cases.forEach(
         data=>{
 
             const row =
-                document
-                .createElement(
+                document.createElement(
                     "div"
                 );
 
-
-            row.className =
+            row.className=
                 "admin-list-item";
-
 
             row.innerHTML=`
 
@@ -7194,92 +5779,133 @@ function renderAdminCases(){
 
                     <strong>
 
-                        ${
-                            escapeHTML(
-                                data.incident
-                            )
-                        }
-
+                        ${escapeHTML(data.incident)}
                         —
-
-                        CASE
-                        ${data.number}
+                        CASE ${data.number}
 
                     </strong>
 
-
                     <small>
-
-                        ${
-                            escapeHTML(
-                                data.category
-                            )
-                        }
-
-                        •
-
-                        ${
-                            escapeHTML(
-                                data.team
-                            )
-                        }
-
+                        ${escapeHTML(data.team)}
                     </small>
 
                 </div>
 
-
-                <div
-                    class="
-                        admin-list-actions
-                    "
-                >
+                <div class="admin-list-actions">
 
                     <button
-                        class="
-                            admin-button
-                        "
-                        onclick="
-                            editCase(
-                                '${data.id}'
-                            )
-                        "
+                        class="admin-button"
+                        onclick="editCase('${data.id}')"
                     >
-
                         EDIT
-
                     </button>
-
 
                     <button
-                        class="
-                            admin-button
-                            danger
-                        "
-                        onclick="
-                            deleteCase(
-                                '${data.id}'
-                            )
-                        "
+                        class="admin-button danger"
+                        onclick="deleteCase('${data.id}')"
                     >
-
                         DELETE
-
                     </button>
-
 
                 </div>
 
             `;
 
-
-            list
-            .appendChild(
+            list.appendChild(
                 row
             );
 
         }
     );
+
+}
+
+
+function editCase(id){
+
+    const data =
+        db.cases.find(
+            c=>c.id===id
+        );
+
+    if(!data){
+        return;
+    }
+
+
+    document
+    .getElementById(
+        "caseEditId"
+    )
+    .value=
+        data.id;
+
+    document
+    .getElementById(
+        "admCaseCategory"
+    )
+    .value=
+        data.category;
+
+    document
+    .getElementById(
+        "admCaseNumber"
+    )
+    .value=
+        data.number;
+
+    document
+    .getElementById(
+        "admCaseIncident"
+    )
+    .value=
+        data.incident;
+
+    document
+    .getElementById(
+        "admCaseLocation"
+    )
+    .value=
+        data.location;
+
+    document
+    .getElementById(
+        "admCaseFingerprint"
+    )
+    .value=
+        data.fingerprint;
+
+    document
+    .getElementById(
+        "admCaseTeam"
+    )
+    .value=
+        data.team;
+
+    document
+    .getElementById(
+        "admCaseItems"
+    )
+    .value=
+        data.items.join(
+            ", "
+        );
+
+    document
+    .getElementById(
+        "admCaseReport"
+    )
+    .value=
+        data.report;
+
+    document
+    .getElementById(
+        "admCaseImages"
+    )
+    .value=
+        data.images.join(
+            "\n"
+        );
 
 }
 
@@ -7293,186 +5919,44 @@ function clearCaseForm(){
     .value="";
 
 
-    document
-    .getElementById(
-        "admCaseCategory"
-    )
-    .value=
-        "store";
-
-
-    document
-    .getElementById(
-        "admCaseNumber"
-    )
-    .value="";
-
-
-    document
-    .getElementById(
-        "admCaseIncident"
-    )
-    .value="";
-
-
-    document
-    .getElementById(
-        "admCaseLocation"
-    )
-    .value=
-        "Quest #9";
-
-
-    document
-    .getElementById(
-        "admCaseFingerprint"
-    )
-    .value="";
-
-
-    document
-    .getElementById(
-        "admCaseTeam"
-    )
-    .value="";
-
-
-    document
-    .getElementById(
-        "admCaseItems"
-    )
-    .value="";
-
-
-    document
-    .getElementById(
-        "admCaseReport"
-    )
-    .value="";
-
-
-    document
-    .getElementById(
+    [
+        "admCaseNumber",
+        "admCaseIncident",
+        "admCaseLocation",
+        "admCaseFingerprint",
+        "admCaseTeam",
+        "admCaseItems",
+        "admCaseReport",
         "admCaseImages"
-    )
-    .value="";
+    ]
+    .forEach(
+        id=>{
 
-}
+            document
+            .getElementById(id)
+            .value="";
 
-
-function editCase(
-    id
-){
-
-    const data =
-        db.cases
-        .find(
-            item=>
-                item.id===
-                id
-        );
-
-
-    if(!data){
-
-        return;
-
-    }
-
-
-    document
-    .getElementById(
-        "caseEditId"
-    )
-    .value =
-        data.id;
+        }
+    );
 
 
     document
     .getElementById(
         "admCaseCategory"
     )
-    .value =
-        data.category;
-
-
-    document
-    .getElementById(
-        "admCaseNumber"
-    )
-    .value =
-        data.number;
-
-
-    document
-    .getElementById(
-        "admCaseIncident"
-    )
-    .value =
-        data.incident;
-
-
-    document
-    .getElementById(
-        "admCaseLocation"
-    )
-    .value =
-        data.location;
-
-
-    document
-    .getElementById(
-        "admCaseFingerprint"
-    )
-    .value =
-        data.fingerprint;
-
-
-    document
-    .getElementById(
-        "admCaseTeam"
-    )
-    .value =
-        data.team;
-
-
-    document
-    .getElementById(
-        "admCaseItems"
-    )
-    .value =
-        data.items
-        .join(", ");
-
-
-    document
-    .getElementById(
-        "admCaseReport"
-    )
-    .value =
-        data.report;
-
-
-    document
-    .getElementById(
-        "admCaseImages"
-    )
-    .value =
-        data.images
-        .join("\n");
+    .value="store";
 
 }
 
 
 function saveCaseFromAdmin(){
 
-    const editingId =
+    const editing =
         document
         .getElementById(
             "caseEditId"
         )
         .value;
-
 
     const category =
         document
@@ -7480,7 +5964,6 @@ function saveCaseFromAdmin(){
             "admCaseCategory"
         )
         .value;
-
 
     const number =
         Number(
@@ -7495,7 +5978,7 @@ function saveCaseFromAdmin(){
     if(!number){
 
         alert(
-            "Case Number required."
+            "Case number required."
         );
 
         return;
@@ -7505,22 +5988,18 @@ function saveCaseFromAdmin(){
 
     const data={
 
-
         id:
-            editingId
+            editing
             ||
             category+
-            "-"+
+            "_"+
             number+
-            "-"+
+            "_"+
             Date.now(),
-
 
         category,
 
-
         number,
-
 
         incident:
             document
@@ -7531,14 +6010,10 @@ function saveCaseFromAdmin(){
             .trim()
             ||
             (
-                category===
-                "store"
-                ?
-                "Store Robbery"
-                :
-                "House Robbery"
+                category==="store"
+                ? "Store Robbery"
+                : "House Robbery"
             ),
-
 
         location:
             document
@@ -7550,7 +6025,6 @@ function saveCaseFromAdmin(){
             ||
             "Quest #9",
 
-
         fingerprint:
             document
             .getElementById(
@@ -7561,7 +6035,6 @@ function saveCaseFromAdmin(){
             ||
             "—",
 
-
         team:
             document
             .getElementById(
@@ -7571,7 +6044,6 @@ function saveCaseFromAdmin(){
             .trim()
             ||
             "—",
-
 
         items:
             document
@@ -7584,10 +6056,7 @@ function saveCaseFromAdmin(){
                 item=>
                     item.trim()
             )
-            .filter(
-                Boolean
-            ),
-
+            .filter(Boolean),
 
         report:
             document
@@ -7596,7 +6065,6 @@ function saveCaseFromAdmin(){
             )
             .value
             .trim(),
-
 
         images:
             document
@@ -7609,42 +6077,28 @@ function saveCaseFromAdmin(){
                 url=>
                     url.trim()
             )
-            .filter(
-                Boolean
-            )
-
+            .filter(Boolean)
 
     };
 
 
-    if(
-        editingId
-    ){
+    if(editing){
 
         const index =
-            db.cases
-            .findIndex(
-                item=>
-                    item.id===
-                    editingId
+            db.cases.findIndex(
+                c=>c.id===editing
             );
 
+        if(index!==-1){
 
-        if(
-            index!==-1
-        ){
-
-            db.cases[
-                index
-            ]=
+            db.cases[index]=
                 data;
 
         }
 
     }else{
 
-        db.cases
-        .push(
+        db.cases.push(
             data
         );
 
@@ -7658,27 +6112,21 @@ function saveCaseFromAdmin(){
 }
 
 
-function deleteCase(
-    id
-){
+function deleteCase(id){
 
     if(
         !confirm(
-            "Delete this case?"
+            "Delete case?"
         )
     ){
-
         return;
-
     }
 
 
     db.cases =
-        db.cases
-        .filter(
-            item=>
-                item.id!==
-                id
+        db.cases.filter(
+            data=>
+                data.id!==id
         );
 
 
@@ -7694,44 +6142,31 @@ function deleteCase(
 function renderAdminHistory(){
 
     const list =
-        document
-        .getElementById(
+        document.getElementById(
             "adminHistoryList"
         );
-
 
     list.innerHTML="";
 
 
-    db.questHistory
-    .forEach(
-        (
-            quest,
-            index
-        )=>{
+    db.questHistory.forEach(
+        (quest,index)=>{
 
             const row =
-                document
-                .createElement(
+                document.createElement(
                     "div"
                 );
 
-
-            row.className =
+            row.className=
                 "admin-list-item";
-
 
             row.innerHTML=`
 
                 <div>
 
                     <strong>
-
-                        QUEST
-                        #${quest.number}
-
+                        QUEST #${quest.number}
                     </strong>
-
 
                     <small>
 
@@ -7749,58 +6184,77 @@ function renderAdminHistory(){
 
                 </div>
 
-
-                <div
-                    class="
-                        admin-list-actions
-                    "
-                >
+                <div class="admin-list-actions">
 
                     <button
-                        class="
-                            admin-button
-                        "
-                        onclick="
-                            editHistory(
-                                ${index}
-                            )
-                        "
+                        class="admin-button"
+                        onclick="editHistory(${index})"
                     >
-
                         EDIT
-
                     </button>
-
 
                     <button
-                        class="
-                            admin-button
-                            danger
-                        "
-                        onclick="
-                            deleteHistory(
-                                ${index}
-                            )
-                        "
+                        class="admin-button danger"
+                        onclick="deleteHistory(${index})"
                     >
-
                         DELETE
-
                     </button>
-
 
                 </div>
 
             `;
 
-
-            list
-            .appendChild(
+            list.appendChild(
                 row
             );
 
         }
     );
+
+}
+
+
+function editHistory(index){
+
+    const quest =
+        db.questHistory[
+            index
+        ];
+
+    if(!quest){
+        return;
+    }
+
+
+    document
+    .getElementById(
+        "historyEditIndex"
+    )
+    .value=
+        index;
+
+    document
+    .getElementById(
+        "admHistoryNumber"
+    )
+    .value=
+        quest.number;
+
+    document
+    .getElementById(
+        "admHistoryCurrent"
+    )
+    .value=
+        String(
+            quest.current
+        );
+
+    document
+    .getElementById(
+        "admHistoryText"
+    )
+    .value=
+        quest.text;
 
 }
 
@@ -7813,80 +6267,23 @@ function clearHistoryForm(){
     )
     .value="";
 
-
     document
     .getElementById(
         "admHistoryNumber"
     )
     .value="";
 
-
     document
     .getElementById(
         "admHistoryCurrent"
     )
-    .value=
-        "false";
-
+    .value="false";
 
     document
     .getElementById(
         "admHistoryText"
     )
     .value="";
-
-}
-
-
-function editHistory(
-    index
-){
-
-    const quest =
-        db.questHistory[
-            index
-        ];
-
-
-    if(!quest){
-
-        return;
-
-    }
-
-
-    document
-    .getElementById(
-        "historyEditIndex"
-    )
-    .value =
-        index;
-
-
-    document
-    .getElementById(
-        "admHistoryNumber"
-    )
-    .value =
-        quest.number;
-
-
-    document
-    .getElementById(
-        "admHistoryCurrent"
-    )
-    .value =
-        String(
-            quest.current
-        );
-
-
-    document
-    .getElementById(
-        "admHistoryText"
-    )
-    .value =
-        quest.text;
 
 }
 
@@ -7900,7 +6297,6 @@ function saveHistoryFromAdmin(){
         )
         .value;
 
-
     const number =
         Number(
             document
@@ -7910,7 +6306,6 @@ function saveHistoryFromAdmin(){
             .value
         );
 
-
     const text =
         document
         .getElementById(
@@ -7919,25 +6314,22 @@ function saveHistoryFromAdmin(){
         .value
         .trim();
 
-
     const current =
         document
         .getElementById(
             "admHistoryCurrent"
         )
-        .value
-        ===
+        .value===
         "true";
 
 
     if(
-        !number
-        ||
+        !number ||
         !text
     ){
 
         alert(
-            "Quest number and text required."
+            "Quest number and description required."
         );
 
         return;
@@ -7945,46 +6337,33 @@ function saveHistoryFromAdmin(){
     }
 
 
-    if(
-        current
-    ){
+    if(current){
 
-        db.questHistory
-        .forEach(
-            item=>
-                item.current=
-                false
+        db.questHistory.forEach(
+            quest=>
+                quest.current=false
         );
 
     }
 
 
     const quest={
-
         number,
-
         text,
-
         current
-
     };
 
 
-    if(
-        index!==""
-    ){
+    if(index!==""){
 
         db.questHistory[
-            Number(
-                index
-            )
+            Number(index)
         ]=
             quest;
 
     }else{
 
-        db.questHistory
-        .push(
+        db.questHistory.push(
             quest
         );
 
@@ -7998,23 +6377,18 @@ function saveHistoryFromAdmin(){
 }
 
 
-function deleteHistory(
-    index
-){
+function deleteHistory(index){
 
     if(
         !confirm(
-            "Delete this history quest?"
+            "Delete quest history?"
         )
     ){
-
         return;
-
     }
 
 
-    db.questHistory
-    .splice(
+    db.questHistory.splice(
         index,
         1
     );
@@ -8026,12 +6400,10 @@ function deleteHistory(
 
 
 /* ==================================================
-   HELPERS
+   ESCAPE HTML
 ================================================== */
 
-function escapeHTML(
-    value
-){
+function escapeHTML(value){
 
     return String(
         value ?? ""
@@ -8061,7 +6433,7 @@ function escapeHTML(
 
 
 /* ==================================================
-   OUTSIDE CLICK
+   MODAL EVENTS
 ================================================== */
 
 document
