@@ -494,6 +494,10 @@ select{
 }
 
 /* ==================================================
+   QUEST 11 CASES
+================================================== */
+
+/* ==================================================
    CASES
 ================================================== */
 
@@ -1357,7 +1361,7 @@ select{
         </h2>
 
         <p>
-            CURRENT CHALLENGE • 15 REPORTS
+            CLOSED QUEST • 15 REPORTS
         </p>
 
     </div>
@@ -1417,6 +1421,66 @@ select{
 
     <div class="case-grid" id="quest10Cases"></div>
 
+</div>
+
+<!-- QUEST 12 -->
+
+<div id="quest12Page" class="page">
+
+    <button class="back-btn" onclick="showHome()">← BACK</button>
+
+    <div class="page-header">
+        <div class="badge">QUEST #12</div>
+        <h2>QUEST #12</h2>
+        <p>CURRENT CHALLENGE</p>
+    </div>
+
+    <div class="detail-box" style="margin-bottom:18px;">
+        <div class="info-card full">
+            <h4>QUEST DESCRIPTION</h4>
+            <p class="report">نعلن عن بداية التحديات للشهر الاول الاسبوع الثاني متمنين منكم الاداء المميز 📢
+
+التحدي الثالث : مباشرة 7 حالات بقالة
+
+ملاحظة : الاداء المميز فالحاله + الحالة تكون خالية من الاخطاء</p>
+        </div>
+    </div>
+
+    <div class="quest-category-grid">
+        <div class="quest-category" onclick="showQuest12Category('store')">
+            <h3>Store Robbery</h3>
+            <p>7 Cases</p>
+        </div>
+    </div>
+
+</div>
+
+<!-- QUEST 12 STORE ROBBERY -->
+
+<div id="quest12HousePage" class="page">
+    <button class="back-btn" onclick="showQuest12()">← BACK</button>
+    <div class="page-header">
+        <div class="badge">QUEST #12</div>
+        <h2>Store Robbery</h2>
+        <p>7 CASES</p>
+    </div>
+    <div class="case-grid" id="quest12HouseCases"></div>
+</div>
+
+<!-- QUEST 12 PENDING CASE DETAIL -->
+<div id="quest12CaseDetailPage" class="page">
+    <button class="back-btn" id="quest12CaseBackBtn">← BACK</button>
+    <div class="page-header">
+        <div class="badge">QUEST #12</div>
+        <h2 id="quest12CaseTitle">CASE</h2>
+        <p id="quest12CaseType">DETAILS PENDING</p>
+    </div>
+    <div class="detail-box">
+        <div class="info-card full">
+            <h4>STATUS</h4>
+            <p class="report">DETAILS PENDING</p>
+        </div>
+    </div>
 </div>
 
 <!-- GENERIC QUEST -->
@@ -2552,6 +2616,43 @@ select{
 <script>
 
 /* ==================================================
+   QUEST 12 NAVIGATION
+================================================== */
+
+function showQuest12(){
+    hidePages();
+    document.getElementById("quest12Page").classList.add("active");
+}
+
+function showQuest12Category(){
+    hidePages();
+    document.getElementById("quest12HousePage").classList.add("active");
+    renderQuest12PendingCases("quest12HouseCases",7,"Store Robbery");
+}
+
+function renderQuest12PendingCases(containerId,count,type){
+    const container = document.getElementById(containerId);
+    if(!container) return;
+    container.innerHTML = Array.from({length:count},(_,index)=>`
+        <div class="case-card" onclick="openQuest12PendingCase('${type}', ${index+1})">
+            <div class="case-number">CASE ${String(index+1).padStart(2,"0")}</div>
+            <h3>${type}</h3>
+            <div class="location">Quest #12</div>
+            <span class="pending">DETAILS PENDING</span>
+        </div>
+    `).join("");
+}
+
+function openQuest12PendingCase(type,number){
+    hidePages();
+    document.getElementById("quest12CaseDetailPage").classList.add("active");
+    document.getElementById("quest12CaseTitle").textContent = `CASE ${String(number).padStart(2,"0")}`;
+    document.getElementById("quest12CaseType").textContent = type;
+    document.getElementById("quest12CaseBackBtn").onclick = () => showQuest12Category();
+}
+
+
+/* ==================================================
    SUPABASE
 ================================================== */
 
@@ -2608,12 +2709,12 @@ const DEFAULT_DB = {
 questCards:[
 
     {
-        id:"quest10",
-        number:10,
-        title:"QUEST #10",
+        id:"quest12",
+        number:12,
+        title:"QUEST #12",
         subtitle:"FROM AMINE MORGAN",
         description:
-            "التحدي الخامس : كتابة 15 تقرير ويكون التحدي لمدة يومين — ملاحظة : ارسال الرقم التسلسلي للتقرير + في حال الانتهاء ترفع صورة واحده تشمل جميع التقارير",
+            "نعلن عن بداية التحديات للشهر الاول الاسبوع الثاني متمنين منكم الاداء المميز 📢 — التحدي الثالث : مباشرة 7 حالات بقالة — ملاحظة : الاداء المميز فالحاله + الحالة تكون خالية من الاخطاء",
         status:"active"
     }
 
@@ -2624,7 +2725,9 @@ closedQuests:[
     6,
     7,
     8,
-    9
+    9,
+    10,
+    11
 ],
 
 questHistory:[
@@ -2694,9 +2797,23 @@ questHistory:[
 
     {
         number:10,
-        current:true,
+        current:false,
         text:
             "التحدي الخامس : كتابة 15 تقرير ويكون التحدي لمدة يومين — ملاحظة : ارسال الرقم التسلسلي للتقرير + في حال الانتهاء ترفع صورة واحده تشمل جميع التقارير"
+    },
+
+    {
+        number:11,
+        current:false,
+        text:
+            "نعلن عن بداية التحديات للشهر الاول الاسبوع الثاني متمنين منكم الاداء المميز 📢 — التحدي الثاني : مباشرة 5 استيقافات مرورية + 3 حالات جنائية — ملاحظة : الاداء المميز فالحاله + الحالة تكون خالية من الاخطاء"
+    },
+
+    {
+        number:12,
+        current:true,
+        text:
+            "نعلن عن بداية التحديات للشهر الاول الاسبوع الثاني متمنين منكم الاداء المميز 📢 — التحدي الثالث : مباشرة 7 حالات بقالة — ملاحظة : الاداء المميز فالحاله + الحالة تكون خالية من الاخطاء"
     }
 
 ],
@@ -3413,6 +3530,35 @@ function loadDatabase(){
 let db =
     loadDatabase();
 
+/* QUEST #12 MIGRATION — keeps existing saved data while moving the current challenge */
+db.questCards = (db.questCards || []).filter(q => q.id !== "quest10" && q.id !== "quest11" && q.id !== "quest12");
+db.questCards.push({
+    id:"quest12",
+    number:12,
+    title:"QUEST #12",
+    subtitle:"FROM AMINE MORGAN",
+    description:"نعلن عن بداية التحديات للشهر الاول الاسبوع الثاني متمنين منكم الاداء المميز 📢 — التحدي الثالث : مباشرة 7 حالات بقالة — ملاحظة : الاداء المميز فالحاله + الحالة تكون خالية من الاخطاء",
+    status:"active"
+});
+
+db.closedQuests = Array.from(new Set([...(db.closedQuests || []),10,11])).sort((a,b)=>a-b);
+
+(db.questHistory || []).forEach(item => item.current = false);
+let quest11History = (db.questHistory || []).find(item => item.number === 11);
+if(quest11History){
+    quest11History.current = false;
+    quest11History.text = "نعلن عن بداية التحديات للشهر الاول الاسبوع الثاني متمنين منكم الاداء المميز 📢 — التحدي الثاني : مباشرة 5 استيقافات مرورية + 3 حالات جنائية — ملاحظة : الاداء المميز فالحاله + الحالة تكون خالية من الاخطاء";
+}else{
+    db.questHistory.push({number:11,current:false,text:"نعلن عن بداية التحديات للشهر الاول الاسبوع الثاني متمنين منكم الاداء المميز 📢 — التحدي الثاني : مباشرة 5 استيقافات مرورية + 3 حالات جنائية — ملاحظة : الاداء المميز فالحاله + الحالة تكون خالية من الاخطاء"});
+}
+let quest12History = (db.questHistory || []).find(item => item.number === 12);
+if(quest12History){
+    quest12History.current = true;
+    quest12History.text = "نعلن عن بداية التحديات للشهر الاول الاسبوع الثاني متمنين منكم الاداء المميز 📢 — التحدي الثالث : مباشرة 7 حالات بقالة — ملاحظة : الاداء المميز فالحاله + الحالة تكون خالية من الاخطاء";
+}else{
+    db.questHistory.push({number:12,current:true,text:"نعلن عن بداية التحديات للشهر الاول الاسبوع الثاني متمنين منكم الاداء المميز 📢 — التحدي الثالث : مباشرة 7 حالات بقالة — ملاحظة : الاداء المميز فالحاله + الحالة تكون خالية من الاخطاء"});
+}
+
 
 function persist(){
 
@@ -3590,6 +3736,14 @@ function openQuestCard(id){
     if(id==="quest10"){
 
         showQuest10();
+
+        return;
+
+    }
+
+    if(id==="quest12"){
+
+        showQuest12();
 
         return;
 
@@ -4173,43 +4327,41 @@ function renderQuest10Cases(){
         return;
     }
 
-    container.innerHTML="";
+    const cases = [
+        "2026-688118",
+        "2026-318888",
+        "2026-926565",
+        "2026-176696",
+        "2026-644667",
+        "2026-114196",
+        "2026-947588",
+        "2026-878466",
+        "2026-076811",
+        "2026-000612",
+        "2026-362717",
+        "2026-596892",
+        "2026-036317",
+        "2026-591523",
+        "2026-010871"
+    ];
 
-    for(let i=1;i<=15;i++){
+    container.innerHTML=`
+        <div class="case-card" style="grid-column:1/-1;">
+            <div class="case-number">CASE 01</div>
+            <h3>CASES LIST</h3>
+            <div class="location">Quest #10 • Reports تقارير</div>
 
-        const card =
-            document.createElement(
-                "div"
-            );
-
-        card.className=
-            "case-card";
-
-        card.innerHTML=`
-
-            <div class="case-number">
-                CASE ${String(i).padStart(2,"0")}
+            <div class="report" style="margin-top:18px; line-height:2; text-align:left;">
+                ${cases.map((caseId,index)=>`
+                    <div><strong>${String(index+1).padStart(2,"0")}</strong> ┃ <code>${caseId}</code></div>
+                `).join("")}
             </div>
 
-            <h3>
-                CASE ${String(i).padStart(2,"0")}
-            </h3>
-
-            <div class="location">
-                Quest #10 • Reports تقارير
+            <div style="margin-top:18px;">
+                <strong>Total Cases:</strong> 15
             </div>
-
-            <span class="pending">
-                DETAILS PENDING
-            </span>
-
-        `;
-
-        container.appendChild(
-            card
-        );
-
-    }
+        </div>
+    `;
 
 }
 
