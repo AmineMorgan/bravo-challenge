@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+ <!DOCTYPE html>
 <html lang="en">
 <head>
 <meta charset="UTF-8">
@@ -1446,6 +1446,7 @@ select{
         </div>
     </div>
 
+    <div style="margin-bottom:14px"><button class="back-btn" onclick="showStudioPublicQuest('12')">VIEW ALL QUEST #12 CATEGORIES & CASES</button></div>
     <div class="quest-category-grid">
         <div class="quest-category" onclick="showQuest12Category('store')">
             <h3>Store Robbery</h3>
@@ -1483,6 +1484,14 @@ select{
     </div>
 </div>
 
+<!-- QUEST CASE STUDIO PUBLIC VIEW -->
+<div id="studioPublicPage" class="page">
+ <button class="back-btn" id="studioPublicBack" onclick="showHome()">← BACK</button>
+ <div class="page-header"><div class="badge" id="studioPublicBadge">QUEST</div><h2 id="studioPublicTitle">Cases</h2></div>
+ <div class="quest-category-grid" id="studioPublicCategories"></div>
+ <div class="case-grid" id="studioPublicCases"></div>
+ <div class="detail-box" id="studioPublicDetails"></div>
+</div>
 <!-- GENERIC QUEST -->
 
 <div
@@ -1965,6 +1974,8 @@ select{
         Members
     </button>
 
+    <button class="admin-nav" onclick="showAdminPage('quest-case-editor',this);studioInit()">Quest & Case Studio</button>
+
     <button
         class="admin-nav"
         onclick="showAdminPage('cases',this)"
@@ -2336,7 +2347,34 @@ select{
 </div>
 
 <!-- CASES -->
-
+<div id="admin-quest-case-editor" class="admin-section">
+ <div class="admin-card">
+  <h3>Quest & Case Studio</h3>
+  <p style="color:#bfc8d8;margin:10px 0 18px">Select a quest, add a category, choose an existing case or create a new one. Each field is editable independently.</p>
+  <div class="admin-form-grid">
+   <div class="admin-field"><label>QUEST</label><select class="admin-select" id="studioQuest" onchange="studioRefreshCategories()"></select></div>
+   <div class="admin-field"><label>CATEGORY</label><select class="admin-select" id="studioCategory" onchange="studioRefreshCases()"></select></div>
+   <div class="admin-field"><label>NEW CATEGORY</label><input class="admin-input" id="studioNewCategory" placeholder="e.g. Store Robbery"></div>
+   <div class="admin-field"><label>&nbsp;</label><button class="admin-button" onclick="studioAddCategory()">+ ADD CATEGORY</button></div>
+   <div class="admin-field"><label>SELECT CASE</label><select class="admin-select" id="studioCase" onchange="studioLoadCase()"></select></div>
+   <div class="admin-field"><label>&nbsp;</label><button class="admin-button" onclick="studioNewCase()">+ NEW CASE</button></div>
+   <div class="admin-field"><label>CASE NUMBER</label><input type="number" min="1" class="admin-input" id="studioNumber"></div>
+   <div class="admin-field"><label>STATUS</label><select class="admin-select" id="studioStatus"><option value="pending">DETAILS PENDING</option><option value="complete">COMPLETE</option></select></div>
+   <div class="admin-field full"><label>INCIDENT TYPE / نوع الحالة</label><input class="admin-input" id="studioIncident"></div>
+   <div class="admin-field full"><label>FINGERPRINTS / البصمات (one per line)</label><textarea class="admin-textarea" id="studioFingerprints"></textarea></div>
+   <div class="admin-field full"><label>SEIZED ITEMS / المضبوطات (one per line)</label><textarea class="admin-textarea" id="studioEvidence"></textarea></div>
+   <div class="admin-field full"><label>TEAM MEMBERS (one per line)</label><textarea class="admin-textarea" id="studioTeam"></textarea></div>
+   <div class="admin-field full"><label>REPORT / التقرير</label><textarea class="admin-textarea" id="studioReport" style="min-height:180px"></textarea></div>
+   <div class="admin-field full"><label>NOTES / ملاحظات</label><textarea class="admin-textarea" id="studioNote"></textarea></div>
+   <div class="admin-field full"><label>IMAGE URLS (one per line)</label><textarea class="admin-textarea" id="studioImages"></textarea></div>
+  </div>
+  <div style="display:flex;flex-wrap:wrap;gap:10px;margin-top:18px">
+   <button class="admin-button success" onclick="studioSaveCase()">SAVE CASE</button>
+   <button class="admin-button danger" onclick="studioDeleteCase()">DELETE CASE</button>
+  </div>
+  <p id="studioMessage" style="margin-top:12px;color:#bfc8d8" aria-live="polite"></p>
+ </div>
+</div>
 <div
     id="admin-cases"
     class="admin-section"
@@ -2344,9 +2382,7 @@ select{
 
     <div class="admin-card">
 
-        <h3>
-            Add / Edit Case
-        </h3>
+        <h3>Legacy Case Editor</h3><button class="admin-button success" onclick="openQuestCaseStudio()" style="margin:12px 0">OPEN QUEST & CASE STUDIO</button>
 
         <input
             id="caseEditId"
@@ -2667,12 +2703,14 @@ function showQuest12Category(){
 function renderQuest12PendingCases(containerId,count,type){
     const container = document.getElementById(containerId);
     if(!container) return;
-    container.innerHTML = Array.from({length:count},(_,index)=>`
+    const extra=(db?.questCaseStudio?.['12']?.['Store Robbery']||[]).map(c=>c.number);
+    const total=Math.max(count,...extra,0);
+    container.innerHTML = Array.from({length:total},(_,index)=>`
         <div class="case-card" onclick="openQuest12PendingCase('${type}', ${index+1})">
             <div class="case-number">CASE ${String(index+1).padStart(2,"0")}</div>
             <h3>${type}</h3>
             <div class="location">Quest #12</div>
-            <span class="${index < 4 ? "complete" : "pending"}">${index < 4 ? "COMPLETE" : "DETAILS PENDING"}</span>
+            <span class="${(quest12StoreCases[index+1]?.status || (index < 4 ? "complete" : "pending")) === "complete" ? "complete" : "pending"}">${(quest12StoreCases[index+1]?.status || (index < 4 ? "complete" : "pending")) === "complete" ? "COMPLETE" : "DETAILS PENDING"}</span>
         </div>
     `).join("");
 }
@@ -2706,6 +2744,7 @@ const quest12StoreCases = {
     2: {
         fingerprints:["S4UWQXV4M4I14DK","WI8H6491GK9OVN4"],
         incident:"Store Robbery / اعتداء بسلاح أبيض / مطاردة مركبة ومطاردة على الأقدام / توقيف مشتبه بهما",
+        team:["Lucas Hod"],
         evidenceGroups:[
             {title:"المشتبه به الأول",items:["Cash ×3","Hook Pick ×3","Bat","Lollipop Sign"]},
             {title:"المشتبه به الثاني",items:["Hook Pick ×2"]}
@@ -4019,6 +4058,10 @@ function openQuestCard(id){
 
     }
 
+    const selected=db.questCards.find(q=>q.id===id);
+    if(selected && db.questCaseStudio?.[String(selected.number)] && Object.values(db.questCaseStudio[String(selected.number)]).some(a=>a.length)){
+        showStudioPublicQuest(String(selected.number));return;
+    }
     const quest =
         db.questCards.find(
             q=>q.id===id
@@ -7104,6 +7147,108 @@ document
     }
 );
 
+
+/* Public viewer for additional quest categories and cases managed from the studio. */
+function showStudioPublicQuest(q){
+ hidePages();document.getElementById('studioPublicPage').classList.add('active');
+ document.getElementById('studioPublicBadge').textContent='QUEST #'+q;
+ document.getElementById('studioPublicTitle').textContent='Quest #'+q+' Categories';
+ document.getElementById('studioPublicBack').onclick=()=>q==='12'?showQuest12():showHome();
+ const catEl=document.getElementById('studioPublicCategories');catEl.replaceChildren();
+ document.getElementById('studioPublicCases').replaceChildren();document.getElementById('studioPublicDetails').replaceChildren();
+ for(const cat of Object.keys(db.questCaseStudio?.[q]||{})){
+  const b=document.createElement('button');b.className='quest-category';b.textContent=cat+' — '+db.questCaseStudio[q][cat].length+' Cases';
+  b.onclick=()=>showStudioPublicCategory(q,cat);catEl.append(b);
+ }
+}
+function showStudioPublicCategory(q,cat){
+ const grid=document.getElementById('studioPublicCases');grid.replaceChildren();document.getElementById('studioPublicDetails').replaceChildren();
+ const entries=(db.questCaseStudio?.[q]?.[cat]||[]).slice().sort((a,b)=>a.number-b.number);
+ for(const c of entries){const b=document.createElement('button');b.className='case-card';b.textContent='CASE '+String(c.number).padStart(2,'0')+' — '+(c.status==='complete'?'COMPLETE':'DETAILS PENDING');b.onclick=()=>showStudioPublicCase(c);grid.append(b);}
+}
+function showStudioPublicCase(c){
+ const el=document.getElementById('studioPublicDetails');el.replaceChildren();
+ const parts=[['نوع الحالة',c.incident],['البصمات',(c.fingerprints||[]).join('\n')],['المضبوطات',(c.evidence||[]).join('\n')],['TEAM MEMBERS',(c.team||[]).join('\n')],['التقرير',c.report],['ملاحظات',c.note]];
+ for(const [label,value] of parts){if(!value)continue;const card=document.createElement('div');card.className='info-card full';const h=document.createElement('h4');h.textContent=label;const p=document.createElement('p');p.className='report';p.style.whiteSpace='pre-line';p.textContent=value;card.append(h,p);el.append(card);}
+ for(const url of c.images||[]){const img=document.createElement('img');img.src=url;img.alt='Case evidence';img.loading='lazy';img.style.cssText='max-width:100%;max-height:420px;border-radius:12px;margin:8px';el.append(img);}
+}
+/* QUEST & CASE STUDIO: all new content is stored in db for cloud sync and export. */
+function studioData(){ db.questCaseStudio ||= {}; return db.questCaseStudio; }
+function studioQuestKey(){return document.getElementById('studioQuest').value;}
+function studioCatKey(){return document.getElementById('studioCategory').value;}
+function studioCurrent(){const root=studioData();return root[studioQuestKey()]?.[studioCatKey()] || [];}
+function studioMsg(t){document.getElementById('studioMessage').textContent=t;}
+function studioOptions(id,entries){const el=document.getElementById(id);el.replaceChildren();entries.forEach(([value,label])=>{const o=document.createElement('option');o.value=value;o.textContent=label;el.append(o);});}
+function openQuestCaseStudio(){
+ document.querySelectorAll('.admin-section').forEach(x=>x.classList.remove('active'));
+ document.getElementById('admin-quest-case-editor').classList.add('active');
+ studioInit();
+}
+function studioInit(){
+ const ids=new Set([...(db.questCards||[]).map(q=>Number(q.number)),...(db.closedQuests||[]).map(Number),12]);
+ const previous=document.getElementById('studioQuest').value;
+ studioOptions('studioQuest',[...ids].filter(Number.isFinite).sort((a,b)=>b-a).map(n=>[String(n),'QUEST #'+n]));
+ if([...document.getElementById('studioQuest').options].some(o=>o.value===previous)) document.getElementById('studioQuest').value=previous;
+ studioRefreshCategories();
+}
+function studioRefreshCategories(){
+ const key=studioQuestKey(),root=studioData();root[key] ||= {};
+ if(key==='12' && !Object.hasOwn(root[key],'Store Robbery')) root[key]['Store Robbery']=[];
+ const prev=document.getElementById('studioCategory').value;
+ studioOptions('studioCategory',Object.keys(root[key]).map(c=>[c,c]));
+ if([...document.getElementById('studioCategory').options].some(o=>o.value===prev))document.getElementById('studioCategory').value=prev;
+ studioRefreshCases();
+}
+function studioAddCategory(){
+ const value=document.getElementById('studioNewCategory').value.trim();if(!value){studioMsg('Enter a category name.');return;}
+ studioData()[studioQuestKey()][value] ||= [];
+ document.getElementById('studioNewCategory').value='';studioRefreshCategories();document.getElementById('studioCategory').value=value;studioRefreshCases();persist();
+}
+function studioRefreshCases(){
+ const key=studioQuestKey(),cat=studioCatKey();
+ const entries=[['','+ New case']];
+ if(key==='12'&&cat==='Store Robbery'){
+   for(let n=1;n<=7;n++)entries.push([String(n),'CASE '+String(n).padStart(2,'0')]);
+ }else{
+   for(const c of studioCurrent().slice().sort((a,b)=>a.number-b.number))entries.push([String(c.number),'CASE '+String(c.number).padStart(2,'0')]);
+ }
+ studioOptions('studioCase',entries);studioLoadCase();
+}
+function studioFields(){return ['Number','Status','Incident','Fingerprints','Evidence','Team','Report','Note','Images'];}
+function studioNewCase(){document.getElementById('studioCase').value='';studioFields().forEach(k=>document.getElementById('studio'+k).value='');document.getElementById('studioStatus').value='pending';const nums=studioCurrent().map(c=>c.number);document.getElementById('studioNumber').value=Math.max(0,...nums)+1;studioMsg('New case: enter details and save.');}
+function studioLoadCase(){
+ const n=Number(document.getElementById('studioCase').value),quest=studioQuestKey(),cat=studioCatKey();
+ if(!n){studioNewCase();return;}
+ let d=studioCurrent().find(c=>c.number===n);
+ if(!d&&quest==='12'&&cat==='Store Robbery')d=quest12StoreCases[n]||{};
+ d ||= {};
+ const fill={Number:n,Status:d.status||((quest==='12'&&cat==='Store Robbery'&&n<=4)?'complete':'pending'),Incident:d.incident||'',Fingerprints:(d.fingerprints||[]).join('\n'),Evidence:(d.evidence||[]).join('\n')|| (d.evidenceGroups||[]).map(g=>g.title+': '+g.items.join(', ')).join('\n'),Team:(d.team||[]).join('\n'),Report:d.report||'',Note:d.note||'',Images:(d.images||[]).join('\n')};
+ for(const [k,v] of Object.entries(fill))document.getElementById('studio'+k).value=v;
+ studioMsg('Editing CASE '+String(n).padStart(2,'0'));
+}
+function studioSaveCase(){
+ const q=studioQuestKey(),cat=studioCatKey(),n=Number(document.getElementById('studioNumber').value);
+ if(!q||!cat||!Number.isInteger(n)||n<1){studioMsg('Select a quest, category and valid case number.');return;}
+ const lines=k=>document.getElementById('studio'+k).value.split(/\r?\n/).map(x=>x.trim()).filter(Boolean);
+ const data={number:n,status:document.getElementById('studioStatus').value,incident:document.getElementById('studioIncident').value.trim(),fingerprints:lines('Fingerprints'),evidence:lines('Evidence'),team:lines('Team'),report:document.getElementById('studioReport').value,note:document.getElementById('studioNote').value,images:lines('Images')};
+ const arr=studioData()[q][cat],idx=arr.findIndex(c=>c.number===n);if(idx>=0)arr[idx]=data;else arr.push(data);
+ if(q==='12'&&cat==='Store Robbery')quest12StoreCases[n]=data;
+ persist();studioRefreshCases();document.getElementById('studioCase').value=String(n);studioLoadCase();studioMsg('Saved locally. Cloud sync requires admin login and configured Supabase.');
+}
+function studioDeleteCase(){
+ const q=studioQuestKey(),cat=studioCatKey(),n=Number(document.getElementById('studioCase').value);
+ if(!n||!confirm('Delete CASE '+n+'?'))return;
+ const arr=studioCurrent(),idx=arr.findIndex(c=>c.number===n);if(idx>=0)arr.splice(idx,1);
+ if(q==='12'&&cat==='Store Robbery'){delete quest12StoreCases[n];studioData()[q][cat].push({number:n,status:'pending'});}
+ persist();studioRefreshCases();studioMsg('Case reset/deleted.');
+}
+function studioRestoreQuest12(){
+ const entries=studioData()['12']?.['Store Robbery']||[];
+ for(const c of entries)quest12StoreCases[c.number]=c;
+}
+// Restore edited cases whenever database is loaded or refreshed.
+const originalStudioRefreshEverything=refreshEverything;
+refreshEverything=function(){studioRestoreQuest12();originalStudioRefreshEverything();};
 
 /* ==================================================
    START
