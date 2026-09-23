@@ -1475,7 +1475,7 @@ select{
         <h2 id="quest12CaseTitle">CASE</h2>
         <p id="quest12CaseType">DETAILS PENDING</p>
     </div>
-    <div class="detail-box">
+    <div class="detail-box" id="quest12CaseContent">
         <div class="info-card full">
             <h4>STATUS</h4>
             <p class="report">DETAILS PENDING</p>
@@ -1979,6 +1979,13 @@ select{
         Quest History
     </button>
 
+    <button
+        class="admin-nav"
+        onclick="showAdminPage('database',this)"
+    >
+        Database & Backup
+    </button>
+
 </div>
 
 
@@ -2338,7 +2345,7 @@ select{
     <div class="admin-card">
 
         <h3>
-            Add / Edit Quest #9 Case
+            Add / Edit Case
         </h3>
 
         <input
@@ -2480,7 +2487,7 @@ select{
     <div class="admin-card">
 
         <h3>
-            Quest #9 Cases
+            All Cases
         </h3>
 
         <div
@@ -2603,6 +2610,33 @@ select{
 
 </div>
 
+<!-- DATABASE & BACKUP -->
+<div id="admin-database" class="admin-section">
+    <div class="admin-card">
+        <h3>Cloud Database</h3>
+        <p class="admin-note">Changes are saved locally immediately. After you run the included Supabase SQL once, the same content can sync to every visitor and every device.</p>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:14px;">
+            <button class="admin-button success" onclick="cloudSaveDatabase(true)">PUBLISH TO CLOUD</button>
+            <button class="admin-button" onclick="cloudLoadDatabase(true)">LOAD FROM CLOUD</button>
+            <button class="admin-button" onclick="exportDatabase()">EXPORT JSON</button>
+            <button class="admin-button" onclick="document.getElementById('adminImportFile').click()">IMPORT JSON</button>
+            <input id="adminImportFile" type="file" accept="application/json,.json" style="display:none" onchange="importDatabaseFile(event)">
+        </div>
+        <div id="cloudSyncStatus" class="admin-note" style="margin-top:12px;">Cloud status: checking…</div>
+    </div>
+
+    <div class="admin-card">
+        <h3>Full Site Data Editor</h3>
+        <p class="admin-note">Advanced editor for quests, members, cases, history and closed quests. Make a backup before manual JSON edits.</p>
+        <textarea id="adminRawDatabase" class="admin-textarea" style="min-height:420px;font-family:Consolas,monospace;direction:ltr;text-align:left;"></textarea>
+        <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px;">
+            <button class="admin-button" onclick="loadRawDatabaseEditor()">REFRESH JSON</button>
+            <button class="admin-button success" onclick="applyRawDatabaseEditor()">APPLY JSON</button>
+            <button class="admin-button danger" onclick="resetDatabaseToDefaults()">RESET DEFAULTS</button>
+        </div>
+    </div>
+</div>
+
 </div>
 </div>
 </div>
@@ -2638,9 +2672,93 @@ function renderQuest12PendingCases(containerId,count,type){
             <div class="case-number">CASE ${String(index+1).padStart(2,"0")}</div>
             <h3>${type}</h3>
             <div class="location">Quest #12</div>
-            <span class="pending">DETAILS PENDING</span>
+            <span class="${index < 4 ? "complete" : "pending"}">${index < 4 ? "COMPLETE" : "DETAILS PENDING"}</span>
         </div>
     `).join("");
+}
+
+const quest12StoreCases = {
+    1: {
+        fingerprints:["42481W4PSH745G9"],
+        incident:"مطاردة مركبة / تدخل خارجي / مطاردة على الأقدام / توقيف مشتبه به",
+        evidence:["Hook Pick","Baseball Bat"],
+        team:["Lucas Hod"],
+        report:`كنتُ أُباشر عملي الميداني، إلى أن وردني بلاغ من قسم Dispatch يوجّهني إلى الموجة 2 من أجل مساندة الوحدات المتعاملة مع الحالة.
+
+عند وصولي، تبيّن لي أن الزملاء كانوا في مطاردة لمركبة 4×4 زرقاء اللون، فانضممتُ إلى الوحدات وواصلنا ملاحقة المركبة.
+
+أثناء المطاردة، وقع تدخل خارجي ساعد المشتبه بهم على الفرار باستخدام مركبة من نوع Taxi، إلا أنني واصلتُ ملاحقتهم دون فقدان أثر المركبة.
+
+استمرت المطاردة إلى أن وصل المشتبه به إلى كراجات الشمال، حيث قام بالنزول من المركبة وحاول الفرار على الأقدام.
+
+واصلتُ ملاحقته وتمكّنتُ من توقيفه والسيطرة عليه وتأمينه بنجاح.
+
+بعد ذلك، قمتُ بإبلاغ المشتبه به بحقوقه والتهم المنسوبة إليه، ثم تم اتخاذ الإجراءات القانونية اللازمة بحقه وتطبيق القانون وفقاً للبروتوكولات المعمول بها.
+
+كما تم ضبط Hook Pick وBaseball Bat وتوثيقهما ضمن مضبوطات القضية.
+
+تم إنهاء الحالة وتأمين المشتبه به بنجاح.`,
+        images:[
+            "https://cdn.discordapp.com/attachments/1195030817253097552/1552118218485665872/image.png?ex=6ab4723c&is=6ab320bc&hm=d4bbcd4104bfce106c0d1a3c22dc074ca0539eaae580ddd0a3364e7a94adb7c1&",
+            "https://cdn.discordapp.com/attachments/1195030817253097552/1552118219215470703/image.png?ex=6ab4723c&is=6ab320bc&hm=28371e88f958268b0b2524126b4d0f686ba99bd83fe6ee8343b7cd38a94dda51&"
+        ]
+    },
+    2: {
+        fingerprints:["S4UWQXV4M4I14DK","WI8H6491GK9OVN4"],
+        incident:"Store Robbery / اعتداء بسلاح أبيض / مطاردة مركبة ومطاردة على الأقدام / توقيف مشتبه بهما",
+        evidenceGroups:[
+            {title:"المشتبه به الأول",items:["Cash ×3","Hook Pick ×3","Bat","Lollipop Sign"]},
+            {title:"المشتبه به الثاني",items:["Hook Pick ×2"]}
+        ],
+        report:`كنتُ أُباشر عملي الميداني، إلى أن وردني بلاغ من قسم Dispatch يوجّهني للتعامل مع حالة Store Robbery في المنطقة الشرقية من المدينة.
+
+على الفور، توجهتُ إلى الموقع، وعند وصولي تبيّن وجود مشتبه بهما اثنين، أحدهما داخل المتجر والآخر خارجه.
+
+قمتُ بإبلاغ الزملاء بمتابعة المشتبه به الموجود خارج المتجر، بينما دخلتُ للتعامل مع المشتبه به الموجود بالداخل. وأثناء محاولة توقيفه، حاول الاعتداء عليّ باستخدام سلاح أبيض، إلا أنني تمكّنتُ من السيطرة عليه وتوقيفه وتأمينه، ثم قمتُ بإبلاغه بحقوقه والتهم المنسوبة إليه.
+
+بعد ذلك، التحقتُ بالوحدات التي كانت تطارد المشتبه به الثاني، والذي كان يحاول الفرار باستخدام مركبة بنفسجية اللون. استمرت المطاردة إلى أن تعطلت مركبته، ليقوم بالنزول منها ومحاولة الفرار على الأقدام.
+
+واصلنا ملاحقته وتمكّنا من توقيفه والسيطرة عليه، حيث تم تصويره وتأمينه رفقة المشتبه به الأول، ثم تم إبلاغه بحقوقه والتهم المنسوبة إليه.
+
+بعد ذلك، تم اتخاذ الإجراءات القانونية اللازمة بحق المشتبه بهما وتطبيق القانون وفقاً للبروتوكولات المعمول بها.
+
+تم ضبط جميع المضبوطات وتوثيقها، وإنهاء الحالة وتأمين المشتبه بهما بنجاح.`,
+        images:[
+            "https://cdn.discordapp.com/attachments/1195030817253097552/1552133411605577889/image.png?ex=6ab48062&is=6ab32ee2&hm=b15fd75330b085bc55ecb304e620fb72683789e59a4f1bcec7d233d2c44ef7b4&",
+            "https://cdn.discordapp.com/attachments/1195030817253097552/1552133412771467314/image.png?ex=6ab48062&is=6ab32ee2&hm=29de54c5acb9f39d0a376d85e2923ff6ef0f70c03ce52b7165ba55bbdb102538&",
+            "https://cdn.discordapp.com/attachments/1195030817253097552/1552136136791433266/image.png?ex=6ab482ec&is=6ab3316c&hm=6eb2cb54a93fe239818002437909408d6a4a8837f8a8c277af919470f202a09e&",
+            "https://cdn.discordapp.com/attachments/1195030817253097552/1552136338088927323/image.png?ex=6ab4831c&is=6ab3319c&hm=42a4f493e087b32f0a7828d60e598319e161744b09c57249da6d5feb73fdbd8b&"
+        ]
+    },
+    3: {
+        fingerprints:["2LC5D65SN14GGB5"],
+        incident:"Store Robbery / مطاردة مركبة / توقيف مشتبه بهما",
+        evidence:["Hook Pick ×4","Cash"],
+        report:`كنتُ أُباشر عملي الميداني بشكل اعتيادي، إلى أن وردني بلاغ من قسم Dispatch يوجّهني للتعامل مع حالة Store Robbery في المنطقة الشمالية الغربية من المدينة.
+
+على الفور، توجهتُ إلى موقع الحالة، وعند وصولي تبيّن لي وجود مشتبه بهما اثنين في الموقع، واللذين قاما بالفرار باستخدام مركبة من نوع Branko زيتية اللون.
+
+بدأت الوحدات بملاحقة المركبة، واستمرت المطاردة إلى أن تعطلت مركبة المشتبه بهما وتعذر عليهما مواصلة الفرار، مما مكّننا من السيطرة على الوضع وتوقيفهما وتأمينهما.
+
+بعد ذلك، توليتُ شخصياً مهمة التعامل مع المشتبه بهما، حيث قمتُ بإبلاغهما بحقوقهما والتهم المنسوبة إليهما، ثم تم اتخاذ الإجراءات القانونية اللازمة بحقهما وتطبيق القانون وفقاً للبروتوكولات المعمول بها.
+
+كما تم ضبط Hook Pick ×4 وCash وتوثيقهما ضمن مضبوطات القضية.
+
+تم إنهاء الحالة وتأمين المشتبه بهما بنجاح.`,
+        images:[
+            "https://cdn.discordapp.com/attachments/1195030817253097552/1552145727319449710/image.png?ex=6ab48bda&is=6ab33a5a&hm=a099f61b594a6db8f1bfd5124c707bd35f040882bbe0e5bc77576a4d8e8c2763&",
+            "https://cdn.discordapp.com/attachments/1195030817253097552/1552145590777815050/image.png?ex=6ab48bba&is=6ab33a3a&hm=48824b3c021fe53e7421bbd34aa8263b6781917755a097583057b70da9c09bfd&",
+            "https://cdn.discordapp.com/attachments/1195030817253097552/1552145589104414791/image.png?ex=6ab48bb9&is=6ab33a39&hm=3036c899ff1bdc2553703039f0672a70c575d79189bc03c128603cef478def87&"
+        ]
+    },
+    4: {
+        note:"كنت مشاركاً في الحالة، لكن لم أتعامل مباشرة مع المجرم.",
+        images:["https://cdn.discordapp.com/attachments/1195030817253097552/1552124723016499265/image.png?ex=6ab4784b&is=6ab326cb&hm=5e1f697a3d5419b014fa0cc0b13e75b4bd40a4ead45a82af3465654d5435f907&"]
+    }
+};
+
+function quest12InfoCard(title,body){
+    return `<div class="info-card full"><h4>${title}</h4>${body}</div>`;
 }
 
 function openQuest12PendingCase(type,number){
@@ -2649,6 +2767,40 @@ function openQuest12PendingCase(type,number){
     document.getElementById("quest12CaseTitle").textContent = `CASE ${String(number).padStart(2,"0")}`;
     document.getElementById("quest12CaseType").textContent = type;
     document.getElementById("quest12CaseBackBtn").onclick = () => showQuest12Category();
+
+    const content = document.getElementById("quest12CaseContent");
+    const data = quest12StoreCases[number];
+    if(!data){
+        content.innerHTML = quest12InfoCard("STATUS",`<p class="report">DETAILS PENDING</p>`);
+        return;
+    }
+
+    let html="";
+    if(data.fingerprints){
+        html += quest12InfoCard(data.fingerprints.length > 1 ? "البصمات" : "البصمة", `<p class="report" dir="rtl">${data.fingerprints.map(x=>`• ${x}`).join("<br>")}</p>`);
+    }
+    if(data.incident){
+        html += quest12InfoCard("نوع التدخل", `<p class="report" dir="rtl">${data.incident}</p>`);
+    }
+    if(data.evidence){
+        html += quest12InfoCard("المضبوطات", `<p class="report" dir="rtl">${data.evidence.map(x=>`• ${x}`).join("<br>")}</p>`);
+    }
+    if(data.evidenceGroups){
+        html += quest12InfoCard("المضبوطات", data.evidenceGroups.map(g=>`<div dir="rtl" style="margin-bottom:14px"><strong>${g.title}:</strong><p class="report">${g.items.map(x=>`• ${x}`).join("<br>")}</p></div>`).join(""));
+    }
+    if(data.team){
+        html += quest12InfoCard("TEAM MEMBERS", `<p class="report">${data.team.join("<br>")}</p>`);
+    }
+    if(data.report){
+        html += quest12InfoCard("وقائع التدخل", `<p class="report" dir="rtl" style="white-space:pre-line">${data.report}</p>`);
+    }
+    if(data.note){
+        html += quest12InfoCard("ملاحظة", `<p class="report" dir="rtl">${data.note}</p>`);
+    }
+    if(data.images && data.images.length){
+        html += quest12InfoCard("IMAGES", `<div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(220px,1fr));gap:12px">${data.images.map((src,i)=>`<img src="${src}" alt="Case ${number} image ${i+1}" style="width:100%;border-radius:12px;cursor:pointer" onclick="openLightbox('${src}')">`).join("")}</div>`);
+    }
+    content.innerHTML = html || quest12InfoCard("STATUS",`<p class="report">DETAILS PENDING</p>`);
 }
 
 
@@ -3560,28 +3712,146 @@ if(quest12History){
 }
 
 
+let cloudSaveTimer = null;
+
 function persist(){
-
-    localStorage.setItem(
-        STORAGE_KEY,
-        JSON.stringify(db)
-    );
-
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(db));
     refreshEverything();
+    loadRawDatabaseEditor();
 
+    clearTimeout(cloudSaveTimer);
+    cloudSaveTimer = setTimeout(()=>cloudSaveDatabase(false), 700);
 }
 
 
-function saveDatabase(){
-
+async function saveDatabase(){
     persist();
-
-    alert(
-        "Saved successfully."
-    );
-
+    await cloudSaveDatabase(false);
+    alert("Saved successfully.");
 }
 
+
+/* ==================================================
+   PROFESSIONAL ADMIN — CLOUD / BACKUP / RAW DATA
+================================================== */
+
+function setCloudStatus(message){
+    const el=document.getElementById("cloudSyncStatus");
+    if(el) el.textContent="Cloud status: "+message;
+}
+
+async function currentAdminUser(){
+    if(!supabaseClient) return null;
+    try{
+        const {data}=await supabaseClient.auth.getUser();
+        return data && data.user ? data.user : null;
+    }catch(e){ return null; }
+}
+
+async function cloudSaveDatabase(showMessage=false){
+    if(!supabaseClient){ setCloudStatus("Supabase unavailable"); return false; }
+    const user=await currentAdminUser();
+    if(!user){ setCloudStatus("local only — login as admin to publish"); return false; }
+    setCloudStatus("publishing…");
+    try{
+        const {error}=await supabaseClient
+            .from("site_content")
+            .upsert({id:1,data:db,updated_at:new Date().toISOString(),updated_by:user.id},{onConflict:"id"});
+        if(error) throw error;
+        setCloudStatus("published successfully");
+        if(showMessage) alert("Website data published to Supabase.");
+        return true;
+    }catch(error){
+        console.error("Cloud save error:",error);
+        setCloudStatus("not configured — run bravo-supabase-content.sql once");
+        if(showMessage) alert("Cloud save is not configured yet. Run the supplied Supabase SQL once.");
+        return false;
+    }
+}
+
+async function cloudLoadDatabase(showMessage=false){
+    if(!supabaseClient){ setCloudStatus("Supabase unavailable"); return false; }
+    setCloudStatus("loading…");
+    try{
+        const {data,error}=await supabaseClient
+            .from("site_content")
+            .select("data,updated_at")
+            .eq("id",1)
+            .maybeSingle();
+        if(error) throw error;
+        if(!data || !data.data){
+            setCloudStatus("empty — publish the current database first");
+            return false;
+        }
+        db=data.data;
+        localStorage.setItem(STORAGE_KEY,JSON.stringify(db));
+        refreshEverything();
+        loadRawDatabaseEditor();
+        setCloudStatus("loaded"+(data.updated_at ? " • "+new Date(data.updated_at).toLocaleString() : ""));
+        if(showMessage) alert("Cloud database loaded.");
+        return true;
+    }catch(error){
+        console.error("Cloud load error:",error);
+        setCloudStatus("not configured — using local database");
+        return false;
+    }
+}
+
+function loadRawDatabaseEditor(){
+    const el=document.getElementById("adminRawDatabase");
+    if(el) el.value=JSON.stringify(db,null,2);
+}
+
+function applyRawDatabaseEditor(){
+    const el=document.getElementById("adminRawDatabase");
+    if(!el) return;
+    try{
+        const parsed=JSON.parse(el.value);
+        if(!parsed || typeof parsed!=="object" || Array.isArray(parsed)) throw new Error("Invalid root object");
+        db=parsed;
+        persist();
+        alert("Full site data applied.");
+    }catch(error){
+        alert("Invalid JSON: "+error.message);
+    }
+}
+
+function exportDatabase(){
+    const blob=new Blob([JSON.stringify(db,null,2)],{type:"application/json"});
+    const url=URL.createObjectURL(blob);
+    const a=document.createElement("a");
+    a.href=url;
+    a.download="bravo-challenge-backup-"+new Date().toISOString().slice(0,10)+".json";
+    document.body.appendChild(a);
+    a.click();
+    a.remove();
+    URL.revokeObjectURL(url);
+}
+
+function importDatabaseFile(event){
+    const file=event.target.files && event.target.files[0];
+    if(!file) return;
+    const reader=new FileReader();
+    reader.onload=()=>{
+        try{
+            const parsed=JSON.parse(reader.result);
+            if(!parsed || typeof parsed!=="object" || Array.isArray(parsed)) throw new Error("Invalid root object");
+            if(!confirm("Replace the current site database with this backup?")) return;
+            db=parsed;
+            persist();
+            alert("Backup imported successfully.");
+        }catch(error){ alert("Invalid backup: "+error.message); }
+        event.target.value="";
+    };
+    reader.readAsText(file);
+}
+
+function resetDatabaseToDefaults(){
+    if(!confirm("Reset all editable site data to the defaults stored in this HTML file?")) return;
+    db=cloneDefaultDatabase();
+    persist();
+    alert("Database reset to defaults.");
+}
 
 /* ==================================================
    RENDER EVERYTHING
@@ -6840,6 +7110,8 @@ document
 ================================================== */
 
 refreshEverything();
+loadRawDatabaseEditor();
+cloudLoadDatabase(false);
 
 checkAdminRoute();
 
